@@ -1,17 +1,39 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import { Route, Link } from 'react-router-dom';
 import Competitions from './Competitions/Competitions';
 import Teams from './Teams/Teams';
 import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core';
+import GoogleLoginButton from './Authentication/GoogleAuthenticator';
 
 class Football extends Component {
+
+    state = {
+        authenticationToken: localStorage.token_react
+    }
+
+    updateAuthenticationToken(token) {
+        if (token){
+            localStorage.setItem('token_react', token);
+        }
+        else {
+            localStorage.removeItem('token_react');
+        }
+        
+        this.setState({
+            authenticationToken: token
+        });
+    }
+
     render () {
         return (
             <div className="Football">
                 <header>
                     <nav>
+                        <GoogleLoginButton
+                            authenticationToken={this.state.authenticationToken}
+                            authenticationTokenUpdate={(token) => this.updateAuthenticationToken(token)}
+                        ></GoogleLoginButton>
+
                     <Button variant="contained" color="primary">
                         <Link style={{color: 'white'}} to="/">Home</Link>
                     </Button>

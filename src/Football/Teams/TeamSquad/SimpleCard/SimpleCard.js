@@ -21,7 +21,6 @@ const styles = {
 function SimpleMediaCard(props) {
 
   const { classes } = props;
-  debugger;
   return (
     <div className="margin-bottom-medium">
       <Card className={classes.card}>
