@@ -20,7 +20,7 @@ class TeamsOverview extends Component {
                     <Link to={{
                             pathname: this.props.match.url+'/team-details/'+team.id
                         }}>
-                        <img src={team.pictureLogo.url} width="50" height="50"/>
+                        <img src={team.pictureLogo.url} width="50" height="50" alt="logo"/>
                         <div>{team.name}</div>
                     </Link>
                 </li>);
