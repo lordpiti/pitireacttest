@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import apiInstance from '../../../axios-test';
+import SimpleCard from './SimpleCard/SimpleCard';
 
 class TeamSquad extends Component {
 
@@ -18,18 +19,19 @@ class TeamSquad extends Component {
 
         if (this.state && this.state.playerList) {
             playerList = this.state.playerList.map(player => 
-                <li key={player.playerId}>
-                    {player.name}
-                </li>
+                <div key={player.playerId} className="col-md-3 col-sm-4 col-xs-6">
+                    <SimpleCard cardData={player}></SimpleCard>
+                </div>
             )
         }
 
         return (
             <div>
                 <h1>team squad</h1>
-                <ul>
-                {playerList}
-                </ul>
+                <div className="row">
+                    {playerList}
+                </div>
+                
             </div>
         );
     }

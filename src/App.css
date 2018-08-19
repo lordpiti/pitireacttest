@@ -32,3 +32,7 @@
 }
 
 ul{ list-style-type: none; }
+
+.margin-bottom-medium {
+  margin-bottom: 10px;
+}

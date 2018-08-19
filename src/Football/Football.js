@@ -4,6 +4,7 @@ import { Route, Link } from 'react-router-dom';
 import Competitions from './Competitions/Competitions';
 import Teams from './Teams/Teams';
 import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core';
 
 class Football extends Component {
     render () {
@@ -11,19 +12,21 @@ class Football extends Component {
             <div className="Football">
                 <header>
                     <nav>
-                        <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to={{
-                                pathname: '/teams'
-                            }}>Teams</Link></li>
-                             <li>
-                                <Button variant="contained" color="primary">
-                                    Hello World
-                                </Button> 
-                                 <Link to={{
-                                pathname: '/competitions'
-                            }}>Competitions</Link></li>
-                        </ul>
+                    <Button variant="contained" color="primary">
+                        <Link style={{color: 'white'}} to="/">Home</Link>
+                    </Button>
+
+                    <Button variant="contained" color="primary">
+                        <Link style={{color: 'white'}} to={{
+                            pathname: '/teams'
+                        }}>Teams</Link>
+                    </Button>
+
+                    <Button variant="contained" color="primary">
+                        <Link style={{color: 'white'}} to={{
+                            pathname: '/competitions'
+                        }}>Competitions</Link>
+                    </Button>
                     </nav>
                 </header>
                 {/* <Route path="/" exact render={() => <h1>Home</h1>} />
