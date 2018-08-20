@@ -22,6 +22,9 @@ class GoogleAuthenticator extends Component {
             this.props.authenticationTokenUpdate(null);
         }
 
+        //Needed since the original logout button component has a bug
+        //which prevent the user from logging out when refreshing the page
+        //after logging in
         const forceMyOwnLogout = ((response) => {
             if (window.gapi) {
                 const auth2 = window.gapi.auth2.getAuthInstance()
