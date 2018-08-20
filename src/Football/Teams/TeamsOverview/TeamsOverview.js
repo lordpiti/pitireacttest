@@ -15,22 +15,21 @@ class TeamsOverview extends Component {
     render () {
         let teamList = null;
         if (this.state && this.state.teams) {
-            teamList = this.state.teams.map(team => 
-                <li key={team.id}>
+            teamList= this.state.teams.map(team => 
+                <div class="col-sm-2 text-center" key={team.id}>
                     <Link to={{
-                            pathname: this.props.match.url+'/team-details/'+team.id
-                        }}>
-                        <img src={team.pictureLogo.url} width="50" height="50" alt="logo"/>
-                        <div>{team.name}</div>
-                    </Link>
-                </li>);
+                             pathname: this.props.match.url+'/team-details/'+team.id
+                         }}>
+                         <img src={team.pictureLogo.url} width="50" height="50" alt="logo"/>
+                         <div>{team.name}</div>
+                     </Link>
+                </div>
+            );
         }
 
         return (
-            <div>
-                <ul>
+            <div class="row">
                 {teamList}
-                </ul>
             </div>
         );
     }

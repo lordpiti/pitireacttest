@@ -59,7 +59,7 @@ class GoogleAuthenticator extends Component {
     return (
         
         <div>
-            {this.props.authenticationToken}      
+            {/* {this.props.authenticationToken}       */}
             {buttonLoginLogout}
         </div>
   )
