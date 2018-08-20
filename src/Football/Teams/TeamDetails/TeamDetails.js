@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import TeamInfo from '../TeamInfo/TeamInfo';
 import TeamSquad from '../TeamSquad/TeamSquad';
 import SideMenu from '../../components/SideMenu/SideMenu';

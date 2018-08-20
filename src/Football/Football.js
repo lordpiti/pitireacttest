@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import Competitions from './Competitions/Competitions';
 import Teams from './Teams/Teams';
+import Players from './Players/Players';
 import AppBar from './components/AppBar/AppBar';
 import './Football.css';
 
@@ -45,6 +46,7 @@ class Football extends Component {
                     <Route path="/" exact component={Teams} />*/}
                     <Route path="/teams" component={Teams} />
                     <Route path="/competitions" component={Competitions} />
+                    <Route path="/players" component={Players} />
                 </div>
             </div>
         );
