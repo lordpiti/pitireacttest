@@ -16,7 +16,7 @@ class TeamsOverview extends Component {
         let teamList = null;
         if (this.state && this.state.teams) {
             teamList= this.state.teams.map(team => 
-                <div class="col-sm-2 text-center" key={team.id}>
+                <div className="col-sm-2 text-center" key={team.id}>
                     <Link to={{
                              pathname: this.props.match.url+'/team-details/'+team.id
                          }}>
@@ -28,7 +28,7 @@ class TeamsOverview extends Component {
         }
 
         return (
-            <div class="row">
+            <div className="row">
                 {teamList}
             </div>
         );

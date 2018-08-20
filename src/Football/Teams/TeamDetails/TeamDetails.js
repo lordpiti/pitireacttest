@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import TeamInfo from '../TeamInfo/TeamInfo';
 import TeamSquad from '../TeamSquad/TeamSquad';
+import SideMenu from '../../components/SideMenu/SideMenu';
 
 class TeamDetails extends Component {
 
@@ -9,18 +10,22 @@ class TeamDetails extends Component {
 
         const teamId = this.props.match.params.id;
 
+        const esaList = [
+            {
+                name: 'Summary',
+                url: this.props.match.url+'/overview'
+            },
+            {
+                name: 'Squad',
+                url: this.props.match.url+'/team-squad'
+            }
+        ];
+
         return (
             <div className="Teams">
                 <div className="row">
                     <div className="col-sm-3">
-                        <ul>
-                            <li><Link to={{
-                                pathname: this.props.match.url+'/team-squad'
-                            }}>Squad</Link></li>
-                                <li><Link to={{
-                                pathname: this.props.match.url+'/overview'
-                            }}>Info</Link></li>
-                        </ul>
+                        <SideMenu itemList={esaList} />
                     </div>
                     <div className="col-sm-9">
                         <Route path={this.props.match.url+'/'} exact 
