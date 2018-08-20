@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'https://footballpitiapi.azurewebsites.net/api/'
+  baseURL: 'https://footballpitiapi.azurewebsites.net/api/'
 });
 
 instance.interceptors.request.use(function (config) {
@@ -14,7 +14,8 @@ instance.interceptors.request.use(function (config) {
       };
 
     if (token) {
-        instance.defaults.headers.common['authenticationToken'] = tokenAndType;
+      const tokenAndTypeJSON = JSON.stringify(tokenAndType);
+      instance.defaults.headers.common['authenticationToken'] = tokenAndTypeJSON;
     } else {
         instance.defaults.headers.common['authenticationToken'] = null;
         /*if setting null does not remove `Authorization` header then try     
