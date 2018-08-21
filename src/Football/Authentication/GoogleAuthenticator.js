@@ -7,12 +7,12 @@ class GoogleAuthenticator extends Component {
     render() {
 
         const responseGoogle = (response) => {
-            console.log(response.tokenId);
+            //console.log(response.tokenId);
             const url = 'user/LoginGoogle';
     
             apiInstance.post(url, { userId: '', accessToken: response.tokenId })
                 .then(responseApi =>{
-                    console.log(responseApi);
+                    //console.log(responseApi);
                     localStorage.setItem('role_react', responseApi.data.role);
             });
             this.props.authenticationTokenUpdate(response.tokenId);
