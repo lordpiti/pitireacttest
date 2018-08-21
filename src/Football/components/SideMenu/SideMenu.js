@@ -49,8 +49,8 @@ function ListItemComposition(props) {
           </ListItemIcon>
           <ListItemText classes={{ primary: classes.primary }} inset primary="Inbox" />
         </MenuItem> */}
-        {itemList.map(item => 
-        <MenuItemLink to={item.url}>
+        {itemList.map((item, index) => 
+        <MenuItemLink key={index} to={item.url}>
             {item.name}
         </MenuItemLink>
         )}
