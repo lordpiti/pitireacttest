@@ -62,7 +62,7 @@ function CompetitionSimulationMatch(props) {
       <CardHeader
           avatar={
             <Avatar aria-label="Recipe" className={classes.avatar}>
-              P
+              {props.match.id}
             </Avatar>
           }
           action={
