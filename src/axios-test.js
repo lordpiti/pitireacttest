@@ -17,7 +17,7 @@ instance.interceptors.request.use(function (config) {
       const tokenAndTypeJSON = JSON.stringify(tokenAndType);
       config.headers.common['authenticationToken'] = tokenAndTypeJSON;
     } else {
-        config.defaults.headers.common['authenticationToken'] = null;
+        config.headers.common['authenticationToken'] = null;
         /*if setting null does not remove `Authorization` header then try     
           delete axios.defaults.headers.common['Authorization'];
         */
