@@ -48,7 +48,7 @@ function ListItemComposition(props) {
 
         {itemList.map((item, index) => 
         
-          <NavLink to={{
+          <NavLink key={index} to={{
                 pathname: item.url
             }}><MenuItem>{item.name}</MenuItem>
           </NavLink>

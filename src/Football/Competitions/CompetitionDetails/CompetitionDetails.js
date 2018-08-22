@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Redirect } from 'react-router-dom';
 import CompetitionInfo from '../CompetitionInfo/CompetitionInfo';
 import CompetitionRounds from '../CompetitionRounds/CompetitionRounds';
 import SideMenu from '../../components/SideMenu/SideMenu';
@@ -46,10 +46,8 @@ class CompetitionDetails extends Component {
                     </div>
                     <div className="col-sm-9">
                         <Route path={this.props.match.url+'/'} exact 
-                            render={(props)=>{
-                                return (
-                                <CompetitionInfo id={competitionId}></CompetitionInfo>)}
-                        } />
+                            render={() => (<Redirect to={this.props.match.url+'/overview'} />)}
+                        />
                         <Route path={this.props.match.url+'/overview'}
                             render={(props)=>{
                                 return (

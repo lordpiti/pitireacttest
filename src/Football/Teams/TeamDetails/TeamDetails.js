@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import TeamInfo from '../TeamInfo/TeamInfo';
 import TeamSquad from '../TeamSquad/TeamSquad';
 import SideMenu from '../../components/SideMenu/SideMenu';
@@ -29,10 +29,8 @@ class TeamDetails extends Component {
                     </div>
                     <div className="col-sm-9">
                         <Route path={this.props.match.url+'/'} exact 
-                            render={(props)=>{
-                                return (
-                                <TeamInfo id={teamId}></TeamInfo>)}
-                        } />
+                            render={() => (<Redirect to={this.props.match.url+'/overview'} />)}
+                        />
                         <Route path={this.props.match.url+'/overview'}
                             render={(props)=>{
                                 return (
