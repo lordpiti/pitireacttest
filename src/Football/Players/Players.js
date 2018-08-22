@@ -8,7 +8,7 @@ class Teams extends Component {
     render () {
         return <div className="players">
             <Route path={this.props.match.url+"/"} exact component={PlayersOverview} />
-            <Route path={this.props.match.url+'/team-details/:id'} component={PlayerDetails} />
+            <Route path={this.props.match.url+'/player-details/:id'} component={PlayerDetails} />
         </div>
     }
 }

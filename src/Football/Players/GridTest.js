@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Line} from 'react-chartjs-2';
 
-class PlayerStatistics extends Component {
+class PlayersOverview extends Component {
 
     displayName = 'LineExample';
 
@@ -45,4 +45,4 @@ render() {
 
 }
 
-export default PlayerStatistics;
+export default PlayersOverview;
