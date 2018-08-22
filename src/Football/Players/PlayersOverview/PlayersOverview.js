@@ -13,6 +13,7 @@ import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
+import TextField from '@material-ui/core/TextField';
 import apiInstance from '../../../axios-test';
 import { Link } from 'react-router-dom';
 
@@ -129,8 +130,10 @@ class PlayersOverview extends React.Component {
                 team: item.teamName 
               }
             });
+        const allRows = newState.sort((a, b) => (a.name < b.name ? -1 : 1));
         this.setState({
-          rows: newState.sort((a, b) => (a.name < b.name ? -1 : 1)),
+          rows: allRows,
+          allRows: allRows,
           page: 0,
           rowsPerPage: 5
         });
@@ -150,8 +153,25 @@ class PlayersOverview extends React.Component {
     const { rows, rowsPerPage, page } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
+    const setSearch = (column, styy) => {
+        let filteredList = this.state.allRows.filter(item => (item.name+' '+item.surname).includes(styy)).slice();
+        this.setState({
+            rows: filteredList
+        });
+    }
+
     return (
       <Paper className={classes.root}>
+      <TextField
+          id="searchPlayerText"
+          label="Search player"
+          defaultValue=""
+          className={classes.textField}
+          margin="normal"
+            onChange={(e) => {
+            setSearch('demo', e.target.value)
+            }}
+        />
         <div className={classes.tableWrapper}>
           <Table className={classes.table}>
             <TableBody>
