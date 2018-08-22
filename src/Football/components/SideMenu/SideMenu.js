@@ -54,11 +54,11 @@ function ListItemComposition(props) {
           </NavLink>
         
         )}
-        {itemList.map((item, index) => 
+        {/* {itemList.map((item, index) => 
         <MenuItemLink key={index} to={item.url}>
             {item.name}
         </MenuItemLink>
-        )}
+        )} */}
       </MenuList>
       
     </Paper>
