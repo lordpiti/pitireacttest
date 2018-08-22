@@ -1,0 +1,5 @@
+.active, .active button, .active button:hover {
+    background-color: white;
+    color: black;
+}
+

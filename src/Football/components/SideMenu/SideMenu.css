@@ -1,0 +1,4 @@
+.active, .active li, .active li:hover {
+    background-color: black;
+    color: white;
+}

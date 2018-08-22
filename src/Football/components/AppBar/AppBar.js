@@ -7,8 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import GoogleLoginButton from '../../Authentication/GoogleAuthenticator';
+import './AppBar.css';
 
 const styles = {
   root: {
@@ -33,26 +34,31 @@ function ButtonAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="title" color="inherit" className={classes.flex}>
-            <Button color="inherit">
-                <Link style={{color: 'white'}} to="/">Home</Link>
-            </Button>
+            
+            <NavLink style={{color: 'white'}} to="/" exact>
+              <Button color="inherit">Home</Button>
+            </NavLink>
+        
 
-            <Button  color="inherit">
-                <Link style={{color: 'white'}} to={{
-                    pathname: '/teams'
-                }}>Teams</Link>
-            </Button>
+        
+            <NavLink style={{color: 'white'}} to={{
+                pathname: '/teams'
+            }}><Button  color="inherit">Teams</Button>
+            </NavLink>
+            
 
-            <Button color="inherit">
-                <Link style={{color: 'white'}} to={{
-                    pathname: '/competitions'
-                }}>Competitions</Link>
-            </Button>
-            <Button color="inherit">
-                <Link style={{color: 'white'}} to={{
-                    pathname: '/players'
-                }}>Players</Link>
-            </Button>
+            
+            <NavLink style={{color: 'white'}} to={{
+                pathname: '/competitions'
+            }}><Button color="inherit">Competitions</Button>
+            </NavLink>
+            
+            
+            <NavLink style={{color: 'white'}} to={{
+                  pathname: '/players'
+              }}><Button color="inherit">Players</Button>
+            </NavLink>
+            
           </Typography>
           {/* <Button color="inherit">Login</Button> */}
           <GoogleLoginButton

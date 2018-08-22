@@ -10,6 +10,8 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
 import MenuItemLink from '../MenuItemLink/MenuItemLink';
+import { Link, NavLink } from 'react-router-dom';
+import './SideMenu.css';
 
 const styles = theme => ({
   menuItem: {
@@ -42,13 +44,16 @@ function ListItemComposition(props) {
             <DraftsIcon />
           </ListItemIcon>
           <ListItemText classes={{ primary: classes.primary }} inset primary="Drafts" />
-        </MenuItem>
-        <MenuItem className={classes.menuItem}>
-          <ListItemIcon className={classes.icon}>
-            <InboxIcon />
-          </ListItemIcon>
-          <ListItemText classes={{ primary: classes.primary }} inset primary="Inbox" />
-        </MenuItem> */}
+        </MenuItem>*/}
+
+        {itemList.map((item, index) => 
+        
+          <NavLink to={{
+                pathname: item.url
+            }}><MenuItem>{item.name}</MenuItem>
+          </NavLink>
+        
+        )}
         {itemList.map((item, index) => 
         <MenuItemLink key={index} to={item.url}>
             {item.name}
