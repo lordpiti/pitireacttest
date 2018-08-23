@@ -62,7 +62,7 @@ class CompetitionDetails extends Component {
                         <Route path={this.props.match.url+'/overview'}
                             render={(props)=>{
                                 return (
-                                <CompetitionInfo id={competitionId}></CompetitionInfo>)}
+                                <CompetitionInfo competitionData={this.state.competitionData}></CompetitionInfo>)}
                         } />
                     <Route path={this.props.match.url+'/competition-rounds'} 
                         render={(props)=>{
