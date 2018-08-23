@@ -6,13 +6,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
 
-  constructor(props){
-    super(props);
-    aaa.get('team/teams/').then(data => {
-      console.log(data);
-    })
-  }
-
   state = {
     personList: [
       {

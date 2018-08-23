@@ -8,7 +8,12 @@ const CompetitionInfo = (props) => {
 		apiInstance.post('GlobalMedia/UploadBase64Image', 
 			{ Base64String: image, FileName: fileName })
 			.then(response => {
-				console.log(response);
+				props.competitionData.logo = response.data;
+				apiInstance.post('competition/saveCompetitionDetails', 
+					props.competitionData)
+				.then(response2 => {
+					console.log(response2);
+				})
 		})
 	}
 
@@ -32,10 +37,13 @@ const CompetitionInfo = (props) => {
 		callback: callbackDropzone
 	}
 
+
 	return (
 		<div>
 			<h1>Competition Basic Info</h1>
 			<img src={props.competitionData.logo.url} />
+			{props.competitionData.name}
+			{/* <button onClick={}>Save data!</button> */}
 			<BasicDropzone settings={dropzoneSettings} />
 			competition info!!
 		</div>
