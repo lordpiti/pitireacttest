@@ -35,7 +35,7 @@ class CompetitionRounds extends React.Component {
   constructor(props) {
     super(props);
 
-    apiInstance.get('competition/'+1+'/round/'+1).then(response => {
+    apiInstance.get('competition/'+props.competitionData.id+'/round/'+1).then(response => {
         this.setState({
           roundData: response.data
         });
