@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
 import CompetitionInfo from '../CompetitionInfo/CompetitionInfo';
 import CompetitionRounds from '../CompetitionRounds/CompetitionRounds';
+import CompetitionDraw from '../CompetitionDraw/CompetitionDraw';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import apiInstance from '../../../axios-test';
 
@@ -35,9 +36,19 @@ class CompetitionDetails extends Component {
             }
         ];
 
+        let competitionTypeContent = null;
+
         let pageContent = null;
 
         if (this.state.competitionData) {
+
+            if (this.state.competitionData.type!=='Playoff') {
+                competitionTypeContent = <CompetitionRounds competitionData={this.state.competitionData} ></CompetitionRounds>;
+            }
+            else {
+                competitionTypeContent = <CompetitionDraw competitionData={this.state.competitionData} ></CompetitionDraw>;
+            }
+
             pageContent = 
             <div className="CompetitionDetails">
                 <div className="row">
@@ -56,7 +67,7 @@ class CompetitionDetails extends Component {
                     <Route path={this.props.match.url+'/competition-rounds'} 
                         render={(props)=>{
                             return (
-                            <CompetitionRounds competitionData={this.state.competitionData} ></CompetitionRounds>)}
+                            competitionTypeContent)}
                         }
                     />
                     </div>
