@@ -8,11 +8,42 @@ class Match extends Component {
     matchData: null
   }
 
+  convertToMatchData(matchData) {
+    matchData.players.forEach(player => {
+      player.goals = [];
+      player.bookings = [];
+
+      const booking = matchData.statisticsIncidences.bookings.find(b => b.player.playerId === player.playerId);
+      if (booking) {
+        player.bookings.push(booking);
+      }
+
+      const goal = matchData.statisticsIncidences.goals.find(g => g.player.playerId === player.playerId);
+      if (goal) {
+        player.goals.push(goal);
+      }
+
+      const substitutionIn = matchData.statisticsIncidences.substitutions
+      .find(substitution => substitution.playerIn.playerId === player.playerId);
+      if (substitutionIn) {
+        player.substitutionIn = substitutionIn;
+      }
+
+      const substitutionOut = matchData.statisticsIncidences.substitutions
+      .find(substitution => substitution.playerOut.playerId === player.playerId);
+      if (substitutionOut) {
+        player.substitutionOut = substitutionOut;
+      }
+    });
+
+    return matchData;
+  }
+
   constructor(props) {
     super(props);
     apiInstance.get('competition/match/'+props.match.params.id).then(response => {
         this.setState({
-          matchData: response.data
+          matchData: this.convertToMatchData(response.data)
         });
       });
   }

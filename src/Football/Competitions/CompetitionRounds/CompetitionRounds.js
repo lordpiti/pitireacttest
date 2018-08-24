@@ -72,10 +72,10 @@ class CompetitionRounds extends React.Component {
         </FormControl>;
 
         let matchList, tableRound = null;
-
+            
         if (this.state.roundData) {
             matchList = 
-                <MatchList matchList={this.state.roundData.matchList} />;
+                <MatchList matchList={this.state.roundData.matchList} currentUrl={this.props.match.url} />;
             tableRound =
                 <TableLeague teamStatsRoundList={this.state.roundData.teamStatsRoundList}></TableLeague>
         }

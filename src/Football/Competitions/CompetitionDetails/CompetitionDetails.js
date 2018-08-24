@@ -42,12 +42,12 @@ class CompetitionDetails extends Component {
         let pageContent = null;
 
         if (this.state.competitionData) {
-
+            debugger;
             if (this.state.competitionData.type!=='Playoff') {
-                competitionTypeContent = <CompetitionRounds competitionData={this.state.competitionData} ></CompetitionRounds>;
+                competitionTypeContent = <CompetitionRounds competitionData={this.state.competitionData} {...this.props} ></CompetitionRounds>;
             }
             else {
-                competitionTypeContent = <CompetitionDraw competitionData={this.state.competitionData} ></CompetitionDraw>;
+                competitionTypeContent = <CompetitionDraw match={this.props.match} competitionData={this.state.competitionData} ></CompetitionDraw>;
             }
 
             pageContent = 
@@ -69,7 +69,7 @@ class CompetitionDetails extends Component {
                                 <CompetitionInfo competitionData={this.state.competitionData}></CompetitionInfo>)}
                         } />
                     <Route path={this.props.match.url+'/competition-rounds'} 
-                        render={(props)=>{
+                        component={props=>{
                             return (
                             competitionTypeContent)}
                         }
