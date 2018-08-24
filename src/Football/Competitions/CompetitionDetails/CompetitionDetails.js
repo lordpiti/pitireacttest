@@ -5,6 +5,7 @@ import CompetitionRounds from '../CompetitionRounds/CompetitionRounds';
 import CompetitionDraw from '../CompetitionDraw/CompetitionDraw';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import apiInstance from '../../../axios-test';
+import Match from '../Match/Match';
 
 class CompetitionDetails extends Component {
 
@@ -58,6 +59,9 @@ class CompetitionDetails extends Component {
                     <div className="col-sm-9">
                         <Route path={this.props.match.url+'/'} exact 
                             render={() => (<Redirect to={this.props.match.url+'/overview'} />)}
+                        />
+                        <Route path={this.props.match.url+'/match/:id'} 
+                            component={Match}
                         />
                         <Route path={this.props.match.url+'/overview'}
                             render={(props)=>{
