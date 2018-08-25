@@ -22,9 +22,10 @@ class PlayerInfo extends Component {
         message: 'Surname is required'
       }
     ]);
-    
+
     let newone = {
-      validation: this.validator.valid()
+      validation: this.validator.valid(),
+      currentImage: null
     };
 
     Object.assign(newone, props.playerData);
@@ -33,29 +34,22 @@ class PlayerInfo extends Component {
     this.submitted = false;
   }
 
-  passwordMatch = (confirmation, state) => (state.password === confirmation)
-
-  submitImage(image, fileName) {
-    apiInstance.post('GlobalMedia/UploadBase64Image',
-      { Base64String: image, FileName: fileName })
-      .then(response => {
-        this.props.playerData.picture = response.data;
-        apiInstance.post('player/savePlayerDetails',
-          this.props.playerData)
-          .then(response2 => {
-            console.log(response2);
-          })
-      })
-  }
-
-  callbackDropzone(files) {
+  callbackDropzone = (files) => {
+    console.log(this);
     let fileToUpload = null;
     files.forEach(file => {
       const reader = new FileReader();
       reader.onload = () => {
         // do whatever you want with the file content
         fileToUpload = reader.result;
-        this.submitImage(fileToUpload, 'test.png');
+        console.log(this);
+        debugger;
+        this.setState({
+          currentImage: {
+            data: fileToUpload,
+            fileName: 'test.png'
+          }
+        })
       };
       reader.onabort = () => console.log('file reading was aborted');
       reader.onerror = () => console.log('file reading has failed');
@@ -77,6 +71,7 @@ class PlayerInfo extends Component {
   }
 
   handleFormSubmit = event => {
+    console.log(this);
     event.preventDefault();
 
     const validation = this.validator.validate(this.state);
@@ -85,9 +80,27 @@ class PlayerInfo extends Component {
 
     if (validation.isValid) {
       // handle actual form submission here
-      apiInstance.post('player/savePlayerDetails', this.state).then(response => {
-        debugger;
-      });
+      if (this.state.currentImage) {
+        apiInstance.post('GlobalMedia/UploadBase64Image',
+          { Base64String: this.state.currentImage.data, FileName: this.state.currentImage.fileName })
+          .then(response => {
+
+            this.setState({
+              picture: response.data
+            });
+
+            apiInstance.post('player/savePlayerDetails', this.state)
+              .then(response2 => {
+                console.log(response2);
+              })
+          })
+      }
+    }
+    else {
+      apiInstance.post('player/savePlayerDetails', this.state)
+        .then(response => {
+          debugger;
+        });
     }
   }
 
@@ -100,37 +113,41 @@ class PlayerInfo extends Component {
     return (
       <div>
         <h1>Player Basic Info</h1>
-        <img src={this.props.playerData.picture.url} height="20" width="20" />
+        <div className="row">
+          <div className="col-sm-9">
+            <form className="demoForm">
+              <div className={validation.name.isInvalid && 'has-error'}>
+                <label htmlFor="name">Name</label>
+                <input type="text" className="form-control"
+                  name="name"
+                  placeholder="player name"
+                  onChange={this.handleInputChange}
+                  value={this.state.name}
+                />
+                <span className="help-block">{validation.name.message}</span>
+              </div>
 
-        <BasicDropzone settings={this.dropzoneSettings} />
-        <form className="demoForm">
+              <div className={validation.surname.isInvalid && 'has-error'}>
+                <label htmlFor="surname">Surname</label>
+                <input type="text" className="form-control"
+                  name="surname"
+                  placeholder="player surname"
+                  onChange={this.handleInputChange}
+                  value={this.state.surname}
+                />
+                <span className="help-block">{validation.surname.message}</span>
+              </div>
 
-          <div className={validation.name.isInvalid && 'has-error'}>
-            <label htmlFor="name">Name</label>
-            <input type="text" className="form-control"
-              name="name"
-              placeholder="player name"
-              onChange={this.handleInputChange}
-              value={this.state.name}
-            />
-            <span className="help-block">{validation.name.message}</span>
+              <button onClick={this.handleFormSubmit} className="btn btn-primary">
+                Save
+          </button>
+            </form>
           </div>
-
-          <div className={validation.surname.isInvalid && 'has-error'}>
-            <label htmlFor="surname">Surname</label>
-            <input type="text" className="form-control"
-              name="surname"
-              placeholder="player surname"
-              onChange={this.handleInputChange}
-              value={this.state.surname}
-            />
-            <span className="help-block">{validation.surname.message}</span>
+          <div className="col-sm-3">
+            <img src={this.state.picture.url} height="100" width="100" />
+            <BasicDropzone settings={this.dropzoneSettings} />
           </div>
-
-          <button onClick={this.handleFormSubmit} className="btn btn-primary">
-            Save
-        </button>
-        </form>
+        </div>
       </div>
     );
   }

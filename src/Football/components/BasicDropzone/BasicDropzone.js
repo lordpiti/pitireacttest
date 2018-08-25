@@ -18,7 +18,7 @@ class BasicDropzone extends Component {
       return (
         <section>
           <div className="dropzone">
-            <Dropzone onDrop={this.onDrop.bind(this)} multiple={this.props.settings.multipleFiles}>
+            <Dropzone onDrop={(files) => this.onDrop(files)} multiple={this.props.settings.multipleFiles}>
               <p>Try dropping some files here, or click to select files to upload.</p>
             </Dropzone>
           </div>
