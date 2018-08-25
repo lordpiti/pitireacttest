@@ -26,7 +26,10 @@ class BasicDropzone extends Component {
             <h2>Dropped files</h2>
             <ul>
               {
-                this.state.files.map(f => <li key={f.name}><img src={f.preview} />{f.name} - {f.size} bytes</li>)
+                this.state.files.map(f => 
+                <li key={f.name}>
+                  <img src={f.preview} height="80" width="80" />{f.name} - {f.size} bytes
+                </li>)
               }
             </ul>
           </aside>

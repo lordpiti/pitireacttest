@@ -77,7 +77,7 @@ class PlayerInfo extends Component {
     const validation = this.validator.validate(this.state);
     this.setState({ validation });
     this.submitted = true;
-
+    debugger;
     if (validation.isValid) {
       // handle actual form submission here
       if (this.state.currentImage) {
@@ -95,12 +95,12 @@ class PlayerInfo extends Component {
               })
           })
       }
-    }
-    else {
-      apiInstance.post('player/savePlayerDetails', this.state)
-        .then(response => {
-          debugger;
-        });
+      else {
+        apiInstance.post('player/savePlayerDetails', this.state)
+          .then(response => {
+            debugger;
+          });
+      }
     }
   }
 
