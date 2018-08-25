@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import apiInstance from '../../../axios-test';
+import apiInstance from '../../utilities/axios-test';
 import CompetitionDrawMatch from './CompetitionDrawMatch/CompetitionDrawMatch';
 import './CompetitionDraw.css';
 
@@ -13,7 +13,6 @@ class CompetitionDraw extends Component {
     super(props);
 
     apiInstance.get('competition/' + props.competitionData.id + '/getDraw/').then(response => {
-      debugger;
       this.setState({
         draw: response.data
       });

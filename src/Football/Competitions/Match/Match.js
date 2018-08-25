@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import apiInstance from '../../../axios-test';
+import apiInstance from '../../utilities/axios-test';
 import MatchPlayers from './MatchPlayers/MatchPlayers';
 
 class Match extends Component {

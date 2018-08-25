@@ -7,7 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import apiInstance from '../../../axios-test';
+import apiInstance from '../../utilities/axios-test';
 import MatchList from './MatchList/MatchList';
 import TableLeague from './TableLeague/TableLeague';
 

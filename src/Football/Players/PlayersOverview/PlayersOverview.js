@@ -14,7 +14,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import TextField from '@material-ui/core/TextField';
-import apiInstance from '../../../axios-test';
+import apiInstance from '../../utilities/axios-test';
 import { Link } from 'react-router-dom';
 
 const actionsStyles = theme => ({

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { GoogleLogin } from 'react-google-login';
-import apiInstance from '../../../../axios-test';
+import apiInstance from '../../../utilities/axios-test';
 
 class GoogleAuthenticator extends Component {
 

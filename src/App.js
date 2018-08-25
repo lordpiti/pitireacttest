@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Football from './Football/Football';
-import aaa from './axios-test';
 import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {

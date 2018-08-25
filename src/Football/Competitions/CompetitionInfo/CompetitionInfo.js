@@ -1,6 +1,6 @@
 import React from 'react';
 import BasicDropzone from '../../components/BasicDropzone/BasicDropzone';
-import apiInstance from '../../../axios-test';
+import apiInstance from '../../utilities/axios-test';
 
 const CompetitionInfo = (props) => {
 
