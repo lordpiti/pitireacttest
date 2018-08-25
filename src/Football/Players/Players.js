@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import PlayerDetails from './PlayerDetails/PlayerDetails';
 import PlayersOverview from './PlayersOverview/PlayersOverview';
 
-class Teams extends Component {
+class Players extends Component {
 
     render () {
         return <div className="players">
@@ -13,4 +13,4 @@ class Teams extends Component {
     }
 }
 
-export default Teams;
+export default Players;

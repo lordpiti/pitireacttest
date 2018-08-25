@@ -4,6 +4,7 @@ import Competitions from './Competitions/Competitions';
 import Teams from './Teams/Teams';
 import Players from './Players/Players';
 import AppBar from './components/AppBar/AppBar';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import './Football.css';
 
 class Football extends Component {
@@ -38,7 +39,8 @@ class Football extends Component {
           <Route path="/" exact component={Teams} />*/}
           <Route path="/teams" component={Teams} />
           <Route path="/competitions" component={Competitions} />
-          <Route path="/players" component={Players} />
+          {/* <Route path="/players" component={Players} /> */}
+          <PrivateRoute path="/players" component={Players} />
         </div>
       </div>
     );

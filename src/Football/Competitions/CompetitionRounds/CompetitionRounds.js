@@ -35,65 +35,65 @@ class CompetitionRounds extends React.Component {
   constructor(props) {
     super(props);
 
-    apiInstance.get('competition/'+props.competitionData.id+'/round/'+1).then(response => {
-        this.setState({
-          roundData: response.data
-        });
+    apiInstance.get('competition/' + props.competitionData.id + '/round/' + 1).then(response => {
+      this.setState({
+        roundData: response.data
       });
-    }
+    });
+  }
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
-    apiInstance.get('competition/'+this.props.competitionData.id+'/round/'+event.target.value).then(response => {
-        this.setState({
-          roundData: response.data
-        });
+    apiInstance.get('competition/' + this.props.competitionData.id + '/round/' + event.target.value).then(response => {
+      this.setState({
+        roundData: response.data
       });
+    });
   };
 
   render() {
     const { classes } = this.props;
 
-    const selectRound = 
-        <FormControl className={classes.formControl}>
-            <InputLabel htmlFor="currentRound">Select Round</InputLabel>
-            <Select
-                value={this.state.currentRound}
-                onChange={this.handleChange}
-                inputProps={{
-                name: 'currentRound',
-                id: 'currentRound',
-                }}
-            >
-            {this.state.roundList.map((round, index)=> 
-                <MenuItem key={index} value={round}>{round}</MenuItem>
-            )}
-            </Select>
-        </FormControl>;
+    const selectRound =
+      <FormControl className={classes.formControl}>
+        <InputLabel htmlFor="currentRound">Select Round</InputLabel>
+        <Select error
+          value={this.state.currentRound}
+          onChange={this.handleChange}
+          inputProps={{
+            name: 'currentRound',
+            id: 'currentRound',
+          }}
+        >
+          {this.state.roundList.map((round, index) =>
+            <MenuItem key={index} value={round}>{round}</MenuItem>
+          )}
+        </Select>
+      </FormControl>;
 
-        let matchList, tableRound = null;
-            
-        if (this.state.roundData) {
-            matchList = 
-                <MatchList matchList={this.state.roundData.matchList} currentUrl={this.props.match.url} />;
-            tableRound =
-                <TableLeague teamStatsRoundList={this.state.roundData.teamStatsRoundList}></TableLeague>
-        }
+    let matchList, tableRound = null;
+
+    if (this.state.roundData) {
+      matchList =
+        <MatchList matchList={this.state.roundData.matchList} currentUrl={this.props.match.url} />;
+      tableRound =
+        <TableLeague teamStatsRoundList={this.state.roundData.teamStatsRoundList}></TableLeague>
+    }
 
     return (
-        <div>
-            <h1>Competition Games</h1>
-            {selectRound}
-            <div className="row">
-                <div className="col-sm-6">
-                    {matchList}
-                </div>
-                <div className="col-sm-6">
-                    {tableRound}
-                </div>
-            </div>
-            
+      <div>
+        <h1>Competition Games</h1>
+        {selectRound}
+        <div className="row">
+          <div className="col-sm-6">
+            {matchList}
+          </div>
+          <div className="col-sm-6">
+            {tableRound}
+          </div>
         </div>
+
+      </div>
     );
   }
 }
