@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import apiInstance from '../../../utilities/axios-test';
+import Button from '@material-ui/core/Button';
 
 class GoogleAuthenticator extends Component {
 
@@ -44,16 +45,18 @@ class GoogleAuthenticator extends Component {
 
     if (!this.props.authenticationToken) {
       buttonLoginLogout =
-        <GoogleLogin style={{ color: 'white', backgroundColor: 'blue' }}
+      <GoogleLogin style={{height: 46,width: 191, backgroundImage: `url('/assets/img/btn_google.png')`, backgroundSize: '100% 100%'}}
           clientId="357813264391-bc51b2u0ohaeb6v78k2b2tpr5pdi6c09.apps.googleusercontent.com"
           buttonText="Login"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
-        ><span> Login with Google</span>
-        </GoogleLogin>
+      >  <span className="loginButton google pointer" id="google-login-button"></span>
+      </GoogleLogin>
     }
     else {
-      buttonLoginLogout = <button onClick={forceMyOwnLogout}>Logout</button>
+      buttonLoginLogout = <Button variant="contained" color="secondary" onClick={forceMyOwnLogout}>
+      Logout
+    </Button>;
     }
 
     return (
