@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link, NavLink } from 'react-router-dom';
 import GoogleLoginButton from './GoogleAuthenticator/GoogleAuthenticator';
+import FacebookLoginButton from './FacebookAuthenticator/FacebookAuthenticator';
 import './AppBar.css';
 
 const styles = {
@@ -61,10 +62,12 @@ function ButtonAppBar(props) {
             
           </Typography>
           {/* <Button color="inherit">Login</Button> */}
+          <FacebookLoginButton
+            authenticationToken={props.authenticationToken}
+            authenticationTokenUpdate={(token) => props.onUpdateAuthenticationToken(token)} />
           <GoogleLoginButton
-              authenticationToken={props.authenticationToken}
-              authenticationTokenUpdate={(token) => props.onUpdateAuthenticationToken(token)}
-          ></GoogleLoginButton>
+            authenticationToken={props.authenticationToken}
+            authenticationTokenUpdate={(token) => props.onUpdateAuthenticationToken(token)} />
         </Toolbar>
       </AppBar>
     </div>

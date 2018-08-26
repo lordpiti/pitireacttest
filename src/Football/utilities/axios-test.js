@@ -7,10 +7,11 @@ const instance = axios.create({
 instance.interceptors.request.use(function (config) {
     // Do something before request is sent
     const token = localStorage.getItem('token_react');
+    const authenticationType = localStorage.getItem('authentication_type');
 
     const tokenAndType = {
         token: token,
-        authenticationType: 2
+        authenticationType: authenticationType
       };
 
     if (token) {

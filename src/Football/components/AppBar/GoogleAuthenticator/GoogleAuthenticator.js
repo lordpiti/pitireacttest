@@ -16,6 +16,7 @@ class GoogleAuthenticator extends Component {
           //console.log(responseApi);
           this.props.authenticationTokenUpdate(responseApi.data.token);
           localStorage.setItem('role_react', responseApi.data.role);
+          localStorage.setItem('authentication_type', 2);
         });
     }
 
