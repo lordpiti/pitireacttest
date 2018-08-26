@@ -25,8 +25,12 @@ const styles = {
   },
 };
 
+
 function ButtonAppBar(props) {
   const { classes } = props;
+
+  const facebookAuthenticationType = localStorage.getItem('authentication_type') == '1';
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -64,9 +68,11 @@ function ButtonAppBar(props) {
           {/* <Button color="inherit">Login</Button> */}
           <FacebookLoginButton
             authenticationToken={props.authenticationToken}
+            showLogoutButton = {facebookAuthenticationType}
             authenticationTokenUpdate={(token) => props.onUpdateAuthenticationToken(token)} />
           <GoogleLoginButton
             authenticationToken={props.authenticationToken}
+            showLogoutButton = {!facebookAuthenticationType}
             authenticationTokenUpdate={(token) => props.onUpdateAuthenticationToken(token)} />
         </Toolbar>
       </AppBar>
