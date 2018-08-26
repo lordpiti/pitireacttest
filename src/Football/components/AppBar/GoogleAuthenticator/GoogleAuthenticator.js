@@ -55,12 +55,12 @@ class GoogleAuthenticator extends Component {
       </GoogleLogin>
     }
     else {
-      // if (this.props.showLogoutButton) {
-      //   buttonLoginLogout = 
-      //   <Button variant="contained" color="secondary" onClick={forceMyOwnLogout}>
-      //     Logout
-      //   </Button>;
-      // }
+      if (this.props.showLogoutButton) {
+        buttonLoginLogout = 
+        <Button variant="contained" color="secondary" onClick={forceMyOwnLogout}>
+          Logout
+        </Button>;
+      }
     }
 
     return (
