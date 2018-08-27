@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
 import PlayerInfo from '../PlayerInfo/PlayerInfo';
 import PlayerStatistics from '../PlayerStatistics/PlayerStatistics';
+import PlayerGraphicChart from '../PlayerGraphicChart/PlayerGraphicChart';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import apiInstance from '../../utilities/axios-test';
 
@@ -32,6 +33,10 @@ class TeamDetails extends Component {
     {
       name: 'Statistics',
       url: this.props.match.url+'/player-statistics'
+    },
+    {
+      name: 'Charts',
+      url: this.props.match.url+'/player-charts'
     }
     ];
 
@@ -54,12 +59,18 @@ class TeamDetails extends Component {
                   return (
                   <PlayerInfo playerData={this.state.playerData} id={playerId}></PlayerInfo>)}
               } />
-            <Route path={this.props.match.url+'/player-statistics'} 
-              render={(props)=>{
-                return (
-                <PlayerStatistics id={playerId}></PlayerStatistics>)}
-              }
-            />
+              <Route path={this.props.match.url+'/player-statistics'} 
+                render={(props)=>{
+                  return (
+                  <PlayerStatistics id={playerId}></PlayerStatistics>)}
+                }
+              />
+              <Route path={this.props.match.url+'/player-charts'} 
+                render={(props)=>{
+                  return (
+                  <PlayerGraphicChart id={playerId}></PlayerGraphicChart>)}
+                }
+              />
             </div>
           </div>
         </div>
