@@ -5,8 +5,14 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import CardHeader from '@material-ui/core/CardHeader';
+import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
+import red from '@material-ui/core/colors/red';
+import Formatters from '../../../utilities/formatters';
+import './SimpleCard.css';
 
 const styles = {
   card: {
@@ -22,31 +28,46 @@ function SimpleMediaCard(props) {
 
   const { classes } = props;
   return (
-    <div className="margin-bottom-medium">
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title={props.cardData.name}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="headline" component="h2">
-            {props.cardData.name} {props.cardData.surname}
-          </Typography>
-          <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small" color="primary">
-            Share
+    <div className="margin-bottom-medium simpleCard">
+      <Link to={`/players/player-details/${props.cardData.playerId}`}>
+        <Card className={classes.card}>
+          <CardHeader
+            avatar={
+              <Avatar aria-label="Recipe" className={classes.avatar}>
+                {props.cardData.dorsal}
+              </Avatar>
+            }
+            title={`${props.cardData.name} ${props.cardData.surname}`}
+            subheader={props.cardData.position}
+          />
+          <CardMedia
+            className={classes.media}
+            image={props.cardData.picture.url}
+            title={props.cardData.name}
+          />
+          <CardContent>
+          {/* <Typography gutterBottom variant="headline" component="h2">
+              {props.cardData.name} {props.cardData.surname}
+            </Typography> */}
+            <Typography gutterBottom component="p">
+              Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum
+            </Typography>
+            <Typography component="p">
+              {Formatters.formatDate(props.cardData.birthDate)}
+              <br/>
+              {props.cardData.height} m
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small" color="primary">
+              Share
           </Button>
-          <Button size="small" color="primary">
-            Learn More
+            <Button size="small" color="primary">
+              Learn More
           </Button>
-        </CardActions>
-      </Card>
+          </CardActions>
+        </Card>
+      </Link>
     </div>
   );
 }

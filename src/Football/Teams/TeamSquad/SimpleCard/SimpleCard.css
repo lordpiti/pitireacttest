@@ -1,0 +1,3 @@
+.simpleCard:hover a>div {
+  background-color: lightgray;
+}

@@ -27,7 +27,7 @@ class TeamSquad extends Component {
 
     return (
       <div>
-        <h1>team squad</h1>
+        <h1>Team Squad</h1>
         <div className="row">
           {playerList}
         </div>

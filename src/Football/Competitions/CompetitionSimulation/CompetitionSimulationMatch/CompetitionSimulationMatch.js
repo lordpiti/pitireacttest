@@ -16,45 +16,45 @@ import Formatters from '../../../utilities/formatters';
 import CompetitionSimulationMatchEvent from './CompetitionSimulationMatchEvent/CompetitionSimulationMatchEvent';
 
 const styles = theme => ({
-    card: {
-      maxWidth: 400,
+  card: {
+    maxWidth: 400,
+  },
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
+  },
+  actions: {
+    display: 'flex',
+  },
+  expand: {
+    transform: 'rotate(0deg)',
+    transition: theme.transitions.create('transform', {
+      duration: theme.transitions.duration.shortest,
+    }),
+    marginLeft: 'auto',
+    [theme.breakpoints.up('sm')]: {
+      marginRight: -8,
     },
-    media: {
-      height: 0,
-      paddingTop: '56.25%', // 16:9
-    },
-    actions: {
-      display: 'flex',
-    },
-    expand: {
-      transform: 'rotate(0deg)',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-      }),
-      marginLeft: 'auto',
-      [theme.breakpoints.up('sm')]: {
-        marginRight: -8,
-      },
-    },
-    expandOpen: {
-      transform: 'rotate(180deg)',
-    },
-    avatar: {
-      backgroundColor: red[500],
-    },
-  });
+  },
+  expandOpen: {
+    transform: 'rotate(180deg)',
+  },
+  avatar: {
+    backgroundColor: red[500],
+  },
+});
 
 function CompetitionSimulationMatch(props) {
 
   const { classes } = props;
 
-  const titleForGame = props.match.localTeam.name +' '+props.match.goalsLocal 
-    + ' - '+props.match.goalsVisitor +' '+ props.match.visitorTeam.name;
+  const titleForGame = props.match.localTeam.name + ' ' + props.match.goalsLocal
+    + ' - ' + props.match.goalsVisitor + ' ' + props.match.visitorTeam.name;
 
   return (
     <div className="margin-bottom-medium">
       <Card className={classes.card}>
-      <CardHeader
+        <CardHeader
           avatar={
             <Avatar aria-label="Recipe" className={classes.avatar}>
               {props.match.id}
@@ -80,9 +80,9 @@ function CompetitionSimulationMatch(props) {
           <Typography component="p">
             buuu
           </Typography> */}
-            {props.match.matchEvents.map((event, index) =>
+          {props.match.matchEvents.map((event, index) =>
             <CompetitionSimulationMatchEvent key={index} event={event} />
-            )}
+          )}
         </CardContent>
         <CardActions>
           <Button size="small" color="primary">
