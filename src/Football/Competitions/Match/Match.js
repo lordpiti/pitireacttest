@@ -40,6 +40,7 @@ class Match extends Component {
   }
 
   constructor(props) {
+    debugger;
     super(props);
     apiInstance.get('competition/match/'+props.match.params.id).then(response => {
         this.setState({

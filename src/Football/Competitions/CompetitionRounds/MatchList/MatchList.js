@@ -10,7 +10,7 @@ const MatchList = ( props ) => {
 					<div className="col-sm-5">{match.localTeam.name}</div>
 					<div className="col-sm-2">
 						<Link to={{
-              pathname: props.currentUrl+'/match/'+match.matchId
+              pathname: props.currentUrl+'/competition-rounds/match/'+match.matchId
             }}>{match.goalsLocal} - {match.goalsVisitor}</Link>
 					</div>
 					<div className="col-sm-5">{match.visitorTeam.name}</div>

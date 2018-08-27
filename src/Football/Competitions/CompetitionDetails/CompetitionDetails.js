@@ -59,7 +59,7 @@ class CompetitionDetails extends Component {
               <Route path={this.props.match.url + '/'} exact
                 render={() => (<Redirect to={this.props.match.url + '/overview'} />)}
               />
-              <Route path={this.props.match.url + '/match/:id'}
+              <Route path={this.props.match.url + '/competition-rounds/match/:id'}
                 component={Match}
               />
               <Route path={this.props.match.url + '/overview'}
@@ -73,7 +73,7 @@ class CompetitionDetails extends Component {
                   return (
                     competitionTypeContent)
                 }
-                }
+                } exact
               />
             </div>
           </div>

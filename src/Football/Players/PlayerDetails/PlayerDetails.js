@@ -5,6 +5,7 @@ import PlayerStatistics from '../PlayerStatistics/PlayerStatistics';
 import PlayerGraphicChart from '../PlayerGraphicChart/PlayerGraphicChart';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import apiInstance from '../../utilities/axios-test';
+import Match from '../../Competitions/Match/Match';
 
 class TeamDetails extends Component {
 
@@ -62,8 +63,11 @@ class TeamDetails extends Component {
               <Route path={this.props.match.url+'/player-statistics'} 
                 render={(props)=>{
                   return (
-                  <PlayerStatistics id={playerId}></PlayerStatistics>)}
+                  <PlayerStatistics id={playerId}  {...this.props}></PlayerStatistics>)}
                 }
+              exact />
+              <Route path={this.props.match.url+'/player-statistics/match/:id'} 
+                component={Match}
               />
               <Route path={this.props.match.url+'/player-charts'} 
                 render={(props)=>{
