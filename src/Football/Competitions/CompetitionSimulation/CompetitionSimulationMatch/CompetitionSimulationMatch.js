@@ -12,6 +12,7 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import red from '@material-ui/core/colors/red';
+import Formatters from '../../../utilities/formatters';
 import CompetitionSimulationMatchEvent from './CompetitionSimulationMatchEvent/CompetitionSimulationMatchEvent';
 
 const styles = theme => ({
@@ -50,12 +51,6 @@ function CompetitionSimulationMatch(props) {
   const titleForGame = props.match.localTeam.name +' '+props.match.goalsLocal 
     + ' - '+props.match.goalsVisitor +' '+ props.match.visitorTeam.name;
 
-    const matchDate = new Intl.DateTimeFormat('en-GB', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: '2-digit' 
-    }).format(new Date(props.match.date));
-
   return (
     <div className="margin-bottom-medium">
       <Card className={classes.card}>
@@ -71,7 +66,7 @@ function CompetitionSimulationMatch(props) {
             </IconButton>
           }
           title={titleForGame}
-          subheader={matchDate}
+          subheader={Formatters.formatDate(props.match.date)}
         />
         {/* <CardMedia
           className={classes.media}
