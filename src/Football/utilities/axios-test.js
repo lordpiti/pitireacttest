@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://footballpitiapi.azurewebsites.net/api/'
+  baseURL: 'https://footballsandbox.azurewebsites.net/api/'
 });
 
 instance.interceptors.request.use(function (config) {

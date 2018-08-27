@@ -5,7 +5,7 @@ import CompetitionSimulationMatch from './CompetitionSimulationMatch/Competition
 class CompetitionSimulation extends Component {
 
     connection = new HubConnectionBuilder()
-    .withUrl("https://footballpitiapi.azurewebsites.net/loopy")
+    .withUrl("https://footballsandbox.azurewebsites.net/loopy")
     .build();
 
     state = {
