@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import TeamInfo from '../TeamInfo/TeamInfo';
 import TeamSquad from '../TeamSquad/TeamSquad';
 import SideMenu from '../../components/SideMenu/SideMenu';
+import TeamStadium from '../TeamStadium/TeamStadium';
 
 class TeamDetails extends Component {
 
@@ -18,6 +19,10 @@ class TeamDetails extends Component {
             {
                 name: 'Squad',
                 url: this.props.match.url+'/team-squad'
+            },
+            {
+                name: 'Stadium',
+                url: this.props.match.url+'/team-stadium'
             }
         ];
 
@@ -40,6 +45,13 @@ class TeamDetails extends Component {
                         render={(props)=>{
                             return (
                             <TeamSquad id={teamId}></TeamSquad>)}
+                        }
+                    />
+
+                    <Route path={this.props.match.url+'/team-stadium'} 
+                        render={(props)=>{
+                            return (
+                            <TeamStadium id={teamId}></TeamStadium>)}
                         }
                     />
                     </div>
