@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Formatters from '../../utilities/formatters';
 import Helpers from '../../utilities/helpers';
+import ExpansionPanel from './ExpansionPanel/ExpansionPanel';
 
 class PlayerStatistics extends Component {
 
@@ -12,35 +13,53 @@ class PlayerStatistics extends Component {
     return (
       <Query
         query={gql`
-            {
-                player(id: ${playerId}) {
-                    name, surname
-                    playerMatchesPlayed {
-                        localTeamName, visitorTeamName, id, localGoals, visitorGoals, date,
-                        competition {
-                          id, name, season, type
-                        }
-                    }
-                }
-            }
-        `}
+          {
+              player(id: ${playerId}) {
+                  name, surname
+                  playerMatchesPlayed {
+                      localTeamName, visitorTeamName, id, localGoals, visitorGoals, date,
+                      competition {
+                        id, name, season, type
+                      }
+                  }
+              }
+          }
+      `}
       >
         {({ loading, error, data }) => {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error :(</p>;
 
           let groupedCompetitions = Helpers.groupBy(data.player.playerMatchesPlayed, 'competition.id');
+          debugger;
 
-          return data.player.playerMatchesPlayed.map((match, index) => (
-            <div key={index}>
-              {Formatters.formatDate(match.date)}
-              <Link to={`${this.props.match.url}/player-statistics/match/${match.id}`}>{`${match.localTeamName} ${match.localGoals} - ${match.visitorGoals} ${match.visitorTeamName}`}</Link>
-            </div>
-          ));
+          const allCompetitions = data.player.playerMatchesPlayed.map(x => x.competition);
+
+          const uniqueCompetitions = Helpers.removeDuplicates(allCompetitions, 'id');
+
+          let matchListGroupedByCompetition = Object.entries(groupedCompetitions).map(group => {
+            return {
+            competition: uniqueCompetitions.find(x => group[0] == x.id),
+            data: group[1]
+            }
+          });
+
+          return(
+          <div>
+          <h1>Games played</h1>
+            <ExpansionPanel matchListGroupedByCompetition={matchListGroupedByCompetition} {...this.props}></ExpansionPanel>
+            {data.player.playerMatchesPlayed.map((match, index) => (
+              <div key={index}>
+                {Formatters.formatDate(match.date)}
+                <Link to={`${this.props.match.url}/player-statistics/match/${match.id}`}>{`${match.localTeamName} ${match.localGoals} - ${match.visitorGoals} ${match.visitorTeamName}`}</Link>
+              </div>
+            ))}
+          </div>)
         }}
       </Query>
+
     );
-    
+
   }
 }
 export default PlayerStatistics;
