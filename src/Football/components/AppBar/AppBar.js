@@ -35,24 +35,18 @@ function ButtonAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
+          <span style={{ fontSize: 'x-large', fontWeight: 'bold'}}>FootballWeb React</span>
           <Typography variant="title" color="inherit" className={classes.flex}>
             
-            <NavLink style={{color: 'white'}} to="/" exact>
+            {/* <NavLink style={{color: 'white'}} to="/" exact>
               <Button color="inherit">Home</Button>
-            </NavLink>
-        
-
+            </NavLink> */}
         
             <NavLink style={{color: 'white'}} to={{
                 pathname: '/teams'
             }}><Button  color="inherit">Teams</Button>
             </NavLink>
-            
 
-            
             <NavLink style={{color: 'white'}} to={{
                 pathname: '/competitions'
             }}><Button color="inherit">Competitions</Button>

@@ -1,3 +1,7 @@
 .roundedImage {
   border-radius: 50%;
 }
+
+.dropzone {
+  overflow: hidden;
+}
