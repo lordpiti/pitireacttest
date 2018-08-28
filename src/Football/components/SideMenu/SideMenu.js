@@ -31,6 +31,8 @@ function ListItemComposition(props) {
   const { classes, itemList } = props;
     
   return (
+    <div>
+    {props.children}
     <Paper>
       <MenuList>
         {/* <MenuItem className={classes.menuItem}>
@@ -62,7 +64,7 @@ function ListItemComposition(props) {
       </MenuList>
       
     </Paper>
-    
+    </div>
   );
 }
 

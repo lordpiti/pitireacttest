@@ -81,31 +81,6 @@ class CompetitionDetails extends Component {
     }
 
     return (
-      // <div className="CompetitionDetails">
-      //     <div className="row">
-      //         <div className="col-sm-3">
-      //             <SideMenu itemList={menuItemList} />
-      //         </div>
-      //         <div className="col-sm-9">
-      //             <Route path={this.props.match.url+'/'} exact 
-      //                 render={(props)=>{
-      //                     return (
-      //                     <CompetitionInfo id={competitionId}></CompetitionInfo>)}
-      //             } />
-      //             <Route path={this.props.match.url+'/overview'}
-      //                 render={(props)=>{
-      //                     return (
-      //                     <CompetitionInfo id={competitionId}></CompetitionInfo>)}
-      //             } />
-      //         <Route path={this.props.match.url+'/competition-rounds'} 
-      //             render={(props)=>{
-      //                 return (
-      //                 <CompetitionRounds competitionData={competitionId} ></CompetitionRounds>)}
-      //             }
-      //         />
-      //         </div>
-      //     </div>
-      // </div>
       <div>
         {pageContent}
       </div>

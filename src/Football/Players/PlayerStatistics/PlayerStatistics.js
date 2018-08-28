@@ -31,7 +31,6 @@ class PlayerStatistics extends Component {
           if (error) return <p>Error :(</p>;
 
           let groupedCompetitions = Helpers.groupBy(data.player.playerMatchesPlayed, 'competition.id');
-          debugger;
 
           const allCompetitions = data.player.playerMatchesPlayed.map(x => x.competition);
 
@@ -39,22 +38,16 @@ class PlayerStatistics extends Component {
 
           let matchListGroupedByCompetition = Object.entries(groupedCompetitions).map(group => {
             return {
-            competition: uniqueCompetitions.find(x => group[0] == x.id),
-            data: group[1]
+              competition: uniqueCompetitions.find(x => group[0] == x.id),
+              data: group[1]
             }
           });
 
-          return(
-          <div>
-          <h1>Games played</h1>
-            <ExpansionPanel matchListGroupedByCompetition={matchListGroupedByCompetition} {...this.props}></ExpansionPanel>
-            {data.player.playerMatchesPlayed.map((match, index) => (
-              <div key={index}>
-                {Formatters.formatDate(match.date)}
-                <Link to={`${this.props.match.url}/player-statistics/match/${match.id}`}>{`${match.localTeamName} ${match.localGoals} - ${match.visitorGoals} ${match.visitorTeamName}`}</Link>
-              </div>
-            ))}
-          </div>)
+          return (
+            <div>
+              <h1>Games played</h1>
+              <ExpansionPanel matchListGroupedByCompetition={matchListGroupedByCompetition} {...this.props}></ExpansionPanel>
+            </div>)
         }}
       </Query>
 

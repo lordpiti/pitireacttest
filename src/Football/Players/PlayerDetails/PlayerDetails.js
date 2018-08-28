@@ -6,6 +6,7 @@ import PlayerGraphicChart from '../PlayerGraphicChart/PlayerGraphicChart';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import apiInstance from '../../utilities/axios-test';
 import Match from '../../Competitions/Match/Match';
+import './PlayerDetails.css';
 
 class TeamDetails extends Component {
 
@@ -48,8 +49,11 @@ class TeamDetails extends Component {
         <div className="Players">
           <div className="row">
             <div className="col-sm-3">
-              <span>{this.state.playerData.name}</span>
-              <SideMenu itemList={itemList} />
+              <SideMenu itemList={itemList} >
+              <div className="margin-bottom-medium">
+                <img src={this.state.playerData.picture.url} className="roundedImage" height="50" width="50" />
+                <span>{`${this.state.playerData.name} ${this.state.playerData.surname}`}</span></div>
+              </SideMenu>
             </div>
             <div className="col-sm-9">
               <Route path={this.props.match.url+'/'} exact 
