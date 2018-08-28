@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Formatters from '../../utilities/formatters';
+import Helpers from '../../utilities/helpers';
 
 class PlayerStatistics extends Component {
 
@@ -15,7 +16,10 @@ class PlayerStatistics extends Component {
                 player(id: ${playerId}) {
                     name, surname
                     playerMatchesPlayed {
-                        localTeamName, visitorTeamName, id, localGoals, visitorGoals, date
+                        localTeamName, visitorTeamName, id, localGoals, visitorGoals, date,
+                        competition {
+                          id, name, season, type
+                        }
                     }
                 }
             }
@@ -24,7 +28,9 @@ class PlayerStatistics extends Component {
         {({ loading, error, data }) => {
           if (loading) return <p>Loading...</p>;
           if (error) return <p>Error :(</p>;
-    
+
+          let groupedCompetitions = Helpers.groupBy(data.player.playerMatchesPlayed, 'competition.id');
+
           return data.player.playerMatchesPlayed.map((match, index) => (
             <div key={index}>
               {Formatters.formatDate(match.date)}

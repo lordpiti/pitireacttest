@@ -40,6 +40,7 @@ class App extends Component {
 
   apolloClient = new ApolloClient({
     uri: 'https://footballsandbox.azurewebsites.net/graphql'
+    //uri: 'http://localhost:57544/graphql/'
   });
 
   render() {
