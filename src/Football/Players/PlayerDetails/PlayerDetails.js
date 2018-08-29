@@ -50,9 +50,10 @@ class TeamDetails extends Component {
           <div className="row">
             <div className="col-sm-3">
               <SideMenu itemList={itemList} >
-              <div className="margin-bottom-medium">
-                <img src={this.state.playerData.picture.url} className="roundedImage" height="50" width="50" />
-                <span>{`${this.state.playerData.name} ${this.state.playerData.surname}`}</span></div>
+                <div className="margin-bottom-medium">
+                  <img src={this.state.playerData.picture.url} className="roundedImage" height="50" width="50" />
+                  <span>{`${this.state.playerData.name} ${this.state.playerData.surname}`}</span>
+                </div>
               </SideMenu>
             </div>
             <div className="col-sm-9">

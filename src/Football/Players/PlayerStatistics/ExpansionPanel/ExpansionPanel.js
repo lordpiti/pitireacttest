@@ -20,8 +20,6 @@ const styles = theme => ({
 
 function SimpleExpansionPanel(props) {
   const { classes } = props;
-  console.log(props);
-  debugger;
 
   return (
     <div className={classes.root}>
