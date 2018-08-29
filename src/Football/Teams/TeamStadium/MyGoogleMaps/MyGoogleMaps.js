@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { compose, withProps } from "recompose";
 import {
-  withScriptjs,
   withGoogleMap,
   GoogleMap,
   Marker
@@ -21,14 +20,16 @@ const MyMapComponent = compose(
     containerElement: <div style={{ height: `400px` }} />,
     mapElement: <div style={{ height: `100%` }} />
   }),
-  withScriptjs,
   withGoogleMap
-)(props => (
-  <GoogleMap defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
+)(props => {
+  const location = props.googleData.results[0].geometry.location;
+  return (
+  <GoogleMap defaultZoom={15} defaultCenter={{ lat: location.lat, lng: location.lng }}>
     {props.isMarkerShown && (
-      <Marker position={{ lat: -34.397, lng: 150.644 }} />
+      <Marker position={{ lat: location.lat, lng: location.lng }} />
     )}
   </GoogleMap>
-));
+)
+});
 
 export default MyMapComponent;

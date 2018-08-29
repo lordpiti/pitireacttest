@@ -57,7 +57,7 @@ class CompetitionRounds extends React.Component {
     const selectRound =
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor="currentRound">Select Round</InputLabel>
-        <Select error
+        <Select
           value={this.state.currentRound}
           onChange={this.handleChange}
           inputProps={{

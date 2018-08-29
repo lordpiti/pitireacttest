@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import BasicDropzone from '../../components/BasicDropzone/BasicDropzone';
 import apiInstance from '../../utilities/axios-test';
 import FormValidator from '../../utilities/FormValidator';
+import LocationSearchInput from '../../components/PlacesAutocomplete/PlacesAutocomplete';
 
 class PlayerInfo extends Component {
 
@@ -27,7 +28,6 @@ class PlayerInfo extends Component {
       validation: this.validator.valid(),
       currentImage: null
     };
-
     Object.assign(newone, props.playerData);
     this.state = newone;
 
@@ -42,8 +42,7 @@ class PlayerInfo extends Component {
       reader.onload = () => {
         // do whatever you want with the file content
         fileToUpload = reader.result;
-        console.log(this);
-        debugger;
+
         this.setState({
           currentImage: {
             data: fileToUpload,
@@ -77,7 +76,7 @@ class PlayerInfo extends Component {
     const validation = this.validator.validate(this.state);
     this.setState({ validation });
     this.submitted = true;
-    debugger;
+
     if (validation.isValid) {
       // handle actual form submission here
       if (this.state.currentImage) {
@@ -98,7 +97,7 @@ class PlayerInfo extends Component {
       else {
         apiInstance.post('player/savePlayerDetails', this.state)
           .then(response => {
-            debugger;
+            
           });
       }
     }
@@ -138,6 +137,14 @@ class PlayerInfo extends Component {
                 <span className="help-block">{validation.surname.message}</span>
               </div>
 
+              <LocationSearchInput
+                value={this.state.birthPlace}
+                onChange={birthPlace => {
+                  this.setState({ birthPlace: birthPlace });
+                }}
+              >
+                {/* custom render function */}
+              </LocationSearchInput>
               <button onClick={this.handleFormSubmit} className="btn btn-primary">
                 Save
           </button>
