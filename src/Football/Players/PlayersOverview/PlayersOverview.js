@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -14,8 +14,9 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import TextField from '@material-ui/core/TextField';
-import apiInstance from '../../utilities/axios-test';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/actions';
 
 const actionsStyles = theme => ({
   root: {
@@ -25,7 +26,7 @@ const actionsStyles = theme => ({
   },
 });
 
-class TablePaginationActions extends React.Component {
+class TablePaginationActions extends Component {
   handleFirstPageButtonClick = event => {
     this.props.onChangePage(event, 0);
   };
@@ -109,36 +110,16 @@ const styles = theme => ({
   },
 });
 
-class PlayersOverview extends React.Component {
+class PlayersOverview extends Component {
   state = {
-    rows: [
-      
-    ],
+    rows: [],
     page: 0,
     rowsPerPage: 5,
   };
 
-  constructor(props) {
-    super(props);
-
-    apiInstance.get('player').then(response => {
-
-        let newState = response.data.map(item =>  { 
-              return {
-                id: item.playerId,
-                name: item.name + ' '+item.surname,
-                team: item.teamName 
-              }
-            });
-        const allRows = newState.sort((a, b) => (a.name < b.name ? -1 : 1));
-        this.setState({
-          rows: allRows,
-          allRows: allRows,
-          page: 0,
-          rowsPerPage: 5
-        });
-      });
-    }
+  componentDidMount() {
+    this.props.loadPlayers();
+  }
 
   handleChangePage = (event, page) => {
     this.setState({ page });
@@ -150,17 +131,18 @@ class PlayersOverview extends React.Component {
 
   render() {
     const { classes } = this.props;
+
     const { rows, rowsPerPage, page } = this.state;
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+    const emptyRows = rowsPerPage - Math.min(rowsPerPage, this.props.filteredPlayers.length - page * rowsPerPage);
 
     const setSearch = (column, styy) => {
-        let filteredList = this.state.allRows.filter(item => (item.name+' '+item.surname).includes(styy)).slice();
-        this.setState({
-            rows: filteredList
-        });
+        this.props.filterPlayers(styy);
     }
 
-    return (
+    let content = <div>LOADING</div>
+
+    if (!this.props.loading) {
+      content = 
       <Paper className={classes.root}>
       <TextField
           id="searchPlayerText"
@@ -175,7 +157,7 @@ class PlayersOverview extends React.Component {
         <div className={classes.tableWrapper}>
           <Table className={classes.table}>
             <TableBody>
-              {this.state.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => {
+              {this.props.filteredPlayers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => {
                 return (
                   <TableRow key={row.id}>
                     <TableCell component="th" scope="row">
@@ -200,9 +182,9 @@ class PlayersOverview extends React.Component {
               <TableRow>
                 <TablePagination
                   colSpan={3}
-                  count={rows.length}
-                  rowsPerPage={rowsPerPage}
-                  page={page}
+                  count={this.props.filteredPlayers.length}
+                  rowsPerPage={this.state.rowsPerPage}
+                  page={this.state.page}
                   onChangePage={this.handleChangePage}
                   onChangeRowsPerPage={this.handleChangeRowsPerPage}
                   ActionsComponent={TablePaginationActionsWrapped}
@@ -212,7 +194,9 @@ class PlayersOverview extends React.Component {
           </Table>
         </div>
       </Paper>
-    );
+    }
+
+  return (<div>{content}</div>);
   }
 }
 
@@ -220,4 +204,20 @@ PlayersOverview.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(PlayersOverview);
+
+const mapStateToProps = state => {
+  return {
+      allPlayers: state.players.players,
+      filteredPlayers: state.players.filteredPlayers,
+      loading: state.players.loading
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+      loadPlayers: () => dispatch(actionCreators.loadPlayerList()),
+      filterPlayers: (stringFilter) => dispatch(actionCreators.filterPlayerList(stringFilter))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(PlayersOverview));

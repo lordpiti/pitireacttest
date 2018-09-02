@@ -21,10 +21,14 @@
     "react-google-login": "^3.2.1",
     "react-google-maps": "^9.4.5",
     "react-places-autocomplete": "^7.2.0",
+    "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
     "reactjs-popup": "^1.2.0",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "thunk": "0.0.1",
     "validator": "^10.7.0"
   },
   "scripts": {
