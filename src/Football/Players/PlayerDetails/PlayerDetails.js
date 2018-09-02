@@ -4,80 +4,75 @@ import PlayerInfo from '../PlayerInfo/PlayerInfo';
 import PlayerStatistics from '../PlayerStatistics/PlayerStatistics';
 import PlayerGraphicChart from '../PlayerGraphicChart/PlayerGraphicChart';
 import SideMenu from '../../components/SideMenu/SideMenu';
-import apiInstance from '../../utilities/axios-test';
 import Match from '../../Competitions/Match/Match';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/actions';
 import './PlayerDetails.css';
 
-class TeamDetails extends Component {
+class PlayerDetails extends Component {
 
-  constructor(props) {
-    super(props);
-    apiInstance.get('player/'+props.match.params.id).then(response => {
-      this.setState({
-        playerData: response.data
-      });
-    });
+  componentDidMount() {
+    this.props.loadPlayer(this.props.match.params.id);
   }
 
-  state = {
-    playerData: null
-  }
-
-  render () {
+  render() {
 
     const playerId = this.props.match.params.id;
 
     const itemList = [
-    {
-      name: 'Summary',
-      url: this.props.match.url+'/overview'
-    },
-    {
-      name: 'Statistics',
-      url: this.props.match.url+'/player-statistics'
-    },
-    {
-      name: 'Charts',
-      url: this.props.match.url+'/player-charts'
-    }
+      {
+        name: 'Summary',
+        url: this.props.match.url + '/overview'
+      },
+      {
+        name: 'Statistics',
+        url: this.props.match.url + '/player-statistics'
+      },
+      {
+        name: 'Charts',
+        url: this.props.match.url + '/player-charts'
+      }
     ];
 
     let pageContent = null;
-
-    if (this.state.playerData) {
-      pageContent =       
+    debugger;
+    if (this.props.currentPlayer) {
+      pageContent =
         <div className="Players">
           <div className="row">
             <div className="col-sm-3">
               <SideMenu itemList={itemList} >
                 <div className="margin-bottom-medium">
-                  <img src={this.state.playerData.picture.url} className="roundedImage" height="50" width="50" />
-                  <span>{`${this.state.playerData.name} ${this.state.playerData.surname}`}</span>
+                  <img src={this.props.currentPlayer.picture.url} className="roundedImage" height="50" width="50" />
+                  <span>{`${this.props.currentPlayer.name} ${this.props.currentPlayer.surname}`}</span>
                 </div>
               </SideMenu>
             </div>
             <div className="col-sm-9">
-              <Route path={this.props.match.url+'/'} exact 
-                render={() => (<Redirect to={this.props.match.url+'/overview'} />)}
+              <Route path={this.props.match.url + '/'} exact
+                render={() => (<Redirect to={this.props.match.url + '/overview'} />)}
               />
-              <Route path={this.props.match.url+'/overview'}
-                render={(props)=>{
+              <Route path={this.props.match.url + '/overview'}
+                render={(props) => {
                   return (
-                  <PlayerInfo playerData={this.state.playerData} id={playerId}></PlayerInfo>)}
-              } />
-              <Route path={this.props.match.url+'/player-statistics'} 
-                render={(props)=>{
-                  return (
-                  <PlayerStatistics id={playerId}  {...this.props}></PlayerStatistics>)}
+                    <PlayerInfo playerData={this.props.currentPlayer} id={playerId}></PlayerInfo>)
                 }
-              exact />
-              <Route path={this.props.match.url+'/player-statistics/match/:id'} 
+                } />
+              <Route path={this.props.match.url + '/player-statistics'}
+                render={(props) => {
+                  return (
+                    <PlayerStatistics id={playerId}  {...this.props}></PlayerStatistics>)
+                }
+                }
+                exact />
+              <Route path={this.props.match.url + '/player-statistics/match/:id'}
                 component={Match}
               />
-              <Route path={this.props.match.url+'/player-charts'} 
-                render={(props)=>{
+              <Route path={this.props.match.url + '/player-charts'}
+                render={(props) => {
                   return (
-                  <PlayerGraphicChart id={playerId}></PlayerGraphicChart>)}
+                    <PlayerGraphicChart id={playerId}></PlayerGraphicChart>)
+                }
                 }
               />
             </div>
@@ -87,9 +82,22 @@ class TeamDetails extends Component {
 
     return (
       <div>
-      {pageContent}</div>
+        {pageContent}
+      </div>
     );
   }
 }
 
-export default TeamDetails;
+const mapStateToProps = state => {
+  return {
+    currentPlayer: state.players.currentPlayer
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadPlayer: (playerId) => dispatch(actionCreators.loadPlayer(playerId))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerDetails);

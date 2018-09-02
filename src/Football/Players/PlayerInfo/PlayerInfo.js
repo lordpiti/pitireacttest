@@ -8,7 +8,6 @@ class PlayerInfo extends Component {
 
   constructor(props) {
     super(props);
-
     this.validator = new FormValidator([
       {
         field: 'name',
@@ -35,7 +34,6 @@ class PlayerInfo extends Component {
   }
 
   callbackDropzone = (files) => {
-    console.log(this);
     let fileToUpload = null;
     files.forEach(file => {
       const reader = new FileReader();
@@ -70,7 +68,6 @@ class PlayerInfo extends Component {
   }
 
   handleFormSubmit = event => {
-    console.log(this);
     event.preventDefault();
 
     const validation = this.validator.validate(this.state);

@@ -34,6 +34,12 @@ const reducer = ( state = initialState, action ) => {
               ...state,
               filteredPlayers: playerListFiltered
           }
+      case actionTypes.LOAD_PLAYER:
+          debugger;
+          return {
+              ...state,
+              currentPlayer: action.payload
+          }
       default: break;
     }
     return state;
