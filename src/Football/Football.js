@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
-import Button from '@material-ui/core/Button';
 
 import { connect } from 'react-redux';
 
@@ -71,7 +70,6 @@ class Football extends Component {
         />
         <div className="Football overview-container">
           <div>
-            <Typography gutterBottom>Click to get the full Modal experience!</Typography>
             <Modal
               aria-labelledby="simple-modal-title"
               aria-describedby="simple-modal-description"

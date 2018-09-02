@@ -1,11 +1,31 @@
 import React, { Component } from 'react';
 import apiInstance from '../../utilities/axios-test';
 import MatchPlayers from './MatchPlayers/MatchPlayers';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
+import MatchStatistics from './MatchStatistics/MatchStatistics';
+
+function TabContainer(props) {
+  return (
+    <Typography component="div" style={{ padding: 8 * 3 }}>
+      {props.children}
+    </Typography>
+  );
+}
+
+// TabContainer.propTypes = {
+//   children: PropTypes.node.isRequired,
+// };
+
 
 class Match extends Component {
 
   state={
-    matchData: null
+    matchData: null,
+    selectedTab: 0
   }
 
   convertToMatchData(matchData) {
@@ -39,20 +59,26 @@ class Match extends Component {
     return matchData;
   }
 
-  constructor(props) {
 
-    super(props);
-    apiInstance.get('competition/match/'+props.match.params.id).then(response => {
-        this.setState({
-          matchData: this.convertToMatchData(response.data)
-        });
+  componentDidMount() {
+    apiInstance.get('competition/match/'+this.props.match.params.id).then(response => {
+      this.setState({
+        matchData: this.convertToMatchData(response.data)
       });
+    });
   }
+
+  handleChange = (event, value) => {
+    debugger;
+    this.setState({ selectedTab: value });
+  };
 
   render() {
 
-    let matchData = null;
+    let matchData, statisticsData = null;
     if (this.state.matchData) {
+      statisticsData = <MatchStatistics statistics={this.state.matchData.statisticsIncidences} />
+
       matchData = <div className="row">
       <div className="col-sm-5">
         <div className="text-center" style={{ backgroundColor:'blueviolet', color:'white'}}>
@@ -75,9 +101,25 @@ class Match extends Component {
     }
 
     return (
-        <div >
+        <div>
           <h1>Match details</h1>
-          {matchData}
+          
+            <Paper square>
+              <Tabs
+                value={this.state.selectedTab}
+                indicatorColor="primary"
+                textColor="primary"
+                onChange={this.handleChange}
+              >
+                <Tab label="Players" />
+                {/* <Tab label="Disabled" disabled /> */}
+                <Tab label="Statistics" />
+              </Tabs>
+              {this.state.selectedTab === 0 && <TabContainer>{matchData}</TabContainer>}
+              {this.state.selectedTab === 1 && <TabContainer>{statisticsData}</TabContainer>}
+              {this.state.selectedTab === 2 && <TabContainer>Item Three</TabContainer>}
+            </Paper>
+          
         </div>
     )
   }
