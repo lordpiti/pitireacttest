@@ -64,6 +64,7 @@ export const savePlayer = (image, playerData) => {
     if (!image) {
       axiosInstance.post(`player/savePlayerDetails`, playerData).then( response => {
         dispatch(savePlayerSuccess(playerData));
+        dispatch(updateLoadingSpinner(false));
       });
     }
     else {
