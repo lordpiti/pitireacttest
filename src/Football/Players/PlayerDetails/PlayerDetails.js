@@ -35,7 +35,7 @@ class PlayerDetails extends Component {
     ];
 
     let pageContent = null;
-    debugger;
+
     if (this.props.currentPlayer) {
       pageContent =
         <div className="Players">

@@ -35,7 +35,11 @@ const reducer = ( state = initialState, action ) => {
               filteredPlayers: playerListFiltered
           }
       case actionTypes.LOAD_PLAYER:
-          debugger;
+          return {
+              ...state,
+              currentPlayer: action.payload
+          }
+      case actionTypes.SAVE_PLAYER:
           return {
               ...state,
               currentPlayer: action.payload

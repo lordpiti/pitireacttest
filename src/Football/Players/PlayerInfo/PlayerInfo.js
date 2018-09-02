@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import BasicDropzone from '../../components/BasicDropzone/BasicDropzone';
-import apiInstance from '../../utilities/axios-test';
 import FormValidator from '../../utilities/FormValidator';
 import LocationSearchInput from '../../components/PlacesAutocomplete/PlacesAutocomplete';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/actions';
 
 class PlayerInfo extends Component {
 
@@ -75,28 +76,15 @@ class PlayerInfo extends Component {
     this.submitted = true;
 
     if (validation.isValid) {
-      // handle actual form submission here
+      let image = null;
+
       if (this.state.currentImage) {
-        apiInstance.post('GlobalMedia/UploadBase64Image',
-          { Base64String: this.state.currentImage.data, FileName: this.state.currentImage.fileName })
-          .then(response => {
-
-            this.setState({
-              picture: response.data
-            });
-
-            apiInstance.post('player/savePlayerDetails', this.state)
-              .then(response2 => {
-                console.log(response2);
-              })
-          })
+        image = { 
+          data: this.state.currentImage.data, 
+          fileName: this.state.currentImage.fileName 
+        };
       }
-      else {
-        apiInstance.post('player/savePlayerDetails', this.state)
-          .then(response => {
-            
-          });
-      }
+      this.props.savePlayer(image, this.state);
     }
   }
 
@@ -148,7 +136,7 @@ class PlayerInfo extends Component {
             </form>
           </div>
           <div className="col-sm-3">
-            <img src={this.state.picture.url} height="100" width="100" />
+            <img src={this.props.playerData.picture.url} height="100" width="100" />
             <BasicDropzone settings={this.dropzoneSettings} />
           </div>
         </div>
@@ -157,4 +145,16 @@ class PlayerInfo extends Component {
   }
 };
 
-export default PlayerInfo;
+const mapStateToProps = state => {
+  return {
+    currentPlayer: state.players.currentPlayer
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    savePlayer: (image, playerData) => dispatch(actionCreators.savePlayer(image, playerData))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerInfo);

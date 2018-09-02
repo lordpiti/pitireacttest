@@ -3,6 +3,7 @@ import axiosInstance from '../../utilities/axios-test';
 export const LOAD_PLAYER_LIST = 'LOAD_PLAYER_LIST';
 export const FILTER_PLAYER_LIST = 'FILTER_PLAYER_LIST';
 export const LOAD_PLAYER = 'LOAD_PLAYER';
+export const SAVE_PLAYER = 'SAVE_PLAYER';
 
 export const loadPlayerListSuccess = (playerList) => {
     return {
@@ -25,6 +26,13 @@ export const loadPlayerSuccess = (playerData) => {
   };
 };
 
+export const savePlayerSuccess = (playerData) => {
+  return {
+      type: SAVE_PLAYER,
+      payload: playerData
+  };
+};
+
 export const loadPlayerList = () => {
   return dispatch => {
     axiosInstance.get('player').then( response => {
@@ -39,5 +47,28 @@ export const loadPlayer = (id) => {
     axiosInstance.get(`player/${id}`).then( response => {
       dispatch(loadPlayerSuccess(response.data));
     });
+  }
+};
+
+export const savePlayer = (image, playerData) => {
+
+  return dispatch => {
+    if (!image) {
+      axiosInstance.post(`player/savePlayerDetails`, playerData).then( response => {
+        dispatch(savePlayerSuccess(playerData));
+      });
+    }
+    else {
+
+      axiosInstance.post('GlobalMedia/UploadBase64Image',
+        { Base64String: image.data, FileName: image.fileName })
+        .then(response => {
+          const updatedPlayerData = { ...playerData, picture: response.data }
+          axiosInstance.post(`player/savePlayerDetails`, updatedPlayerData).then( response => {
+            dispatch(savePlayerSuccess(updatedPlayerData));
+          });
+        })
+    }
+
   }
 };
