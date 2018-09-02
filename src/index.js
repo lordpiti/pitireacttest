@@ -8,11 +8,12 @@ import thunk from 'redux-thunk';
 import registerServiceWorker from './registerServiceWorker';
 
 import playersReducer from './Football/store/reducers/players';
-import resultReducer from './Football/store/reducers/teams';
+import globalReducer from './Football/store/reducers/global';
 
 
 const rootReducer = combineReducers({
-  players: playersReducer
+  players: playersReducer,
+  global: globalReducer
 });
 
 const logger = store => {

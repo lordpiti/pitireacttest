@@ -12,7 +12,9 @@ class TeamStadium extends Component {
     const apiUrl = 'https://maps.googleapis.com/maps/api/geocode/json?';
 
     axios.create().get(`${apiUrl}address=${this.props.stadium.name}}`).then(response => {
-      this.setState({ googleData: response.data});
+      if (response.data && response.data.status === 'OK' && response.data.results) {
+        this.setState({ googleData: response.data});
+      }
     });
   }
 
