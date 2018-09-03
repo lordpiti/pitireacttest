@@ -10,6 +10,7 @@ import Select from '@material-ui/core/Select';
 import apiInstance from '../../utilities/axios-test';
 import MatchList from './MatchList/MatchList';
 import TableLeague from './TableLeague/TableLeague';
+import ScorersTable from './ScorersTable/ScorersTable';
 
 const styles = theme => ({
   root: {
@@ -32,10 +33,8 @@ class CompetitionRounds extends React.Component {
     roundList: this.props.competitionData.roundList
   };
 
-  constructor(props) {
-    super(props);
-
-    apiInstance.get('competition/' + props.competitionData.id + '/round/' + 1).then(response => {
+  componentDidMount() {
+    apiInstance.get('competition/' + this.props.competitionData.id + '/round/' + 1).then(response => {
       this.setState({
         roundData: response.data
       });
@@ -45,6 +44,7 @@ class CompetitionRounds extends React.Component {
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
     apiInstance.get('competition/' + this.props.competitionData.id + '/round/' + event.target.value).then(response => {
+      debugger;
       this.setState({
         roundData: response.data
       });
@@ -71,13 +71,15 @@ class CompetitionRounds extends React.Component {
         </Select>
       </FormControl>;
 
-    let matchList, tableRound = null;
+    let matchList, tableRound, scorersTable = null;
 
     if (this.state.roundData) {
+      debugger;
       matchList =
         <MatchList matchList={this.state.roundData.matchList} currentUrl={this.props.match.url} />;
       tableRound =
-        <TableLeague teamStatsRoundList={this.state.roundData.teamStatsRoundList}></TableLeague>
+        <TableLeague teamStatsRoundList={this.state.roundData.teamStatsRoundList} />;
+      scorersTable = <ScorersTable scorersList={this.state.roundData.scorers} />
     }
 
     return (
@@ -86,13 +88,21 @@ class CompetitionRounds extends React.Component {
         {selectRound}
         <div className="row">
           <div className="col-sm-6">
-            {matchList}
+            <div className="row">
+              <div className="col-sm-12">
+                {matchList}
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-sm-12">
+                {scorersTable}
+              </div>
+            </div>
           </div>
           <div className="col-sm-6">
             {tableRound}
           </div>
         </div>
-
       </div>
     );
   }
