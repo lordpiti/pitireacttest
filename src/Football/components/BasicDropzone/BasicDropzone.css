@@ -1,0 +1,17 @@
+.droppedFileInfo {
+  border-style: solid;
+  border-width: thin;
+  font-size: small;
+  border-color: gray;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.droppedFileInfo .fileInfo {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+}
