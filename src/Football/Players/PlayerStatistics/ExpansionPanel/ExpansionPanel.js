@@ -6,7 +6,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Link } from 'react-router-dom';
+import SingleGamePlayed from './SingleGamePlayed/SingleGamePlayed';
 
 const styles = theme => ({
   root: {
@@ -29,13 +29,11 @@ function SimpleExpansionPanel(props) {
             <Typography className={classes.heading}>{group.competition.name} {group.competition.season}</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-          <Typography>
+          <div style={{display: 'inline-block', width: '100%'}}>
             {group.data.map((match, index) => (
-              <div  key={index}>
-                <Link to={`${props.match.url}/player-statistics/match/${match.id}`}>{`${match.localTeamName} ${match.localGoals} - ${match.visitorGoals} ${match.visitorTeamName}`}</Link>
-                </div>
+              <SingleGamePlayed key={index} gamePlayed={match} {...props} />
             ))}
-            </Typography>
+            </div>
           </ExpansionPanelDetails>
         </ExpansionPanel>
       )}

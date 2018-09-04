@@ -17,7 +17,7 @@ class PlayerStatistics extends Component {
               player(id: ${playerId}) {
                   name, surname
                   playerMatchesPlayed {
-                      localTeamName, visitorTeamName, id, localGoals, visitorGoals, date,
+                      localTeamName, visitorTeamName, id, localGoals, visitorGoals, date, round,
                       competition {
                         id, name, season, type
                       }
