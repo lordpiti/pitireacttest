@@ -35,8 +35,7 @@ class CompetitionStatistics extends Component {
   }
 
   componentDidMount() {
-    debugger;
-      this.props.loadCompetitionTeams(1);
+    this.props.loadCompetitionTeams(1);
   }
 
   render() {

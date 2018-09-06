@@ -80,7 +80,7 @@ class CompetitionDetails extends Component {
                 } exact
               />
               <Route path={this.props.match.url + '/competition-statistics'}
-                component={props => {
+                render={props => {
                   return (
                     <CompetitionStatistics competitionId={competitionId}></CompetitionStatistics>)
                 }

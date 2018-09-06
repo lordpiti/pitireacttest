@@ -18,13 +18,11 @@ export const loadCompetitionTeamEvolutionSuccess = (teamList) => {
 
 export const loadCompetitionTeams = (competitionId) => {
   return dispatch => {
-    debugger;
-    //dispatch(globalActionCreators.updateLoadingSpinner(true));
+    dispatch(globalActionCreators.updateLoadingSpinner(true));
     axiosInstance.get(`team/teams`).then( response => {
       const teamList = response.data;
-      debugger;
       dispatch(loadCompetitionTeamsSuccess(teamList));
-      //dispatch(globalActionCreators.updateLoadingSpinner(false));
+      dispatch(globalActionCreators.updateLoadingSpinner(false));
     });
   }
 };
