@@ -1,9 +1,8 @@
-import * as actionTypes from '../actions/actions';
+import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     players: [],
-    filteredPlayers: [],
-    loading: true
+    filteredPlayers: []
 };
 
 const reducer = ( state = initialState, action ) => {
@@ -19,8 +18,7 @@ const reducer = ( state = initialState, action ) => {
           return {
               ...state,
               players: playerList,
-              filteredPlayers: playerList,
-              loading: false
+              filteredPlayers: playerList
           }
       case actionTypes.FILTER_PLAYER_LIST:
           let playerListFiltered = [...state.players];

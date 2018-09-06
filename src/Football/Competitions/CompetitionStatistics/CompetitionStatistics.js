@@ -5,6 +5,9 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import apiInstance from '../../utilities/axios-test';
 import CompetitionEvolution from './CompetitionEvolution/CompetitionEvolution';
+
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/competitions';
 import './CompetitionStatistics.css';
 
 function TabContainer(props) {
@@ -28,40 +31,12 @@ class CompetitionStatistics extends Component {
   };
 
   onSelectedTeam = (teamId) => {
-
-    let newList = this.state.teamsData.map(team => {
-        team.selected = team.id == teamId;
-        return team;
-    });
-
-    this.setState({
-      teamsData: newList
-    })
-
-    apiInstance.get(`team/clasification/${teamId}/competition/${this.props.competitionId}`).then(response => {
-      this.setState({
-        currentTeamData: this.createDataToShow(response.data.clasificationSeasonData)
-      })
-    })
+    this.props.loadCompetitionTeamEvolution(this.props.competitionId, teamId);
   }
 
   componentDidMount() {
-    apiInstance.get('team/teams').then(response => {
-      this.setState({
-        teamsData: response.data
-      })
-    })
-  }
-
-  createDataToShow(teamData) {
-    const dataToShow = {
-      rounds: teamData.map(round => round.round),
-      positions: teamData.map(round => round.position ),
-      goalsFor: teamData.map(round => round.goalsFor ),
-      goalsAgainst: teamData.map(round => round.goalsAgainst )
-    }
-
-    return dataToShow;
+    debugger;
+      this.props.loadCompetitionTeams(1);
   }
 
   render() {
@@ -70,15 +45,15 @@ class CompetitionStatistics extends Component {
 
     statisticsData = <div>Statistics</div>;
 
-    if (this.state.teamsData) {
+    if (this.props.currentCompetition && this.props.currentCompetition.teams) {
 
-      if (this.state.currentTeamData) {
-        currentTeamData = <CompetitionEvolution displayData={this.state.currentTeamData}></CompetitionEvolution>;
+      if (this.props.currentCompetition.evolutionData) {
+        currentTeamData = <CompetitionEvolution displayData={this.props.currentCompetition.evolutionData}></CompetitionEvolution>;
       }
 
       teamsData = <div className="row">
         <div className="col-sm-3">
-          {this.state.teamsData.map(team => {
+          {this.props.currentCompetition.teams.map(team => {
             let selectedTeam = null;
             if (team.selected) {
               selectedTeam = 'selectedTeam';
@@ -120,4 +95,17 @@ class CompetitionStatistics extends Component {
   }
 }
 
-export default CompetitionStatistics;
+const mapStateToProps = state => {
+  return {
+    currentCompetition: state.competitions.currentCompetition
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+      loadCompetitionTeams: (competitionId) => dispatch(actionCreators.loadCompetitionTeams(competitionId)),
+      loadCompetitionTeamEvolution: (competitionId, teamId) => dispatch(actionCreators.loadCompetitionTeamEvolution(competitionId, teamId))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CompetitionStatistics);

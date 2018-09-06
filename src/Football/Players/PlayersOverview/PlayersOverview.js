@@ -16,7 +16,7 @@ import LastPageIcon from '@material-ui/icons/LastPage';
 import TextField from '@material-ui/core/TextField';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/actions';
+import * as actionCreators from '../../store/actions/players';
 
 const actionsStyles = theme => ({
   root: {

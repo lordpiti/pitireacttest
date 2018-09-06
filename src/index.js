@@ -8,11 +8,13 @@ import thunk from 'redux-thunk';
 import registerServiceWorker from './registerServiceWorker';
 
 import playersReducer from './Football/store/reducers/players';
+import competitionsReducer from './Football/store/reducers/competitions';
 import globalReducer from './Football/store/reducers/global';
 
 
 const rootReducer = combineReducers({
   players: playersReducer,
+  competitions: competitionsReducer,
   global: globalReducer
 });
 

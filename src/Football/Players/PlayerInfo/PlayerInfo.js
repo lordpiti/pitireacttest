@@ -3,7 +3,7 @@ import BasicDropzone from '../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../utilities/FormValidator';
 import LocationSearchInput from '../../components/PlacesAutocomplete/PlacesAutocomplete';
 import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/actions';
+import * as actionCreators from '../../store/actions/players';
 
 class PlayerInfo extends Component {
 

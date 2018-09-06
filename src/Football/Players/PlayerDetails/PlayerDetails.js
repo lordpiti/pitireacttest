@@ -6,7 +6,7 @@ import PlayerGraphicChart from '../PlayerGraphicChart/PlayerGraphicChart';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import Match from '../../Competitions/Match/Match';
 import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/actions';
+import * as actionCreators from '../../store/actions/players';
 import './PlayerDetails.css';
 
 class PlayerDetails extends Component {

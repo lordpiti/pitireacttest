@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import CompetitionInfo from '../CompetitionInfo/CompetitionInfo';
 import CompetitionRounds from '../CompetitionRounds/CompetitionRounds';
 import CompetitionDraw from '../CompetitionDraw/CompetitionDraw';
@@ -7,17 +7,16 @@ import SideMenu from '../../components/SideMenu/SideMenu';
 import apiInstance from '../../utilities/axios-test';
 import Match from '../Match/Match';
 import CompetitionStatistics from '../CompetitionStatistics/CompetitionStatistics';
+import { connect } from 'react-redux';
 
 class CompetitionDetails extends Component {
 
-  constructor(props) {
-    super(props);
-    apiInstance.get('competition/' + props.match.params.id).then(response => {
+  componentDidMount() {
+    apiInstance.get('competition/' + this.props.match.params.id).then(response => {
       this.setState({
         competitionData: response.data
       });
     });
-
   }
 
   state = {
@@ -100,4 +99,5 @@ class CompetitionDetails extends Component {
   }
 }
 
-export default CompetitionDetails;
+
+export default connect()(CompetitionDetails);
