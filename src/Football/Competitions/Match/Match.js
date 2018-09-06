@@ -69,7 +69,6 @@ class Match extends Component {
   }
 
   handleChange = (event, value) => {
-    debugger;
     this.setState({ selectedTab: value });
   };
 

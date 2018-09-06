@@ -127,7 +127,6 @@ class Scorers extends Component {
     const { rowsPerPage, page } = this.state;
     const rows = this.props.scorersList;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
-    debugger;
 
     return (
       <Paper className={classes.root}>

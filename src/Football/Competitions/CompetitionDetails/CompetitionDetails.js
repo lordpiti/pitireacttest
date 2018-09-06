@@ -6,6 +6,7 @@ import CompetitionDraw from '../CompetitionDraw/CompetitionDraw';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import apiInstance from '../../utilities/axios-test';
 import Match from '../Match/Match';
+import CompetitionStatistics from '../CompetitionStatistics/CompetitionStatistics';
 
 class CompetitionDetails extends Component {
 
@@ -34,6 +35,10 @@ class CompetitionDetails extends Component {
       {
         name: 'Rounds',
         url: this.props.match.url + '/competition-rounds'
+      },
+      {
+        name: 'Statistics',
+        url: this.props.match.url + '/competition-statistics'
       }
     ];
 
@@ -72,6 +77,13 @@ class CompetitionDetails extends Component {
                 component={props => {
                   return (
                     competitionTypeContent)
+                }
+                } exact
+              />
+              <Route path={this.props.match.url + '/competition-statistics'}
+                component={props => {
+                  return (
+                    <CompetitionStatistics competitionId={competitionId}></CompetitionStatistics>)
                 }
                 } exact
               />

@@ -44,7 +44,6 @@ class CompetitionRounds extends React.Component {
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
     apiInstance.get('competition/' + this.props.competitionData.id + '/round/' + event.target.value).then(response => {
-      debugger;
       this.setState({
         roundData: response.data
       });
@@ -74,7 +73,6 @@ class CompetitionRounds extends React.Component {
     let matchList, tableRound, scorersTable = null;
 
     if (this.state.roundData) {
-      debugger;
       matchList =
         <MatchList matchList={this.state.roundData.matchList} currentUrl={this.props.match.url} />;
       tableRound =
