@@ -30,10 +30,10 @@ export const loadCompetitionTeams = (competitionId) => {
 export const loadCompetitionTeamEvolution = (competitionId, teamId) => {
   
   return dispatch => {
-    //dispatch(globalActionCreators.updateLoadingSpinner(true));
+    dispatch(globalActionCreators.updateLoadingSpinner(true));
     axiosInstance.get(`team/clasification/${teamId}/competition/${competitionId}`).then( response => {
-      dispatch(loadCompetitionTeamEvolutionSuccess(response.data.clasificationSeasonData));
-      //dispatch(globalActionCreators.updateLoadingSpinner(false));
+      dispatch(loadCompetitionTeamEvolutionSuccess({ teamId: teamId, chartData: response.data.clasificationSeasonData }));
+      dispatch(globalActionCreators.updateLoadingSpinner(false));
     });
   }
 };

@@ -15,11 +15,18 @@ const reducer = (state = initialState, action) => {
         }
       }
     case actionTypes.LOAD_COMPETITION_TEAM_EVOLUTION:
+      let teamsCopy = [...state.currentCompetition.teams];
+      let teamsWithSelected = teamsCopy.map(team => {
+        team.selected = team.id == action.payload.teamId;
+        return team;
+      });
+
       return {
         ...state,
         currentCompetition: {
           ...state.currentCompetition,
-          evolutionData: createDataToShow(action.payload)
+          teams: teamsWithSelected,
+          evolutionData: createDataToShow(action.payload.chartData)
         }
       }
     default: break;
