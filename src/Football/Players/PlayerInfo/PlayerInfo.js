@@ -70,9 +70,10 @@ class PlayerInfo extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-
+    debugger;
     const validation = this.validator.validate(this.state);
     this.setState({ validation });
+    debugger;
     this.submitted = true;
 
     if (validation.isValid) {

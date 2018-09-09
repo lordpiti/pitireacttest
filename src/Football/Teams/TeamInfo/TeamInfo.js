@@ -49,6 +49,12 @@ class Form extends Component {
         method: this.passwordMatch,   // notice that we are passing a custom function here
         validWhen: true,
         message: 'Password and password confirmation do not match.'
+      },
+      {
+        field: 'selected_items',
+        method: this.selectedlessThan2Items,   // notice that we are passing a custom function here
+        validWhen: false,
+        message: 'You must select at least 2 items.'
       }
     ]);
 
@@ -58,7 +64,7 @@ class Form extends Component {
       password: '',
       password_confirmation: '',
       validation: this.validator.valid(),
-      items: [{ name: 'item 1', value: false },
+      selected_items: [{ name: 'item 1', value: false },
       { name: 'item 2', value: false },
       { name: 'item 3', value: false }]
     }
@@ -67,6 +73,11 @@ class Form extends Component {
   }
 
   passwordMatch = (confirmation, state) => (state.password === confirmation)
+
+  selectedlessThan2Items = () => {
+    debugger;
+    return (this.state.selected_items.filter(x => x.value).length < 2 && this.submitted);
+  }
 
   handleInputChange = event => {
     event.preventDefault();
@@ -78,7 +89,7 @@ class Form extends Component {
 
   handleInputChange2 = (event, index) => {
 
-    const items = this.state.items.slice();
+    const items = this.state.selected_items.slice();
     items[index].value = event.target.checked;
 
     this.setState({
@@ -88,7 +99,7 @@ class Form extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-
+    debugger;
     const validation = this.validator.validate(this.state);
     this.setState({ validation });
     this.submitted = true;
@@ -100,19 +111,13 @@ class Form extends Component {
 
   render() {
 
-    let selectedlessThan2Items = null;
-
-    if (this.state.items.filter(x => x.value).length < 2 && this.submitted) {
-      selectedlessThan2Items = <div>NO TIENES NI ZORRA</div>
-    }
-
     let validation = this.submitted ?                         // if the form has been submitted at least once
       this.validator.validate(this.state) :   // then check validity every time we render
       this.state.validation                   // otherwise just use what's in state
 
     return (
       <div>
-        
+
         <form className="demoForm">
           <h2>Sign up</h2>
 
@@ -154,20 +159,21 @@ class Form extends Component {
             <span className="help-block">{validation.password_confirmation.message}</span>
           </div>
 
-          {this.state.items.map((item, index) =>
-            <div key={index}>
-              <label htmlFor={item.name}>{item.name}</label>
-              <input
-                name={item.name}
-                type="checkbox" className="form-control"
-                checked={this.state.items[index].value}
-                onChange={(event) => this.handleInputChange2(event, index)} />
-              <span className="help-block">{item.name}</span>
-            </div>
-          )}
+          <div className={validation.selected_items.isInvalid && 'has-error'}>
 
-          {selectedlessThan2Items}
-
+            {this.state.selected_items.map((item, index) =>
+              <div key={index}>
+                <label htmlFor={item.name}>{item.name}</label>
+                <input
+                  name={item.name}
+                  type="checkbox" className="form-control"
+                  checked={this.state.selected_items[index].value}
+                  onChange={(event) => this.handleInputChange2(event, index)} />
+                <span className="help-block">{item.name}</span>
+              </div>
+            )}
+            <span className="help-block">{validation.selected_items.message}</span>
+          </div>
           <button onClick={this.handleFormSubmit} className="btn btn-primary">
             Sign up
         </button>
