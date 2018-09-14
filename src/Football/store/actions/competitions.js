@@ -19,7 +19,7 @@ export const loadCompetitionTeamEvolutionSuccess = (teamList) => {
 export const loadCompetitionTeams = (competitionId) => {
   return dispatch => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
-    axiosInstance.get(`team/teams`).then( response => {
+    axiosInstance.get(`team/teams/${competitionId}`).then( response => {
       const teamList = response.data;
       dispatch(loadCompetitionTeamsSuccess(teamList));
       dispatch(globalActionCreators.updateLoadingSpinner(false));

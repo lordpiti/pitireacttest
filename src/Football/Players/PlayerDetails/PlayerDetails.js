@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
-import PlayerInfo from '../PlayerInfo/PlayerInfo';
+import asyncComponent from '../../hoc/asyncComponent/asyncComponent';
 import PlayerStatistics from '../PlayerStatistics/PlayerStatistics';
 import PlayerGraphicChart from '../PlayerGraphicChart/PlayerGraphicChart';
 import SideMenu from '../../components/SideMenu/SideMenu';
@@ -8,6 +8,10 @@ import Match from '../../Competitions/Match/Match';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/players';
 import './PlayerDetails.css';
+
+const asyncPlayerInfo = asyncComponent(() => {
+  return import('../PlayerInfo/PlayerInfo');
+}); 
 
 class PlayerDetails extends Component {
 
@@ -54,7 +58,8 @@ class PlayerDetails extends Component {
               />
               <Route path={this.props.match.url + '/overview'}
                 render={(props) => {
-                  return (
+                  const PlayerInfo = asyncPlayerInfo; 
+                  return (         
                     <PlayerInfo playerData={this.props.currentPlayer} id={playerId}></PlayerInfo>)
                 }
                 } />
