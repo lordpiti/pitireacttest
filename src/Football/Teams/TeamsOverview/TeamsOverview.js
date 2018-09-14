@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
-import apiInstance from '../../utilities/axios-test';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/teams';
 
 class TeamsOverview extends Component {
 
-  constructor(props) {
-    super(props);
-    apiInstance.get('team/teams/').then(response => {
-      this.setState({
-        teams: response.data
-      });
-    })
+  componentDidMount() {
+    this.props.loadTeams();
   }
+
   render() {
     let teamList = null;
-    if (this.state && this.state.teams) {
-      teamList = this.state.teams.map(team =>
+    if (this.props.teamList) {
+      teamList = this.props.teamList.map(team =>
         <div className="col-sm-2 text-center" key={team.id}>
           <Link to={{
             pathname: this.props.match.url + '/team-details/' + team.id
@@ -35,4 +32,16 @@ class TeamsOverview extends Component {
   }
 }
 
-export default TeamsOverview;
+const mapStateToProps = state => {
+  return {
+    teamList: state.teams.teamList
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadTeams: () => dispatch(actionCreators.loadTeams())
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TeamsOverview);

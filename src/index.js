@@ -9,12 +9,14 @@ import registerServiceWorker from './registerServiceWorker';
 
 import playersReducer from './Football/store/reducers/players';
 import competitionsReducer from './Football/store/reducers/competitions';
+import teamsReducer from './Football/store/reducers/teams';
 import globalReducer from './Football/store/reducers/global';
 
 
 const rootReducer = combineReducers({
   players: playersReducer,
   competitions: competitionsReducer,
+  teams: teamsReducer,
   global: globalReducer
 });
 
