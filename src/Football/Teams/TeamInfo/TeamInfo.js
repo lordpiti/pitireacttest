@@ -75,7 +75,7 @@ class Form extends Component {
   passwordMatch = (confirmation, state) => (state.password === confirmation)
 
   selectedlessThan2Items = () => {
-    debugger;
+    
     return (this.state.selected_items.filter(x => x.value).length < 2 && this.submitted);
   }
 
@@ -99,7 +99,7 @@ class Form extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    debugger;
+    
     const validation = this.validator.validate(this.state);
     this.setState({ validation });
     this.submitted = true;

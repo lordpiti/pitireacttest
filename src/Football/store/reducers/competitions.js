@@ -29,6 +29,11 @@ const reducer = (state = initialState, action) => {
           evolutionData: createDataToShow(action.payload.chartData)
         }
       }
+    case actionTypes.LOAD_COMPETITION_LIST:
+      return {
+        ...state,
+        competitionList: action.payload
+      }
     default: break;
   }
   return state;

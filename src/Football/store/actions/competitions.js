@@ -2,6 +2,13 @@ import axiosInstance from '../../utilities/axios-test';
 import * as actionTypes from './actionTypes';
 import * as globalActionCreators from './global';
 
+export const loadCompetitionListSuccess = (competitionList) => {
+  return {
+      type: actionTypes.LOAD_COMPETITION_LIST,
+      payload: competitionList
+  };
+};
+
 export const loadCompetitionTeamsSuccess = (teamList) => {
   return {
       type: actionTypes.LOAD_COMPETITION_TEAMS,
@@ -14,6 +21,16 @@ export const loadCompetitionTeamEvolutionSuccess = (teamList) => {
       type: actionTypes.LOAD_COMPETITION_TEAM_EVOLUTION,
       payload: teamList
   };
+};
+
+export const loadCompetitionList = () => {
+  return dispatch => {
+    dispatch(globalActionCreators.updateLoadingSpinner(true));
+    axiosInstance.get('competition').then( response => {
+      dispatch(loadCompetitionListSuccess(response.data));
+      dispatch(globalActionCreators.updateLoadingSpinner(false));
+    });
+  }
 };
 
 export const loadCompetitionTeams = (competitionId) => {
