@@ -34,6 +34,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         competitionList: action.payload
       }
+    case actionTypes.LOAD_MATCH_INFO:
+      return {
+        ...state,
+        currentMatch: action.payload
+      }
     default: break;
   }
   return state;

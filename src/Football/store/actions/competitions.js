@@ -23,6 +23,13 @@ export const loadCompetitionTeamEvolutionSuccess = (teamList) => {
   };
 };
 
+export const loadMatchSuccess = (matchInfo) => {
+  return {
+      type: actionTypes.LOAD_MATCH_INFO,
+      payload: matchInfo
+  };
+};
+
 export const loadCompetitionList = () => {
   return dispatch => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
@@ -50,6 +57,16 @@ export const loadCompetitionTeamEvolution = (competitionId, teamId) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
     axiosInstance.get(`team/clasification/${teamId}/competition/${competitionId}`).then( response => {
       dispatch(loadCompetitionTeamEvolutionSuccess({ teamId: teamId, chartData: response.data.clasificationSeasonData }));
+      dispatch(globalActionCreators.updateLoadingSpinner(false));
+    });
+  }
+};
+
+export const loadMatchInfo = (matchId) => {
+  return dispatch => {
+    dispatch(globalActionCreators.updateLoadingSpinner(true));
+    axiosInstance.get(`competition/match/${matchId}`).then( response => {
+      dispatch(loadMatchSuccess(response.data));
       dispatch(globalActionCreators.updateLoadingSpinner(false));
     });
   }

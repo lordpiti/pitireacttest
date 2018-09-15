@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import apiInstance from '../../utilities/axios-test';
 import MatchPlayers from './MatchPlayers/MatchPlayers';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
@@ -7,6 +6,8 @@ import Tab from '@material-ui/core/Tab';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import MatchStatistics from './MatchStatistics/MatchStatistics';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/competitions';
 
 function TabContainer(props) {
   return (
@@ -28,44 +29,8 @@ class Match extends Component {
     selectedTab: 0
   }
 
-  convertToMatchData(matchData) {
-    matchData.players.forEach(player => {
-      player.goals = [];
-      player.bookings = [];
-
-      const booking = matchData.statisticsIncidences.bookings.find(b => b.player.playerId === player.playerId);
-      if (booking) {
-        player.bookings.push(booking);
-      }
-
-      const goal = matchData.statisticsIncidences.goals.find(g => g.player.playerId === player.playerId);
-      if (goal) {
-        player.goals.push(goal);
-      }
-
-      const substitutionIn = matchData.statisticsIncidences.substitutions
-      .find(substitution => substitution.playerIn.playerId === player.playerId);
-      if (substitutionIn) {
-        player.substitutionIn = substitutionIn;
-      }
-
-      const substitutionOut = matchData.statisticsIncidences.substitutions
-      .find(substitution => substitution.playerOut.playerId === player.playerId);
-      if (substitutionOut) {
-        player.substitutionOut = substitutionOut;
-      }
-    });
-
-    return matchData;
-  }
-
-
   componentDidMount() {
-    apiInstance.get('competition/match/'+this.props.match.params.id).then(response => {
-      this.setState({
-        matchData: this.convertToMatchData(response.data)
-      });
-    });
+    this.props.loadMatch(this.props.match.params.id);
   }
 
   handleChange = (event, value) => {
@@ -75,26 +40,26 @@ class Match extends Component {
   render() {
 
     let matchData, statisticsData = null;
-    if (this.state.matchData) {
-      statisticsData = <MatchStatistics statistics={this.state.matchData.statisticsIncidences} />
+    if (this.props.matchInfo) {
+      statisticsData = <MatchStatistics statistics={this.props.matchInfo.statisticsIncidences} />
 
       matchData = <div className="row">
       <div className="col-sm-5">
         <div className="text-center" style={{ backgroundColor:'blueviolet', color:'white'}}>
-          <h1>{this.state.matchData.matchGeneralInfo.localTeam.name}</h1>
+          <h1>{this.props.matchInfo.matchGeneralInfo.localTeam.name}</h1>
         </div>
-        <MatchPlayers matchPlayers={this.state.matchData.players} team={this.state.matchData.matchGeneralInfo.localTeam} ></MatchPlayers>
+        <MatchPlayers matchPlayers={this.props.matchInfo.players} team={this.props.matchInfo.matchGeneralInfo.localTeam} ></MatchPlayers>
       </div>
       <div className="col-sm-2 text-center">
         <h1 style={{backgroundColor:'black', color:'white'}}>
-          {this.state.matchData.matchGeneralInfo.goalsLocal} - {this.state.matchData.matchGeneralInfo.goalsVisitor}
+          {this.props.matchInfo.matchGeneralInfo.goalsLocal} - {this.props.matchInfo.matchGeneralInfo.goalsVisitor}
         </h1>
       </div>
       <div className="col-sm-5">
         <div className="text-center" style={{backgroundColor:'blueviolet', color:'white'}}>
-          <h1>{this.state.matchData.matchGeneralInfo.visitorTeam.name}</h1>
+          <h1>{this.props.matchInfo.matchGeneralInfo.visitorTeam.name}</h1>
         </div>  
-        <MatchPlayers matchPlayers={this.state.matchData.players} team={this.state.matchData.matchGeneralInfo.visitorTeam} ></MatchPlayers>
+        <MatchPlayers matchPlayers={this.props.matchInfo.players} team={this.props.matchInfo.matchGeneralInfo.visitorTeam} ></MatchPlayers>
       </div>
     </div>
     }
@@ -124,4 +89,48 @@ class Match extends Component {
   }
 }
 
-export default Match;
+// Can move this to the reducer
+const convertToMatchData = (matchData) => {
+  matchData.players.forEach(player => {
+    player.goals = [];
+    player.bookings = [];
+
+    const booking = matchData.statisticsIncidences.bookings.find(b => b.player.playerId === player.playerId);
+    if (booking) {
+      player.bookings.push(booking);
+    }
+
+    const goal = matchData.statisticsIncidences.goals.find(g => g.player.playerId === player.playerId);
+    if (goal) {
+      player.goals.push(goal);
+    }
+
+    const substitutionIn = matchData.statisticsIncidences.substitutions
+    .find(substitution => substitution.playerIn.playerId === player.playerId);
+    if (substitutionIn) {
+      player.substitutionIn = substitutionIn;
+    }
+
+    const substitutionOut = matchData.statisticsIncidences.substitutions
+    .find(substitution => substitution.playerOut.playerId === player.playerId);
+    if (substitutionOut) {
+      player.substitutionOut = substitutionOut;
+    }
+  });
+
+  return matchData;
+}
+
+const mapStateToProps = state => {
+  return {
+    matchInfo: state.competitions.currentMatch ? convertToMatchData(state.competitions.currentMatch) : null
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadMatch: (matchId) => dispatch(actionCreators.loadMatchInfo(matchId))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Match);
