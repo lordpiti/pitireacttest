@@ -35,8 +35,6 @@ class BasicDropzone extends Component {
                   <span className="fileInfo">{f.name} - {f.size} bytes</span>
                   </div>
                 </div>
-                
-                
               </div>)
             }        
           </div>
