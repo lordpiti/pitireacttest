@@ -71,3 +71,54 @@ export const loadMatchInfo = (matchId) => {
     });
   }
 };
+
+export const loadCompetitionSuccess = (competitionData) => {
+  return {
+      type: actionTypes.LOAD_COMPETITION,
+      payload: competitionData
+  };
+};
+
+export const loadCompetition = (id) => {
+  return dispatch => {
+    dispatch(globalActionCreators.updateLoadingSpinner(true));
+    axiosInstance.get(`competition/${id}`).then( response => {
+      dispatch(loadCompetitionSuccess(response.data));
+      dispatch(globalActionCreators.updateLoadingSpinner(false));
+    });
+  }
+};
+
+export const saveCompetition = (image, competitionData) => {
+
+  return dispatch => {
+    dispatch(globalActionCreators.updateLoadingSpinner(true));
+
+    if (!image) {
+      axiosInstance.post(`competition/saveCompetitionDetails`, competitionData).then( response => {
+        dispatch(saveCompetitionSuccess(competitionData));
+        dispatch(globalActionCreators.updateLoadingSpinner(false));
+      });
+    }
+    else {
+
+      axiosInstance.post('GlobalMedia/UploadBase64Image',
+        { Base64String: image.data, FileName: image.fileName })
+        .then(response => {
+          const updatedCompetitionData = { ...competitionData, logo: response.data }
+          axiosInstance.post(`competition/saveCompetitionDetails`, updatedCompetitionData).then( response => {
+            dispatch(saveCompetitionSuccess(updatedCompetitionData));
+            dispatch(globalActionCreators.updateLoadingSpinner(false));
+          });
+        })
+    }
+
+  }
+};
+
+export const saveCompetitionSuccess = (competitionData) => {
+  return {
+      type: actionTypes.SAVE_COMPETITION,
+      payload: competitionData
+  };
+};

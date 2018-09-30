@@ -4,23 +4,15 @@ import CompetitionInfo from '../CompetitionInfo/CompetitionInfo';
 import CompetitionRounds from '../CompetitionRounds/CompetitionRounds';
 import CompetitionDraw from '../CompetitionDraw/CompetitionDraw';
 import SideMenu from '../../components/SideMenu/SideMenu';
-import apiInstance from '../../utilities/axios-test';
 import Match from '../Match/Match';
 import CompetitionStatistics from '../CompetitionStatistics/CompetitionStatistics';
 import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/competitions';
 
 class CompetitionDetails extends Component {
 
   componentDidMount() {
-    apiInstance.get('competition/' + this.props.match.params.id).then(response => {
-      this.setState({
-        competitionData: response.data
-      });
-    });
-  }
-
-  state = {
-    competitionData: null
+    this.props.loadCompetition(this.props.match.params.id);
   }
 
   render() {
@@ -45,19 +37,24 @@ class CompetitionDetails extends Component {
 
     let pageContent = null;
 
-    if (this.state.competitionData) {
-      if (this.state.competitionData.type !== 'Playoff') {
-        competitionTypeContent = <CompetitionRounds competitionData={this.state.competitionData} {...this.props} ></CompetitionRounds>;
+    if (this.props.currentCompetition) {
+      if (this.props.currentCompetition.type !== 'Playoff') {
+        competitionTypeContent = <CompetitionRounds competitionData={this.props.currentCompetition} {...this.props} ></CompetitionRounds>;
       }
       else {
-        competitionTypeContent = <CompetitionDraw match={this.props.match} competitionData={this.state.competitionData} ></CompetitionDraw>;
+        competitionTypeContent = <CompetitionDraw match={this.props.match} competitionData={this.props.currentCompetition} ></CompetitionDraw>;
       }
 
       pageContent =
         <div className="CompetitionDetails">
           <div className="row">
             <div className="col-sm-3">
-              <SideMenu itemList={menuItemList} />
+              <SideMenu itemList={menuItemList} >
+                <div className="margin-bottom-medium">
+                  <img src={this.props.currentCompetition.logo.url} className="roundedImage" height="50" width="50" />
+                  <span>{`${this.props.currentCompetition.name}`}</span>
+                </div>
+              </SideMenu>
             </div>
             <div className="col-sm-9">
               <Route path={this.props.match.url + '/'} exact
@@ -69,7 +66,7 @@ class CompetitionDetails extends Component {
               <Route path={this.props.match.url + '/overview'}
                 render={(props) => {
                   return (
-                    <CompetitionInfo competitionData={this.state.competitionData}></CompetitionInfo>)
+                    <CompetitionInfo competitionData={this.props.currentCompetition}></CompetitionInfo>)
                 }
                 } />
               <Route path={this.props.match.url + '/competition-rounds'}
@@ -99,5 +96,16 @@ class CompetitionDetails extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    currentCompetition: state.competitions.currentCompetition
+  }
+};
 
-export default connect()(CompetitionDetails);
+const mapDispatchToProps = dispatch => {
+  return {
+    loadCompetition: (competitionId) => dispatch(actionCreators.loadCompetition(competitionId))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CompetitionDetails);

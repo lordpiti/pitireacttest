@@ -1,30 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 import BasicDropzone from '../../components/BasicDropzone/BasicDropzone';
-import apiInstance from '../../utilities/axios-test';
+import FormValidator from '../../utilities/FormValidator';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/competitions';
 
-const CompetitionInfo = (props) => {
+class CompetitionInfo extends Component {
 
-	const submitImage = (image, fileName) => {
-		apiInstance.post('GlobalMedia/UploadBase64Image', 
-			{ Base64String: image, FileName: fileName })
-			.then(response => {
-				props.competitionData.logo = response.data;
-				apiInstance.post('competition/saveCompetitionDetails', 
-					props.competitionData)
-				.then(response2 => {
-					console.log(response2);
-				})
-		})
+	constructor(props) {
+		super(props);
+		this.validator = new FormValidator([
+			{
+				field: 'name',
+				method: 'isEmpty',
+				validWhen: false,
+				message: 'Name is required'
+			}
+		]);
+
+		let newone = {
+			validation: this.validator.valid(),
+			currentImage: null
+		};
+
+		Object.assign(newone, props.competitionData);
+		this.state = newone;
+
+		this.submitted = false;
 	}
 
-	const callbackDropzone = (files) => {
+	callbackDropzone = (files) => {
 		let fileToUpload = null;
 		files.forEach(file => {
 			const reader = new FileReader();
 			reader.onload = () => {
 				// do whatever you want with the file content
 				fileToUpload = reader.result;
-				submitImage(fileToUpload, 'test.png');
+
+				this.setState({
+					currentImage: {
+						data: fileToUpload,
+						fileName: 'test.png'
+					}
+				})
 			};
 			reader.onabort = () => console.log('file reading was aborted');
 			reader.onerror = () => console.log('file reading has failed');
@@ -32,22 +49,88 @@ const CompetitionInfo = (props) => {
 		});
 	}
 
-	const dropzoneSettings = {
+	dropzoneSettings = {
 		multipleFiles: false,
-		callback: callbackDropzone
+		callback: this.callbackDropzone
+	}
+
+	handleInputChange = event => {
+		event.preventDefault();
+
+		this.setState({
+			[event.target.name]: event.target.value,
+		});
+	}
+
+	handleFormSubmit = event => {
+		event.preventDefault();
+
+		const validation = this.validator.validate(this.state);
+		this.setState({ validation });
+
+		this.submitted = true;
+
+		if (validation.isValid) {
+			let image = null;
+
+			if (this.state.currentImage) {
+				image = {
+					data: this.state.currentImage.data,
+					fileName: this.state.currentImage.fileName
+				};
+			}
+			this.props.saveCompetition(image, this.state);
+		}
 	}
 
 
-	return (
-		<div>
-			<h1>Competition Basic Info</h1>
-			<img src={props.competitionData.logo.url} />
-			{props.competitionData.name}
-			{/* <button onClick={}>Save data!</button> */}
-			<BasicDropzone settings={dropzoneSettings} />
-			competition info!!
-		</div>
-	)
+	render() {
+		let validation = this.submitted ?         // if the form has been submitted at least once
+			this.validator.validate(this.state) :   // then check validity every time we render
+			this.state.validation                   // otherwise just use what's in state
+
+		return (
+			<div>
+				<h1>Competition Basic Info</h1>
+				<div className="row">
+					<div className="col-sm-9">
+						<form className="demoForm">
+							<div className={validation.name.isInvalid && 'has-error'}>
+								<label htmlFor="name">Name</label>
+								<input type="text" className="form-control"
+									name="name"
+									placeholder="competition name"
+									onChange={this.handleInputChange}
+									value={this.state.name}
+								/>
+								<span className="help-block">{validation.name.message}</span>
+							</div>
+
+							<button onClick={this.handleFormSubmit} className="btn btn-primary">
+								Save
+					</button>
+						</form>
+					</div>
+					<div className="col-sm-3">
+						<img src={this.props.competitionData.logo.url} height="100" width="100" />
+						<BasicDropzone settings={this.dropzoneSettings} />
+					</div>
+				</div>
+			</div>
+		);
+	}
 };
 
-export default CompetitionInfo;
+const mapStateToProps = state => {
+	return {
+		currentCompetition: state.competitions.currentCompetition
+	}
+};
+
+const mapDispatchToProps = dispatch => {
+	return {
+		saveCompetition: (image, competitionData) => dispatch(actionCreators.saveCompetition(image, competitionData))
+	}
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CompetitionInfo);
