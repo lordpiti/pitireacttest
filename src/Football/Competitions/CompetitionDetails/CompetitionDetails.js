@@ -44,7 +44,9 @@ class CompetitionDetails extends Component {
       else {
         competitionTypeContent = <CompetitionDraw match={this.props.match} competitionData={this.props.currentCompetition} ></CompetitionDraw>;
       }
-
+      // By putting "component=xxx" in the Route to render a component, we force that everytime 'xxx' changes,
+      // the child component runs the whole life cycle, including the constructor
+      // Normally this is not needed so better to use "render=xxx" which will only run the render method in the child component  
       pageContent =
         <div className="CompetitionDetails">
           <div className="row">
@@ -64,7 +66,7 @@ class CompetitionDetails extends Component {
                 component={Match}
               />
               <Route path={this.props.match.url + '/overview'}
-                render={(props) => {
+                component={(props) => {
                   return (
                     <CompetitionInfo competitionData={this.props.currentCompetition}></CompetitionInfo>)
                 }

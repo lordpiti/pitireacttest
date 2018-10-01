@@ -57,7 +57,7 @@ class PlayerDetails extends Component {
                 render={() => (<Redirect to={this.props.match.url + '/overview'} />)}
               />
               <Route path={this.props.match.url + '/overview'}
-                render={(props) => {
+                component={(props) => {
                   const PlayerInfo = asyncPlayerInfo; 
                   return (         
                     <PlayerInfo playerData={this.props.currentPlayer} id={playerId}></PlayerInfo>)

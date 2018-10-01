@@ -101,7 +101,7 @@ class CompetitionDraw extends Component {
                             </span>
                         </div>
                         <div className="m_dtls">
-                            <a routerLink="/competitions/detail/{{competitionData.id}}/match/{{draw.final.matchId}}">
+                            <a routerLink="/competitions/competition-detail/{{competitionData.id}}/match/{{draw.final.matchId}}">
                                 <span>{this.state.draw.final.date}</span>
                             </a>
                         </div>
