@@ -45,6 +45,7 @@ export const saveTeam = (image, teamData) => {
       axiosInstance.post(`team/saveTeamDetails`, teamData).then( response => {
         dispatch(saveTeamSuccess(teamData));
         dispatch(globalActionCreators.updateLoadingSpinner(false));
+        dispatch(globalActionCreators.acToastDashMessage("Team Info has been saved"));
       });
     }
     else {

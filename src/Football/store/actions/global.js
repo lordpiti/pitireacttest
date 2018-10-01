@@ -6,3 +6,18 @@ export const updateLoadingSpinner = (isLoading) => {
       payload: isLoading
   };
 };
+
+export const acToastDashMessage = (message) => {
+  return {
+    type: actionTypes.TOAST_DASH_MESSAGE,
+    payload:message
+  };
+
+}
+export const acToastDashClear = () => {
+  
+  return {
+    type: actionTypes.TOAST_DASH_CLEAR
+  };
+
+}
