@@ -3,18 +3,7 @@ import BasicDropzone from '../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../utilities/FormValidator';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/teams';
-import * as globalActionCreators from '../../store/actions/global';
-import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 
-const styles = theme => ({
-  close: {
-    padding: theme.spacing.unit / 2,
-  },
-});
 
 class TeamInfo extends Component {
 
@@ -95,13 +84,7 @@ class TeamInfo extends Component {
 		}
 	}
 
-  handleClose = () => {
-		this.props.hideToaster();
-  };
-
 	render() {
-
-		const { classes } = this.props;
 
 		let validation = this.submitted ?         // if the form has been submitted at least once
 			this.validator.validate(this.state) :   // then check validity every time we render
@@ -134,34 +117,6 @@ class TeamInfo extends Component {
 						<BasicDropzone settings={this.dropzoneSettings} />
 					</div>
 				</div>
-					<Snackbar
-						anchorOrigin={{
-							vertical: 'bottom',
-							horizontal: 'right',
-						}}
-						open={this.props.open}
-          	message={this.props.message}
-						autoHideDuration={6000}
-						onClose={this.handleClose}
-						ContentProps={{
-							'aria-describedby': 'message-id',
-						}}
-						action={[
-							<Button key="undo" color="secondary" size="small" onClick={this.handleClose}>
-								UNDO
-							</Button>,
-							<IconButton
-								key="close"
-								aria-label="Close"
-								color="inherit"
-								className={classes.close}
-								onClick={this.handleClose}
-							>
-								<CloseIcon />
-							</IconButton>,
-						]}
-					/>
-			
 			</div>
 		);
 	}
@@ -169,17 +124,14 @@ class TeamInfo extends Component {
 
 const mapStateToProps = state => {
 	return {
-		currentTeam: state.teams.currentTeam,
-		open: state.global.dash.open,
-		message: state.global.dash.message
+		currentTeam: state.teams.currentTeam
 	}
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		saveTeam: (image, teamData) => dispatch(actionCreators.saveTeam(image, teamData)),
-		hideToaster: () => dispatch(globalActionCreators.acToastDashClear())
+		saveTeam: (image, teamData) => dispatch(actionCreators.saveTeam(image, teamData))
 	}
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(TeamInfo));
+export default connect(mapStateToProps, mapDispatchToProps)(TeamInfo);

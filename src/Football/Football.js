@@ -13,6 +13,7 @@ import Modal from '@material-ui/core/Modal';
 import { connect } from 'react-redux';
 
 import './Football.css';
+import CustomSnackbar from './components/CustomSnackbar/CustomSnackbar';
 
 
 
@@ -83,6 +84,7 @@ class Football extends Component {
               </div>
             </Modal>
           </div>
+          <CustomSnackbar></CustomSnackbar>
           {/* <Route path="/" exact render={() => <h1>Home</h1>} />
           <Route path="/" render={() => <h1>Home 2</h1>} /> 
           <Route path="/" exact component={Teams} />*/}
