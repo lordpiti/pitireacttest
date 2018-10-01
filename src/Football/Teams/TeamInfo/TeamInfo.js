@@ -1,186 +1,136 @@
 import React, { Component } from 'react';
-import './Form.css';
+import BasicDropzone from '../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../utilities/FormValidator';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/teams';
 
-class Form extends Component {
-  constructor() {
-    super();
+class TeamInfo extends Component {
 
-    this.validator = new FormValidator([
-      {
-        field: 'email',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Email is required.'
-      },
-      {
-        field: 'email',
-        method: 'isEmail',
-        validWhen: true,
-        message: 'That is not a valid email.'
-      },
-      {
-        field: 'phone',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Pleave provide a phone number.'
-      },
-      {
-        field: 'phone',
-        method: 'matches',
-        args: [/^\(?\d\d\d\)? ?\d\d\d-?\d\d\d\d$/], // args is an optional array of arguements that will be passed to the validation method
-        validWhen: true,
-        message: 'That is not a valid phone number.'
-      },
-      {
-        field: 'password',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Password is required.'
-      },
-      {
-        field: 'password_confirmation',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Password confirmation is required.'
-      },
-      {
-        field: 'password_confirmation',
-        method: this.passwordMatch,   // notice that we are passing a custom function here
-        validWhen: true,
-        message: 'Password and password confirmation do not match.'
-      },
-      {
-        field: 'selected_items',
-        method: this.selectedlessThan2Items,   // notice that we are passing a custom function here
-        validWhen: false,
-        message: 'You must select at least 2 items.'
-      }
-    ]);
+	constructor(props) {
+		super(props);
+		this.validator = new FormValidator([
+			{
+				field: 'name',
+				method: 'isEmpty',
+				validWhen: false,
+				message: 'Name is required'
+			}
+		]);
 
-    this.state = {
-      email: '',
-      phone: '',
-      password: '',
-      password_confirmation: '',
-      validation: this.validator.valid(),
-      selected_items: [{ name: 'item 1', value: false },
-      { name: 'item 2', value: false },
-      { name: 'item 3', value: false }]
-    }
+		let newone = {
+			validation: this.validator.valid(),
+			currentImage: null
+		};
 
-    this.submitted = false;
-  }
+		Object.assign(newone, props.teamData);
+		this.state = newone;
 
-  passwordMatch = (confirmation, state) => (state.password === confirmation)
+		this.submitted = false;
+	}
 
-  selectedlessThan2Items = () => {
-    
-    return (this.state.selected_items.filter(x => x.value).length < 2 && this.submitted);
-  }
+	callbackDropzone = (files) => {
+		let fileToUpload = null;
+		files.forEach(file => {
+			const reader = new FileReader();
+			reader.onload = () => {
+				// do whatever you want with the file content
+				fileToUpload = reader.result;
 
-  handleInputChange = event => {
-    event.preventDefault();
+				this.setState({
+					currentImage: {
+						data: fileToUpload,
+						fileName: 'test.png'
+					}
+				})
+			};
+			reader.onabort = () => console.log('file reading was aborted');
+			reader.onerror = () => console.log('file reading has failed');
+			reader.readAsDataURL(file);
+		});
+	}
 
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  }
+	dropzoneSettings = {
+		multipleFiles: false,
+		callback: this.callbackDropzone
+	}
 
-  handleInputChange2 = (event, index) => {
+	handleInputChange = event => {
+		event.preventDefault();
 
-    const items = this.state.selected_items.slice();
-    items[index].value = event.target.checked;
+		this.setState({
+			[event.target.name]: event.target.value,
+		});
+	}
 
-    this.setState({
-      items: items
-    });
-  }
+	handleFormSubmit = event => {
+		event.preventDefault();
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    
-    const validation = this.validator.validate(this.state);
-    this.setState({ validation });
-    this.submitted = true;
+		const validation = this.validator.validate(this.state);
+		this.setState({ validation });
 
-    if (validation.isValid) {
-      // handle actual form submission here
-    }
-  }
+		this.submitted = true;
 
-  render() {
+		if (validation.isValid) {
+			let image = null;
 
-    let validation = this.submitted ?                         // if the form has been submitted at least once
-      this.validator.validate(this.state) :   // then check validity every time we render
-      this.state.validation                   // otherwise just use what's in state
+			if (this.state.currentImage) {
+				image = {
+					data: this.state.currentImage.data,
+					fileName: this.state.currentImage.fileName
+				};
+			}
+			this.props.saveTeam(image, this.state);
+		}
+	}
 
-    return (
-      <div>
 
-        <form className="demoForm">
-          <h2>Sign up</h2>
+	render() {
+		let validation = this.submitted ?         // if the form has been submitted at least once
+			this.validator.validate(this.state) :   // then check validity every time we render
+			this.state.validation                   // otherwise just use what's in state
 
-          <div className={validation.email.isInvalid && 'has-error'}>
-            <label htmlFor="email">Email address</label>
-            <input type="email" className="form-control"
-              name="email"
-              placeholder="john@doe.com"
-              onChange={this.handleInputChange}
-            />
-            <span className="help-block">{validation.email.message}</span>
-          </div>
+		return (
+			<div>
+				<h1>Team Basic Info</h1>
+				<div className="row">
+					<div className="col-sm-9">
+						<form className="demoForm">
+							<div className={validation.name.isInvalid && 'has-error'}>
+								<label htmlFor="name">Name</label>
+								<input type="text" className="form-control"
+									name="name"
+									placeholder="team name"
+									onChange={this.handleInputChange}
+									value={this.state.name}
+								/>
+								<span className="help-block">{validation.name.message}</span>
+							</div>
 
-          <div className={validation.phone.isInvalid && 'has-error'}>
-            <label htmlFor="phone">Phone</label>
-            <input type="phone" className="form-control"
-              name="phone"
-              placeholder="(xxx)xxx-xxxx"
-              onChange={this.handleInputChange}
-            />
-            <span className="help-block">{validation.phone.message}</span>
-          </div>
+							<button onClick={this.handleFormSubmit} className="btn btn-primary">
+								Save
+					</button>
+						</form>
+					</div>
+					<div className="col-sm-3">
+						<img src={this.props.teamData.pictureLogo.url} height="100" width="100" />
+						<BasicDropzone settings={this.dropzoneSettings} />
+					</div>
+				</div>
+			</div>
+		);
+	}
+};
 
-          <div className={validation.password.isInvalid && 'has-error'}>
-            <label htmlFor="password">Password</label>
-            <input type="password" className="form-control"
-              name="password"
-              onChange={this.handleInputChange}
-            />
-            <span className="help-block">{validation.password.message}</span>
-          </div>
+const mapStateToProps = state => {
+	return {
+		currentTeam: state.teams.currentTeam
+	}
+};
 
-          <div className={validation.password_confirmation.isInvalid && 'has-error'}>
-            <label htmlFor="password_confirmation">Password Again</label>
-            <input type="password" className="form-control"
-              name="password_confirmation"
-              onChange={this.handleInputChange}
-            />
-            <span className="help-block">{validation.password_confirmation.message}</span>
-          </div>
+const mapDispatchToProps = dispatch => {
+	return {
+		saveTeam: (image, teamData) => dispatch(actionCreators.saveTeam(image, teamData))
+	}
+};
 
-          <div className={validation.selected_items.isInvalid && 'has-error'}>
-
-            {this.state.selected_items.map((item, index) =>
-              <div key={index}>
-                <label htmlFor={item.name}>{item.name}</label>
-                <input
-                  name={item.name}
-                  type="checkbox" className="form-control"
-                  checked={this.state.selected_items[index].value}
-                  onChange={(event) => this.handleInputChange2(event, index)} />
-                <span className="help-block">{item.name}</span>
-              </div>
-            )}
-            <span className="help-block">{validation.selected_items.message}</span>
-          </div>
-          <button onClick={this.handleFormSubmit} className="btn btn-primary">
-            Sign up
-        </button>
-        </form>
-      </div>
-
-    )
-  }
-}
-export default Form;
+export default connect(mapStateToProps, mapDispatchToProps)(TeamInfo);

@@ -1,34 +1,28 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import TeamInfo from '../TeamInfo/TeamInfo';
+import ComplexForm from '../ComplexForm/ComplexForm';
 import TeamSquad from '../TeamSquad/TeamSquad';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import TeamStadium from '../TeamStadium/TeamStadium';
-import apiInstance from '../../utilities/axios-test';
+import { connect } from 'react-redux';
+import * as actionCreators from '../../store/actions/teams';
+
 
 class TeamDetails extends Component {
 
-  constructor(props) {
-    super(props);
-    apiInstance.get(`team/teams/${props.match.params.id}/year/2009/`).then(response => {
-      this.setState({
-        teamData: response.data
-      });
-    });
-  }
-
-  state = {
-    teamData: null
+  componentDidMount() {
+    this.props.loadTeam(this.props.match.params.id);
   }
 
   render() {
     let content, menuContent = null;
 
-    if (this.state.teamData) {
+    if (this.props.currentTeam) {
       menuContent = 
       <div className="margin-bottom-medium">
-        <img src={this.state.teamData.pictureLogo.url} className="roundedImage" height="50" width="50" />
-        <span>{this.state.teamData.name}</span>
+        <img src={this.props.currentTeam.pictureLogo.url} className="roundedImage" height="50" width="50" />
+        <span>{this.props.currentTeam.name}</span>
       </div>
       content =
         <div>
@@ -36,15 +30,15 @@ class TeamDetails extends Component {
             render={() => (<Redirect to={this.props.match.url + '/overview'} />)}
           />
           <Route path={this.props.match.url + '/overview'}
-            render={(props) => {
+            component={(props) => {
               return (
-                <TeamInfo id={teamId}></TeamInfo>)
+                <TeamInfo id={teamId} teamData={this.props.currentTeam}></TeamInfo>)
             }
             } />
           <Route path={this.props.match.url + '/team-squad'}
             render={(props) => {
               return (
-                <TeamSquad players={this.state.teamData.playerList}></TeamSquad>)
+                <TeamSquad players={this.props.currentTeam.playerList}></TeamSquad>)
             }
             }
           />
@@ -52,10 +46,17 @@ class TeamDetails extends Component {
           <Route path={this.props.match.url + '/team-stadium'}
             render={(props) => {
               return (
-                <TeamStadium stadium={this.state.teamData.stadium}></TeamStadium>)
+                <TeamStadium stadium={this.props.currentTeam.stadium}></TeamStadium>)
             }
             }
           />
+
+          <Route path={this.props.match.url + '/complex-form-sample'}
+            component={(props) => {
+              return (
+                <ComplexForm id={teamId}></ComplexForm>)
+            }
+          } />
         </div>
     }
 
@@ -73,6 +74,11 @@ class TeamDetails extends Component {
       {
         name: 'Stadium',
         url: this.props.match.url + '/team-stadium'
+      },
+      ,
+      {
+        name: 'Complex form sample',
+        url: this.props.match.url + '/complex-form-sample'
       }
     ];
 
@@ -93,4 +99,16 @@ class TeamDetails extends Component {
   }
 }
 
-export default TeamDetails;
+const mapStateToProps = state => {
+  return {
+    currentTeam: state.teams.currentTeam
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadTeam: (teamId) => dispatch(actionCreators.loadTeam(teamId))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TeamDetails);

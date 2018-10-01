@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-  currentTeam: {}
+
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,6 +10,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         teamList: action.payload
+      }
+    case actionTypes.LOAD_TEAM:
+      return {
+          ...state,
+          currentTeam: action.payload
+      }
+    case actionTypes.SAVE_TEAM:
+      return {
+          ...state,
+          currentTeam: action.payload
       }
     default: break;
   }

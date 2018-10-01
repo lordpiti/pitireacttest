@@ -18,3 +18,55 @@ export const loadTeams = () => {
     });
   }
 };
+
+export const loadTeamSuccess = (teamData) => {
+  return {
+      type: actionTypes.LOAD_TEAM,
+      payload: teamData
+  };
+};
+
+export const loadTeam = (id) => {
+  return dispatch => {
+    dispatch(globalActionCreators.updateLoadingSpinner(true));
+    axiosInstance.get(`team/teams/${id}/year/2009/`).then( response => {
+      dispatch(loadTeamSuccess(response.data));
+      dispatch(globalActionCreators.updateLoadingSpinner(false));
+    });
+  }
+};
+
+export const saveTeam = (image, teamData) => {
+
+  return dispatch => {
+    dispatch(globalActionCreators.updateLoadingSpinner(true));
+
+    if (!image) {
+      axiosInstance.post(`team/saveTeamDetails`, teamData).then( response => {
+        dispatch(saveTeamSuccess(teamData));
+        dispatch(globalActionCreators.updateLoadingSpinner(false));
+      });
+    }
+    else {
+
+      axiosInstance.post('GlobalMedia/UploadBase64Image',
+        { Base64String: image.data, FileName: image.fileName })
+        .then(response => {
+          const updatedTeamData = { ...teamData, pictureLogo: response.data }
+          axiosInstance.post(`team/saveTeamDetails`, updatedTeamData).then( response => {
+            dispatch(saveTeamSuccess(updatedTeamData));
+            dispatch(globalActionCreators.updateLoadingSpinner(false));
+          });
+        })
+    }
+
+  }
+};
+
+
+export const saveTeamSuccess = (teamData) => {
+  return {
+      type: actionTypes.SAVE_TEAM,
+      payload: teamData
+  };
+};

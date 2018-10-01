@@ -17,3 +17,5 @@ export const LOAD_COMPETITION = 'LOAD_COMPETITION';
 
 //Teams
 export const LOAD_TEAM_LIST = 'LOAD_TEAM_LIST';
+export const LOAD_TEAM = 'LOAD_TEAM';
+export const SAVE_TEAM = 'SAVE_TEAM';
