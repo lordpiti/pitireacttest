@@ -17,13 +17,12 @@ class CompetitionInfo extends Component {
 			}
 		]);
 
-		let newone = {
+		let newState = { 
+			competitionData: props.competitionData,
 			validation: this.validator.valid(),
 			currentImage: null
 		};
 
-		let newState = { ...props.competitionData };
-		Object.assign(newState, newone);
     	this.state = newState;
 
 		this.submitted = false;
@@ -59,14 +58,17 @@ class CompetitionInfo extends Component {
 		event.preventDefault();
 
 		this.setState({
-			[event.target.name]: event.target.value,
+			competitionData: {
+				...this.state.competitionData,
+				[event.target.name]: event.target.value
+			}
 		});
 	}
 
 	handleFormSubmit = event => {
 		event.preventDefault();
 
-		const validation = this.validator.validate(this.state);
+		const validation = this.validator.validate(this.state.competitionData);
 		this.setState({ validation });
 
 		this.submitted = true;
@@ -80,14 +82,14 @@ class CompetitionInfo extends Component {
 					fileName: this.state.currentImage.fileName
 				};
 			}
-			this.props.saveCompetition(image, this.state);
+			this.props.saveCompetition(image, this.state.competitionData);
 		}
 	}
 
 
 	render() {
 		let validation = this.submitted ?         // if the form has been submitted at least once
-			this.validator.validate(this.state) :   // then check validity every time we render
+			this.validator.validate(this.state.competitionData) :   // then check validity every time we render
 			this.state.validation                   // otherwise just use what's in state
 
 		return (
@@ -102,7 +104,7 @@ class CompetitionInfo extends Component {
 									name="name"
 									placeholder="competition name"
 									onChange={this.handleInputChange}
-									value={this.state.name}
+									value={this.state.competitionData.name}
 								/>
 								<span className="help-block">{validation.name.message}</span>
 							</div>

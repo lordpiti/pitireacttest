@@ -8,7 +8,6 @@ import * as actionCreators from '../../store/actions/teams';
 class TeamInfo extends Component {
 
 	constructor(props) {
-		debugger;
 		super(props);
 		this.validator = new FormValidator([
 			{
@@ -19,14 +18,12 @@ class TeamInfo extends Component {
 			}
 		]);
 
-		let newone = {
+		let newState = { 
+			teamData: props.teamData,
 			validation: this.validator.valid(),
 			currentImage: null
 		};
 
-		let newState = { ...props.teamData };
-
-		Object.assign(newState, newone);
 		this.state = newState;
 
 		this.submitted = false;
@@ -62,7 +59,10 @@ class TeamInfo extends Component {
 		event.preventDefault();
 
 		this.setState({
-			[event.target.name]: event.target.value,
+			teamData: {
+				...this.state.teamData,
+				[event.target.name]: event.target.value
+			}		
 		});
 	}
 
@@ -70,7 +70,7 @@ class TeamInfo extends Component {
 		debugger;
 		event.preventDefault();
 
-		const validation = this.validator.validate(this.state);
+		const validation = this.validator.validate(this.state.teamData);
 		this.setState({ validation });
 
 		this.submitted = true;
@@ -84,14 +84,14 @@ class TeamInfo extends Component {
 					fileName: this.state.currentImage.fileName
 				};
 			}
-			this.props.saveTeam(image, this.state);
+			this.props.saveTeam(image, this.state.teamData);
 		}
 	}
 
 	render() {
 
 		let validation = this.submitted ?         // if the form has been submitted at least once
-			this.validator.validate(this.state) :   // then check validity every time we render
+			this.validator.validate(this.state.teamData) :   // then check validity every time we render
 			this.state.validation                   // otherwise just use what's in state
 
 		return (
@@ -106,7 +106,7 @@ class TeamInfo extends Component {
 									name="name"
 									placeholder="team name"
 									onChange={this.handleInputChange}
-									value={this.state.name}
+									value={this.state.teamData.name}
 								/>
 								<span className="help-block">{validation.name.message}</span>
 							</div>

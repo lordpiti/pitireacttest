@@ -29,9 +29,13 @@ class PlayerInfo extends Component {
       currentImage: null
     };
 
-    let newState = { ...props.playerData };
-		Object.assign(newState, newone);
-    this.state = newState;
+		let newState = { 
+			playerData: props.playerData,
+			validation: this.validator.valid(),
+			currentImage: null
+		};
+
+		this.state = newState;
     
     this.submitted = false;
   }
@@ -65,15 +69,18 @@ class PlayerInfo extends Component {
   handleInputChange = event => {
     event.preventDefault();
 
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
+		this.setState({
+			playerData: {
+				...this.state.playerData,
+				[event.target.name]: event.target.value
+			}		
+		});
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
 
-    const validation = this.validator.validate(this.state);
+    const validation = this.validator.validate(this.state.playerData);
     this.setState({ validation });
 
     this.submitted = true;
@@ -87,14 +94,14 @@ class PlayerInfo extends Component {
           fileName: this.state.currentImage.fileName 
         };
       }
-      this.props.savePlayer(image, this.state);
+      this.props.savePlayer(image, this.state.playerData);
     }
   }
 
   render() {
 
     let validation = this.submitted ?         // if the form has been submitted at least once
-      this.validator.validate(this.state) :   // then check validity every time we render
+      this.validator.validate(this.state.playerData) :   // then check validity every time we render
       this.state.validation                   // otherwise just use what's in state
 
     return (
@@ -109,7 +116,7 @@ class PlayerInfo extends Component {
                   name="name"
                   placeholder="player name"
                   onChange={this.handleInputChange}
-                  value={this.state.name}
+                  value={this.state.playerData.name}
                 />
                 <span className="help-block">{validation.name.message}</span>
               </div>
@@ -120,15 +127,20 @@ class PlayerInfo extends Component {
                   name="surname"
                   placeholder="player surname"
                   onChange={this.handleInputChange}
-                  value={this.state.surname}
+                  value={this.state.playerData.surname}
                 />
                 <span className="help-block">{validation.surname.message}</span>
               </div>
 
               <LocationSearchInput
-                value={this.state.birthPlace}
+                value={this.state.playerData.birthPlace}
                 onChange={birthPlace => {
-                  this.setState({ birthPlace: birthPlace });
+                  this.setState({ 
+                    playerData: { 
+                      ...this.state.playerData,
+                      birthPlace: birthPlace 
+                    }
+                  });
                 }}
               >
                 {/* custom render function */}
