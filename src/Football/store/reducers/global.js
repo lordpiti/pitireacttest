@@ -22,7 +22,8 @@ const reducer = (state = initialState, action) => {
           ...state,
           dash: {
             message: action.payload,
-            open: true
+            open: true,
+            toasterType: action.toasterType
           }
         };
       }
@@ -33,7 +34,8 @@ const reducer = (state = initialState, action) => {
           ...state,
           dash: {
             message: "",
-            open: false
+            open: false,
+            toasterType: state.dash.toasterType
           }
         };
       }

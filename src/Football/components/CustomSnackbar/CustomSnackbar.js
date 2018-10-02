@@ -133,7 +133,7 @@ class CustomSnackbar extends Component {
       >
       <MySnackbarContentWrapper
             onClose={this.handleClose}
-            variant="success"
+            variant={this.props.toasterType}
             message={this.props.message}
           />
       </Snackbar>
@@ -146,7 +146,8 @@ const MySnackbarContentWrapper = withStyles(styles1)(MySnackbarContent);
 const mapStateToProps = state => {
   return {
     open: state.global.dash.open,
-    message: state.global.dash.message
+    message: state.global.dash.message,
+    toasterType: state.global.dash.toasterType
   }
 };
 

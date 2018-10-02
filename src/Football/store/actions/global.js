@@ -7,10 +7,11 @@ export const updateLoadingSpinner = (isLoading) => {
   };
 };
 
-export const acToastDashMessage = (message) => {
+export const acToastDashMessage = (message, toasterType) => {
   return {
     type: actionTypes.TOAST_DASH_MESSAGE,
-    payload:message
+    payload:message,
+    toasterType: toasterType
   };
 
 }

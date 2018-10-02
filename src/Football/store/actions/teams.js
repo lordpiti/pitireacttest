@@ -45,7 +45,7 @@ export const saveTeam = (image, teamData) => {
       axiosInstance.post(`team/saveTeamDetails`, teamData).then( response => {
         dispatch(saveTeamSuccess(teamData));
         dispatch(globalActionCreators.updateLoadingSpinner(false));
-        dispatch(globalActionCreators.acToastDashMessage("Team Info has been saved"));
+        dispatch(globalActionCreators.acToastDashMessage("Team Info has been saved", "success")); //success, warning, error or info
       });
     }
     else {
@@ -57,6 +57,7 @@ export const saveTeam = (image, teamData) => {
           axiosInstance.post(`team/saveTeamDetails`, updatedTeamData).then( response => {
             dispatch(saveTeamSuccess(updatedTeamData));
             dispatch(globalActionCreators.updateLoadingSpinner(false));
+            dispatch(globalActionCreators.acToastDashMessage("Team Info has been saved", "success")); //success, warning, error or info
           });
         })
     }
