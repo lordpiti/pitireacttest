@@ -22,8 +22,9 @@ class CompetitionInfo extends Component {
 			currentImage: null
 		};
 
-		Object.assign(newone, props.competitionData);
-		this.state = newone;
+		let newState = { ...props.competitionData };
+		Object.assign(newState, newone);
+    	this.state = newState;
 
 		this.submitted = false;
 	}

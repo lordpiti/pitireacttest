@@ -98,6 +98,7 @@ export const saveCompetition = (image, competitionData) => {
       axiosInstance.post(`competition/saveCompetitionDetails`, competitionData).then( response => {
         dispatch(saveCompetitionSuccess(competitionData));
         dispatch(globalActionCreators.updateLoadingSpinner(false));
+        dispatch(globalActionCreators.acToastDashMessage("Competition Info has been saved", "success")); //success, warning, error or info
       });
     }
     else {
@@ -109,6 +110,7 @@ export const saveCompetition = (image, competitionData) => {
           axiosInstance.post(`competition/saveCompetitionDetails`, updatedCompetitionData).then( response => {
             dispatch(saveCompetitionSuccess(updatedCompetitionData));
             dispatch(globalActionCreators.updateLoadingSpinner(false));
+            dispatch(globalActionCreators.acToastDashMessage("Competition Info has been saved", "success")); //success, warning, error or info
           });
         })
     }

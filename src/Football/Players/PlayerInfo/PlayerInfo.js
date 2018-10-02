@@ -28,9 +28,11 @@ class PlayerInfo extends Component {
       validation: this.validator.valid(),
       currentImage: null
     };
-    Object.assign(newone, props.playerData);
-    this.state = newone;
 
+    let newState = { ...props.playerData };
+		Object.assign(newState, newone);
+    this.state = newState;
+    
     this.submitted = false;
   }
 

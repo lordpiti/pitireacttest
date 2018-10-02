@@ -8,6 +8,7 @@ import * as actionCreators from '../../store/actions/teams';
 class TeamInfo extends Component {
 
 	constructor(props) {
+		debugger;
 		super(props);
 		this.validator = new FormValidator([
 			{
@@ -23,8 +24,10 @@ class TeamInfo extends Component {
 			currentImage: null
 		};
 
-		Object.assign(newone, props.teamData);
-		this.state = newone;
+		let newState = { ...props.teamData };
+
+		Object.assign(newState, newone);
+		this.state = newState;
 
 		this.submitted = false;
 	}
@@ -64,6 +67,7 @@ class TeamInfo extends Component {
 	}
 
 	handleFormSubmit = event => {
+		debugger;
 		event.preventDefault();
 
 		const validation = this.validator.validate(this.state);

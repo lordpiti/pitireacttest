@@ -61,6 +61,7 @@ export const savePlayer = (image, playerData) => {
       axiosInstance.post(`player/savePlayerDetails`, playerData).then( response => {
         dispatch(savePlayerSuccess(playerData));
         dispatch(globalActionCreators.updateLoadingSpinner(false));
+        dispatch(globalActionCreators.acToastDashMessage("Player Info has been saved", "success")); //success, warning, error or info
       });
     }
     else {
@@ -72,6 +73,7 @@ export const savePlayer = (image, playerData) => {
           axiosInstance.post(`player/savePlayerDetails`, updatedPlayerData).then( response => {
             dispatch(savePlayerSuccess(updatedPlayerData));
             dispatch(globalActionCreators.updateLoadingSpinner(false));
+            dispatch(globalActionCreators.acToastDashMessage("Player Info has been saved", "success")); //success, warning, error or info
           });
         })
     }
