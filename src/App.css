@@ -40,3 +40,7 @@ ul{ list-style-type: none; }
 .margin-top-large {
   margin-top: 20px;
 }
+
+.padding-top-sm {
+  padding-top: 10px;
+}

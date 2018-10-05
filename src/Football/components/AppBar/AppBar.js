@@ -58,14 +58,21 @@ function ButtonAppBar(props) {
             
           </Typography>
           {/* <Button color="inherit">Login</Button> */}
+          <div className="row">
           <FacebookLoginButton
             authenticationToken={props.authenticationToken}
             showLogoutButton = {facebookAuthenticationType}
             authenticationTokenUpdate={(token) => props.onUpdateAuthenticationToken(token)} />
+          
           <GoogleLoginButton
             authenticationToken={props.authenticationToken}
             showLogoutButton = {!facebookAuthenticationType}
             authenticationTokenUpdate={(token) => props.onUpdateAuthenticationToken(token)} />
+          
+
+
+          </div>
+
         </Toolbar>
       </AppBar>
     </div>
