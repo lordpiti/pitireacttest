@@ -1,4 +1,5 @@
 import React from 'react';
+import Formatters from '../../../utilities/formatters';
 
 const CompetitionDrawMatch = ( props ) => {
 
@@ -25,7 +26,7 @@ const CompetitionDrawMatch = ( props ) => {
           </div>
           <div className="m_dtls">
               <a routerLink="/competitions/detail/{{competitionData.id}}/match/{{match.matchId}}">
-                  <span>{props.match.date}</span>
+                  <span>{Formatters.formatDate(props.match.date)}</span>
               </a>        
           </div>
       </div>

@@ -5,7 +5,7 @@
 }
 
 .brackets_container .truncate {
-  width: 50px;
+  width: 80px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

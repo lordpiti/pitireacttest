@@ -18,18 +18,10 @@ class CompetitionDetails extends Component {
   render() {
     const competitionId = this.props.match.params.id;
 
-    const menuItemList = [
+    let menuItemList = [
       {
         name: 'Summary',
         url: this.props.match.url + '/overview'
-      },
-      {
-        name: 'Rounds',
-        url: this.props.match.url + '/competition-rounds'
-      },
-      {
-        name: 'Statistics',
-        url: this.props.match.url + '/competition-statistics'
       }
     ];
 
@@ -39,9 +31,21 @@ class CompetitionDetails extends Component {
 
     if (this.props.currentCompetition) {
       if (this.props.currentCompetition.type !== 'Playoff') {
+        menuItemList = menuItemList.concat([{
+          name: 'Rounds',
+          url: this.props.match.url + '/competition-rounds'
+        },
+        {
+          name: 'Statistics',
+          url: this.props.match.url + '/competition-statistics'
+        }]);
         competitionTypeContent = <CompetitionRounds competitionData={this.props.currentCompetition} {...this.props} ></CompetitionRounds>;
       }
       else {
+        menuItemList.push({
+          name: 'Draw',
+          url: this.props.match.url + '/competition-rounds'
+        });
         competitionTypeContent = <CompetitionDraw match={this.props.match} competitionData={this.props.currentCompetition} ></CompetitionDraw>;
       }
       // By putting "component=xxx" in the Route to render a component, we force that everytime 'xxx' changes,

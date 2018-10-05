@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import apiInstance from '../../utilities/axios-test';
 import CompetitionDrawMatch from './CompetitionDrawMatch/CompetitionDrawMatch';
 import './CompetitionDraw.css';
+import Formatters from '../../utilities/formatters';
 
 class CompetitionDraw extends Component {
 
@@ -102,7 +103,7 @@ class CompetitionDraw extends Component {
                         </div>
                         <div className="m_dtls">
                             <a routerLink="/competitions/competition-detail/{{competitionData.id}}/match/{{draw.final.matchId}}">
-                                <span>{this.state.draw.final.date}</span>
+                                <span>{Formatters.formatDate(this.state.draw.final.date)}</span>
                             </a>
                         </div>
                     </div>

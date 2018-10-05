@@ -24,9 +24,19 @@ class TeamStadium extends Component {
 
     if (this.state.googleData) {
       mapComponent = 
-      <div>
+      <div className="margin-top-medium">
         <h1>Stadium</h1>
-        <MyMapComponent isMarkerShown googleData={this.state.googleData} />
+        <div className="row margin-top-large">
+          <div className="col-sm-6">
+            <h4>{this.props.stadium.name}</h4><br/>
+            {this.state.googleData.results[0].formatted_address}<br/>
+            {this.props.stadium.capacity.toLocaleString('en-GB')} people
+          </div>
+          <div className="col-sm-6">
+            <MyMapComponent isMarkerShown googleData={this.state.googleData} />
+          </div>
+        </div>
+        
       </div>  
     }
 

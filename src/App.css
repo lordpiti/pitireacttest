@@ -32,3 +32,11 @@ ul{ list-style-type: none; }
 .margin-bottom-medium {
   margin-bottom: 10px;
 }
+
+.margin-top-medium {
+  margin-top: 10px;
+}
+
+.margin-top-large {
+  margin-top: 20px;
+}

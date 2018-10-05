@@ -32,6 +32,12 @@ class CompetitionsOverview extends Component {
               <div>{competition.name}</div>
             </Link>
           </TableCell>
+          <TableCell>
+            {competition.season}
+          </TableCell>
+          <TableCell>
+            {competition.type}
+          </TableCell>
         </TableRow>
       )
       totalTable = <Paper className={CompetitionsOverview.propTypes.classes.root}>
@@ -39,6 +45,8 @@ class CompetitionsOverview extends Component {
           <TableHead>
             <TableRow>
               <TableCell>Competition name</TableCell>
+              <TableCell>Season</TableCell>
+              <TableCell>Type</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

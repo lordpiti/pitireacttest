@@ -5,7 +5,6 @@ import LocationSearchInput from '../../components/PlacesAutocomplete/PlacesAutoc
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/players';
 import TextField from '@material-ui/core/TextField';
-import './PlayerInfo.css';
 
 class PlayerInfo extends Component {
 

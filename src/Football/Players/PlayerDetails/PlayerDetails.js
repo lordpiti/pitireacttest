@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, Link, Redirect } from 'react-router-dom';
 import asyncComponent from '../../hoc/asyncComponent/asyncComponent';
 import PlayerStatistics from '../PlayerStatistics/PlayerStatistics';
-import PlayerGraphicChart from '../PlayerGraphicChart/PlayerGraphicChart';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import Match from '../../Competitions/Match/Match';
 import { connect } from 'react-redux';
@@ -31,10 +30,6 @@ class PlayerDetails extends Component {
       {
         name: 'Statistics',
         url: this.props.match.url + '/player-statistics'
-      },
-      {
-        name: 'Charts',
-        url: this.props.match.url + '/player-charts'
       }
     ];
 
@@ -72,13 +67,6 @@ class PlayerDetails extends Component {
                 exact />
               <Route path={this.props.match.url + '/player-statistics/match/:id'}
                 component={Match}
-              />
-              <Route path={this.props.match.url + '/player-charts'}
-                render={(props) => {
-                  return (
-                    <PlayerGraphicChart id={playerId}></PlayerGraphicChart>)
-                }
-                }
               />
             </div>
           </div>

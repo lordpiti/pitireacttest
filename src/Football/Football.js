@@ -14,6 +14,7 @@ import { connect } from 'react-redux';
 
 import './Football.css';
 import CustomSnackbar from './components/CustomSnackbar/CustomSnackbar';
+import Home from './Home/Home';
 
 
 
@@ -69,6 +70,7 @@ class Football extends Component {
           authenticationToken={this.state.authenticationToken}
           onUpdateAuthenticationToken={(token) => this.updateAuthenticationToken(token)}
         />
+        <Route path="/" exact component={Home} />
         <div className="Football overview-container">
           <div>
             <Modal
@@ -83,11 +85,12 @@ class Football extends Component {
                 </Typography>
               </div>
             </Modal>
-          </div>
+          </div>        
           <CustomSnackbar></CustomSnackbar>
           {/* <Route path="/" exact render={() => <h1>Home</h1>} />
           <Route path="/" render={() => <h1>Home 2</h1>} /> 
           <Route path="/" exact component={Teams} />*/}
+          
           <Route path="/teams" component={Teams} />
           <Route path="/competitions" component={Competitions} />
           {/* <Route path="/players" component={Players} /> */}

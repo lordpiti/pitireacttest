@@ -114,7 +114,7 @@ class PlayersOverview extends Component {
   state = {
     rows: [],
     page: 0,
-    rowsPerPage: 5,
+    rowsPerPage: 10,
   };
 
   componentDidMount() {
