@@ -4,6 +4,8 @@ import FormValidator from '../../utilities/FormValidator';
 import LocationSearchInput from '../../components/PlacesAutocomplete/PlacesAutocomplete';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/players';
+import TextField from '@material-ui/core/TextField';
+import './PlayerInfo.css';
 
 class PlayerInfo extends Component {
 
@@ -68,7 +70,7 @@ class PlayerInfo extends Component {
 
   handleInputChange = event => {
     event.preventDefault();
-
+    debugger;
 		this.setState({
 			playerData: {
 				...this.state.playerData,
@@ -130,6 +132,21 @@ class PlayerInfo extends Component {
                   value={this.state.playerData.surname}
                 />
                 <span className="help-block">{validation.surname.message}</span>
+              </div>
+
+              <div>
+                <label htmlFor="birthDate">Date of birth</label>
+                <TextField className="form-control"
+                  id="birthDate"
+                  label="Birthday"
+                  name="birthDate"
+                  type="date"
+                  onChange={this.handleInputChange}
+                  value={this.state.playerData.birthDate}
+                  InputLabelProps={{
+                    shrink: true
+                  }}
+                />
               </div>
 
               <LocationSearchInput

@@ -1,6 +1,7 @@
 import axiosInstance from '../../utilities/axios-test';
 import * as actionTypes from './actionTypes';
 import * as globalActionCreators from './global';
+import Formatters from '../../utilities/formatters' 
 
 export const loadPlayerListSuccess = (playerList) => {
     return {
@@ -46,6 +47,9 @@ export const loadPlayer = (id) => {
   return dispatch => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
     axiosInstance.get(`player/${id}`).then( response => {
+      let playerData = response.data;
+      debugger;
+      playerData.birthDate = Formatters.formatDateWithDashes(playerData.birthDate);
       dispatch(loadPlayerSuccess(response.data));
       dispatch(globalActionCreators.updateLoadingSpinner(false));
     });
