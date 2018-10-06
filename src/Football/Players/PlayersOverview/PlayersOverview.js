@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import TableHead from '@material-ui/core/TableHead';
 import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
@@ -101,12 +102,10 @@ const styles = theme => ({
   root: {
     width: '100%',
     marginTop: theme.spacing.unit * 3,
+    overflowX: 'auto',
   },
   table: {
-    minWidth: 500,
-  },
-  tableWrapper: {
-    overflowX: 'auto',
+    minWidth: 200,
   },
 });
 
@@ -136,52 +135,60 @@ class PlayersOverview extends Component {
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, this.props.filteredPlayers.length - page * rowsPerPage);
 
     const setSearch = (column, styy) => {
-        this.props.filterPlayers(styy);
+      this.props.filterPlayers(styy);
     }
 
+    let playerList = null;
     let content = <div>LOADING</div>
 
     if (!this.props.loading) {
-      content = 
-      <Paper className={classes.root}>
-      <TextField
-          id="searchPlayerText"
-          label="Search player"
-          defaultValue=""
-          className={classes.textField}
-          margin="normal"
+
+      playerList = this.props.filteredPlayers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => {
+        return (
+          <TableRow key={row.id}>
+            <TableCell component="th" scope="row">
+              <Link to={{
+                pathname: this.props.match.url + '/player-details/' + row.id
+              }}>
+                <div>{row.name} {row.surname}</div>
+              </Link>
+            </TableCell>
+            <TableCell>{row.team}</TableCell>
+          </TableRow>
+        );
+      });
+
+      content =
+        <Paper className={classes.root}>
+          <TextField
+            id="searchPlayerText"
+            label="Search player"
+            defaultValue=""
+            className={classes.textField}
+            margin="normal"
             onChange={(e) => {
-            setSearch('demo', e.target.value)
+              setSearch('demo', e.target.value)
             }}
-        />
-        <div className={classes.tableWrapper}>
+          />
           <Table className={classes.table}>
+            <TableHead>
+              <TableRow>
+                <TableCell>Player</TableCell>
+                <TableCell>Team</TableCell>
+              </TableRow>
+            </TableHead>
             <TableBody>
-              {this.props.filteredPlayers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => {
-                return (
-                  <TableRow key={row.id}>
-                    <TableCell component="th" scope="row">
-                        <Link to={{
-                                pathname: this.props.match.url+'/player-details/'+row.id
-                            }}>
-                            <div>{row.name}</div>
-                        </Link>
-                    </TableCell>
-                    <TableCell>{row.surname}</TableCell>
-                    <TableCell>{row.team}</TableCell>
-                  </TableRow>
-                );
-              })}
-              {emptyRows > 0 && (
+              {playerList}
+              {/* {emptyRows > 0 && (
                 <TableRow style={{ height: 48 * emptyRows }}>
-                  <TableCell colSpan={6} />
+                  <TableCell colSpan={4} />
                 </TableRow>
-              )}
+              )} */}
             </TableBody>
             <TableFooter>
               <TableRow>
                 <TablePagination
-                  colSpan={3}
+                  colSpan={2}
                   count={this.props.filteredPlayers.length}
                   rowsPerPage={this.state.rowsPerPage}
                   page={this.state.page}
@@ -192,11 +199,10 @@ class PlayersOverview extends Component {
               </TableRow>
             </TableFooter>
           </Table>
-        </div>
-      </Paper>
+        </Paper>
     }
 
-  return (<div>{content}</div>);
+    return (<div>{content}</div>);
   }
 }
 
@@ -207,16 +213,16 @@ PlayersOverview.propTypes = {
 
 const mapStateToProps = state => {
   return {
-      allPlayers: state.players.players,
-      filteredPlayers: state.players.filteredPlayers,
-      loading: state.players.loading
+    allPlayers: state.players.players,
+    filteredPlayers: state.players.filteredPlayers,
+    loading: state.players.loading
   }
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-      loadPlayers: () => dispatch(actionCreators.loadPlayerList()),
-      filterPlayers: (stringFilter) => dispatch(actionCreators.filterPlayerList(stringFilter))
+    loadPlayers: () => dispatch(actionCreators.loadPlayerList()),
+    filterPlayers: (stringFilter) => dispatch(actionCreators.filterPlayerList(stringFilter))
   }
 };
 

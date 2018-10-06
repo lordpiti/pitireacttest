@@ -35,7 +35,7 @@ export const loadPlayerList = () => {
   return dispatch => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
     axiosInstance.get('player').then( response => {
-      const playerList = response.data.sort((a, b) => (a.name < b.name ? -1 : 1))
+      const playerList = response.data.sort((a, b) => (a.surname < b.surname ? -1 : 1))
       dispatch(loadPlayerListSuccess(playerList));
       dispatch(globalActionCreators.updateLoadingSpinner(false));
     });

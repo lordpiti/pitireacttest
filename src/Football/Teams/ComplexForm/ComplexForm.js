@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './Form.css';
 import FormValidator from '../../utilities/FormValidator';
 
 class ComplexForm extends Component {
@@ -118,7 +117,7 @@ class ComplexForm extends Component {
     return (
       <div>
 
-        <form className="demoForm">
+        <form>
           <h2>Sign up</h2>
 
           <div className={validation.email.isInvalid && 'has-error'}>

@@ -99,7 +99,7 @@ class TeamInfo extends Component {
 				<h1>Team Basic Info</h1>
 				<div className="row">
 					<div className="col-sm-9">
-						<form className="demoForm">
+						<form>
 							<div className={validation.name.isInvalid && 'has-error'}>
 								<label htmlFor="name">Name</label>
 								<input type="text" className="form-control"
