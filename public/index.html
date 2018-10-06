@@ -12,7 +12,8 @@
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="pwa-setup" href="%PUBLIC_URL%/manifest.json">
+    <script async src="js/pwacompat.js"></script>
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon-app.png">
     <link rel="apple-touch-startup-image" href="assets/img/splash/launch-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
