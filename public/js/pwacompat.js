@@ -33,7 +33,7 @@
   const isEdgePWA = (typeof Windows !== 'undefined');
 
   function setup() {
-    const manifestEl = document.head.querySelector('link[rel="pwa-setup"]');
+    const manifestEl = document.head.querySelector('link[rel="manifest"]');
     const manifestHref = manifestEl ? manifestEl.href : '';
     const hrefFactory = buildHrefFactory([manifestHref, window.location]);
 
