@@ -1,10 +1,10 @@
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import Formatters from '../../utilities/formatters';
+import { connect } from 'react-redux';
 import Helpers from '../../utilities/helpers';
 import ExpansionPanel from './ExpansionPanel/ExpansionPanel';
+import * as actionCreators from '../../store/actions/global';
 
 class PlayerStatistics extends Component {
 
@@ -27,8 +27,19 @@ class PlayerStatistics extends Component {
       `}
       >
         {({ loading, error, data }) => {
-          if (loading) return <p>Loading...</p>;
-          if (error) return <p>Error :(</p>;
+          if (loading) {
+            if (!this.props.isLoading) {
+              this.props.showHideSpinner(true);
+            }
+            return <p>Loading...</p>;
+          } 
+          if (error) { 
+            return <p>Error :(</p>;
+          }
+
+          if (this.props.isLoading) {
+            this.props.showHideSpinner(false);
+          }
 
           let groupedCompetitions = Helpers.groupBy(data.player.playerMatchesPlayed, 'competition.id');
 
@@ -55,4 +66,17 @@ class PlayerStatistics extends Component {
 
   }
 }
-export default PlayerStatistics;
+
+const mapStateToProps = state => {
+  return {
+    isLoading: state.global.loading
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    showHideSpinner: (isLoading) => dispatch(actionCreators.updateLoadingSpinner(isLoading))
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerStatistics);

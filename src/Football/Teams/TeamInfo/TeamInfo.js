@@ -67,7 +67,7 @@ class TeamInfo extends Component {
 	}
 
 	handleFormSubmit = event => {
-		debugger;
+
 		event.preventDefault();
 
 		const validation = this.validator.validate(this.state.teamData);

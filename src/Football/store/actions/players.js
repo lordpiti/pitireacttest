@@ -48,7 +48,7 @@ export const loadPlayer = (id) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
     axiosInstance.get(`player/${id}`).then( response => {
       let playerData = response.data;
-      debugger;
+
       playerData.birthDate = Formatters.formatDateWithDashes(playerData.birthDate);
       dispatch(loadPlayerSuccess(response.data));
       dispatch(globalActionCreators.updateLoadingSpinner(false));

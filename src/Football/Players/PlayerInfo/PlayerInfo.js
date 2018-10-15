@@ -69,7 +69,7 @@ class PlayerInfo extends Component {
 
   handleInputChange = event => {
     event.preventDefault();
-    debugger;
+
 		this.setState({
 			playerData: {
 				...this.state.playerData,
