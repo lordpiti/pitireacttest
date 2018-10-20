@@ -19,6 +19,7 @@ Architecture is pretty basic and it's all organised in modules representing each
 * Use of interceptors for HTTP requests to access the API and guards to protect routes in the app
 * Real-time web functionality via sockets using the signalR npm package provided by Microsoft
 * Use of GraphQL in some areas of the app for client-side database querying using Apollo client
+* Available for android and iOS as PWA
 
 
 
