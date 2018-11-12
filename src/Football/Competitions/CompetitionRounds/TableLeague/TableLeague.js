@@ -1,5 +1,6 @@
 import React from 'react';
 import './TableLeague.css';
+import { Link } from 'react-router-dom';
 
 const TableLeague = ( props ) => {
 
@@ -21,9 +22,11 @@ const TableLeague = ( props ) => {
                     <tr key={index}>
                         <td>{item.position}</td>
                         <td className="iconAndNameColumn">
-                            <a href={'/teams/team-details/'+item.teamId}>
-                                <img src={item.teamLogo.url} width="20" height="20"/>{item.teamName}
-                            </a>
+                        <Link to={{
+                            pathname: '/teams/team-details/'+item.teamId
+                        }}>
+                            <div><img src={item.teamLogo.url} width="20" height="20"/>{item.teamName}</div>
+                        </Link>
                         </td>
                         <td>{item.matchesWon}</td>
                         <td>{item.matchesDraw}</td>

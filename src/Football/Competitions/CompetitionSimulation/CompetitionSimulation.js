@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { HubConnectionBuilder } from '@aspnet/signalr/dist/browser/signalr';
 import CompetitionSimulationMatch from './CompetitionSimulationMatch/CompetitionSimulationMatch';
+import Countdown from '../../components/Countdown/Countdown';
 
 class CompetitionSimulation extends Component {
 
@@ -94,9 +95,12 @@ class CompetitionSimulation extends Component {
 	}
 
 	render() {
+		const currentDate = new Date();
+    	const year = (currentDate.getMonth() === 11 && currentDate.getDate() > 23) ? currentDate.getFullYear() + 1 : currentDate.getFullYear();
 		return (
 			<div>
 				<h1>Competition simulation</h1>
+				<Countdown date={`${year}-12-24T00:00:00`} />
                 {/* <div className="card">
                     <h5 className="card-header">Featured</h5>
                     <div className="card-body">
