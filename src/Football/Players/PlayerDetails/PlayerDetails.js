@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import asyncComponent from '../../hoc/asyncComponent/asyncComponent';
 import PlayerStatistics from '../PlayerStatistics/PlayerStatistics';
 import SideMenu from '../../components/SideMenu/SideMenu';

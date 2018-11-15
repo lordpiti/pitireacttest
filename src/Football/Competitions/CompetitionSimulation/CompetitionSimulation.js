@@ -2,15 +2,26 @@ import React, { Component } from 'react';
 import { HubConnectionBuilder } from '@aspnet/signalr/dist/browser/signalr';
 import CompetitionSimulationMatch from './CompetitionSimulationMatch/CompetitionSimulationMatch';
 import Countdown from '../../components/Countdown/Countdown';
+import axiosInstance from '../../utilities/axios-test';
 
 class CompetitionSimulation extends Component {
 
 	connection = new HubConnectionBuilder()
-		.withUrl("https://footballsandbox.azurewebsites.net/loopy")
+		.withUrl(process.env.REACT_APP_API_URL+"/loopy")
 		.build();
 
 	state = {
-		matches: []
+		matches: [],
+		live:false
+	}
+
+	componentDidMount() {
+		axiosInstance.get('competition/nextSimulation').then( response => {
+      this.setState({
+				nextSimulationDateTime: response.data.nextSimulationDateTime,
+				live: response.data.live
+			});
+    });
 	}
 
 	constructor(props) {
@@ -22,7 +33,16 @@ class CompetitionSimulation extends Component {
 		this.connection.on("StartSimulation", data => {
 			console.log('Simulation started');
 			this.setState({
-				matches: []
+				matches: [],
+				live: true
+			});
+		});
+
+		this.connection.on("EndSimulation", data => {
+			console.log('Simulation finished');
+			this.setState({
+				live: false,
+				nextSimulationDateTime: data.nextSimulationDateTime
 			});
 		});
 
@@ -95,20 +115,29 @@ class CompetitionSimulation extends Component {
 	}
 
 	render() {
-		const currentDate = new Date();
-    	const year = (currentDate.getMonth() === 11 && currentDate.getDate() > 23) ? currentDate.getFullYear() + 1 : currentDate.getFullYear();
-		return (
+
+		let simulationLabel = null;
+
+		if (this.state.live) {
+			simulationLabel = 
+			<div>
+				Simulation on course			
+			</div>;
+		}
+		else {
+			simulationLabel = <Countdown date={`${this.state.nextSimulationDateTime}`} />
+		}
+		//const currentDate = new Date();
+    	//const year2 = (currentDate.getMonth() === 11 && currentDate.getDate() > 23) ? currentDate.getFullYear() + 1 : currentDate.getFullYear();
+		
+			//const year = this.state.nextSimulationDateTime;
+
+			return (
 			<div>
 				<h1>Competition simulation</h1>
-				<Countdown date={`${year}-12-24T00:00:00`} />
-                {/* <div className="card">
-                    <h5 className="card-header">Featured</h5>
-                    <div className="card-body">
-                        <h5 className="card-title">Special title treatment</h5>
-                        <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" className="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div> */}
+				// {this.state.nextSimulationDateTime}
+				
+				{simulationLabel}
 				<div className="row">
 					{this.state.matches.map(match =>
 						<div key={match.id} className="col-md-3 col-sm-4 col-xs-6">

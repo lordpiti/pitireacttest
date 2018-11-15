@@ -25,11 +25,6 @@ class PlayerInfo extends Component {
       }
     ]);
 
-    let newone = {
-      validation: this.validator.valid(),
-      currentImage: null
-    };
-
 		let newState = { 
 			playerData: props.playerData,
 			validation: this.validator.valid(),

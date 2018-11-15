@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SimpleCard from './SimpleCard/SimpleCard';
 
 const TeamSquad = props => {

@@ -131,7 +131,7 @@ class PlayersOverview extends Component {
   render() {
     const { classes } = this.props;
 
-    const { rows, rowsPerPage, page } = this.state;
+    const { rowsPerPage, page } = this.state;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, this.props.filteredPlayers.length - page * rowsPerPage);
 
     const setSearch = (column, styy) => {

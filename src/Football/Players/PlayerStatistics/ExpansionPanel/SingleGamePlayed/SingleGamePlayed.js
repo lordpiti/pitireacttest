@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Formatters from '../../../../utilities/formatters';
 import './SingleGamePlayed.css';

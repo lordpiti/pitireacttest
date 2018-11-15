@@ -1,8 +1,9 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://footballsandbox.azurewebsites.net/api/'
+  //baseURL: 'https://footballsandbox.azurewebsites.net/api/'
   //baseURL: 'http://localhost:57544/api/'
+  baseURL: process.env.REACT_APP_API_URL+'/api/'
 });
 
 instance.interceptors.request.use(function (config) {
