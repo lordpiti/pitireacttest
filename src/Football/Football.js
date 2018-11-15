@@ -49,14 +49,22 @@ class Football extends Component {
 
   updateAuthenticationToken(token) {
     if (token) {
-      localStorage.setItem('token_react', token);
+      localStorage.setItem('token_react', token.token);
+      localStorage.setItem('role_react', token.role);
+      localStorage.setItem('userName_react', token.userName);
+      localStorage.setItem('authentication_type', token.authenticationType);
+      localStorage.setItem('loginImage_react', token.avatar);
     }
     else {
       localStorage.removeItem('token_react');
+      localStorage.removeItem('role_react');
+      localStorage.removeItem('userName_react');
+      localStorage.removeItem('authentication_type');
+      localStorage.removeItem('loginImage_react');
     }
 
     this.setState({
-      authenticationToken: token
+      authenticationToken: token? token.token : null
     });
   }
 

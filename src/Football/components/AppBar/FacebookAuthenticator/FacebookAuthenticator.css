@@ -1,0 +1,10 @@
+.loginImage {
+    height: 40px;
+    width: 40px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.loginName {
+    margin-right: 10px;
+}

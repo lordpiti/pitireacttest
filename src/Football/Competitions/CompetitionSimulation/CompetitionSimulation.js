@@ -121,11 +121,14 @@ class CompetitionSimulation extends Component {
 		if (this.state.live) {
 			simulationLabel = 
 			<div>
-				Simulation on course			
+				Simulation on course. Please wait a few seconds until it's finished and the remaining time till next one will show up		
 			</div>;
 		}
 		else {
-			simulationLabel = <Countdown date={`${this.state.nextSimulationDateTime}`} />
+			simulationLabel = <div>
+				Time remaining for the next simulation:
+				<Countdown date={`${this.state.nextSimulationDateTime}`} />
+			</div>
 		}
 		//const currentDate = new Date();
     	//const year2 = (currentDate.getMonth() === 11 && currentDate.getDate() > 23) ? currentDate.getFullYear() + 1 : currentDate.getFullYear();
@@ -135,7 +138,7 @@ class CompetitionSimulation extends Component {
 			return (
 			<div>
 				<h1>Competition simulation</h1>
-				// {this.state.nextSimulationDateTime}
+				{/* {this.state.nextSimulationDateTime} */}
 				
 				{simulationLabel}
 				<div className="row">

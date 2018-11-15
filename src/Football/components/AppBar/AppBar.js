@@ -68,8 +68,6 @@ function ButtonAppBar(props) {
             authenticationToken={props.authenticationToken}
             showLogoutButton = {!facebookAuthenticationType}
             authenticationTokenUpdate={(token) => props.onUpdateAuthenticationToken(token)} />
-          
-
 
           </div>
 

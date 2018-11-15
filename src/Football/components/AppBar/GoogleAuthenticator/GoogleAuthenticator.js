@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleLogin } from 'react-google-login';
-import apiInstance from '../../../utilities/axios-test';
 import Button from '@material-ui/core/Button';
+import apiInstance from '../../../utilities/axios-test';
 import './GoogleAuthenticator.css';
 
 class GoogleAuthenticator extends Component {
@@ -9,15 +9,18 @@ class GoogleAuthenticator extends Component {
   render() {
 
     const responseGoogle = (response) => {
-      //console.log(response.tokenId);
       const url = 'user/LoginGoogle';
 
       apiInstance.post(url, { userId: '', accessToken: response.tokenId })
         .then(responseApi => {
-          //console.log(responseApi);
-          this.props.authenticationTokenUpdate(responseApi.data.token);
-          localStorage.setItem('role_react', responseApi.data.role);
-          localStorage.setItem('authentication_type', 2);
+          const loginData = {
+            token: responseApi.data.token,
+            role: responseApi.data.role,
+            userName: responseApi.data.name,
+            authenticationType: 2,
+            avatar: response.profileObj.imageUrl
+          }
+          this.props.authenticationTokenUpdate(loginData);
         });
     }
 
@@ -57,10 +60,17 @@ class GoogleAuthenticator extends Component {
     }
     else {
       if (this.props.showLogoutButton) {
-        buttonLoginLogout = 
-        <Button variant="contained" color="secondary" onClick={forceMyOwnLogout}>
-          Logout
-        </Button>;
+
+        const loginImage = localStorage.getItem('loginImage_react');
+        const userName = localStorage.getItem('userName_react');
+
+        buttonLoginLogout = <div>
+          <img className="loginImage" src={loginImage} />
+          <span className="loginName">{userName}</span>
+          <Button variant="contained" color="secondary" onClick={forceMyOwnLogout}>
+            Logout
+          </Button>
+        </div>;
       }
     }
 
