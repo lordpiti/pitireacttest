@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import TeamInfo from '../TeamInfo/TeamInfo';
 import ComplexForm from '../ComplexForm/ComplexForm';
 import TeamSquad from '../TeamSquad/TeamSquad';
+import TeamNews from '../TeamNews/TeamNews';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import TeamStadium from '../TeamStadium/TeamStadium';
 import { connect } from 'react-redux';
@@ -27,7 +28,7 @@ class TeamDetails extends Component {
       content =
         <div>
           <Route path={this.props.match.url + '/'} exact
-            render={() => (<Redirect to={this.props.match.url + '/overview'} />)}
+            render={() => (<Redirect to={this.props.match.url + '/news'} />)}
           />
           <Route path={this.props.match.url + '/overview'}
             component={(props) => {
@@ -35,6 +36,14 @@ class TeamDetails extends Component {
                 <TeamInfo id={teamId} teamData={this.props.currentTeam}></TeamInfo>)
             }
             } />
+
+          <Route path={this.props.match.url + '/news'}
+            component={(props) => {
+              return (
+                <TeamNews id={teamId} teamData={this.props.currentTeam}></TeamNews>)
+            }
+            } />
+
           <Route path={this.props.match.url + '/team-squad'}
             render={(props) => {
               return (
@@ -63,6 +72,10 @@ class TeamDetails extends Component {
     const teamId = this.props.match.params.id;
 
     const menuList = [
+      {
+        name: 'News',
+        url: this.props.match.url + '/news'
+      },
       {
         name: 'Summary',
         url: this.props.match.url + '/overview'

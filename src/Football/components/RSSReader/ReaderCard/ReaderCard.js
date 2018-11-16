@@ -41,7 +41,7 @@ function ReaderCard(props) {
           />
           <CardMedia
             className={classes.media}
-            image={props.cardData["media:content"].$.url}
+            image={props.cardData["media:content"] ? props.cardData["media:content"].$.url: null}
             title={props.cardData.title}
           />
           <CardContent>
@@ -49,7 +49,7 @@ function ReaderCard(props) {
               {props.cardData.creator}
             </Typography>
             <Typography component="p">
-              {props.cardData.date}
+              {Formatters.formatDate(props.cardData.isoDate)}
 
             </Typography>
           </CardContent>
@@ -69,6 +69,12 @@ function ReaderCard(props) {
 
 ReaderCard.propTypes = {
   classes: PropTypes.object.isRequired,
+  cardData: PropTypes.shape({
+    index: PropTypes.number.isRequired,
+    categories: PropTypes.array,
+    title: PropTypes.string.isRequired,
+    creator: PropTypes.string
+  }).isRequired
 };
 
 export default withStyles(styles)(ReaderCard);
