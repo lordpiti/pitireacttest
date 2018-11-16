@@ -66,18 +66,8 @@ function CompetitionSimulationMatch(props) {
           title={titleForGame}
           subheader={Formatters.formatDate(props.match.date)}
         />
-        {/* <CardMedia
-          className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title={props.match.id}
-        /> */}
+
         <CardContent>
-          {/* <Typography gutterBottom variant="headline" component="h2">
-            {props.match.id} {props.match.id}
-          </Typography>
-          <Typography component="p">
-            buuu
-          </Typography> */}
           {props.match.matchEvents.map((event, index) =>
             <CompetitionSimulationMatchEvent key={index} event={event} />
           )}

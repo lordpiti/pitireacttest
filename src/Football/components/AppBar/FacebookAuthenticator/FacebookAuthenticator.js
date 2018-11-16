@@ -17,7 +17,7 @@ const FacebookAuthenticator = (props) => {
           role: responseApi.data.role,
           userName: responseApi.data.name,
           authenticationType: 1,
-          avatar: response.picture.data.url //TODO: add profile image
+          avatar: response.picture.data.url
         }
         props.authenticationTokenUpdate(loginData);
       });

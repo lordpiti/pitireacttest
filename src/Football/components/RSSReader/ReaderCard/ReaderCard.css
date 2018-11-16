@@ -1,0 +1,11 @@
+.readerCard:hover a>div {
+  background-color: lightgray;
+}
+
+.readerCard a:hover {
+  text-decoration: none;
+}
+
+
+
+

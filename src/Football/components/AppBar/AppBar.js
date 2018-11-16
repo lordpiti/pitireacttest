@@ -33,7 +33,7 @@ function ButtonAppBar(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <span style={{ fontSize: 'x-large', fontWeight: 'bold'}}>FootballWeb React</span>
+          <span style={{ fontSize: 'x-large', fontWeight: 'bold', marginRight: '20px'}}>FootballWeb React</span>
           <Typography variant="title" color="inherit" className={classes.flex}>
             
             {/* <NavLink style={{color: 'white'}} to="/" exact>

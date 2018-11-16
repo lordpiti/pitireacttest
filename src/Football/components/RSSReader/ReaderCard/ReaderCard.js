@@ -7,11 +7,10 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 import Formatters from '../../../utilities/formatters';
-import './SimpleCard.css';
+import './ReaderCard.css';
 
 const styles = {
   card: {
@@ -23,56 +22,53 @@ const styles = {
   },
 };
 
-function SimpleMediaCard(props) {
+function ReaderCard(props) {
 
   const { classes } = props;
+
   return (
-    <div className="margin-bottom-medium simpleCard">
-      <Link to={`/players/player-details/${props.cardData.playerId}`}>
+    <div className="margin-bottom-medium readerCard">
+      <a href={props.cardData.link}>
         <Card className={classes.card}>
           <CardHeader
             avatar={
               <Avatar aria-label="Recipe" className={classes.avatar}>
-                {props.cardData.dorsal}
+                {props.cardData.index}
               </Avatar>
             }
-            title={`${props.cardData.name} ${props.cardData.surname}`}
-            subheader={props.cardData.position}
+            title={props.cardData.title}
+            subheader={props.cardData.categories? props.cardData.categories[0]: null}
           />
           <CardMedia
             className={classes.media}
-            image={props.cardData.picture.url}
-            title={props.cardData.name}
+            image={props.cardData["media:content"].$.url}
+            title={props.cardData.title}
           />
           <CardContent>
-          {/* <Typography gutterBottom variant="headline" component="h2">
-              {props.cardData.name} {props.cardData.surname}
-            </Typography> */}
             <Typography gutterBottom component="p">
-              Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum
+              {props.cardData.creator}
             </Typography>
             <Typography component="p">
-              {Formatters.formatDate(props.cardData.birthDate)}
-              <br/>
-              {props.cardData.height} m
+              {props.cardData.date}
+
             </Typography>
           </CardContent>
-          <CardActions>
+          {/* <CardActions>
             <Button size="small" color="primary">
               Share
           </Button>
             <Button size="small" color="primary">
               Learn More
           </Button>
-          </CardActions>
+          </CardActions> */}
         </Card>
-      </Link>
+      </a>
     </div>
   );
 }
 
-SimpleMediaCard.propTypes = {
+ReaderCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SimpleMediaCard);
+export default withStyles(styles)(ReaderCard);
