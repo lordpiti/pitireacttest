@@ -51,7 +51,7 @@ class GoogleAuthenticator extends Component {
     if (!this.props.authenticationToken) {
       buttonLoginLogout =
       <GoogleLogin className="googleLoginButton"
-          clientId="357813264391-bc51b2u0ohaeb6v78k2b2tpr5pdi6c09.apps.googleusercontent.com"
+          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
           buttonText="Login"
           onSuccess={responseGoogle}
           onFailure={responseGoogle}

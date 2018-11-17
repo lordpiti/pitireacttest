@@ -36,7 +36,7 @@ const FacebookAuthenticator = (props) => {
   if (!props.authenticationToken) {
     buttonLoginLogout = 
     <FacebookLogin
-      appId="2050633918500176"
+      appId={process.env.REACT_APP_FACEBOOK_APP_ID}
       autoLoad={false}
       fields="name,email,picture"
       onClick={componentClicked}
