@@ -9,8 +9,7 @@ import ApolloClient from 'apollo-boost';
 class App extends Component {
 
   apolloClient = new ApolloClient({
-    uri: 'https://footballsandbox.azurewebsites.net/graphql'
-    //uri: 'http://localhost:57544/graphql/'
+    uri: `${process.env.REACT_APP_API_URL}/graphql`
   });
 
   render() {

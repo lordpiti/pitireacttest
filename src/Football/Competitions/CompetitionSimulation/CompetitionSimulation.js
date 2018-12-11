@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HubConnectionBuilder } from '@aspnet/signalr/dist/browser/signalr';
+import { HubConnectionBuilder } from '@aspnet/signalr';
 import CompetitionSimulationMatch from './CompetitionSimulationMatch/CompetitionSimulationMatch';
 import Countdown from '../../components/Countdown/Countdown';
 import axiosInstance from '../../utilities/axios-test';
