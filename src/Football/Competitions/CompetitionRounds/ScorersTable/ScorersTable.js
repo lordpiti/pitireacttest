@@ -14,6 +14,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import { Link } from 'react-router-dom';
+import { Typography } from '@material-ui/core';
 
 const actionsStyles = theme => ({
   root: {
@@ -98,12 +99,15 @@ const styles = theme => ({
   root: {
     width: '100%',
     marginTop: theme.spacing.unit * 3,
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2
   },
   table: {
     minWidth: 500,
   },
   tableWrapper: {
     overflowX: 'auto',
+    marginTop: 10
   },
 });
 
@@ -129,6 +133,9 @@ class Scorers extends Component {
 
     return (
       <Paper className={classes.root}>
+        <Typography variant="headline" component="h3">
+            Scorers
+        </Typography>
         <div className={classes.tableWrapper}>
           <Table className={classes.table}>
             <TableBody>

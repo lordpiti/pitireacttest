@@ -9,6 +9,7 @@ import apiInstance from '../../utilities/axios-test';
 import MatchList from './MatchList/MatchList';
 import TableLeague from './TableLeague/TableLeague';
 import ScorersTable from './ScorersTable/ScorersTable';
+import { Paper } from '@material-ui/core';
 
 const styles = theme => ({
   root: {
@@ -17,11 +18,15 @@ const styles = theme => ({
   },
   formControl: {
     margin: theme.spacing.unit,
-    minWidth: 120,
+    minWidth: 120
   },
   selectEmpty: {
     marginTop: theme.spacing.unit * 2,
   },
+  boxSelectRound: {
+    marginBottom: 20,
+    padding: 10
+  }
 });
 
 class CompetitionRounds extends React.Component {
@@ -52,6 +57,7 @@ class CompetitionRounds extends React.Component {
     const { classes } = this.props;
 
     const selectRound =
+    <Paper className={classes.boxSelectRound}>
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor="currentRound">Select Round</InputLabel>
         <Select
@@ -66,7 +72,8 @@ class CompetitionRounds extends React.Component {
             <MenuItem key={index} value={round}>{round}</MenuItem>
           )}
         </Select>
-      </FormControl>;
+      </FormControl>
+    </Paper>;
 
     let matchList, tableRound, scorersTable = null;
 
@@ -81,7 +88,9 @@ class CompetitionRounds extends React.Component {
     return (
       <div>
         <h1>Competition Games</h1>
+        
         {selectRound}
+
         <div className="row">
           <div className="col-sm-6">
             <div className="row">

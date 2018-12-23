@@ -25,6 +25,7 @@
 
 .overview-container {
   padding: 20px;
+  background-color: #eee;
 }
 
 ul{ list-style-type: none; }
