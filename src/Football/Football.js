@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import Competitions from './Competitions/Competitions';
 import Teams from './Teams/Teams';
 import Players from './Players/Players';

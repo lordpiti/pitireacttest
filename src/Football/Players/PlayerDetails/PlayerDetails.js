@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import asyncComponent from '../../hoc/asyncComponent/asyncComponent';
+import asyncComponent from '../../components/asyncComponent/asyncComponent';
 import PlayerStatistics from '../PlayerStatistics/PlayerStatistics';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import Match from '../../Competitions/Match/Match';

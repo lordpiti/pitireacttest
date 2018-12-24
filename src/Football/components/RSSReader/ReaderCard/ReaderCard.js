@@ -2,13 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import { Link } from 'react-router-dom';
 import Formatters from '../../../utilities/formatters';
 import './ReaderCard.css';
 
@@ -28,7 +26,7 @@ function ReaderCard(props) {
 
   return (
     <div className="margin-bottom-medium readerCard">
-      <a href={props.cardData.link}>
+      <a href={props.cardData.link} target="_blank">
         <Card className={classes.card}>
           <CardHeader
             avatar={
@@ -53,14 +51,6 @@ function ReaderCard(props) {
 
             </Typography>
           </CardContent>
-          {/* <CardActions>
-            <Button size="small" color="primary">
-              Share
-          </Button>
-            <Button size="small" color="primary">
-              Learn More
-          </Button>
-          </CardActions> */}
         </Card>
       </a>
     </div>
