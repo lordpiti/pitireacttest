@@ -19,10 +19,16 @@ class PlayerInfo extends Component {
 
   render() {
 
+    let content = null;
+
+    if (localStorage.role_react === 'Admin') {
+      content = <PlayerInfoModal playerData={this.state.playerData} savePlayer={ (a, b) => this.props.savePlayer(a, b) } />
+    }
+
     return (
       <div>
         <h1>Player Basic Info</h1>
-        <PlayerInfoModal playerData={this.state.playerData} savePlayer={ (a, b) => this.props.savePlayer(a, b) } />
+        { content }
       </div>
     );
   }
