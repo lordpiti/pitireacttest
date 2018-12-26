@@ -4,7 +4,6 @@ import Competitions from './Competitions/Competitions';
 import Teams from './Teams/Teams';
 import Players from './Players/Players';
 import AppBar from './components/AppBar/AppBar';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -16,11 +15,6 @@ import './Football.css';
 import CustomSnackbar from './components/CustomSnackbar/CustomSnackbar';
 import Home from './Home/Home';
 
-
-
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
 
 function getModalStyle() {
 
@@ -103,7 +97,8 @@ class Football extends Component {
           <Route path="/teams" component={Teams} />
           <Route path="/competitions" component={Competitions} />
           {/* <Route path="/players" component={Players} /> */}
-          <PrivateRoute path="/players" component={Players} />
+          {/* <PrivateRoute path="/players" component={Players} /> */}
+          <Route path="/players" component={Players} />
         </div>
       </div>
     );

@@ -7,10 +7,11 @@ import Match from '../../Competitions/Match/Match';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/players';
 import './PlayerDetails.css';
+import PlayerInfo from '../PlayerInfo/PlayerInfo';
 
-const asyncPlayerInfo = asyncComponent(() => {
-  return import('../PlayerInfo/PlayerInfo');
-}); 
+// const asyncPlayerInfo = asyncComponent(() => {
+//   return import('../PlayerInfo/PlayerInfo');
+// }); 
 
 class PlayerDetails extends Component {
 
@@ -51,9 +52,15 @@ class PlayerDetails extends Component {
               <Route path={this.props.match.url + '/'} exact
                 render={() => (<Redirect to={this.props.match.url + '/overview'} />)}
               />
-              <Route path={this.props.match.url + '/overview'}
+              {/* <Route path={this.props.match.url + '/overview'}
                 component={(props) => {
                   const PlayerInfo = asyncPlayerInfo; 
+                  return (         
+                    <PlayerInfo playerData={this.props.currentPlayer} id={playerId}></PlayerInfo>)
+                }
+                } /> */}
+              <Route path={this.props.match.url + '/overview'}
+                component={(props) => {
                   return (         
                     <PlayerInfo playerData={this.props.currentPlayer} id={playerId}></PlayerInfo>)
                 }

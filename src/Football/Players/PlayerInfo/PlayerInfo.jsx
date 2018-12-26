@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/players';
 import TextField from '@material-ui/core/TextField';
 import PlayerInfoModal from './PlayerInfoModal/PlayerInfoModal';
+import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
 
 class PlayerInfo extends Component {
 
@@ -19,16 +20,15 @@ class PlayerInfo extends Component {
 
   render() {
 
-    let content = null;
-
-    if (localStorage.role_react === 'Admin') {
-      content = <PlayerInfoModal playerData={this.state.playerData} savePlayer={ (a, b) => this.props.savePlayer(a, b) } />
-    }
-
     return (
       <div>
         <h1>Player Basic Info</h1>
-        { content }
+
+        <RoleVisibleComponent
+          component={PlayerInfoModal}
+          roles={['Admin']}
+          playerData={this.state.playerData}
+          savePlayer={ (a, b) => this.props.savePlayer(a, b) } />
       </div>
     );
   }
