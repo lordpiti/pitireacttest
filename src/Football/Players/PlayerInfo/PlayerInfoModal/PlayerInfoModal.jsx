@@ -5,6 +5,7 @@ import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';
+import { TextField, FormControl, InputLabel, MenuItem, FormHelperText, Select, Grid } from '@material-ui/core';
 
 
 function getModalStyle() {
@@ -129,6 +130,13 @@ class SimpleModal extends React.Component {
       this.validator.validate(this.state.playerData) :   // then check validity every time we render
       this.state.validation                   // otherwise just use what's in state
 
+    const positions = [
+      'Goalkeeper',
+      'Defender',
+      'Midfielder',
+      'Striker'
+    ];
+    
     if (!this.props.playerData) {
       return <div></div>
     } else 
@@ -142,45 +150,86 @@ class SimpleModal extends React.Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <div>
-              <h1>Player Basic Info</h1>
-              <div className="row">
-                <div className="col-sm-9">
-                  <form>
-                    <div className={validation.name.isInvalid && 'has-error'}>
-                      <label htmlFor="name">Name</label>
-                      <input type="text" className="form-control"
-                        name="name"
-                        placeholder="player name"
+            <h1>Player Basic Info</h1>
+            <div className="row">
+              <div className="col-sm-9">
+                <form>
+                  <div className={validation.name.isInvalid && 'has-error'}>
+                    <label htmlFor="name">Name</label>
+                    <input type="text" className="form-control"
+                      name="name"
+                      placeholder="player name"
+                      onChange={this.handleInputChange}
+                      value={this.state.playerData.name}
+                    />
+                    <span className="help-block">{validation.name.message}</span>
+                  </div>
+    
+                  <div className={validation.surname.isInvalid && 'has-error'}>
+                    <label htmlFor="surname">Surname</label>
+                    <input type="text" className="form-control"
+                      name="surname"
+                      placeholder="player surname"
+                      onChange={this.handleInputChange}
+                      value={this.state.playerData.surname}
+                    />
+                    <span className="help-block">{validation.surname.message}</span>
+                  </div>
+<div>
+                  <TextField
+                    id="birthDate"
+                    name="birthDate"
+                    label="Date of birth"
+                    type="date"
+                    defaultValue={this.state.playerData.birthDate}
+                    onChange={this.handleInputChange}
+                    className={classes.textField}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                  />
+</div>
+                  {/* <MuiPickersUtilsProvider  utils={MomentUtils}>
+                    <Grid container className={classes.grid} justify="space-around">
+                      <DatePicker
+                        margin="normal"
+                        name="birthDate"
+                        label="Date picker"
+                        value={this.state.playerData.birthDate}
                         onChange={this.handleInputChange}
-                        value={this.state.playerData.name}
                       />
-                      <span className="help-block">{validation.name.message}</span>
-                    </div>
-      
-                    <div className={validation.surname.isInvalid && 'has-error'}>
-                      <label htmlFor="surname">Surname</label>
-                      <input type="text" className="form-control"
-                        name="surname"
-                        placeholder="player surname"
-                        onChange={this.handleInputChange}
-                        value={this.state.playerData.surname}
-                      />
-                      <span className="help-block">{validation.surname.message}</span>
-                    </div>
-      
-                    <button onClick={this.handleFormSubmit} className="btn btn-primary">
-                      Save
-                    </button>
-                  </form>
-                </div>
-                <div className="col-sm-3">
-                  <img src={this.props.playerData.picture.url} height="100" width="100" />
-                  <BasicDropzone settings={this.dropzoneSettings} />
-                </div>
+                    </Grid>
+                  </MuiPickersUtilsProvider> */}
+                  <FormControl required className={classes.formControl}>
+                    <InputLabel htmlFor="position">Position</InputLabel>
+                    <Select
+                      value={this.state.playerData.position}
+                      onChange={this.handleInputChange}
+                      name="position"
+                      inputProps={{
+                        id: 'position-required',
+                      }}
+                      className={classes.selectEmpty}
+                    >
+                    {positions.map(position => 
+                      (<MenuItem value={position}>{position}</MenuItem>)
+                    )}
+                    </Select>
+                    <FormHelperText>Required</FormHelperText>
+                  </FormControl>
+                </form>
+              </div>
+              <div className="col-sm-3">
+                <img src={this.props.playerData.picture.url} height="100" width="100" />
+                <BasicDropzone settings={this.dropzoneSettings} />
               </div>
             </div>
-          </div>
+            <div className="text-right margin-top-medium">
+              <Button variant="contained" color="primary" className={classes.button} onClick={this.handleFormSubmit}>
+                Save
+              </Button>           
+            </div>
+          </div>        
         </Modal>
       </div>
     );
