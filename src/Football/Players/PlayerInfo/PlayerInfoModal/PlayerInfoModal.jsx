@@ -5,7 +5,9 @@ import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';
-import { TextField, FormControl, InputLabel, MenuItem, FormHelperText, Select, Grid } from '@material-ui/core';
+import { TextField, FormControl, InputLabel, MenuItem, FormHelperText, Select } from '@material-ui/core';
+import DateFnsUtils from '@date-io/date-fns';
+import { MuiPickersUtilsProvider, DatePicker } from 'material-ui-pickers';
 
 
 function getModalStyle() {
@@ -19,7 +21,7 @@ function getModalStyle() {
 const styles = theme => ({
   paper: {
     position: 'absolute',
-    width: 1000,
+    width: 600,
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
     padding: theme.spacing.unit * 4,
@@ -48,12 +50,13 @@ class SimpleModal extends React.Component {
       }
     ]);
 
-		this.state = { ...this.state,
-			playerData: props.playerData,
-			validation: this.validator.valid(),
-			currentImage: null
-		};
-    
+    this.state = {
+      ...this.state,
+      playerData: props.playerData,
+      validation: this.validator.valid(),
+      currentImage: null
+    };
+
     this.submitted = false;
   }
 
@@ -94,12 +97,21 @@ class SimpleModal extends React.Component {
   handleInputChange = event => {
     event.preventDefault();
 
-		this.setState({
-			playerData: {
-				...this.state.playerData,
-				[event.target.name]: event.target.value
-			}		
-		});
+    this.setState({
+      playerData: {
+        ...this.state.playerData,
+        [event.target.name]: event.target.value
+      }
+    });
+  }
+
+  handleBirthDateChange = newDate => {
+    this.setState({
+      playerData: {
+        ...this.state.playerData,
+        birthDate: newDate
+      }
+    });
   }
 
   handleFormSubmit = event => {
@@ -113,9 +125,9 @@ class SimpleModal extends React.Component {
       let image = null;
 
       if (this.state.currentImage) {
-        image = { 
-          data: this.state.currentImage.data, 
-          fileName: this.state.currentImage.fileName 
+        image = {
+          data: this.state.currentImage.data,
+          fileName: this.state.currentImage.fileName
         };
       }
       this.props.savePlayer(image, this.state.playerData);
@@ -136,103 +148,134 @@ class SimpleModal extends React.Component {
       'Midfielder',
       'Striker'
     ];
-    
+
     if (!this.props.playerData) {
       return <div></div>
-    } else 
-    return (
-      <div>
-        <Button onClick={this.handleOpen}>Edit player info</Button>
-        <Modal
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          open={this.state.open}
-          onClose={this.handleClose}
-        >
-          <div style={getModalStyle()} className={classes.paper}>
-            <h1>Player Basic Info</h1>
-            <div className="row">
-              <div className="col-sm-9">
-                <form>
-                  <div className={validation.name.isInvalid && 'has-error'}>
-                    <label htmlFor="name">Name</label>
-                    <input type="text" className="form-control"
-                      name="name"
-                      placeholder="player name"
-                      onChange={this.handleInputChange}
-                      value={this.state.playerData.name}
-                    />
-                    <span className="help-block">{validation.name.message}</span>
-                  </div>
-    
-                  <div className={validation.surname.isInvalid && 'has-error'}>
-                    <label htmlFor="surname">Surname</label>
-                    <input type="text" className="form-control"
-                      name="surname"
-                      placeholder="player surname"
-                      onChange={this.handleInputChange}
-                      value={this.state.playerData.surname}
-                    />
-                    <span className="help-block">{validation.surname.message}</span>
-                  </div>
-<div>
-                  <TextField
-                    id="birthDate"
-                    name="birthDate"
-                    label="Date of birth"
-                    type="date"
-                    defaultValue={this.state.playerData.birthDate}
-                    onChange={this.handleInputChange}
-                    className={classes.textField}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                  />
-</div>
-                  {/* <MuiPickersUtilsProvider  utils={MomentUtils}>
-                    <Grid container className={classes.grid} justify="space-around">
-                      <DatePicker
+    } else
+      return (
+        <div>
+          <Button onClick={this.handleOpen}>Edit player info</Button>
+          <Modal
+            aria-labelledby="simple-modal-title"
+            aria-describedby="simple-modal-description"
+            open={this.state.open}
+            onClose={this.handleClose}
+          >
+            <div style={getModalStyle()} className={classes.paper}>
+              <h1>Player Basic Info</h1>
+              <div className="row">
+                <div className="col-sm-7">
+                  <form>
+                    <div className={validation.name.isInvalid && 'has-error'}>
+                      {/* <label htmlFor="name">Name</label>
+                      <input type="text" className="form-control"
+                        name="name"
+                        placeholder="player name"
+                        onChange={this.handleInputChange}
+                        value={this.state.playerData.name}
+                      /> */}
+                      <TextField
+                        id="birthPlace"
+                        name="name"
+                        label="First name"
+                        defaultValue={this.state.playerData.name}
+                        className={classes.textField}
                         margin="normal"
-                        name="birthDate"
-                        label="Date picker"
-                        value={this.state.playerData.birthDate}
                         onChange={this.handleInputChange}
                       />
-                    </Grid>
-                  </MuiPickersUtilsProvider> */}
-                  <FormControl required className={classes.formControl}>
-                    <InputLabel htmlFor="position">Position</InputLabel>
-                    <Select
-                      value={this.state.playerData.position}
+                      <span className="help-block">{validation.name.message}</span>
+                    </div>
+
+                    <div className={validation.surname.isInvalid && 'has-error'}>
+                      {/* <label htmlFor="surname">Surname</label>
+                      <input type="text" className="form-control"
+                        name="surname"
+                        placeholder="player surname"
+                        onChange={this.handleInputChange}
+                        value={this.state.playerData.surname}
+                      /> */}
+                    <TextField
+                        id="surname"
+                        name="surname"
+                        label="Last name"
+                        defaultValue={this.state.playerData.surname}
+                        className={classes.textField}
+                        margin="normal"
+                        onChange={this.handleInputChange}
+                      />
+                      <span className="help-block">{validation.surname.message}</span>
+                    </div>
+                    {/* <div>
+                    <TextField
+                      id="birthDate"
+                      name="birthDate"
+                      label="Date of birth"
+                      type="date"
+                      defaultValue={this.state.playerData.birthDate}
                       onChange={this.handleInputChange}
-                      name="position"
-                      inputProps={{
-                        id: 'position-required',
+                      className={classes.textField}
+                      InputLabelProps={{
+                        shrink: true,
                       }}
-                      className={classes.selectEmpty}
-                    >
-                    {positions.map(position => 
-                      (<MenuItem value={position}>{position}</MenuItem>)
-                    )}
-                    </Select>
-                    <FormHelperText>Required</FormHelperText>
-                  </FormControl>
-                </form>
+                    />
+                  </div> */}
+                    <div>
+                      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                        <DatePicker
+                          margin="normal"
+                          name="birthDate"
+                          format="dd/MM/yyyy"
+                          label="Date of birth"
+                          value={this.state.playerData.birthDate}
+                          onChange={this.handleBirthDateChange}
+                        />
+                      </MuiPickersUtilsProvider>
+                    </div>
+                    <div>
+                      <TextField
+                        id="birthPlace"
+                        label="Place of birth"
+                        name="birthPlace"
+                        defaultValue={this.state.playerData.birthPlace}
+                        className={classes.textField}
+                        margin="normal"
+                        onChange={this.handleInputChange}
+                      />
+                    </div>
+                    <div>
+                      <FormControl required className={classes.formControl}>
+                        <InputLabel htmlFor="position">Position</InputLabel>
+                        <Select
+                          value={this.state.playerData.position}
+                          onChange={this.handleInputChange}
+                          name="position"
+                          inputProps={{
+                            id: 'position-required',
+                          }}
+                          className={classes.selectEmpty}
+                        >
+                          {positions.map(position =>
+                            (<MenuItem value={position}>{position}</MenuItem>)
+                          )}
+                        </Select>
+                        <FormHelperText>Required</FormHelperText>
+                      </FormControl></div>
+                  </form>
+                </div>
+                <div className="col-sm-5 text-center">
+                  <img className="roundedImage" src={this.props.playerData.picture.url} height="100" width="100" />
+                  <BasicDropzone settings={this.dropzoneSettings} />
+                </div>
               </div>
-              <div className="col-sm-3">
-                <img src={this.props.playerData.picture.url} height="100" width="100" />
-                <BasicDropzone settings={this.dropzoneSettings} />
+              <div className="text-right margin-top-medium">
+                <Button variant="contained" color="primary" className={classes.button} onClick={this.handleFormSubmit}>
+                  Save
+              </Button>
               </div>
             </div>
-            <div className="text-right margin-top-medium">
-              <Button variant="contained" color="primary" className={classes.button} onClick={this.handleFormSubmit}>
-                Save
-              </Button>           
-            </div>
-          </div>        
-        </Modal>
-      </div>
-    );
+          </Modal>
+        </div>
+      );
   }
 }
 

@@ -42,7 +42,6 @@ class Football extends Component {
   }
 
   updateAuthenticationToken(token) {
-    debugger;
     if (token) {
       localStorage.setItem('token_react', token.token);
       localStorage.setItem('role_react', token.role);
