@@ -132,7 +132,6 @@ class PlayersOverview extends Component {
     const { classes } = this.props;
 
     const { rowsPerPage, page } = this.state;
-    const emptyRows = rowsPerPage - Math.min(rowsPerPage, this.props.filteredPlayers.length - page * rowsPerPage);
 
     const setSearch = (column, styy) => {
       this.props.filterPlayers(styy);
@@ -179,11 +178,6 @@ class PlayersOverview extends Component {
             </TableHead>
             <TableBody>
               {playerList}
-              {/* {emptyRows > 0 && (
-                <TableRow style={{ height: 48 * emptyRows }}>
-                  <TableCell colSpan={4} />
-                </TableRow>
-              )} */}
             </TableBody>
             <TableFooter>
               <TableRow>

@@ -254,8 +254,8 @@ class SimpleModal extends React.Component {
                           }}
                           className={classes.selectEmpty}
                         >
-                          {positions.map(position =>
-                            (<MenuItem value={position}>{position}</MenuItem>)
+                          {positions.map((position, index) =>
+                            (<MenuItem value={position} key={index}>{position}</MenuItem>)
                           )}
                         </Select>
                         <FormHelperText>Required</FormHelperText>
