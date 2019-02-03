@@ -8,6 +8,12 @@ import * as actionCreators from '../../store/actions/global';
 
 class PlayerStatistics extends Component {
 
+  componentDidMount() {
+    if (!this.props.isLoading) {
+      this.props.showHideSpinner(true);
+    }
+  }
+
   render() {
     const playerId = this.props.match.params.id;
     return (
@@ -28,9 +34,6 @@ class PlayerStatistics extends Component {
       >
         {({ loading, error, data }) => {
           if (loading) {
-            if (!this.props.isLoading) {
-              this.props.showHideSpinner(true);
-            }
             return <p>Loading...</p>;
           } 
           if (error) { 

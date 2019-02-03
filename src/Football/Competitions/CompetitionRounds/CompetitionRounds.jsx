@@ -30,6 +30,9 @@ const styles = theme => ({
 });
 
 class CompetitionRounds extends React.Component {
+
+  _isMounted = false;
+
   state = {
     currentRound: '1',
     name: 'hai',
@@ -37,21 +40,32 @@ class CompetitionRounds extends React.Component {
   };
 
   componentDidMount() {
-    apiInstance.get('competition/' + this.props.competitionData.id + '/round/' + 1).then(response => {
-      this.setState({
-        roundData: response.data
-      });
-    });
+
+    this._isMounted = true;
+    this.loadRoundData(1);
   }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
-    apiInstance.get('competition/' + this.props.competitionData.id + '/round/' + event.target.value).then(response => {
-      this.setState({
-        roundData: response.data
-      });
-    });
+    this.loadRoundData(event.target.value);
   };
+
+  loadRoundData = roundNumber => {
+    apiInstance.get(`competition/${this.props.competitionData.id}/round/${roundNumber}`).then(response => {
+      // used the _isMounted property to prevent the warning from the react compiler
+      // https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component/
+      if (this._isMounted) {
+        this.setState({
+          roundData: response.data
+        });
+      }
+    });
+  }
 
   render() {
     const { classes } = this.props;
