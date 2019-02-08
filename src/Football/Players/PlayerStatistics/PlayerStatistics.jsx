@@ -16,21 +16,38 @@ class PlayerStatistics extends Component {
 
   render() {
     const playerId = this.props.match.params.id;
-    return (
-      <Query
-        query={gql`
-          {
-              player(id: ${playerId}) {
-                  name, surname
-                  playerMatchesPlayed {
-                      localTeamName, visitorTeamName, id, localGoals, visitorGoals, date, round,
-                      competition {
-                        id, name, season, type
-                      }
-                  }
+
+    const GET_PLAYER_STATISTICS = gql`
+      query PlayerStatistics($playerId: Int!) {
+        player(id: $playerId) {
+          name, surname
+          playerMatchesPlayed {
+              localTeamName, visitorTeamName, id, localGoals, visitorGoals, date, round,
+              competition {
+                id, name, season, type
               }
           }
-      `}
+      }
+    }
+  `;
+
+//   const GET_PLAYER_STATISTICS = gql`
+//   {
+//       player(id: ${playerId}) {
+//           name, surname
+//           playerMatchesPlayed {
+//               localTeamName, visitorTeamName, id, localGoals, visitorGoals, date, round,
+//               competition {
+//                 id, name, season, type
+//               }
+//           }
+//       }
+//   }
+// `;
+
+    return (
+      <Query
+        query={GET_PLAYER_STATISTICS} variables={{playerId}}
       >
         {({ loading, error, data }) => {
           if (loading) {
