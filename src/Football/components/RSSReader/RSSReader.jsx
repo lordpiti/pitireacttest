@@ -20,9 +20,11 @@ class RSSReader extends Component {
     })
 
     parser.parseURL(CORS_PROXY + this.props.feedUrl, (err, feed) => {
-      this.setState({
-        feedList: feed.items
-      });
+      if (feed) {
+        this.setState({
+          feedList: feed.items
+        });
+      }
     })
   }
 

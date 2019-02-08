@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/players';
-import PlayerInfoModal from './PlayerInfoModal/PlayerInfoModal';
 import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
 import { Paper } from '@material-ui/core';
 import Formatters from '../../utilities/formatters';
+import editPlayerComponent from './EditPlayer/EditPlayer';
 
 const PlayerInfo = (props) => {
 
@@ -22,7 +22,8 @@ const PlayerInfo = (props) => {
             <div>Date of Birth: {Formatters.formatDate(props.playerData.birthDate)}</div>
             <br/>
             <RoleVisibleComponent
-              component={PlayerInfoModal}
+              // component={PlayerInfoModal}
+              component={editPlayerComponent}
               roles={['Admin']}
               playerData={props.playerData}
               savePlayer={ (a, b) => props.savePlayer(a, b) } />
