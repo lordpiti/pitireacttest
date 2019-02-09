@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import Button from '@material-ui/core/Button';
-import apiInstance from '../../../utilities/axios-test';
+import axiosInstance from 'axios';
 import './GoogleAuthenticator.css';
 
 class GoogleAuthenticator extends Component {
@@ -9,9 +9,10 @@ class GoogleAuthenticator extends Component {
   render() {
 
     const responseGoogle = (response) => {
-      const url = 'user/LoginGoogle';
+      const url = `${process.env.REACT_APP_LOGIN_API_URL}/user/LoginGoogle`;
+      // const url = `http://localhost:3001/user/LoginGoogle`;
 
-      apiInstance.post(url, { userId: '', accessToken: response.tokenId })
+      axiosInstance.post(url, { userId: '', accessToken: response.tokenId })
         .then(responseApi => {
           const loginData = {
             token: responseApi.data.token,

@@ -1,6 +1,7 @@
 import React from 'react';
 import FacebookLogin from 'react-facebook-login';
-import apiInstance from '../../../utilities/axios-test';
+// import apiInstance from '../../../utilities/axios-test';
+import axiosInstance from 'axios';
 import Button from '@material-ui/core/Button';
 import './FacebookAuthenticator.css';
 
@@ -8,9 +9,11 @@ const FacebookAuthenticator = (props) => {
 
   const responseFacebook = (response) => {
     console.log(response);
-    const url = 'user/Login';
+    //const url = 'user/Login';
+    const url = `${process.env.REACT_APP_LOGIN_API_URL}/user/Login`;
+    // const url = `http://localhost:3001/user/Login`;
 
-    apiInstance.post(url, { userId: response.userID, accessToken: response.accessToken })
+    axiosInstance.post(url, { userId: response.userID, accessToken: response.accessToken })
       .then(responseApi => {
         const loginData = {
           token: responseApi.data.token,
