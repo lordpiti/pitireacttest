@@ -9,12 +9,13 @@ class RSSReader extends Component {
   }
 
   componentDidMount() {
-    const CORS_PROXY = "https://cors-anywhere.herokuapp.com/"
+    const CORS_PROXY = process.env.REACT_APP_CORS_PROXY;
 
     let parser = new Parser({
       customFields: {
         item: [
           ['media:content', 'media:content'],
+          ['media:thumbnail', 'media:thumbnail']
         ]
       }
     })

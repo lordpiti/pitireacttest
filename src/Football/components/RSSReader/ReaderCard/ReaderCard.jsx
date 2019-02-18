@@ -24,22 +24,31 @@ function ReaderCard(props) {
 
   const { classes } = props;
 
+  let imageUrl = null;
+
+  if (props.cardData["media:thumbnail"]) {
+    imageUrl = props.cardData["media:thumbnail"].$.url;
+  }
+  else if (props.cardData["media:content"]) {
+    imageUrl = props.cardData["media:content"].$.url;
+  }
+
   return (
     <div className="margin-bottom-medium readerCard">
       <a href={props.cardData.link} target="_blank">
         <Card className={classes.card}>
           <CardHeader
-            avatar={
-              <Avatar aria-label="Recipe" className={classes.avatar}>
-                {props.cardData.index}
-              </Avatar>
-            }
+            // avatar={
+            //   <Avatar aria-label="Recipe" className={classes.avatar}>
+            //     {props.cardData.index}
+            //   </Avatar>
+            // }
             title={props.cardData.title}
             subheader={props.cardData.categories? props.cardData.categories[0]: null}
           />
           <CardMedia
             className={classes.media}
-            image={props.cardData["media:content"] ? props.cardData["media:content"].$.url: null}
+            image={imageUrl}
             title={props.cardData.title}
           />
           <CardContent>
@@ -48,7 +57,6 @@ function ReaderCard(props) {
             </Typography>
             <Typography component="p">
               {Formatters.formatDate(props.cardData.isoDate)}
-
             </Typography>
           </CardContent>
         </Card>
