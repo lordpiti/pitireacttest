@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MatchPlayerSingle /> with all data renders correctly a player component with the right data 1`] = `
+<div
+  className="row match-player-single"
+>
+  <div
+    className="col-sm-1"
+  >
+    9
+  </div>
+  <div
+    className="col-sm-5"
+  >
+    test name
+     
+    test surname
+  </div>
+  <div
+    className="col-sm-1"
+  >
+    <span>
+      <span
+        className="glyphicon glyphicon-arrow-left"
+      />
+      <span>
+        9
+      </span>
+    </span>
+    <span>
+      <span
+        className="glyphicon glyphicon-arrow-right"
+      />
+      <span>
+        19
+      </span>
+    </span>
+  </div>
+  <div
+    className="col-sm-2"
+  >
+    <div>
+      <img
+        height="20"
+        src="/assets/img/yellow_card-512.png"
+        width="20"
+      />
+      <label
+        className="small"
+      >
+        10
+      </label>
+    </div>
+  </div>
+  <div
+    className="col-sm-2"
+  >
+    <span>
+      <img
+        height="20"
+        src="/assets/img/ball.png"
+        width="20"
+      />
+      <label
+        className="small"
+      >
+        76
+      </label>
+    </span>
+  </div>
+</div>
+`;

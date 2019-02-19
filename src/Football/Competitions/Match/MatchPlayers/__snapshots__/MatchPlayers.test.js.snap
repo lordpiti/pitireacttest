@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the snapshot should render one MatchPlayerSingle 1`] = `
+<div>
+  <div>
+    <MatchPlayerSingle
+      player={
+        Object {
+          "playerId": 1,
+          "start": true,
+          "teamId": 1,
+        }
+      }
+    />
+  </div>
+  <hr />
+  <div>
+    <MatchPlayerSingle
+      player={
+        Object {
+          "playerId": 2,
+          "start": false,
+          "teamId": 1,
+        }
+      }
+    />
+  </div>
+</div>
+`;
