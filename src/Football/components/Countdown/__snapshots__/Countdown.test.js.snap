@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MatchPlayerSingle /> with all data renders correctly a player component with the right data 1`] = `
+<div
+  className="Countdown"
+>
+  <span
+    className="Countdown-col"
+  >
+    <span
+      className="Countdown-col-element"
+    >
+      <strong>
+        00
+      </strong>
+      <span>
+        Days
+      </span>
+    </span>
+  </span>
+  <span
+    className="Countdown-col"
+  >
+    <span
+      className="Countdown-col-element"
+    >
+      <strong>
+        00
+      </strong>
+      <span>
+        Hours
+      </span>
+    </span>
+  </span>
+  <span
+    className="Countdown-col"
+  >
+    <span
+      className="Countdown-col-element"
+    >
+      <strong>
+        00
+      </strong>
+      <span>
+        Min
+      </span>
+    </span>
+  </span>
+  <span
+    className="Countdown-col"
+  >
+    <span
+      className="Countdown-col-element"
+    >
+      <strong>
+        00
+      </strong>
+      <span>
+        Sec
+      </span>
+    </span>
+  </span>
+</div>
+`;
