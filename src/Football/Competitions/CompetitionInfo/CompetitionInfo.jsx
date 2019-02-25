@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/competitions';
 import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
 import { Paper } from '@material-ui/core';
-import editCompetitionComponent from './EditCompetition/EditCompetition';
+import editCompetitionComponent from './EditCompetitionHooks/EditCompetitionHooks';
 
 const CompetitionInfo = (props) => {
 

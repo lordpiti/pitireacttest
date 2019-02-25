@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
-import { TextField, FormControl, InputLabel, MenuItem, FormHelperText, Select } from '@material-ui/core';
+import { TextField, FormHelperText } from '@material-ui/core';
 import editModal from '../../../components/EditModal/editModal';
 import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';
-
-
 
 class EditCompetitionInfo extends React.Component {
 
@@ -116,7 +114,7 @@ class EditCompetitionInfo extends React.Component {
 							<form>
 								<TextField
 									required
-									error={validation.name.message}
+									error={validation.name.message!=undefined && validation.name.message!=''}
 									id="name"
 									name="name"
 									label="Competition name"
@@ -128,7 +126,7 @@ class EditCompetitionInfo extends React.Component {
 								<FormHelperText>Required</FormHelperText>
 								<TextField
 									required
-									error={validation.season.message}
+									error={validation.season.message!=undefined && validation.season.message!=''}
 									id="season"
 									name="season"
 									label="Season"
