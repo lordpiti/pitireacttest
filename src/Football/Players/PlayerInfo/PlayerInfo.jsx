@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/players';
 import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
@@ -13,7 +13,7 @@ const PlayerInfo = (props) => {
       <h1>Player Basic Info</h1>
       <Paper>
         <div className="row" style={{ padding: '20px'}}>
-          <div className="col-sm-7">
+          <div className="col-sm-5">
             <div>First Name: {props.playerData.name}</div>
             <div>Last Name: {props.playerData.surname}</div>
             <div>Position: {props.playerData.position}</div>
@@ -28,8 +28,11 @@ const PlayerInfo = (props) => {
               playerData={props.playerData}
               savePlayer={ (a, b) => props.savePlayer(a, b) } />
           </div>
+          <div className="col-sm-2">
+            <img src="/assets/img/pitch-positions.png" height="300px" width="225" alt=""/>
+          </div>
           <div className="col-sm-5 text-right">
-            <img src={props.playerData.picture.url} height="300px" width="300px"/>  
+            <img src={props.playerData.picture.url} height="300px" width="300px" alt=""/>
           </div>
         </div>
       </Paper>

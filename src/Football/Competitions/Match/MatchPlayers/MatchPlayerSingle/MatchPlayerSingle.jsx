@@ -33,7 +33,7 @@ const MatchPlayerSingle = ( props ) => {
         const cardImageUrl = booking.type==='Amarilla'?'/assets/img/yellow_card-512.png':'/assets/img/red_card-512.png';
 
         return <div key={index}>
-          <img src={cardImageUrl} width="20" height="20"/>
+          <img src={cardImageUrl} width="20" height="20" alt=""/>
           <label className="small">{booking.minute}</label>
         </div>
       }
@@ -42,7 +42,7 @@ const MatchPlayerSingle = ( props ) => {
     <div className="col-sm-2">
       {props.player.goals.map((goal, index) =>
         <span key={index}>
-          <img src="/assets/img/ball.png" width="20" height="20"/>
+          <img src="/assets/img/ball.png" width="20" height="20" alt=""/>
           <label className="small">{goal.minute}</label>
         </span>)
       }

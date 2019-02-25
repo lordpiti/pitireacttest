@@ -4,6 +4,8 @@ import ReaderCard from './ReaderCard/ReaderCard';
 
 class RSSReader extends Component {
 
+  _isMounted = false;
+
   state = {
     feedList: []
   }
@@ -18,15 +20,23 @@ class RSSReader extends Component {
           ['media:thumbnail', 'media:thumbnail']
         ]
       }
-    })
+    });
+
+    this._isMounted = true;
 
     parser.parseURL(CORS_PROXY + this.props.feedUrl, (err, feed) => {
       if (feed) {
-        this.setState({
-          feedList: feed.items
-        });
+        if (this._isMounted) {
+          this.setState({
+            feedList: feed.items
+          });
+        }
       }
     })
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   render() {

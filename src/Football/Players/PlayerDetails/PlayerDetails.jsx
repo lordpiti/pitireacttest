@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import asyncComponent from '../../components/asyncComponent/asyncComponent';
+// import asyncComponent from '../../components/asyncComponent/asyncComponent';
 import PlayerStatistics from '../PlayerStatistics/PlayerStatistics';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import Match from '../../Competitions/Match/Match';
@@ -43,7 +43,7 @@ class PlayerDetails extends Component {
             <div className="col-sm-3">
               <SideMenu itemList={itemList} >
                 <div className="margin-bottom-medium">
-                  <img src={this.props.currentPlayer.picture.url} className="roundedImage" height="50" width="50" />
+                  <img src={this.props.currentPlayer.picture.url} className="roundedImage" height="50" width="50" alt="" />
                   <span>{`${this.props.currentPlayer.name} ${this.props.currentPlayer.surname}`}</span>
                 </div>
               </SideMenu>

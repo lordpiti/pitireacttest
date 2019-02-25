@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/teams';
 import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
@@ -6,7 +6,6 @@ import { Paper } from '@material-ui/core';
 import editTeamComponent from './EditTeam/EditTeam';
 
 const TeamInfo = (props) => {
-console.log(props.teamData)
   return (
     <div>
       <h1>Team Basic Info</h1>
@@ -22,7 +21,7 @@ console.log(props.teamData)
               saveTeam={ (a, b) => props.saveTeam(a, b) } />
           </div>
           <div className="col-sm-5 text-right">
-            <img src={props.teamData.pictureLogo.url} height="300px" width="300px"/>  
+            <img src={props.teamData.pictureLogo.url} height="300px" width="300px" alt=""/>  
           </div>
         </div>
       </Paper>

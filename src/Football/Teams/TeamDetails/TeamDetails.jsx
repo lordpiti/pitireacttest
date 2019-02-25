@@ -22,7 +22,7 @@ class TeamDetails extends Component {
     if (this.props.currentTeam) {
       menuContent = 
       <div className="margin-bottom-medium">
-        <img src={this.props.currentTeam.pictureLogo.url} className="roundedImage" height="50" width="50" />
+        <img src={this.props.currentTeam.pictureLogo.url} className="roundedImage" height="50" width="50" alt="" />
         <span>{this.props.currentTeam.name}</span>
       </div>
       content =

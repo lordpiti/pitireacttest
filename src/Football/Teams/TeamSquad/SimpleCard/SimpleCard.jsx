@@ -18,8 +18,9 @@ const styles = {
     maxWidth: 345,
   },
   media: {
-    height: 0,
+    height: 250,
     paddingTop: '56.25%', // 16:9
+    backgroundPosition: 'top'
   },
 };
 
@@ -45,26 +46,23 @@ function SimpleMediaCard(props) {
             title={props.cardData.name}
           />
           <CardContent>
-          {/* <Typography gutterBottom variant="headline" component="h2">
-              {props.cardData.name} {props.cardData.surname}
-            </Typography> */}
-            <Typography gutterBottom component="p">
+            {/* <Typography gutterBottom component="p">
               Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum Loren Ipsum
-            </Typography>
+            </Typography> */}
             <Typography component="p">
               {Formatters.formatDate(props.cardData.birthDate)}
               <br/>
               {props.cardData.height} m
             </Typography>
           </CardContent>
-          <CardActions>
+          {/* <CardActions>
             <Button size="small" color="primary">
               Share
           </Button>
             <Button size="small" color="primary">
               Learn More
           </Button>
-          </CardActions>
+          </CardActions> */}
         </Card>
       </Link>
     </div>

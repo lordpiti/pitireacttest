@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextField, Paper, Table, TableHead, TableRow, TableCell, TableBody, TablePagination, TableFooter } from '@material-ui/core';
+import { TextField, Paper, Table, TableRow, TablePagination, TableFooter } from '@material-ui/core';
 import TablePaginationActionsWrapped from './TablePaginationActions/TablePaginationActions';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';

@@ -29,7 +29,7 @@ class BasicDropzone extends Component {
               <div className="col-sm-12" key={f.name}>
                 <div className="row align-items-center">
                   <div className="col-sm-3">
-                  <img src={f.preview} height="40" width="40" />
+                  <img src={f.preview} height="40" width="40" alt="" />
                   </div>
                   <div className="col-sm-9">
                   <span className="fileInfo">{f.name} - {f.size} bytes</span>

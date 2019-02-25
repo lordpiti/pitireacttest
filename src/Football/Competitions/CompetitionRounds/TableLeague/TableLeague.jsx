@@ -31,7 +31,7 @@ const TableLeague = (props) => {
                     <Link to={{
                       pathname: '/teams/team-details/' + item.teamId
                     }}>
-                      <div><img src={item.teamLogo.url} width="20" height="20" />{item.teamName}</div>
+                      <div><img src={item.teamLogo.url} width="20" height="20" alt="" />{item.teamName}</div>
                     </Link>
                   </td>
                   <td>{item.matchesWon}</td>

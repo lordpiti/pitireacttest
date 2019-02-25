@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/competitions';
 import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
@@ -23,7 +23,7 @@ const CompetitionInfo = (props) => {
               saveCompetition={ (a, b) => props.saveCompetition(a, b) } />
           </div>
           <div className="col-sm-5 text-right">
-            <img src={props.competitionData.logo.url} height="300px" width="300px"/>  
+            <img src={props.competitionData.logo.url} height="300px" width="300px" alt=""/>  
           </div>
         </div>
       </Paper>

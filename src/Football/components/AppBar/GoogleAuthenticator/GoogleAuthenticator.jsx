@@ -76,9 +76,7 @@ class GoogleAuthenticator extends Component {
     }
 
     return (
-
-      <div className="padding-top-sm">
-        {/* {this.props.authenticationToken}       */}
+      <div>
         {buttonLoginLogout}
       </div>
     )

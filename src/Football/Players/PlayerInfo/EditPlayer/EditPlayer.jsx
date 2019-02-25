@@ -229,7 +229,7 @@ class EditPlayerInfo extends React.Component {
               </form>
             </div>
             <div className="col-sm-5 text-center">
-              <img className="roundedImage" src={this.props.playerData.picture.url} height="100" width="100" />
+              <img className="roundedImage" src={this.props.playerData.picture.url} height="100" width="100" alt="" />
               <BasicDropzone settings={this.dropzoneSettings} />
             </div>
           </div>
