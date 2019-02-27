@@ -45,7 +45,6 @@ class EditCompetitionInfo extends React.Component {
 			reader.onload = () => {
 				// do whatever you want with the file content
 				fileToUpload = reader.result;
-
 				this.setState({
 					currentImage: {
 						data: fileToUpload,

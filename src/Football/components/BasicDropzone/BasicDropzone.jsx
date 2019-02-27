@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
-import './BasicDropzone.css';
+import styles from './BasicDropzone.module.css';
 
 class BasicDropzone extends Component {
     constructor(props) {
@@ -9,9 +9,15 @@ class BasicDropzone extends Component {
     }
   
     onDrop(files) {
-        this.props.settings.callback(files);
+      
+      //needed to get the preview image for the thumbnail
+      const filesWithPreview = files.map(file => Object.assign(file, {
+        preview: URL.createObjectURL(file)
+      }));
+
+      this.props.settings.callback(filesWithPreview);
       this.setState({
-        files: files
+        files: filesWithPreview
       });
     }
   
@@ -23,16 +29,16 @@ class BasicDropzone extends Component {
         selectedFilesContent =   
         <aside>
           <h3>Selected Files</h3>
-          <div className="row droppedFileInfo">
+          <div className={styles.droppedFileInfo+' row'} >
             {
               this.state.files.map(f => 
               <div className="col-sm-12" key={f.name}>
                 <div className="row align-items-center">
                   <div className="col-sm-3">
-                  <img src={f.preview} height="40" width="40" alt="" />
+                    <img src={f.preview} height="40" width="40" alt="" />
                   </div>
                   <div className="col-sm-9">
-                  <span className="fileInfo">{f.name} - {f.size} bytes</span>
+                    <span className={styles.fileInfo}>{f.name} - {f.size} bytes</span>
                   </div>
                 </div>
               </div>)

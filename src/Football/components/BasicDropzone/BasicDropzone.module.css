@@ -7,7 +7,7 @@
   border-radius: 5px;
 }
 
-.droppedFileInfo .fileInfo {
+.fileInfo {
   white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis;

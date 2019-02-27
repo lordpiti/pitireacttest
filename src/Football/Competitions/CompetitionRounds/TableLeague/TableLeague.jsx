@@ -1,5 +1,5 @@
 import React from 'react';
-import './TableLeague.css';
+import styles from './TableLeague.module.css';
 import { Link } from 'react-router-dom';
 import { Card, CardHeader, CardContent } from '@material-ui/core';
 
@@ -11,7 +11,7 @@ const TableLeague = (props) => {
         title="Table"
       />
       <CardContent>
-        <div className="TableLeague">
+        <div className={styles.TableLeague}>
           <table className="table table-striped">
             <thead>
               <tr>
@@ -27,9 +27,9 @@ const TableLeague = (props) => {
               {props.teamStatsRoundList.map((item, index) =>
                 <tr key={index}>
                   <td>{item.position}</td>
-                  <td className="iconAndNameColumn">
+                  <td className={styles.iconAndNameColumn}>
                     <Link to={{
-                      pathname: '/teams/team-details/' + item.teamId
+                      pathname: `/teams/team-details/${item.teamId}`
                     }}>
                       <div><img src={item.teamLogo.url} width="20" height="20" alt="" />{item.teamName}</div>
                     </Link>

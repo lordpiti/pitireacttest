@@ -6,7 +6,7 @@ import editModal from '../../../components/EditModal/editModal';
 import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';
 
-const editCompetitionInfo = (props) => {
+const editCompetitionInfo = ({ competitionData, saveCompetition, handleClose, classes }) => {
 
 	const validRegEx = (range) => /^\d{4}(-\d{4})$/.test(range);
 
@@ -30,7 +30,7 @@ const editCompetitionInfo = (props) => {
 	});
 
 	const [currentCompetitionDataState, setCurrentCompetitionDataState] = useState({
-		...props.competitionData
+		...competitionData
 	});
 
 	const [currentValidationState, setCurrentValidationState] = useState({
@@ -90,18 +90,16 @@ const editCompetitionInfo = (props) => {
 					fileName: currentImageState.currentImage.fileName
 				};
 			}
-			props.saveCompetition(image, currentCompetitionDataState);
-			props.handleClose();
+			saveCompetition(image, currentCompetitionDataState);
+			handleClose();
 		}
 	}
 
-	const { classes } = props;
-	debugger;
 	let validation = submitted ?         // if the form has been submitted at least once
 	validator.validate(currentCompetitionDataState) :   // then check validity every time we render
 	currentValidationState.validation                   // otherwise just use what's in state
 
-if (!props.competitionData) {
+if (!competitionData) {
 	return <div></div>
 } else
 	return (
@@ -112,7 +110,7 @@ if (!props.competitionData) {
 					<form>
 						<TextField
 							required
-							error={validation.name.message!=undefined && validation.name.message!=''}
+							error={validation.name.message!==undefined && validation.name.message!==''}
 							id="name"
 							name="name"
 							label="Competition name"
@@ -124,7 +122,7 @@ if (!props.competitionData) {
 						<FormHelperText>Required</FormHelperText>
 						<TextField
 							required
-							error={validation.season.message!=undefined && validation.season.message!=''}
+							error={validation.season.message!==undefined && validation.season.message!==''}
 							id="season"
 							name="season"
 							label="Season"
@@ -137,7 +135,7 @@ if (!props.competitionData) {
 					</form>
 				</div>
 				<div className="col-sm-5 text-center">
-					<img className="roundedImage" src={props.competitionData.logo.url} height="100" width="100" />
+					<img className="roundedImage" src={competitionData.logo.url} height="100" width="100" />
 					<BasicDropzone settings={dropzoneSettings} />
 				</div>
 			</div>
@@ -154,6 +152,8 @@ if (!props.competitionData) {
 
 editCompetitionInfo.propTypes = {
 	classes: PropTypes.object.isRequired,
+	saveCompetition: PropTypes.func.isRequired,
+	handleClose: PropTypes.func.isRequired
 };
 
 export default editModal(editCompetitionInfo);
