@@ -20,43 +20,41 @@ const styles = {
   },
 };
 
-function ReaderCard(props) {
-
-  const { classes } = props;
+const readerCard = ({ classes, cardData}) => {
 
   let imageUrl = null;
 
-  if (props.cardData["media:thumbnail"]) {
-    imageUrl = props.cardData["media:thumbnail"].$.url;
+  if (cardData["media:thumbnail"]) {
+    imageUrl = cardData["media:thumbnail"].$.url;
   }
-  else if (props.cardData["media:content"]) {
-    imageUrl = props.cardData["media:content"].$.url;
+  else if (cardData["media:content"]) {
+    imageUrl = cardData["media:content"].$.url;
   }
 
   return (
     <div className="margin-bottom-medium readerCard">
-      <a href={props.cardData.link} target="_blank">
+      <a href={cardData.link} target="_blank">
         <Card className={classes.card}>
           <CardHeader
             // avatar={
             //   <Avatar aria-label="Recipe" className={classes.avatar}>
-            //     {props.cardData.index}
+            //     {cardData.index}
             //   </Avatar>
             // }
-            title={props.cardData.title}
-            subheader={props.cardData.categories? props.cardData.categories[0]: null}
+            title={cardData.title}
+            subheader={cardData.categories? cardData.categories[0]: null}
           />
           <CardMedia
             className={classes.media}
             image={imageUrl}
-            title={props.cardData.title}
+            title={cardData.title}
           />
           <CardContent>
             <Typography gutterBottom component="p">
-              {props.cardData.creator}
+              {cardData.creator}
             </Typography>
             <Typography component="p">
-              {Formatters.formatDate(props.cardData.isoDate)}
+              {Formatters.formatDate(cardData.isoDate)}
             </Typography>
           </CardContent>
         </Card>
@@ -65,7 +63,7 @@ function ReaderCard(props) {
   );
 }
 
-ReaderCard.propTypes = {
+readerCard.propTypes = {
   classes: PropTypes.object.isRequired,
   cardData: PropTypes.shape({
     index: PropTypes.number.isRequired,
@@ -75,4 +73,4 @@ ReaderCard.propTypes = {
   }).isRequired
 };
 
-export default withStyles(styles)(ReaderCard);
+export default withStyles(styles)(readerCard);

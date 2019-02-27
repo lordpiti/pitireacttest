@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/teams';
 import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
+import RoleVisibleWrapper from '../../components/RoleVisibleComponent/RoleVisibleWrapper';
 import { Paper } from '@material-ui/core';
-import editTeamComponent from './EditTeam/EditTeam';
+import EditTeamComponent from './EditTeam/EditTeam';
 
 const TeamInfo = (props) => {
   return (
@@ -14,11 +15,16 @@ const TeamInfo = (props) => {
           <div className="col-sm-7">
             <div>Name: {props.teamData.name}</div>
             <br/>
-            <RoleVisibleComponent
+            {/* <RoleVisibleComponent
               component={editTeamComponent}
               roles={['Admin']}
               teamData={props.teamData}
-              saveTeam={ (a, b) => props.saveTeam(a, b) } />
+              saveTeam={ (a, b) => props.saveTeam(a, b) } /> */}
+            <RoleVisibleWrapper roles={['Admin']}>
+              <EditTeamComponent
+                teamData={props.teamData}
+                saveTeam={ (a, b) => props.saveTeam(a, b) } />
+            </RoleVisibleWrapper>
           </div>
           <div className="col-sm-5 text-right">
             <img src={props.teamData.pictureLogo.url} height="300px" width="300px" alt=""/>  

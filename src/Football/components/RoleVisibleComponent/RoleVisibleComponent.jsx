@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const RoleVisibleComponent = ({ component: Component, roles, ...props }) => {
 
   let content = null;
