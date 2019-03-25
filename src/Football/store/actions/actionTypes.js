@@ -20,6 +20,9 @@ export const LOAD_COMPETITION = 'LOAD_COMPETITION';
 
 //Teams
 export const LOAD_TEAM_LIST = 'LOAD_TEAM_LIST';
-export const LOAD_TEAM_LIST_SAGAS = 'LOAD_TEAM_LIST_SAGAS';
 export const LOAD_TEAM = 'LOAD_TEAM';
 export const SAVE_TEAM = 'SAVE_TEAM';
+
+export const LOAD_TEAM_LIST_SAGAS = 'LOAD_TEAM_LIST_SAGAS';
+export const LOAD_TEAM_SAGAS = 'LOAD_TEAM_SAGAS';
+export const SAVE_TEAM_SAGAS = 'SAVE_TEAM_SAGAS';

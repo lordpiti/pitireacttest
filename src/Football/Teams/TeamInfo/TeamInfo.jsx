@@ -43,7 +43,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    saveTeam: (image, teamData) => dispatch(actionCreators.saveTeam(image, teamData))
+    saveTeam: (image, teamData) => dispatch(actionCreators.saveTeamSagas(image, teamData))
   }
 };
 

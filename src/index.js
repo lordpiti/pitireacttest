@@ -33,6 +33,10 @@ const logger = store => {
   }
 };
 
+// using redux-thunk as a redux middleware for competitions and players
+// using redux-saga as a redux middleware for teams
+// just as a proof so that both middlewares can live together in the same app
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const sagaMiddleware = createSagaMiddleware();
