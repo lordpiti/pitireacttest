@@ -76,19 +76,9 @@ class CompetitionDetails extends Component {
                 }
                 } />
               <Route path={this.props.match.url + '/competition-rounds'}
-                component={props => {
-                  return (
-                    competitionTypeContent)
-                }
-                } exact
-              />
+                component={ () => competitionTypeContent } exact />
               <Route path={this.props.match.url + '/competition-statistics'}
-                render={props => {
-                  return (
-                    <CompetitionStatistics competitionId={competitionId}></CompetitionStatistics>)
-                }
-                } exact
-              />
+                render={() => <CompetitionStatistics competitionId={competitionId}></CompetitionStatistics> } exact />
             </div>
           </div>
         </div>

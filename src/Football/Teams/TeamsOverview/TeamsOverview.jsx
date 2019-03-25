@@ -40,7 +40,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    loadTeams: () => dispatch(actionCreators.loadTeams())
+    loadTeams: () => dispatch(actionCreators.loadTeamsSagas())
   }
 };
 

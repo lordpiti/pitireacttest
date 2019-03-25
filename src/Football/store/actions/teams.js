@@ -19,6 +19,12 @@ export const loadTeams = () => {
   }
 };
 
+export const loadTeamsSagas = () => {
+  return {
+    type: actionTypes.LOAD_TEAM_LIST_SAGAS
+  };
+};
+
 export const loadTeamSuccess = (teamData) => {
   return {
       type: actionTypes.LOAD_TEAM,

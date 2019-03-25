@@ -5,12 +5,14 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
 import registerServiceWorker from './registerServiceWorker';
 
 import playersReducer from './Football/store/reducers/players';
 import competitionsReducer from './Football/store/reducers/competitions';
 import teamsReducer from './Football/store/reducers/teams';
 import globalReducer from './Football/store/reducers/global';
+import { watchTeams } from './Football/store/sagas';
 
 
 const rootReducer = combineReducers({
@@ -33,7 +35,11 @@ const logger = store => {
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger, thunk)));
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger, thunk, sagaMiddleware)));
+
+sagaMiddleware.run(watchTeams);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
