@@ -6,7 +6,7 @@ import editModal from '../../../components/EditModal/editModal';
 import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';
 
-const editCompetitionInfo = ({ competitionData, saveCompetition, handleClose, classes }) => {
+const EditCompetitionInfo = ({ competitionData, saveCompetition, handleClose, classes }) => {
 
 	const validRegEx = (range) => /^\d{4}(-\d{4})$/.test(range);
 
@@ -150,10 +150,10 @@ if (!competitionData) {
 } 
 
 
-editCompetitionInfo.propTypes = {
+EditCompetitionInfo.propTypes = {
 	classes: PropTypes.object.isRequired,
 	saveCompetition: PropTypes.func.isRequired,
 	handleClose: PropTypes.func.isRequired
 };
 
-export default editModal(editCompetitionInfo);
+export default editModal(EditCompetitionInfo);
