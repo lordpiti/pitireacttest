@@ -28,10 +28,10 @@ function getModalStyle() {
 const styles = theme => ({
   paper: {
     position: 'absolute',
-    width: theme.spacing.unit * 50,
+    width: theme.spacing(50),
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 4,
+    padding: theme.spacing(4),
   },
 });
 
@@ -82,7 +82,7 @@ class Football extends Component {
               onClose={this.handleClose}
             >
               <div style={getModalStyle()} className={classes.paper}>
-                <Typography variant="title" id="modal-title">
+                <Typography variant="subtitle1" id="modal-title">
                   Loading ...
                 </Typography>
               </div>
