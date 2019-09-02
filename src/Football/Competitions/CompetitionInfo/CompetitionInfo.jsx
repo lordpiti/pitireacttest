@@ -7,28 +7,33 @@ import editCompetitionComponent from './EditCompetitionHooks/EditCompetitionHook
 
 const CompetitionInfo = (props) => {
 
-  return (
-    <div>
-      <h1>Competition Basic Info</h1>
-      <Paper>
-        <div className="row" style={{ padding: '20px'}}>
-          <div className="col-sm-7">
-            <div>Name: {props.competitionData.name}</div>
-            <div>Season: {props.competitionData.season}</div>
-            <br/>
-            <RoleVisibleComponent
-              component={editCompetitionComponent}
-              roles={['Admin']}
-              competitionData={props.competitionData}
-              saveCompetition={ (a, b) => props.saveCompetition(a, b) } />
+  if (!props.competitionData) {
+    return (<div></div>);
+  } else {
+
+    return (
+      <div>
+        <h1>Competition Basic Info</h1>
+        <Paper>
+          <div className="row" style={{ padding: '20px' }}>
+            <div className="col-sm-7">
+              <div>Name: {props.competitionData.name}</div>
+              <div>Season: {props.competitionData.season}</div>
+              <br />
+              <RoleVisibleComponent
+                component={editCompetitionComponent}
+                roles={['Admin']}
+                competitionData={props.competitionData}
+                saveCompetition={(a, b) => props.saveCompetition(a, b)} />
+            </div>
+            <div className="col-sm-5 text-right">
+              <img src={props.competitionData.logo.url} height="300px" width="300px" alt="" />
+            </div>
           </div>
-          <div className="col-sm-5 text-right">
-            <img src={props.competitionData.logo.url} height="300px" width="300px" alt=""/>  
-          </div>
-        </div>
-      </Paper>
-    </div>
-  );
+        </Paper>
+      </div>
+    );
+  }
 };
 
 const mapStateToProps = state => {

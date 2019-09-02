@@ -23,7 +23,6 @@ const styles = {
 const readerCard = ({ classes, cardData}) => {
 
   let imageUrl = null;
-  debugger;
   if (cardData["media:thumbnail"]) {
     imageUrl = cardData["media:thumbnail"].$.url;
   }

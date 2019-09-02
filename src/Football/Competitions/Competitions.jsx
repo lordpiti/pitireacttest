@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import CompetitionDetails from './CompetitionDetails/CompetitionDetails';
+import CompetitionDetails from './CompetitionDetails/CompetitionDetailsHooks';
 import CompetitionsOverview from './CompetitionsOverview/CompetitionsOverview';
 import CompetitionSimulation from './CompetitionSimulation/CompetitionSimulation';
 
