@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import CompetitionInfo from '../CompetitionInfo/CompetitionInfo';
 import CompetitionRounds from '../CompetitionRounds/CompetitionRounds';
@@ -6,14 +6,21 @@ import CompetitionDraw from '../CompetitionDraw/CompetitionDraw';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import Match from '../Match/Match';
 import CompetitionStatistics from '../CompetitionStatistics/CompetitionStatistics';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as actionCreators from '../../store/actions/competitions';
 
 const CompetitionDetails = (props) => {
 
     const competitionId = props.match.params.id;
+
+    const dispatch = useDispatch();
+
+    const theState = useSelector(state => ({
+        currentCompetition: state.competitions.currentCompetition
+    }));
+
     useEffect(() => {
-        props.loadCompetition(competitionId);
+        dispatch(actionCreators.loadCompetition(competitionId))
     },  []);
     
 
@@ -28,8 +35,8 @@ const CompetitionDetails = (props) => {
 
     let pageContent = null;
 
-    if (props.currentCompetition) {
-        if (props.currentCompetition.type !== 'Playoff') {
+    if (theState.currentCompetition) {
+        if (theState.currentCompetition.type !== 'Playoff') {
             menuItemList = menuItemList.concat([{
                 name: 'Rounds',
                 url: props.match.url + '/competition-rounds'
@@ -38,14 +45,14 @@ const CompetitionDetails = (props) => {
                 name: 'Statistics',
                 url: props.match.url + '/competition-statistics'
             }]);
-            competitionTypeContent = <CompetitionRounds competitionData={props.currentCompetition} {...props} ></CompetitionRounds>;
+            competitionTypeContent = <CompetitionRounds competitionData={theState.currentCompetition} {...props} ></CompetitionRounds>;
         }
         else {
             menuItemList.push({
                 name: 'Draw',
                 url: props.match.url + '/competition-rounds'
             });
-            competitionTypeContent = <CompetitionDraw match={props.match} competitionData={props.currentCompetition} ></CompetitionDraw>;
+            competitionTypeContent = <CompetitionDraw match={props.match} competitionData={theState.currentCompetition} ></CompetitionDraw>;
         }
         // By putting "component=xxx" in the Route to render a component, we force that everytime 'xxx' changes,
         // the child component runs the whole life cycle, including the constructor
@@ -56,8 +63,8 @@ const CompetitionDetails = (props) => {
                     <div className="col-sm-3">
                         <SideMenu itemList={menuItemList} >
                             <div className="margin-bottom-medium">
-                                <img src={props.currentCompetition.logo.url} className="roundedImage" height="50" width="50" />
-                                <span>{`${props.currentCompetition.name}`}</span>
+                                <img src={theState.currentCompetition.logo.url} className="roundedImage" height="50" width="50" />
+                                <span>{`${theState.currentCompetition.name}`}</span>
                             </div>
                         </SideMenu>
                     </div>
@@ -71,7 +78,7 @@ const CompetitionDetails = (props) => {
                         <Route path={props.match.url + '/overview'}
                             render={() => {
                                 return (
-                                    <CompetitionInfo competitionData={props.currentCompetition}></CompetitionInfo>
+                                    <CompetitionInfo competitionData={theState.currentCompetition}></CompetitionInfo>
                                     )
                             }
                             } />
@@ -91,17 +98,4 @@ const CompetitionDetails = (props) => {
     );
 }
 
-
-const mapStateToProps = state => {
-    return {
-        currentCompetition: state.competitions.currentCompetition
-    }
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        loadCompetition: (competitionId) => dispatch(actionCreators.loadCompetition(competitionId))
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CompetitionDetails);
+export default CompetitionDetails;
