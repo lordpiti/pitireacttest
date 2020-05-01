@@ -5,7 +5,12 @@ import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisi
 import { Paper } from '@material-ui/core';
 import editCompetitionComponent from './EditCompetitionHooks/EditCompetitionHooks';
 
-const CompetitionInfo = (props) => {
+interface CompetitionInfoProps {
+  competitionData: any;
+  saveCompetition: Function;
+}
+
+const CompetitionInfo = (props: CompetitionInfoProps) => {
 
   if (!props.competitionData) {
     return (<div></div>);
@@ -24,7 +29,7 @@ const CompetitionInfo = (props) => {
                 component={editCompetitionComponent}
                 roles={['Admin']}
                 competitionData={props.competitionData}
-                saveCompetition={(a, b) => props.saveCompetition(a, b)} />
+                saveCompetition={(a: any, b: any) => props.saveCompetition(a, b)} />
             </div>
             <div className="col-sm-5 text-right">
               <img src={props.competitionData.logo.url} height="300px" width="300px" alt="" />
@@ -36,15 +41,15 @@ const CompetitionInfo = (props) => {
   }
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: any) => {
   return {
     currentCompetition: state.competitions.currentCompetition
   }
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
-    saveCompetition: (image, competitionData) => dispatch(actionCreators.saveCompetition(image, competitionData))
+    saveCompetition: (image: any, competitionData: any) => dispatch(actionCreators.saveCompetition(image, competitionData))
   }
 };
 

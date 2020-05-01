@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
-import { TextField, FormControl, InputLabel, MenuItem, FormHelperText, Select } from '@material-ui/core';
+import { TextField, FormHelperText } from '@material-ui/core';
 import editModal from '../../../components/EditModal/editModal';
 import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';

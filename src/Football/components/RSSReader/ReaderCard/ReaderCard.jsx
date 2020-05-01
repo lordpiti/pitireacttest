@@ -5,7 +5,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
-import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import Formatters from '../../../utilities/formatters';
 import './ReaderCard.css';
@@ -35,11 +34,6 @@ const readerCard = ({ classes, cardData}) => {
       <a href={cardData.link} target="_blank">
         <Card className={classes.card}>
           <CardHeader
-            // avatar={
-            //   <Avatar aria-label="Recipe" className={classes.avatar}>
-            //     {cardData.index}
-            //   </Avatar>
-            // }
             title={cardData.title}
             subheader={cardData.categories? cardData.categories[0]: null}
           />

@@ -1,6 +1,6 @@
 class Helpers {
-  static groupBy(array, property) {
-    var hash = {},
+  static groupBy(array: any[], property: string) {
+    let hash: any = {},
       props = property.split('.');
     for (var i = 0; i < array.length; i++) {
       var key = props.reduce(function (acc, prop) {
@@ -13,7 +13,7 @@ class Helpers {
   }
 
 
-  static removeDuplicates(myArr, prop) {
+  static removeDuplicates(myArr: any[], prop: string) {
     return myArr.filter((obj, pos, arr) => {
       return arr.map(mapObj => mapObj[prop]).indexOf(obj[prop]) === pos;
     });
