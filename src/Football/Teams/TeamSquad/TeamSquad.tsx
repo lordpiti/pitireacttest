@@ -1,7 +1,11 @@
 import React from 'react';
 import SimpleCard from './SimpleCard/SimpleCard';
 
-const TeamSquad = props => {
+export interface TeamSquadProps {
+  players: any[]
+}
+
+const TeamSquad = (props: TeamSquadProps) => {
   let playerList = null;
 
   if (props.players) {

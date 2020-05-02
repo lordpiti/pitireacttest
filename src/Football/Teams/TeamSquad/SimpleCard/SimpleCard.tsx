@@ -24,7 +24,12 @@ const styles = {
   },
 };
 
-function SimpleMediaCard(props) {
+export interface SimpleMediaCardProps {
+  cardData: any;
+  classes: any;
+}
+
+const SimpleMediaCard = (props: SimpleMediaCardProps) => {
 
   const { classes } = props;
   return (
