@@ -1,6 +1,18 @@
 import React from 'react';
 
-const CompetitionSimulationMatchEvent = ( props ) => {
+export interface MatchEvent {
+    description: string;
+    player1: any;
+    player2: any;
+    matchEventType: number;
+    minute: number;
+}
+
+interface CompetitionSimulationMatchEventProps {
+    event: MatchEvent;
+}
+
+const CompetitionSimulationMatchEvent = ( props: CompetitionSimulationMatchEventProps ) => {
 
     let description = props.event.description;
     
