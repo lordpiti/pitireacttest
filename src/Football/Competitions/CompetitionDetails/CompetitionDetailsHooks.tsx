@@ -3,19 +3,25 @@ import { Route, Redirect } from 'react-router-dom';
 import CompetitionInfo from '../CompetitionInfo/CompetitionInfo';
 import CompetitionRounds from '../CompetitionRounds/CompetitionRounds';
 import CompetitionDraw from '../CompetitionDraw/CompetitionDraw';
-import SideMenu from '../../components/SideMenu/SideMenu';
+import SideMenu, { MenuItemSideMenu } from '../../components/SideMenu/SideMenu';
 import Match from '../Match/Match';
 import CompetitionStatistics from '../CompetitionStatistics/CompetitionStatistics';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actionCreators from '../../store/actions/competitions';
+import { RouteComponentProps } from 'react-router';
 
-const CompetitionDetails = (props) => {
+interface MatchParams {
+    id: string;
+}
+  
+
+const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
 
     const competitionId = props.match.params.id;
 
     const dispatch = useDispatch();
 
-    const theState = useSelector(state => ({
+    const theState = useSelector((state: any) => ({
         currentCompetition: state.competitions.currentCompetition
     }));
 
@@ -24,14 +30,14 @@ const CompetitionDetails = (props) => {
     },  []);
     
 
-    let menuItemList = [
+    let menuItemList: MenuItemSideMenu[] = [
         {
             name: 'Summary',
             url: props.match.url + '/overview'
         }
     ];
 
-    let competitionTypeContent = null;
+    let competitionTypeContent: any = null;
 
     let pageContent = null;
 

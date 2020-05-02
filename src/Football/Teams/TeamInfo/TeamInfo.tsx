@@ -6,7 +6,12 @@ import RoleVisibleWrapper from '../../components/RoleVisibleComponent/RoleVisibl
 import { Paper } from '@material-ui/core';
 import EditTeamComponent from './EditTeam/EditTeam';
 
-const TeamInfo = (props) => {
+export interface TeamInfoProps {
+  teamData: any;
+  saveTeam: Function;
+}
+
+const TeamInfo = (props: TeamInfoProps) => {
   return (
     <div>
       <h1>Team Basic Info</h1>
@@ -23,7 +28,7 @@ const TeamInfo = (props) => {
             <RoleVisibleWrapper roles={['Admin']}>
               <EditTeamComponent
                 teamData={props.teamData}
-                saveTeam={ (a, b) => props.saveTeam(a, b) } />
+                saveTeam={ (image: any, teamData: any) => props.saveTeam(image, teamData) } />
             </RoleVisibleWrapper>
           </div>
           <div className="col-sm-5 text-right">
@@ -35,15 +40,15 @@ const TeamInfo = (props) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: any) => {
   return {
     currentTeam: state.teams.currentTeam
   }
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
-    saveTeam: (image, teamData) => dispatch(actionCreators.saveTeamSagas(image, teamData))
+    saveTeam: (image: any, teamData: any) => dispatch(actionCreators.saveTeamSagas(image, teamData))
   }
 };
 

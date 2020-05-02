@@ -1,13 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FunctionComponent } from 'react';
 import MenuList from '@material-ui/core/MenuList';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, Theme } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
 import './SideMenu.css';
 
-const styles = theme => ({
+export interface MenuItemSideMenu {
+  name: string;
+  url: string;
+}
+
+interface SideMenuProps {
+  itemList: MenuItemSideMenu[];
+}
+
+const styles = (theme: Theme) => ({
   menuItem: {
     '&:focus': {
       backgroundColor: theme.palette.primary.main,
@@ -20,9 +28,9 @@ const styles = theme => ({
   icon: {},
 });
 
-function ListItemComposition(props) {
+const ListItemComposition: FunctionComponent<SideMenuProps> = (props) => {
 
-  const { classes, itemList } = props;
+  const { itemList } = props;
     
   return (
     <div>
@@ -61,9 +69,5 @@ function ListItemComposition(props) {
     </div>
   );
 }
-
-ListItemComposition.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default withStyles(styles)(ListItemComposition);

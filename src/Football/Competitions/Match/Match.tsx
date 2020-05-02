@@ -30,7 +30,7 @@ interface MatchState {
   selectedTab: number;
 }
 
-class Match extends React.Component<MatchProps, MatchState> {
+class Match extends Component<MatchProps, MatchState> {
 
   state={
     selectedTab: 0

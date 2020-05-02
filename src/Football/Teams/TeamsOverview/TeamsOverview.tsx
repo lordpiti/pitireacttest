@@ -2,8 +2,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/teams';
+import { RouteComponentProps } from 'react-router';
 
-class TeamsOverview extends Component {
+interface TeamsOverviewParams {
+  id: string;
+}
+
+export interface TeamsOverviewProps extends RouteComponentProps<TeamsOverviewParams> {
+  loadTeams: Function;
+  teamList: any[];
+}
+
+class TeamsOverview extends Component<TeamsOverviewProps> {
 
   componentDidMount() {
     this.props.loadTeams();
@@ -32,13 +42,13 @@ class TeamsOverview extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: any) => {
   return {
     teamList: state.teams.teamList
   }
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
     loadTeams: () => dispatch(actionCreators.loadTeamsSagas())
   }
