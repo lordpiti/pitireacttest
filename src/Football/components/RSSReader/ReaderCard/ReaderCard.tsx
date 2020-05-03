@@ -8,6 +8,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import Formatters from '../../../utilities/formatters';
 import './ReaderCard.scss';
+import Parser from 'rss-parser';
 
 const styles = {
   card: {
@@ -19,7 +20,14 @@ const styles = {
   },
 };
 
-const readerCard = ({ classes, cardData }) => {
+interface ReaderCardProps {
+  classes: any;
+  cardData: Parser.Item;
+}
+
+const readerCard = (props: ReaderCardProps) => {
+  const { classes, cardData } = props;
+
   let imageUrl = null;
   if (cardData['media:thumbnail']) {
     imageUrl = cardData['media:thumbnail'].$.url;
@@ -45,7 +53,7 @@ const readerCard = ({ classes, cardData }) => {
               {cardData.creator}
             </Typography>
             <Typography component='p'>
-              {Formatters.formatDate(cardData.isoDate)}
+              {cardData.isoDate && Formatters.formatDate(cardData.isoDate)}
             </Typography>
           </CardContent>
         </Card>
@@ -54,14 +62,14 @@ const readerCard = ({ classes, cardData }) => {
   );
 };
 
-readerCard.propTypes = {
-  classes: PropTypes.object.isRequired,
-  cardData: PropTypes.shape({
-    index: PropTypes.number.isRequired,
-    categories: PropTypes.array,
-    title: PropTypes.string.isRequired,
-    creator: PropTypes.string,
-  }).isRequired,
-};
+// readerCard.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   cardData: PropTypes.shape({
+//     index: PropTypes.number.isRequired,
+//     categories: PropTypes.array,
+//     title: PropTypes.string.isRequired,
+//     creator: PropTypes.string,
+//   }).isRequired,
+// };
 
 export default withStyles(styles)(readerCard);
