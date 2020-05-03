@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import Formatters from '../../../utilities/formatters';
-import './ReaderCard.css';
+import './ReaderCard.scss';
 
 const styles = {
   card: {
@@ -19,23 +19,21 @@ const styles = {
   },
 };
 
-const readerCard = ({ classes, cardData}) => {
-
+const readerCard = ({ classes, cardData }) => {
   let imageUrl = null;
-  if (cardData["media:thumbnail"]) {
-    imageUrl = cardData["media:thumbnail"].$.url;
-  }
-  else if (cardData["media:content"]) {
-    imageUrl = cardData["media:content"].$.url;
+  if (cardData['media:thumbnail']) {
+    imageUrl = cardData['media:thumbnail'].$.url;
+  } else if (cardData['media:content']) {
+    imageUrl = cardData['media:content'].$.url;
   }
 
   return (
-    <div className="margin-bottom-medium readerCard">
-      <a href={cardData.link} target="_blank">
+    <div className='margin-bottom-medium readerCard'>
+      <a href={cardData.link} target='_blank'>
         <Card className={classes.card}>
           <CardHeader
             title={cardData.title}
-            subheader={cardData.categories? cardData.categories[0]: null}
+            subheader={cardData.categories ? cardData.categories[0] : null}
           />
           <CardMedia
             className={classes.media}
@@ -43,10 +41,10 @@ const readerCard = ({ classes, cardData}) => {
             title={cardData.title}
           />
           <CardContent>
-            <Typography gutterBottom component="p">
+            <Typography gutterBottom component='p'>
               {cardData.creator}
             </Typography>
-            <Typography component="p">
+            <Typography component='p'>
               {Formatters.formatDate(cardData.isoDate)}
             </Typography>
           </CardContent>
@@ -54,7 +52,7 @@ const readerCard = ({ classes, cardData}) => {
       </a>
     </div>
   );
-}
+};
 
 readerCard.propTypes = {
   classes: PropTypes.object.isRequired,
@@ -62,8 +60,8 @@ readerCard.propTypes = {
     index: PropTypes.number.isRequired,
     categories: PropTypes.array,
     title: PropTypes.string.isRequired,
-    creator: PropTypes.string
-  }).isRequired
+    creator: PropTypes.string,
+  }).isRequired,
 };
 
 export default withStyles(styles)(readerCard);

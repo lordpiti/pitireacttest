@@ -41,6 +41,7 @@ exports[`<MatchPlayerSingle /> with all data renders correctly a player componen
   >
     <div>
       <img
+        alt=""
         height="20"
         src="/assets/img/yellow_card-512.png"
         width="20"
@@ -57,6 +58,7 @@ exports[`<MatchPlayerSingle /> with all data renders correctly a player componen
   >
     <span>
       <img
+        alt=""
         height="20"
         src="/assets/img/ball.png"
         width="20"

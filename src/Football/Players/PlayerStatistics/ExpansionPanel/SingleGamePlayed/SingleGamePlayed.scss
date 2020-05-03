@@ -1,0 +1,25 @@
+.SingleGamePlayed {
+  border-radius: 5px;
+  margin-bottom: 5px;
+  border-color: black;
+  border-style: solid;
+  border-width: thin;
+  padding: 10px;
+  color: gray;
+
+  & .matchTitle {
+    font-size: large;
+    font-weight: bold;
+    color: #3f51b5;
+  }
+
+  &:hover {
+    background-color: #3f51b5;
+    color: white;
+    cursor: pointer;
+
+    & .matchTitle {
+      color: white;
+    }
+  }
+}
