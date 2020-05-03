@@ -4,14 +4,16 @@ import Competitions from './Competitions/Competitions';
 import Teams from './Teams/Teams';
 import Players from './Players/Players';
 import AppBar from './components/AppBar/AppBar';
-import PropTypes from 'prop-types';
-import { withStyles, Theme, createStyles } from '@material-ui/core/styles';
+import {
+  withStyles,
+  Theme,
+  createStyles,
+  WithStyles,
+} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
-
 import { connect } from 'react-redux';
-
-import './Football.css';
+import './Football.scss';
 import CustomSnackbar from './components/CustomSnackbar/CustomSnackbar';
 import Home from './Home/Home';
 
@@ -44,14 +46,16 @@ interface Token {
 }
 
 interface FootballState {
-  loading: boolean;
   authenticationToken: string | null;
 }
 
-class Football extends Component<any, FootballState> {
+interface FootballProps extends WithStyles<typeof styles> {
+  loading: boolean;
+}
+
+class Football extends Component<FootballProps, FootballState> {
   state = {
     authenticationToken: localStorage.token_react,
-    loading: false,
   };
 
   updateAuthenticationToken(token: Token) {
