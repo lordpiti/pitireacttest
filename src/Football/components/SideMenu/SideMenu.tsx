@@ -4,7 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import { withStyles, Theme } from '@material-ui/core/styles';
 import { NavLink } from 'react-router-dom';
-import './SideMenu.css';
+import './SideMenu.scss';
 
 export interface MenuItemSideMenu {
   name: string;
@@ -29,15 +29,14 @@ const styles = (theme: Theme) => ({
 });
 
 const ListItemComposition: FunctionComponent<SideMenuProps> = (props) => {
-
   const { itemList } = props;
-    
+
   return (
     <div>
-    {props.children}
-    <Paper>
-      <MenuList>
-        {/* <MenuItem className={classes.menuItem}>
+      {props.children}
+      <Paper>
+        <MenuList>
+          {/* <MenuItem className={classes.menuItem}>
           <ListItemIcon className={classes.icon}>
             <SendIcon />
           </ListItemIcon>
@@ -50,24 +49,25 @@ const ListItemComposition: FunctionComponent<SideMenuProps> = (props) => {
           <ListItemText classes={{ primary: classes.primary }} inset primary="Drafts" />
         </MenuItem>*/}
 
-        {itemList.map((item, index) => 
-        
-          <NavLink key={index} to={{
-                pathname: item.url
-            }}><MenuItem>{item.name}</MenuItem>
-          </NavLink>
-        
-        )}
-        {/* {itemList.map((item, index) => 
+          {itemList.map((item, index) => (
+            <NavLink
+              key={index}
+              to={{
+                pathname: item.url,
+              }}
+            >
+              <MenuItem>{item.name}</MenuItem>
+            </NavLink>
+          ))}
+          {/* {itemList.map((item, index) => 
         <MenuItemLink key={index} to={item.url}>
             {item.name}
         </MenuItemLink>
         )} */}
-      </MenuList>
-      
-    </Paper>
+        </MenuList>
+      </Paper>
     </div>
   );
-}
+};
 
 export default withStyles(styles)(ListItemComposition);

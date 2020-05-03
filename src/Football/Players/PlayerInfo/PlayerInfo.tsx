@@ -6,7 +6,22 @@ import { Paper } from '@material-ui/core';
 import Formatters from '../../utilities/formatters';
 import editPlayerComponent from './EditPlayer/EditPlayer';
 
-const PlayerInfo = (props) => {
+interface PlayerInfoProps {
+  playerData: PlayerData;
+  savePlayer: Function;
+}
+
+interface PlayerData {
+  name: string;
+  surname: string;
+  position: string;
+  height: number;
+  birthPlace: string;
+  birthDate: string;
+  picture: any;
+}
+
+const PlayerInfo = (props: PlayerInfoProps) => {
   return (
     <div>
       <h1>Player Basic Info</h1>
@@ -23,11 +38,10 @@ const PlayerInfo = (props) => {
             </div>
             <br />
             <RoleVisibleComponent
-              // component={PlayerInfoModal}
               component={editPlayerComponent}
               roles={['Admin']}
               playerData={props.playerData}
-              savePlayer={(a, b) => props.savePlayer(a, b)}
+              savePlayer={props.savePlayer}
             />
           </div>
           <div className='col-sm-2'>
@@ -52,15 +66,15 @@ const PlayerInfo = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: any) => {
   return {
     currentPlayer: state.players.currentPlayer,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any) => {
   return {
-    savePlayer: (image, playerData) =>
+    savePlayer: (image: any, playerData: any) =>
       dispatch(actionCreators.savePlayerAction(image, playerData)),
   };
 };
