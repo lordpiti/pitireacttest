@@ -5,6 +5,7 @@ import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisi
 import { Paper } from '@material-ui/core';
 import Formatters from '../../utilities/formatters';
 import editPlayerComponent from './EditPlayer/EditPlayer';
+import { FootballState, FootballDispatch } from '../../..';
 
 interface PlayerInfoProps {
   playerData: PlayerData;
@@ -66,13 +67,13 @@ const PlayerInfo = (props: PlayerInfoProps) => {
   );
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: FootballState) => {
   return {
     currentPlayer: state.players.currentPlayer,
   };
 };
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: FootballDispatch) => {
   return {
     savePlayer: (image: any, playerData: any) =>
       dispatch(actionCreators.savePlayerAction(image, playerData)),

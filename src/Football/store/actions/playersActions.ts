@@ -2,6 +2,7 @@ import axiosInstance from '../../utilities/axios-test';
 import * as actionTypes from './actionTypes';
 import * as globalActionCreators from './global';
 import Formatters from '../../utilities/formatters';
+import { FootballDispatch } from '../../..';
 
 export const loadPlayerListSuccessAction = (playerList: any) => {
   return {
@@ -32,7 +33,7 @@ export const savePlayerSuccessAction = (playerData: any) => {
 };
 
 export const loadPlayerListAction = () => {
-  return (dispatch: any) => {
+  return (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
     axiosInstance.get('player').then((response) => {
       const playerList = response.data.sort((a: any, b: any) =>
@@ -45,7 +46,7 @@ export const loadPlayerListAction = () => {
 };
 
 export const loadPlayerAction = (id: any) => {
-  return (dispatch: any) => {
+  return (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
     axiosInstance.get(`player/${id}`).then((response) => {
       let playerData = response.data;
@@ -60,7 +61,7 @@ export const loadPlayerAction = (id: any) => {
 };
 
 export const savePlayerAction = (image: any, playerData: any) => {
-  return (dispatch: any) => {
+  return (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
 
     if (!image) {

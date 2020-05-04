@@ -3,17 +3,30 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+import thunk, { ThunkDispatch } from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import registerServiceWorker from './registerServiceWorker';
 
-import playersReducer from './Football/store/reducers/players';
-import competitionsReducer from './Football/store/reducers/competitions';
-import teamsReducer from './Football/store/reducers/teams';
-import globalReducer from './Football/store/reducers/global';
+import playersReducer, {
+  PlayersState,
+} from './Football/store/reducers/players';
+import competitionsReducer, {
+  CompetitionsState,
+} from './Football/store/reducers/competitions';
+import teamsReducer, { TeamsState } from './Football/store/reducers/teams';
+import globalReducer, { GlobalState } from './Football/store/reducers/global';
 import { watchTeams } from './Football/store/sagas';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import React from 'react';
+
+export type FootballState = {
+  players: PlayersState;
+  competitions: CompetitionsState;
+  teams: TeamsState;
+  global: GlobalState;
+};
+
+export type FootballDispatch = ThunkDispatch<FootballState, any, any>;
 
 const rootReducer = combineReducers({
   players: playersReducer,

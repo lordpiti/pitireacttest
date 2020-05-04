@@ -16,6 +16,7 @@ import { connect } from 'react-redux';
 import './Football.scss';
 import CustomSnackbar from './components/CustomSnackbar/CustomSnackbar';
 import Home from './Home/Home';
+import { FootballState as FootbalStateRedux } from '../index';
 
 function getModalStyle() {
   return {
@@ -123,7 +124,7 @@ class Football extends Component<FootballProps, FootballState> {
 // We need an intermediary variable for handling the recursive nesting.
 const FootballWithModalWrapped = withStyles(styles)(Football);
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: FootbalStateRedux) => {
   return {
     loading: state.global.loading,
   };

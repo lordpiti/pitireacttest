@@ -6,7 +6,7 @@ interface ToasterInfo {
   toasterType?: any;
 }
 
-interface GlobalState {
+export interface GlobalState {
   loading: boolean;
   dash: ToasterInfo;
 }

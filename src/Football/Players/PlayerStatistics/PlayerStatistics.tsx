@@ -6,6 +6,7 @@ import Helpers from '../../utilities/helpers';
 import ExpansionPanel from './ExpansionPanel/ExpansionPanel';
 import * as actionCreators from '../../store/actions/global';
 import { RouteComponentProps } from 'react-router';
+import { FootballState } from '../../..';
 
 interface MatchParams {
   id: string;
@@ -20,7 +21,7 @@ const PlayerStatistics = (props: RouteComponentProps<MatchParams>) => {
     }
   }, []);
 
-  const ui = useSelector((state: any) => ({
+  const ui = useSelector((state: FootballState) => ({
     isLoading: state.global.loading,
   }));
 

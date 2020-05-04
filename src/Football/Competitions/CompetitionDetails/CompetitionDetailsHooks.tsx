@@ -9,6 +9,7 @@ import CompetitionStatistics from '../CompetitionStatistics/CompetitionStatistic
 import { useDispatch, useSelector } from 'react-redux';
 import * as actionCreators from '../../store/actions/competitions';
 import { RouteComponentProps } from 'react-router';
+import { FootballState } from '../../..';
 
 interface MatchParams {
   id: string;
@@ -19,7 +20,7 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
 
   const dispatch = useDispatch();
 
-  const theState = useSelector((state: any) => ({
+  const theState = useSelector((state: FootballState) => ({
     currentCompetition: state.competitions.currentCompetition,
   }));
 

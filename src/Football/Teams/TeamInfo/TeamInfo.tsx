@@ -5,6 +5,7 @@ import * as actionCreators from '../../store/actions/teams';
 import RoleVisibleWrapper from '../../components/RoleVisibleComponent/RoleVisibleWrapper';
 import { Paper } from '@material-ui/core';
 import EditTeamComponent from './EditTeam/EditTeam';
+import { FootballState, FootballDispatch } from '../../..';
 
 export interface TeamInfoProps {
   teamData: any;
@@ -16,10 +17,10 @@ const TeamInfo = (props: TeamInfoProps) => {
     <div>
       <h1>Team Basic Info</h1>
       <Paper>
-        <div className="row" style={{ padding: '20px'}}>
-          <div className="col-sm-7">
+        <div className='row' style={{ padding: '20px' }}>
+          <div className='col-sm-7'>
             <div>Name: {props.teamData.name}</div>
-            <br/>
+            <br />
             {/* <RoleVisibleComponent
               component={editTeamComponent}
               roles={['Admin']}
@@ -28,11 +29,19 @@ const TeamInfo = (props: TeamInfoProps) => {
             <RoleVisibleWrapper roles={['Admin']}>
               <EditTeamComponent
                 teamData={props.teamData}
-                saveTeam={ (image: any, teamData: any) => props.saveTeam(image, teamData) } />
+                saveTeam={(image: any, teamData: any) =>
+                  props.saveTeam(image, teamData)
+                }
+              />
             </RoleVisibleWrapper>
           </div>
-          <div className="col-sm-5 text-right">
-            <img src={props.teamData.pictureLogo.url} height="300px" width="300px" alt=""/>  
+          <div className='col-sm-5 text-right'>
+            <img
+              src={props.teamData.pictureLogo.url}
+              height='300px'
+              width='300px'
+              alt=''
+            />
           </div>
         </div>
       </Paper>
@@ -40,16 +49,17 @@ const TeamInfo = (props: TeamInfoProps) => {
   );
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: FootballState) => {
   return {
-    currentTeam: state.teams.currentTeam
-  }
+    currentTeam: state.teams.currentTeam,
+  };
 };
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: FootballDispatch) => {
   return {
-    saveTeam: (image: any, teamData: any) => dispatch(actionCreators.saveTeamSagas(image, teamData))
-  }
+    saveTeam: (image: any, teamData: any) =>
+      dispatch(actionCreators.saveTeamSagas(image, teamData)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TeamInfo);
