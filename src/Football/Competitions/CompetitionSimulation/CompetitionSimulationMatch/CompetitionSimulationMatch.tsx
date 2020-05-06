@@ -1,17 +1,17 @@
-import React, { FunctionComponent } from "react";
-import PropTypes from "prop-types";
-import { withStyles, Theme } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardHeader from "@material-ui/core/CardHeader";
-import Button from "@material-ui/core/Button";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import red from "@material-ui/core/colors/red";
-import Formatters from "../../../utilities/formatters";
-import CompetitionSimulationMatchEvent from "./CompetitionSimulationMatchEvent/CompetitionSimulationMatchEvent";
+import React, { FunctionComponent } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles, Theme, WithStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardHeader from '@material-ui/core/CardHeader';
+import Button from '@material-ui/core/Button';
+import Avatar from '@material-ui/core/Avatar';
+import IconButton from '@material-ui/core/IconButton';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import red from '@material-ui/core/colors/red';
+import Formatters from '../../../utilities/formatters';
+import CompetitionSimulationMatchEvent from './CompetitionSimulationMatchEvent/CompetitionSimulationMatchEvent';
 
 const styles = (theme: Theme) => ({
   card: {
@@ -19,31 +19,30 @@ const styles = (theme: Theme) => ({
   },
   media: {
     height: 0,
-    paddingTop: "56.25%", // 16:9
+    paddingTop: '56.25%', // 16:9
   },
   actions: {
-    display: "flex",
+    display: 'flex',
   },
   expand: {
-    transform: "rotate(0deg)",
-    transition: theme.transitions.create("transform", {
+    transform: 'rotate(0deg)',
+    transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),
-    marginLeft: "auto",
-    [theme.breakpoints.up("sm")]: {
+    marginLeft: 'auto',
+    [theme.breakpoints.up('sm')]: {
       marginRight: -8,
     },
   },
   expandOpen: {
-    transform: "rotate(180deg)",
+    transform: 'rotate(180deg)',
   },
   avatar: {
     backgroundColor: red[500],
   },
 });
 
-export interface CompetitionSimulationMatchProps {
-  classes: any;
+export interface CompetitionSimulationMatchProps extends WithStyles {
   match: any;
 }
 
@@ -54,11 +53,11 @@ const CompetitionSimulationMatch: FunctionComponent<CompetitionSimulationMatchPr
 
   const titleForGame =
     props.match.localTeam.name +
-    " " +
+    ' ' +
     props.match.goalsLocal +
-    " - " +
+    ' - ' +
     props.match.goalsVisitor +
-    " " +
+    ' ' +
     props.match.visitorTeam.name;
 
   return (
@@ -95,10 +94,6 @@ const CompetitionSimulationMatch: FunctionComponent<CompetitionSimulationMatchPr
       </Card>
     </div>
   );
-};
-
-CompetitionSimulationMatch.propTypes = {
-  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(CompetitionSimulationMatch);

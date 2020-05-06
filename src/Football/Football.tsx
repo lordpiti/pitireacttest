@@ -13,6 +13,7 @@ import {
 import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import './Football.scss';
 import CustomSnackbar from './components/CustomSnackbar/CustomSnackbar';
 import Home from './Home/Home';
@@ -55,9 +56,12 @@ interface FootballProps extends WithStyles<typeof styles> {
 }
 
 class Football extends Component<FootballProps, FootballState> {
-  state = {
-    authenticationToken: localStorage.token_react,
-  };
+  constructor(props: FootballProps) {
+    super(props);
+    this.state = {
+      authenticationToken: localStorage.token_react,
+    };
+  }
 
   updateAuthenticationToken(token: Token) {
     if (token) {
@@ -106,13 +110,10 @@ class Football extends Component<FootballProps, FootballState> {
             </Modal>
           </div>
           <CustomSnackbar></CustomSnackbar>
-          {/* <Route path="/" exact render={() => <h1>Home</h1>} />
-          <Route path="/" render={() => <h1>Home 2</h1>} /> 
-          <Route path="/" exact component={Teams} />*/}
+          {/* <Route path="/" exact render={() => <h1>Home</h1>} />*/}
           <Route path='/' exact component={Home} />
           <Route path='/teams' component={Teams} />
           <Route path='/competitions' component={Competitions} />
-          {/* <Route path="/players" component={Players} /> */}
           {/* <PrivateRoute path="/players" component={Players} /> */}
           <Route path='/players' component={Players} />
         </div>
@@ -121,17 +122,17 @@ class Football extends Component<FootballProps, FootballState> {
   }
 }
 
-// We need an intermediary variable for handling the recursive nesting.
-const FootballWithModalWrapped = withStyles(styles)(Football);
-
-const mapStateToProps = (state: FootbalStateRedux) => {
-  return {
-    loading: state.global.loading,
-  };
-};
+const mapStateToProps = ({ global: { loading } }: FootbalStateRedux) => ({
+  loading,
+});
 
 //Tricky bit ... since routes are used inside this component, need to add some stuff in order to use redux
 //https://stackoverflow.com/questions/50199555/redux-connect-blocks-navigation-with-react-router-redux
 export default connect(mapStateToProps, () => ({}), null, { pure: false })(
-  withStyles(styles)(FootballWithModalWrapped)
+  withStyles(styles)(Football)
 );
+
+// export default compose(
+//   connect(mapStateToProps),
+//   withStyles(styles)
+// )(Football) as React.ElementType;

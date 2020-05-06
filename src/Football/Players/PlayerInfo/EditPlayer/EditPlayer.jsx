@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
-import { TextField, FormControl, InputLabel, MenuItem, FormHelperText, Select } from '@material-ui/core';
+import {
+  TextField,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  FormHelperText,
+  Select,
+} from '@material-ui/core';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, DatePicker } from 'material-ui-pickers';
 import editModal from '../../../components/EditModal/editModal';
 import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';
 
-
-
 class EditPlayerInfo extends React.Component {
-
   constructor(props) {
     super(props);
     this.validator = new FormValidator([
@@ -19,21 +23,21 @@ class EditPlayerInfo extends React.Component {
         field: 'name',
         method: 'isEmpty',
         validWhen: false,
-        message: 'Name is required'
+        message: 'Name is required',
       },
       {
         field: 'surname',
         method: 'isEmpty',
         validWhen: false,
-        message: 'Surname is required'
-      }
+        message: 'Surname is required',
+      },
     ]);
 
     this.state = {
       ...this.state,
       playerData: props.playerData,
       validation: this.validator.valid(),
-      currentImage: null
+      currentImage: null,
     };
 
     this.submitted = false;
@@ -41,7 +45,7 @@ class EditPlayerInfo extends React.Component {
 
   callbackDropzone = (files) => {
     let fileToUpload = null;
-    files.forEach(file => {
+    files.forEach((file) => {
       const reader = new FileReader();
       reader.onload = () => {
         // do whatever you want with the file content
@@ -50,42 +54,43 @@ class EditPlayerInfo extends React.Component {
         this.setState({
           currentImage: {
             data: fileToUpload,
-            fileName: 'test.png'
-          }
-        })
+            fileName: 'test.png',
+          },
+        });
       };
       reader.onabort = () => console.log('file reading was aborted');
       reader.onerror = () => console.log('file reading has failed');
       reader.readAsDataURL(file);
     });
-  }
+  };
 
   dropzoneSettings = {
     multipleFiles: false,
-    callback: this.callbackDropzone
-  }
+    callback: this.callbackDropzone,
+    isImage: true,
+  };
 
-  handleInputChange = event => {
+  handleInputChange = (event) => {
     event.preventDefault();
 
     this.setState({
       playerData: {
         ...this.state.playerData,
-        [event.target.name]: event.target.value
-      }
+        [event.target.name]: event.target.value,
+      },
     });
-  }
+  };
 
-  handleBirthDateChange = newDate => {
+  handleBirthDateChange = (newDate) => {
     this.setState({
       playerData: {
         ...this.state.playerData,
-        birthDate: newDate
-      }
+        birthDate: newDate,
+      },
     });
-  }
+  };
 
-  handleFormSubmit = event => {
+  handleFormSubmit = (event) => {
     event.preventDefault();
     const validation = this.validator.validate(this.state.playerData);
     this.setState({ validation });
@@ -98,36 +103,31 @@ class EditPlayerInfo extends React.Component {
       if (this.state.currentImage) {
         image = {
           data: this.state.currentImage.data,
-          fileName: this.state.currentImage.fileName
+          fileName: this.state.currentImage.fileName,
         };
       }
       this.props.savePlayer(image, this.state.playerData);
       this.props.handleClose();
     }
-  }
+  };
 
   render() {
     const { classes } = this.props;
 
-    let validation = this.submitted ?         // if the form has been submitted at least once
-      this.validator.validate(this.state.playerData) :   // then check validity every time we render
-      this.state.validation                   // otherwise just use what's in state
+    let validation = this.submitted // if the form has been submitted at least once
+      ? this.validator.validate(this.state.playerData) // then check validity every time we render
+      : this.state.validation; // otherwise just use what's in state
 
-    const positions = [
-      'Goalkeeper',
-      'Defender',
-      'Midfielder',
-      'Striker'
-    ];
+    const positions = ['Goalkeeper', 'Defender', 'Midfielder', 'Striker'];
 
     if (!this.props.playerData) {
-      return <div></div>
+      return <div></div>;
     } else
       return (
         <div>
           <h1>Player Basic Info</h1>
-          <div className="row">
-            <div className="col-sm-7">
+          <div className='row'>
+            <div className='col-sm-7'>
               <form>
                 <div className={validation.name.isInvalid && 'has-error'}>
                   {/* <label htmlFor="name">Name</label>
@@ -140,12 +140,12 @@ class EditPlayerInfo extends React.Component {
                   <TextField
                     required
                     error={validation.name.message}
-                    id="name"
-                    name="name"
-                    label="First name"
+                    id='name'
+                    name='name'
+                    label='First name'
                     defaultValue={this.state.playerData.name}
                     className={classes.textField}
-                    margin="normal"
+                    margin='normal'
                     onChange={this.handleInputChange}
                   />
                   <FormHelperText>Required</FormHelperText>
@@ -161,15 +161,17 @@ class EditPlayerInfo extends React.Component {
                     value={this.state.playerData.surname}
                     /> */}
                   <TextField
-                    id="surname"
-                    name="surname"
-                    label="Last name"
+                    id='surname'
+                    name='surname'
+                    label='Last name'
                     defaultValue={this.state.playerData.surname}
                     className={classes.textField}
-                    margin="normal"
+                    margin='normal'
                     onChange={this.handleInputChange}
                   />
-                  <span className="help-block">{validation.surname.message}</span>
+                  <span className='help-block'>
+                    {validation.surname.message}
+                  </span>
                 </div>
                 {/* <div>
                 <TextField
@@ -188,10 +190,10 @@ class EditPlayerInfo extends React.Component {
                 <div>
                   <MuiPickersUtilsProvider utils={DateFnsUtils}>
                     <DatePicker
-                      margin="normal"
-                      name="birthDate"
-                      format="dd/MM/yyyy"
-                      label="Date of birth"
+                      margin='normal'
+                      name='birthDate'
+                      format='dd/MM/yyyy'
+                      label='Date of birth'
                       value={this.state.playerData.birthDate}
                       onChange={this.handleBirthDateChange}
                     />
@@ -199,42 +201,56 @@ class EditPlayerInfo extends React.Component {
                 </div>
                 <div>
                   <TextField
-                    id="birthPlace"
-                    label="Place of birth"
-                    name="birthPlace"
+                    id='birthPlace'
+                    label='Place of birth'
+                    name='birthPlace'
                     defaultValue={this.state.playerData.birthPlace}
                     className={classes.textField}
-                    margin="normal"
+                    margin='normal'
                     onChange={this.handleInputChange}
                   />
                 </div>
                 <div>
                   <FormControl required className={classes.formControl}>
-                    <InputLabel htmlFor="position">Position</InputLabel>
+                    <InputLabel htmlFor='position'>Position</InputLabel>
                     <Select
                       value={this.state.playerData.position}
                       onChange={this.handleInputChange}
-                      name="position"
+                      name='position'
                       inputProps={{
                         id: 'position-required',
                       }}
                       className={classes.selectEmpty}
                     >
-                      {positions.map((position, index) =>
-                        (<MenuItem value={position} key={index}>{position}</MenuItem>)
-                      )}
+                      {positions.map((position, index) => (
+                        <MenuItem value={position} key={index}>
+                          {position}
+                        </MenuItem>
+                      ))}
                     </Select>
                     <FormHelperText>Required</FormHelperText>
-                  </FormControl></div>
+                  </FormControl>
+                </div>
               </form>
             </div>
-            <div className="col-sm-5 text-center">
-              <img className="roundedImage" src={this.props.playerData.picture.url} height="100" width="100" alt="" />
+            <div className='col-sm-5 text-center'>
+              <img
+                className='roundedImage'
+                src={this.props.playerData.picture.url}
+                height='100'
+                width='100'
+                alt=''
+              />
               <BasicDropzone settings={this.dropzoneSettings} />
             </div>
           </div>
-          <div className="text-right margin-top-medium">
-            <Button variant="contained" color="primary" className={classes.button} onClick={this.handleFormSubmit}>
+          <div className='text-right margin-top-medium'>
+            <Button
+              variant='contained'
+              color='primary'
+              className={classes.button}
+              onClick={this.handleFormSubmit}
+            >
               Save
             </Button>
           </div>

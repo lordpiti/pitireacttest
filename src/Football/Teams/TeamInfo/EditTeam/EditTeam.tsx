@@ -1,13 +1,28 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
-import { TextField, FormHelperText } from '@material-ui/core';
+import { TextField, FormHelperText, WithStyles } from '@material-ui/core';
 import editModal from '../../../components/EditModal/editModal';
 import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';
 
-class EditTeamInfo extends React.Component {
-  constructor(props) {
+//https://material-ui.com/es/guides/typescript/#augmenting-your-props-using-withstyles
+interface EditTeamProps extends WithStyles {
+  teamData: any;
+  saveTeam: Function;
+  handleClose: Function;
+}
+
+interface EditTeamState {
+  teamData: any;
+  validation: any;
+  currentImage: any;
+}
+
+class EditTeamInfo extends React.Component<EditTeamProps, EditTeamState> {
+  validator: FormValidator;
+  submitted: boolean;
+
+  constructor(props: any) {
     super(props);
     this.validator = new FormValidator([
       {
@@ -28,9 +43,9 @@ class EditTeamInfo extends React.Component {
     this.submitted = false;
   }
 
-  callbackDropzone = (files) => {
+  callbackDropzone = (files: any) => {
     let fileToUpload = null;
-    files.forEach((file) => {
+    files.forEach((file: any) => {
       const reader = new FileReader();
       reader.onload = () => {
         // do whatever you want with the file content
@@ -52,9 +67,10 @@ class EditTeamInfo extends React.Component {
   dropzoneSettings = {
     multipleFiles: false,
     callback: this.callbackDropzone,
+    isImage: false, //TODO: change it to true
   };
 
-  handleInputChange = (event) => {
+  handleInputChange = (event: any) => {
     event.preventDefault();
 
     this.setState({
@@ -65,7 +81,7 @@ class EditTeamInfo extends React.Component {
     });
   };
 
-  handleFormSubmit = (event) => {
+  handleFormSubmit = (event: any) => {
     event.preventDefault();
     const validation = this.validator.validate(this.state.teamData);
     this.setState({ validation });
@@ -140,9 +156,5 @@ class EditTeamInfo extends React.Component {
       );
   }
 }
-
-EditTeamInfo.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default editModal(EditTeamInfo);
