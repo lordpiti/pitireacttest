@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MatchPlayerSingle /> with all data renders correctly a player component with the right data 1`] = `
+exports[`<Countdown /> with all data should render correctly 1`] = `
 <div
   className="Countdown"
 >

@@ -3,14 +3,20 @@ import PropTypes from 'prop-types';
 import './Countdown.css';
 
 /**
- * Note : 
+ * Note :
  * If you're using react v 15.4 or less
- * You can directly import PropTypes from react instead. 
+ * You can directly import PropTypes from react instead.
  * Refer to this : https://reactjs.org/warnings/dont-call-proptypes.html
  */
 
-class Countdown extends Component {
-  constructor(props) {
+interface CountdownProps {
+  date: string;
+}
+
+class Countdown extends Component<CountdownProps, any> {
+  interval: any = null;
+
+  constructor(props: CountdownProps) {
     super(props);
 
     this.state = {
@@ -18,7 +24,7 @@ class Countdown extends Component {
       hours: 0,
       min: 0,
       sec: 0,
-    }
+    };
   }
 
   componentDidMount() {
@@ -33,8 +39,11 @@ class Countdown extends Component {
     this.stop();
   }
 
-  calculateCountdown(endDate) {
-    let diff = (Date.parse(new Date(endDate)) - Date.parse(new Date())) / 1000;
+  calculateCountdown(endDate: string) {
+    let diff =
+      (Date.parse(new Date(endDate as string) as any) -
+        Date.parse(new Date() as any)) /
+      1000;
 
     // clear countdown when date is reached
     if (diff <= 0) return false;
@@ -44,19 +53,22 @@ class Countdown extends Component {
       days: 0,
       hours: 0,
       min: 0,
-      sec: 0
+      sec: 0,
     };
 
     // calculate time difference between now and expected date
-    if (diff >= (365.25 * 86400)) { // 365.25 * 24 * 60 * 60
+    if (diff >= 365.25 * 86400) {
+      // 365.25 * 24 * 60 * 60
       timeLeft.years = Math.floor(diff / (365.25 * 86400));
       diff -= timeLeft.years * 365.25 * 86400;
     }
-    if (diff >= 86400) { // 24 * 60 * 60
+    if (diff >= 86400) {
+      // 24 * 60 * 60
       timeLeft.days = Math.floor(diff / 86400);
       diff -= timeLeft.days * 86400;
     }
-    if (diff >= 3600) { // 60 * 60
+    if (diff >= 3600) {
+      // 60 * 60
       timeLeft.hours = Math.floor(diff / 3600);
       diff -= timeLeft.hours * 3600;
     }
@@ -73,7 +85,7 @@ class Countdown extends Component {
     clearInterval(this.interval);
   }
 
-  addLeadingZeros(value) {
+  addLeadingZeros(value: string) {
     value = String(value);
     while (value.length < 2) {
       value = '0' + value;
@@ -85,31 +97,30 @@ class Countdown extends Component {
     const countDown = this.state;
 
     return (
-      <div className="Countdown">
-        <span className="Countdown-col">
-          <span className="Countdown-col-element">
-              <strong>{this.addLeadingZeros(countDown.days)}</strong>
-              <span>{countDown.days === 1 ? 'Day' : 'Days'}</span>
+      <div className='Countdown'>
+        <span className='Countdown-col'>
+          <span className='Countdown-col-element'>
+            <strong>{this.addLeadingZeros(countDown.days)}</strong>
+            <span>{countDown.days === 1 ? 'Day' : 'Days'}</span>
           </span>
         </span>
 
-        <span className="Countdown-col">
-          <span className="Countdown-col-element">
+        <span className='Countdown-col'>
+          <span className='Countdown-col-element'>
             <strong>{this.addLeadingZeros(countDown.hours)}</strong>
             <span>Hours</span>
           </span>
         </span>
 
-
-        <span className="Countdown-col">
-          <span className="Countdown-col-element">
+        <span className='Countdown-col'>
+          <span className='Countdown-col-element'>
             <strong>{this.addLeadingZeros(countDown.min)}</strong>
             <span>Min</span>
           </span>
         </span>
 
-        <span className="Countdown-col">
-          <span className="Countdown-col-element">
+        <span className='Countdown-col'>
+          <span className='Countdown-col-element'>
             <strong>{this.addLeadingZeros(countDown.sec)}</strong>
             <span>Sec</span>
           </span>
@@ -118,13 +129,5 @@ class Countdown extends Component {
     );
   }
 }
-
-Countdown.propTypes = {
-  date: PropTypes.string.isRequired
-};
-
-Countdown.defaultProps = {
-  date: new Date()
-};
 
 export default Countdown;
