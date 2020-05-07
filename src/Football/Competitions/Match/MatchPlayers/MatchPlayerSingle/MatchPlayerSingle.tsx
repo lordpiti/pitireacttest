@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface PlayerMatchSingle {
+export interface PlayerMatchSingle {
   name: string;
   surname: string;
   dorsal: string;

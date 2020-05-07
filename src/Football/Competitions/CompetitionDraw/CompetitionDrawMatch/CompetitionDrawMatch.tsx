@@ -2,11 +2,7 @@ import React from 'react';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import Formatters from '../../../utilities/formatters';
 
-interface MatchParams {
-  id: string;
-}
-
-interface CompetitionDrawMatchProps extends RouteComponentProps<MatchParams> {
+interface CompetitionDrawMatchProps {
   match: any;
   competitionData: any;
 }
