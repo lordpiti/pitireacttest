@@ -1,32 +1,35 @@
-import React from "react";
-import CompetitionDetailsHooks from "./CompetitionDetailsHooks";
-import { shallow, mount } from "enzyme";
-import { MemoryRouter } from "react-router";
+import React from 'react';
+import CompetitionDetailsHooks from './CompetitionDetailsHooks';
+import { shallow } from 'enzyme';
+import { match } from 'react-router';
+import { createMemoryHistory, createLocation } from 'history';
 
-jest.mock("react-redux", () => ({
+jest.mock('react-redux', () => ({
   useDispatch: () => {},
   useSelector: () => ({
     currentCompetition: {
       logo: {
-        url: "super",
+        url: 'super',
       },
     },
   }),
   connect: () => () => {},
 }));
 
-describe("<SDGDG /> with all data", () => {
+describe('CompetitionDetailsHooks', () => {
   it(`should render correctly`, () => {
+    const match: match<{ id: string }> = {
+      isExact: false,
+      path: '/',
+      url: '/',
+      params: { id: '1' },
+    };
+    const history = createMemoryHistory();
+    const location = createLocation(match.url);
     const props = {
-      match: {
-        id: 2,
-        url: "/",
-        params: { id: "1" },
-        isExact: false,
-        path: "/",
-      },
-      history: {} as any,
-      location: {} as any,
+      match,
+      history: history,
+      location: location,
     };
 
     const wrapper = shallow(<CompetitionDetailsHooks {...props} />);
