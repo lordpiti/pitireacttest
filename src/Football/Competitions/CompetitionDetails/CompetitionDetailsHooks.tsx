@@ -84,7 +84,7 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
                   height='50'
                   width='50'
                 />
-                <span>{`${theState.currentCompetition.name}`}</span>
+                <span>{theState.currentCompetition.name}</span>
               </div>
             </SideMenu>
           </div>
