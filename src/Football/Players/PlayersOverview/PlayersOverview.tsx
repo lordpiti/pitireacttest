@@ -3,9 +3,23 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/playersActions';
 import TableWithFilteringAndPagination from '../../components/TableWithPagination/TableWithFilteringAndPagination';
 import { TableRow, TableCell, TableHead, TableBody } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
+import { FootballState, FootballDispatch } from '../../..';
 
-class PlayersOverview extends Component {
+interface PlayersOverviewParams {
+  id: string;
+}
+
+export interface PlayersOverviewProps
+  extends RouteComponentProps<PlayersOverviewParams> {
+  loadPlayers: Function;
+  playerList: any[];
+  loading?: boolean;
+  filteredPlayers: any[];
+  filterPlayers: Function;
+}
+
+class PlayersOverview extends Component<PlayersOverviewProps> {
   componentDidMount() {
     this.props.loadPlayers();
   }
@@ -13,7 +27,7 @@ class PlayersOverview extends Component {
   render() {
     let content = <div>LOADING</div>;
 
-    const renderTableContent = (rowsWithData) => {
+    const renderTableContent = (rowsWithData: any[]) => {
       const playerList = rowsWithData.map((row) => {
         return (
           <TableRow key={row.id}>
@@ -61,7 +75,7 @@ class PlayersOverview extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: FootballState) => {
   return {
     allPlayers: state.players.players,
     filteredPlayers: state.players.filteredPlayers,
@@ -69,10 +83,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: FootballDispatch) => {
   return {
     loadPlayers: () => dispatch(actionCreators.loadPlayerListAction()),
-    filterPlayers: (stringFilter) =>
+    filterPlayers: (stringFilter: string) =>
       dispatch(actionCreators.filterPlayerListAction(stringFilter)),
   };
 };

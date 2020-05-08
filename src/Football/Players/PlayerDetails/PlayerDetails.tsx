@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
 // import asyncComponent from '../../components/asyncComponent/asyncComponent';
 import PlayerStatistics from '../PlayerStatistics/PlayerStatistics';
 import SideMenu from '../../components/SideMenu/SideMenu';
@@ -8,19 +8,27 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/playersActions';
 import './PlayerDetails.scss';
 import PlayerInfo from '../PlayerInfo/PlayerInfo';
+import { FootballState, FootballDispatch } from '../../..';
 
 // const asyncPlayerInfo = asyncComponent(() => {
 //   return import('../PlayerInfo/PlayerInfo');
 // });
 
-class PlayerDetails extends Component {
+interface PlayerDetailsParams {
+  id: string;
+}
+
+interface PlayerDetailsProps extends RouteComponentProps<PlayerDetailsParams> {
+  loadPlayer: Function;
+  currentPlayer: any;
+}
+
+class PlayerDetails extends Component<PlayerDetailsProps> {
   componentDidMount() {
     this.props.loadPlayer(this.props.match.params.id);
   }
 
   render() {
-    const playerId = this.props.match.params.id;
-
     const itemList = [
       {
         name: 'Summary',
@@ -69,11 +77,10 @@ class PlayerDetails extends Component {
                 } /> */}
               <Route
                 path={this.props.match.url + '/overview'}
-                component={(props) => {
+                component={() => {
                   return (
                     <PlayerInfo
                       playerData={this.props.currentPlayer}
-                      id={playerId}
                     ></PlayerInfo>
                   );
                 }}
@@ -81,12 +88,7 @@ class PlayerDetails extends Component {
               <Route
                 path={this.props.match.url + '/player-statistics'}
                 render={(props) => {
-                  return (
-                    <PlayerStatistics
-                      id={playerId}
-                      {...this.props}
-                    ></PlayerStatistics>
-                  );
+                  return <PlayerStatistics {...this.props}></PlayerStatistics>;
                 }}
                 exact
               />
@@ -104,15 +106,15 @@ class PlayerDetails extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: FootballState) => {
   return {
     currentPlayer: state.players.currentPlayer,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: FootballDispatch) => {
   return {
-    loadPlayer: (playerId) =>
+    loadPlayer: (playerId: number) =>
       dispatch(actionCreators.loadPlayerAction(playerId)),
   };
 };

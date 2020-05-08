@@ -4,6 +4,7 @@ export interface PlayersState {
   players: any[];
   filteredPlayers: any;
   currentPlayer?: any;
+  loading?: boolean;
 }
 
 const initialState = {

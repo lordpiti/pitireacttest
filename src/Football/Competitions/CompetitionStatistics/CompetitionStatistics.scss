@@ -1,0 +1,10 @@
+.teamEvolution {
+  padding: 5px;
+  cursor: pointer;
+
+  &.selectedTeam {
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+  }
+}
