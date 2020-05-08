@@ -77,6 +77,14 @@ const ButtonAppBar = (props: any) => {
             >
               <Button color='inherit'>Players</Button>
             </NavLink>
+            <NavLink
+              style={{ color: 'white' }}
+              to={{
+                pathname: '/graphicDemo',
+              }}
+            >
+              <Button color='inherit'>D3 Demo</Button>
+            </NavLink>
           </Typography>
           {/* <Button color="inherit">Login</Button> */}
           <div className='row'>

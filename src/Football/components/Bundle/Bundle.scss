@@ -1,0 +1,102 @@
+.node {
+  fill: #bbb;
+  cursor: pointer;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.link {
+  stroke: #21145f;
+  stroke-opacity: 0.4;
+  fill: none;
+  pointer-events: none;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.node--clicked,
+.node--source,
+.node--target,
+.node--both {
+  font-weight: 700 !important;
+}
+
+.node--clicked {
+  fill: #000 !important;
+}
+
+.node--source {
+  fill: #2ca02c !important;
+}
+.node--target {
+  fill: #d62728 !important;
+}
+
+.node--both {
+  fill: yellow !important;
+}
+
+.dim {
+  stroke-opacity: 0;
+  font-weight: 100;
+}
+
+.link--source,
+.link--target,
+.link--both {
+  stroke-opacity: 1;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 2.5s linear forwards;
+}
+
+.link--source {
+  stroke: #d62728 !important;
+}
+
+.link--target {
+  stroke: #2ca02c !important;
+}
+
+.link--both {
+  stroke: yellow !important;
+}
+
+.productLabelGroup {
+  .productText {
+    font-size: 12px;
+  }
+}
+
+.productLabelGroup:not(.selectedProductNameBox):hover {
+  fill: black;
+  font-weight: bold;
+}
+
+.productText:hover {
+  cursor: pointer;
+}
+
+.selectedProductNameBox {
+  .productRectangle {
+    fill: #21145f;
+  }
+
+  .productText {
+    fill: white;
+  }
+}
+
+// .selectedProductNameBox:hover {
+//   .productText {
+//     fill: black;
+//   }
+// }
+
+.subsProduct {
+  fill: black;
+}

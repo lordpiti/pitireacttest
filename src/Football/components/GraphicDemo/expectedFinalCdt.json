@@ -1,0 +1,399 @@
+{
+  "Id": 1,
+  "Name": "product metrics first name",
+  "Data": [
+    {
+      "Products": [],
+      "id": 0,
+      "name": "Own",
+      "needStateId": null,
+      "parentId": 9999
+    },
+    {
+      "Products": [],
+      "id": 1,
+      "name": "Warburton",
+      "needStateId": null,
+      "parentId": 9999
+    },
+    {
+      "Products": [],
+      "id": 2,
+      "name": "White",
+      "needStateId": null,
+      "parentId": 9999
+    },
+    {
+      "Products": [],
+      "id": 3,
+      "name": "Tiger",
+      "needStateId": null,
+      "parentId": 9999
+    },
+    {
+      "Products": [
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "15875201",
+          "description": "OWN BRAND CUSTARD SLICE 2 PK"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "26904810",
+          "description": "OWN BRAND 2 BELGIAN CHOCOLATE CHOUX BUNS"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "43127981",
+          "description": "OWN BRAND 4 BELGIAN CHOCOLATE ECLAIRS"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "43175959",
+          "description": "OWN BRAND 2 FRSH CRM BRAMLEY APPLE TURNOVERS 2X88G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "6363105",
+          "description": "OWN BRAND 2 FRSH CRM BELGIAN CHOC ECLAIRS"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "68044335",
+          "description": "HOT CROSS BUN 6 PACK"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "80043357",
+          "description": "OWN BRAND PREMIUM 4 ALL BUTTER AND SULTANA SCONES"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "94438971",
+          "description": "OWN BRAND 2 EGG CUSTARD TARTS 2X90G"
+        }
+      ],
+      "id": 11001,
+      "name": "Own Brand Custard Belgian Buns",
+      "needStateId": 3,
+      "parentId": 0
+    },
+    {
+      "Products": [
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "27937168",
+          "description": "OWN BRAND STRAWBERRY TRIFLE 600G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "85418539",
+          "description": "OWN BRAND EVERYDAY VALUE TRIFLE 471G"
+        }
+      ],
+      "id": 11005,
+      "name": "Own Brand Strawberry Everyday Trifle",
+      "needStateId": 7,
+      "parentId": 0
+    },
+    {
+      "Products": [
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "38313565",
+          "description": "WARBURTONS SEEDED BATCH BREAD 400G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "50169133",
+          "description": "OWN BRAND MULTISEED FARMHOUSE BATCH 800G"
+        }
+      ],
+      "id": 11008,
+      "name": "Seeded Multiseed Batch Farmhouse Bread",
+      "needStateId": 10,
+      "parentId": 0
+    },
+    {
+      "Products": [
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "41963322",
+          "description": "WARBURTONS 12 SLICED S/WICH ROLLS"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "45099137",
+          "description": "OWN BRAND 6 WHOLEMEAL PITTA BREAD"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "53335116",
+          "description": "KINGSMILL PANCAKES 6 PACK"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "60474965",
+          "description": "TRIPLE CHOCOLATEMUFFINS 4PK"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "80146822",
+          "description": "BLUEBERRY MUFFINS 4 PACK"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "81514303",
+          "description": "OWN BRAND 4 ALL BUTTER PAINS AU CHOCOLAT"
+        }
+      ],
+      "id": 11009,
+      "name": "Pancakes Chocolatemuffins Pack Wich Pitta",
+      "needStateId": 11,
+      "parentId": 0
+    },
+    {
+      "Products": [
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "58501187",
+          "description": "WARBURTONS TOASTIE SLICED WHT BRD 800G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "71211535",
+          "description": "OWN BRAND WHITE TOASTIE THICK 800G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "80486327",
+          "description": "WARBURTONS MEDIUM SLCD WHT BRD 800G"
+        }
+      ],
+      "id": 10904,
+      "name": "Warburtons Toastie Slcd Wht Brd",
+      "needStateId": 6,
+      "parentId": 1
+    },
+    {
+      "Products": [
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "36992866",
+          "description": "KINGSMILL TASTY WHOLEMEAL MEDIUMBREAD 800G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "67629117",
+          "description": "WARBURTONS WHOLEMEAL MEDIUMBREAD 800G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "74186328",
+          "description": "WARBURTONS DANISH SLICED WHITE BREAD 400G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "79910009",
+          "description": "OWN BRAND STAY FRESHWHOLEMEAL BREAD 800G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "87357390",
+          "description": "WARBURTONS WHOLEMEAL MEDIUMBREAD 400G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "94444633",
+          "description": "HOVIS WHOLEMEAL MEDIUMBREAD 400G"
+        }
+      ],
+      "id": 10906,
+      "name": "Warburtons Wholemeal Mediumbread Freshwholemeal Bread",
+      "needStateId": 8,
+      "parentId": 1
+    },
+    {
+      "Products": [
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "12597064",
+          "description": "6 PACK WHITE HOT DOG ROLLS"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "17666388",
+          "description": "6 PACK SOFT WHITE ROLLS"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "44788258",
+          "description": "BRACES THICK WHITE SLICED 800G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "45314043",
+          "description": "6 PACK SCOTCH MORNING ROLLS"
+        }
+      ],
+      "id": 10799,
+      "name": "Pack Braces White Morning Rolls",
+      "needStateId": 1,
+      "parentId": 2
+    },
+    {
+      "Products": [
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "15150195",
+          "description": "HOVIS BEST OF BOTH MEDIUM WHITE 750G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "26911754",
+          "description": "KINGSMILL SOFT WHITE MEDIUM BREAD 800G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "33286466",
+          "description": "HOVIS WHOLEMEAL THICK BREAD 800G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "4107926",
+          "description": "HOVIS BEST OF BOTH THICK WHITE 750G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "53546454",
+          "description": "KINGSMILL 50/50 MEDIUM 800G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "88897751",
+          "description": "KINGSMILL 50/50 THICK BREAD 800G"
+        }
+      ],
+      "id": 10800,
+      "name": "Hovis Kingsmill Thick Medium Bread",
+      "needStateId": 2,
+      "parentId": 2
+    },
+    {
+      "Products": [
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "22266060",
+          "description": "6 PACK CRUSTY WHITE ROLLS"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "71575095",
+          "description": "WHITE BATON"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "72259870",
+          "description": "CRUSTY WHITE FARMHOUSE LOAF SLICED 400G"
+        }
+      ],
+      "id": 10803,
+      "name": "Crusty White Baton Farmhouse Loaf",
+      "needStateId": 5,
+      "parentId": 2
+    },
+    {
+      "Products": [
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "16057420",
+          "description": "SALT AND PEPPER BAGUETTE 400G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "37496998",
+          "description": "TIGER BAGUETTE 400G"
+        }
+      ],
+      "id": 10702,
+      "name": "Salt Tiger And Baguette Pepper",
+      "needStateId": 4,
+      "parentId": 3
+    },
+    {
+      "Products": [
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "52126982",
+          "description": "TIGER LOAF SLICED 800G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "92185266",
+          "description": "TIGER BLOOMER 400G"
+        },
+        {
+          "isOrphan": false,
+          "substituteProducts": null,
+          "code": "9952752",
+          "description": "TIGER BLOOMER 800G"
+        }
+      ],
+      "id": 10707,
+      "name": "Tiger Bloomer Loaf Slice",
+      "needStateId": 9,
+      "parentId": 3
+    },
+    {
+      "Products": [],
+      "id": 9999,
+      "name": "root",
+      "needStateId": null,
+      "parentId": null
+    }
+  ]
+}

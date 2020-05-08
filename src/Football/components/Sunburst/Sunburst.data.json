@@ -1,0 +1,1950 @@
+[
+    {
+        "products": null,
+        "id": 0,
+        "name": "Own",
+        "needStateId": null,
+        "parentId": 9999
+    },
+    {
+        "products": null,
+        "id": 1,
+        "name": "Warburton",
+        "needStateId": null,
+        "parentId": 9999
+    },
+    {
+        "products": null,
+        "id": 2,
+        "name": "White",
+        "needStateId": null,
+        "parentId": 9999
+    },
+    {
+        "products": null,
+        "id": 3,
+        "name": "Tiger",
+        "needStateId": null,
+        "parentId": 9999
+    },
+    {
+        "products": [
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "37496998",
+                        "relativePairwiseScore": 0.013254798676915472,
+                        "substituteScore": 0.19
+                    },
+                    {
+                        "substituteProductCode": "12597064",
+                        "relativePairwiseScore": 0.01018920096994809,
+                        "substituteScore": 0.11
+                    },
+                    {
+                        "substituteProductCode": "45314043",
+                        "relativePairwiseScore": 0.0090001329872596222,
+                        "substituteScore": 0.1
+                    },
+                    {
+                        "substituteProductCode": "80043357",
+                        "relativePairwiseScore": 0.00892578312714089,
+                        "substituteScore": 0.1
+                    },
+                    {
+                        "substituteProductCode": "17666388",
+                        "relativePairwiseScore": 0.016388002318929291,
+                        "substituteScore": 0.09
+                    },
+                    {
+                        "substituteProductCode": "80146822",
+                        "relativePairwiseScore": 0.0057859749430077025,
+                        "substituteScore": 0.08
+                    },
+                    {
+                        "substituteProductCode": "16057420",
+                        "relativePairwiseScore": 0.0063556646616364345,
+                        "substituteScore": 0.07
+                    },
+                    {
+                        "substituteProductCode": "92185266",
+                        "relativePairwiseScore": 0.0061136760561722363,
+                        "substituteScore": 0.05
+                    },
+                    {
+                        "substituteProductCode": "72259870",
+                        "relativePairwiseScore": 0.0043522749088711794,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "9952752",
+                        "relativePairwiseScore": 0.004204272095550873,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "52126982",
+                        "relativePairwiseScore": 0.0036257841433890896,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "27937168",
+                        "relativePairwiseScore": 0.0036268033932488159,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "60474965",
+                        "relativePairwiseScore": 0.0034016017994263495,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "22266060",
+                        "relativePairwiseScore": 0.004082894855586815,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "43175959",
+                        "relativePairwiseScore": 0.0024939612060001803,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "71575095",
+                        "relativePairwiseScore": 0.0047037387771277448,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "43127981",
+                        "relativePairwiseScore": 0.0040877152307746637,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "68044335",
+                "description": "HOT CROSS BUN 6 PACK"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "94438971",
+                        "relativePairwiseScore": 0.076703068552031656,
+                        "substituteScore": 0.54
+                    },
+                    {
+                        "substituteProductCode": "43127981",
+                        "relativePairwiseScore": 0.046586814329041715,
+                        "substituteScore": 0.12
+                    },
+                    {
+                        "substituteProductCode": "43175959",
+                        "relativePairwiseScore": 0.017933860405326692,
+                        "substituteScore": 0.11
+                    },
+                    {
+                        "substituteProductCode": "6363105",
+                        "relativePairwiseScore": 0.021716521160142204,
+                        "substituteScore": 0.08
+                    },
+                    {
+                        "substituteProductCode": "26904810",
+                        "relativePairwiseScore": 0.018554176290999657,
+                        "substituteScore": 0.07
+                    },
+                    {
+                        "substituteProductCode": "27937168",
+                        "relativePairwiseScore": 0.012648997027336453,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "80043357",
+                        "relativePairwiseScore": 0.0096132400024102685,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "85418539",
+                        "relativePairwiseScore": 0.0072350737341072974,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "72259870",
+                        "relativePairwiseScore": 0.0059920808243115672,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "15875201",
+                "description": "OWN BRAND CUSTARD SLICE 2 PK"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "43127981",
+                        "relativePairwiseScore": 0.12293748263269932,
+                        "substituteScore": 0.52
+                    },
+                    {
+                        "substituteProductCode": "6363105",
+                        "relativePairwiseScore": 0.048396014554957512,
+                        "substituteScore": 0.25
+                    },
+                    {
+                        "substituteProductCode": "43175959",
+                        "relativePairwiseScore": 0.023612627091950642,
+                        "substituteScore": 0.11
+                    },
+                    {
+                        "substituteProductCode": "15875201",
+                        "relativePairwiseScore": 0.015987206434641146,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "94438971",
+                        "relativePairwiseScore": 0.028663504144961147,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "27937168",
+                        "relativePairwiseScore": 0.01013068771741576,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "60474965",
+                        "relativePairwiseScore": 0.0060354427406933073,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "85418539",
+                        "relativePairwiseScore": 0.00811132836053374,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "26904810",
+                "description": "OWN BRAND 2 BELGIAN CHOCOLATE CHOUX BUNS"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.026223571558670618,
+                        "substituteScore": 0.26
+                    },
+                    {
+                        "substituteProductCode": "94438971",
+                        "relativePairwiseScore": 0.016799494922014595,
+                        "substituteScore": 0.25
+                    },
+                    {
+                        "substituteProductCode": "27937168",
+                        "relativePairwiseScore": 0.00818389154668173,
+                        "substituteScore": 0.16
+                    },
+                    {
+                        "substituteProductCode": "43175959",
+                        "relativePairwiseScore": 0.0051239536813953218,
+                        "substituteScore": 0.08
+                    },
+                    {
+                        "substituteProductCode": "15875201",
+                        "relativePairwiseScore": 0.0055173594475889653,
+                        "substituteScore": 0.07
+                    },
+                    {
+                        "substituteProductCode": "6363105",
+                        "relativePairwiseScore": 0.0060384080371655505,
+                        "substituteScore": 0.06
+                    },
+                    {
+                        "substituteProductCode": "80146822",
+                        "relativePairwiseScore": 0.004510194934695148,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "43127981",
+                        "relativePairwiseScore": 0.007793841942660841,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "72259870",
+                        "relativePairwiseScore": 0.0035726322639399633,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "26904810",
+                        "relativePairwiseScore": 0.0027724836478494933,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "80043357",
+                "description": "OWN BRAND PREMIUM 4 ALL BUTTER AND SULTANA SCONES"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "6363105",
+                        "relativePairwiseScore": 0.0668354092510109,
+                        "substituteScore": 0.6
+                    },
+                    {
+                        "substituteProductCode": "26904810",
+                        "relativePairwiseScore": 0.039401666735077626,
+                        "substituteScore": 0.23
+                    },
+                    {
+                        "substituteProductCode": "94438971",
+                        "relativePairwiseScore": 0.028470429130866472,
+                        "substituteScore": 0.05
+                    },
+                    {
+                        "substituteProductCode": "43175959",
+                        "relativePairwiseScore": 0.012971285129490856,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "15875201",
+                        "relativePairwiseScore": 0.012865426717993378,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "85418539",
+                        "relativePairwiseScore": 0.010592633542818791,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "27937168",
+                        "relativePairwiseScore": 0.0077208282644508908,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "43127981",
+                "description": "OWN BRAND 4 BELGIAN CHOCOLATE ECLAIRS"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "6363105",
+                        "relativePairwiseScore": 0.0468019274473738,
+                        "substituteScore": 0.24
+                    },
+                    {
+                        "substituteProductCode": "94438971",
+                        "relativePairwiseScore": 0.063411384193162237,
+                        "substituteScore": 0.23
+                    },
+                    {
+                        "substituteProductCode": "26904810",
+                        "relativePairwiseScore": 0.039834200636477766,
+                        "substituteScore": 0.2
+                    },
+                    {
+                        "substituteProductCode": "43127981",
+                        "relativePairwiseScore": 0.0682754429651689,
+                        "substituteScore": 0.16
+                    },
+                    {
+                        "substituteProductCode": "15875201",
+                        "relativePairwiseScore": 0.026068526699950367,
+                        "substituteScore": 0.1
+                    },
+                    {
+                        "substituteProductCode": "27937168",
+                        "relativePairwiseScore": 0.01433468762955826,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "85418539",
+                        "relativePairwiseScore": 0.01200247946045371,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.018557369390674726,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "80043357",
+                        "relativePairwiseScore": 0.012977361536889434,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "72259870",
+                        "relativePairwiseScore": 0.0065017209716504631,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "43175959",
+                "description": "OWN BRAND 2 FRSH CRM BRAMLEY APPLE TURNOVERS 2X88G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "15875201",
+                        "relativePairwiseScore": 0.03263080443643137,
+                        "substituteScore": 0.38
+                    },
+                    {
+                        "substituteProductCode": "43175959",
+                        "relativePairwiseScore": 0.018558359067255684,
+                        "substituteScore": 0.17
+                    },
+                    {
+                        "substituteProductCode": "43127981",
+                        "relativePairwiseScore": 0.043857904102331861,
+                        "substituteScore": 0.16
+                    },
+                    {
+                        "substituteProductCode": "6363105",
+                        "relativePairwiseScore": 0.024163071058095717,
+                        "substituteScore": 0.15
+                    },
+                    {
+                        "substituteProductCode": "26904810",
+                        "relativePairwiseScore": 0.014151856627731114,
+                        "substituteScore": 0.06
+                    },
+                    {
+                        "substituteProductCode": "80043357",
+                        "relativePairwiseScore": 0.012452305679691706,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "27937168",
+                        "relativePairwiseScore": 0.0066523214532901538,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "85418539",
+                        "relativePairwiseScore": 0.00844886234416522,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "72259870",
+                        "relativePairwiseScore": 0.0066169846792730131,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "80146822",
+                        "relativePairwiseScore": 0.00410322920422794,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "94438971",
+                "description": "OWN BRAND 2 EGG CUSTARD TARTS 2X90G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "43127981",
+                        "relativePairwiseScore": 0.18758135107028878,
+                        "substituteScore": 0.7
+                    },
+                    {
+                        "substituteProductCode": "26904810",
+                        "relativePairwiseScore": 0.043533433751070286,
+                        "substituteScore": 0.13
+                    },
+                    {
+                        "substituteProductCode": "43175959",
+                        "relativePairwiseScore": 0.02495544200202382,
+                        "substituteScore": 0.07
+                    },
+                    {
+                        "substituteProductCode": "94438971",
+                        "relativePairwiseScore": 0.04402317068576321,
+                        "substituteScore": 0.06
+                    },
+                    {
+                        "substituteProductCode": "15875201",
+                        "relativePairwiseScore": 0.016831952035494667,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "27937168",
+                        "relativePairwiseScore": 0.0098573311901611269,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "6363105",
+                "description": "OWN BRAND 2 FRSH CRM BELGIAN CHOC ECLAIRS"
+            }
+        ],
+        "id": 10999,
+        "name": "Own Brand Custard Belgian Bun",
+        "needStateId": 1,
+        "parentId": 0
+    },
+    {
+        "products": [
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "38313565",
+                        "relativePairwiseScore": 0.018381897852755045,
+                        "substituteScore": 0.95
+                    },
+                    {
+                        "substituteProductCode": "79910009",
+                        "relativePairwiseScore": 0.0020335580981014419,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "45099137",
+                        "relativePairwiseScore": 0.0034515478258448861,
+                        "substituteScore": 0.02
+                    }
+                ],
+                "code": "50169133",
+                "description": "OWN BRAND MULTISEED FARMHOUSE BATCH 800G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "50169133",
+                        "relativePairwiseScore": 0.024470594969858681,
+                        "substituteScore": 0.48
+                    },
+                    {
+                        "substituteProductCode": "87357390",
+                        "relativePairwiseScore": 0.025406322598576933,
+                        "substituteScore": 0.35
+                    },
+                    {
+                        "substituteProductCode": "94444633",
+                        "relativePairwiseScore": 0.011214453725664592,
+                        "substituteScore": 0.17
+                    }
+                ],
+                "code": "38313565",
+                "description": "WARBURTONS SEEDED BATCH BREAD 400G"
+            }
+        ],
+        "id": 11003,
+        "name": "Seeded Multiseed Batch Farmhouse",
+        "needStateId": 5,
+        "parentId": 0
+    },
+    {
+        "products": [
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "81514303",
+                        "relativePairwiseScore": 0.0092225964500429435,
+                        "substituteScore": 0.75
+                    },
+                    {
+                        "substituteProductCode": "41963322",
+                        "relativePairwiseScore": 0.0049486747351846546,
+                        "substituteScore": 0.15
+                    },
+                    {
+                        "substituteProductCode": "60474965",
+                        "relativePairwiseScore": 0.0025708121815058689,
+                        "substituteScore": 0.05
+                    },
+                    {
+                        "substituteProductCode": "12597064",
+                        "relativePairwiseScore": 0.002903074821070713,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "45099137",
+                        "relativePairwiseScore": 0.002535772659604924,
+                        "substituteScore": 0.02
+                    }
+                ],
+                "code": "53335116",
+                "description": "KINGSMILL PANCAKES 6 PACK"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "53335116",
+                        "relativePairwiseScore": 0.012170203777861731,
+                        "substituteScore": 0.6
+                    },
+                    {
+                        "substituteProductCode": "60474965",
+                        "relativePairwiseScore": 0.0060363890630902913,
+                        "substituteScore": 0.21
+                    },
+                    {
+                        "substituteProductCode": "45099137",
+                        "relativePairwiseScore": 0.0059313103702304491,
+                        "substituteScore": 0.1
+                    },
+                    {
+                        "substituteProductCode": "37496998",
+                        "relativePairwiseScore": 0.005599856837929732,
+                        "substituteScore": 0.07
+                    },
+                    {
+                        "substituteProductCode": "26911754",
+                        "relativePairwiseScore": 0.0022389016055912353,
+                        "substituteScore": 0.02
+                    }
+                ],
+                "code": "81514303",
+                "description": "OWN BRAND 4 ALL BUTTER PAINS AU CHOCOLAT"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "60474965",
+                        "relativePairwiseScore": 0.027327277471482891,
+                        "substituteScore": 0.71
+                    },
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.028034368593155893,
+                        "substituteScore": 0.11
+                    },
+                    {
+                        "substituteProductCode": "43127981",
+                        "relativePairwiseScore": 0.012300324524714829,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "80043357",
+                        "relativePairwiseScore": 0.007438134600760456,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "94438971",
+                        "relativePairwiseScore": 0.00912937294676806,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "26904810",
+                        "relativePairwiseScore": 0.00519491855513308,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "27937168",
+                        "relativePairwiseScore": 0.00476474108365019,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "85418539",
+                        "relativePairwiseScore": 0.0043193492205323191,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "12597064",
+                        "relativePairwiseScore": 0.0048573596197718635,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "15875201",
+                        "relativePairwiseScore": 0.0035906176045627375,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "52126982",
+                        "relativePairwiseScore": 0.0027624152091254755,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "80146822",
+                "description": "BLUEBERRY MUFFINS 4 PACK"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "60474965",
+                        "relativePairwiseScore": 0.0070242393724143318,
+                        "substituteScore": 0.35
+                    },
+                    {
+                        "substituteProductCode": "80486327",
+                        "relativePairwiseScore": 0.011015824713137147,
+                        "substituteScore": 0.22
+                    },
+                    {
+                        "substituteProductCode": "12597064",
+                        "relativePairwiseScore": 0.0076478351416751226,
+                        "substituteScore": 0.18
+                    },
+                    {
+                        "substituteProductCode": "53335116",
+                        "relativePairwiseScore": 0.0053971495901959255,
+                        "substituteScore": 0.13
+                    },
+                    {
+                        "substituteProductCode": "26911754",
+                        "relativePairwiseScore": 0.0034790215283740534,
+                        "substituteScore": 0.07
+                    },
+                    {
+                        "substituteProductCode": "43127981",
+                        "relativePairwiseScore": 0.0053126941846850361,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "85418539",
+                        "relativePairwiseScore": 0.0013108087112637576,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "17666388",
+                        "relativePairwiseScore": 0.0039397238154710796,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "71211535",
+                        "relativePairwiseScore": 0.00096545047225040975,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "41963322",
+                "description": "WARBURTONS 12 SLICED S/WICH ROLLS"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "80146822",
+                        "relativePairwiseScore": 0.029327215126599065,
+                        "substituteScore": 0.63
+                    },
+                    {
+                        "substituteProductCode": "12597064",
+                        "relativePairwiseScore": 0.014265592047007936,
+                        "substituteScore": 0.07
+                    },
+                    {
+                        "substituteProductCode": "43127981",
+                        "relativePairwiseScore": 0.017412043825107623,
+                        "substituteScore": 0.05
+                    },
+                    {
+                        "substituteProductCode": "41963322",
+                        "relativePairwiseScore": 0.00917996558056026,
+                        "substituteScore": 0.05
+                    },
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.017687732499540938,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "37496998",
+                        "relativePairwiseScore": 0.01003223367269908,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "26904810",
+                        "relativePairwiseScore": 0.0071151310264623673,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "81514303",
+                        "relativePairwiseScore": 0.0065200342154122376,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "17666388",
+                        "relativePairwiseScore": 0.013069749780670435,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "16057420",
+                        "relativePairwiseScore": 0.005058162650725318,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "71575095",
+                        "relativePairwiseScore": 0.007523728990267888,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "9952752",
+                        "relativePairwiseScore": 0.003409642462203905,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "53335116",
+                        "relativePairwiseScore": 0.003664271499398119,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "22266060",
+                        "relativePairwiseScore": 0.0049415943117132191,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "45314043",
+                        "relativePairwiseScore": 0.00578726739844531,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "52126982",
+                        "relativePairwiseScore": 0.0029335737253381755,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "60474965",
+                "description": "TRIPLE CHOCOLATEMUFFINS 4PK"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "81514303",
+                        "relativePairwiseScore": 0.0030633896997131764,
+                        "substituteScore": 0.36
+                    },
+                    {
+                        "substituteProductCode": "50169133",
+                        "relativePairwiseScore": 0.0036288023940996275,
+                        "substituteScore": 0.23
+                    },
+                    {
+                        "substituteProductCode": "79910009",
+                        "relativePairwiseScore": 0.0017031675381943767,
+                        "substituteScore": 0.15
+                    },
+                    {
+                        "substituteProductCode": "36992866",
+                        "relativePairwiseScore": 0.0014252132055959884,
+                        "substituteScore": 0.1
+                    },
+                    {
+                        "substituteProductCode": "53335116",
+                        "relativePairwiseScore": 0.0017282499658543247,
+                        "substituteScore": 0.07
+                    },
+                    {
+                        "substituteProductCode": "33286466",
+                        "relativePairwiseScore": 0.0025658512321710797,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "37496998",
+                        "relativePairwiseScore": 0.0015597462098300521,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "94444633",
+                        "relativePairwiseScore": 0.00093819200600963888,
+                        "substituteScore": 0.02
+                    }
+                ],
+                "code": "45099137",
+                "description": "OWN BRAND 6 WHOLEMEAL PITTA BREAD"
+            }
+        ],
+        "id": 11004,
+        "name": "Pancakes Wich Pitta Pains Chocolat",
+        "needStateId": 6,
+        "parentId": 0
+    },
+    {
+        "products": [
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "85418539",
+                        "relativePairwiseScore": 0.070689656030344591,
+                        "substituteScore": 0.8
+                    },
+                    {
+                        "substituteProductCode": "43127981",
+                        "relativePairwiseScore": 0.029828863406480371,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "15875201",
+                        "relativePairwiseScore": 0.013495534351962969,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "43175959",
+                        "relativePairwiseScore": 0.010521545216869535,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "26904810",
+                        "relativePairwiseScore": 0.012544172531287503,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "94438971",
+                        "relativePairwiseScore": 0.016683692611006343,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "6363105",
+                        "relativePairwiseScore": 0.013569039709411966,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "80043357",
+                        "relativePairwiseScore": 0.015213613063603634,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.01980806373221327,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "27937168",
+                "description": "OWN BRAND STRAWBERRY TRIFLE 600G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "27937168",
+                        "relativePairwiseScore": 0.06103208460997632,
+                        "substituteScore": 0.87
+                    },
+                    {
+                        "substituteProductCode": "43127981",
+                        "relativePairwiseScore": 0.03533288471358792,
+                        "substituteScore": 0.06
+                    },
+                    {
+                        "substituteProductCode": "94438971",
+                        "relativePairwiseScore": 0.018294456945677915,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "43175959",
+                        "relativePairwiseScore": 0.007606144982238011,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "15875201",
+                        "relativePairwiseScore": 0.0066646798401420963,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "26904810",
+                        "relativePairwiseScore": 0.0086715634991119013,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "85418539",
+                "description": "OWN BRAND EVERYDAY VALUE TRIFLE 471G"
+            }
+        ],
+        "id": 11009,
+        "name": "Strawberry Everyday Value Trifle",
+        "needStateId": 11,
+        "parentId": 0
+    },
+    {
+        "products": [
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "87357390",
+                        "relativePairwiseScore": 0.12776332198666898,
+                        "substituteScore": 0.97
+                    },
+                    {
+                        "substituteProductCode": "38313565",
+                        "relativePairwiseScore": 0.014373307230727822,
+                        "substituteScore": 0.02
+                    }
+                ],
+                "code": "94444633",
+                "description": "HOVIS WHOLEMEAL MEDIUMBREAD 400G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "87357390",
+                        "relativePairwiseScore": 0.01174454715792001,
+                        "substituteScore": 0.91
+                    },
+                    {
+                        "substituteProductCode": "94444633",
+                        "relativePairwiseScore": 0.0023856469958584261,
+                        "substituteScore": 0.08
+                    },
+                    {
+                        "substituteProductCode": "72259870",
+                        "relativePairwiseScore": 0.00076010909145475276,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "74186328",
+                "description": "WARBURTONS DANISH SLICED WHITE BREAD 400G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "67629117",
+                        "relativePairwiseScore": 0.027812045018925667,
+                        "substituteScore": 0.59
+                    },
+                    {
+                        "substituteProductCode": "36992866",
+                        "relativePairwiseScore": 0.0116809296931626,
+                        "substituteScore": 0.28
+                    },
+                    {
+                        "substituteProductCode": "33286466",
+                        "relativePairwiseScore": 0.013085130707900459,
+                        "substituteScore": 0.06
+                    },
+                    {
+                        "substituteProductCode": "94444633",
+                        "relativePairwiseScore": 0.004135801965047918,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "45099137",
+                        "relativePairwiseScore": 0.00468653402593219,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "50169133",
+                        "relativePairwiseScore": 0.0058830211806394457,
+                        "substituteScore": 0.02
+                    }
+                ],
+                "code": "79910009",
+                "description": "OWN BRAND STAY FRESHWHOLEMEAL BREAD 800G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "67629117",
+                        "relativePairwiseScore": 0.053551168305742226,
+                        "substituteScore": 0.68
+                    },
+                    {
+                        "substituteProductCode": "53546454",
+                        "relativePairwiseScore": 0.029718905616565591,
+                        "substituteScore": 0.17
+                    },
+                    {
+                        "substituteProductCode": "79910009",
+                        "relativePairwiseScore": 0.011886748401901327,
+                        "substituteScore": 0.09
+                    },
+                    {
+                        "substituteProductCode": "26911754",
+                        "relativePairwiseScore": 0.00783794380702617,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "33286466",
+                        "relativePairwiseScore": 0.012308673141015134,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "88897751",
+                        "relativePairwiseScore": 0.00530517783969841,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "36992866",
+                "description": "KINGSMILL TASTY WHOLEMEAL MEDIUMBREAD 800G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "94444633",
+                        "relativePairwiseScore": 0.058199134404569579,
+                        "substituteScore": 0.71
+                    },
+                    {
+                        "substituteProductCode": "67629117",
+                        "relativePairwiseScore": 0.04249498802071313,
+                        "substituteScore": 0.24
+                    },
+                    {
+                        "substituteProductCode": "38313565",
+                        "relativePairwiseScore": 0.014833058987710594,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "74186328",
+                        "relativePairwiseScore": 0.0084670582088045235,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "87357390",
+                "description": "WARBURTONS WHOLEMEAL MEDIUMBREAD 400G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "87357390",
+                        "relativePairwiseScore": 0.064547133252998851,
+                        "substituteScore": 0.53
+                    },
+                    {
+                        "substituteProductCode": "36992866",
+                        "relativePairwiseScore": 0.021474437936134086,
+                        "substituteScore": 0.25
+                    },
+                    {
+                        "substituteProductCode": "33286466",
+                        "relativePairwiseScore": 0.039674171419181684,
+                        "substituteScore": 0.15
+                    },
+                    {
+                        "substituteProductCode": "79910009",
+                        "relativePairwiseScore": 0.011349361768088952,
+                        "substituteScore": 0.07
+                    }
+                ],
+                "code": "67629117",
+                "description": "WARBURTONS WHOLEMEAL MEDIUMBREAD 800G"
+            }
+        ],
+        "id": 10902,
+        "name": "Warburtons Wholemeal Stay Mediumbread Freshwholemeal",
+        "needStateId": 4,
+        "parentId": 1
+    },
+    {
+        "products": [
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "71211535",
+                        "relativePairwiseScore": 0.014342360651983615,
+                        "substituteScore": 0.53
+                    },
+                    {
+                        "substituteProductCode": "80486327",
+                        "relativePairwiseScore": 0.031213284627857416,
+                        "substituteScore": 0.47
+                    }
+                ],
+                "code": "58501187",
+                "description": "WARBURTONS TOASTIE SLICED WHT BRD 800G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "58501187",
+                        "relativePairwiseScore": 0.053944466701136881,
+                        "substituteScore": 0.86
+                    },
+                    {
+                        "substituteProductCode": "26911754",
+                        "relativePairwiseScore": 0.00843490298550336,
+                        "substituteScore": 0.12
+                    },
+                    {
+                        "substituteProductCode": "41963322",
+                        "relativePairwiseScore": 0.0045042267629279258,
+                        "substituteScore": 0.03
+                    }
+                ],
+                "code": "80486327",
+                "description": "WARBURTONS MEDIUM SLCD WHT BRD 800G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "58501187",
+                        "relativePairwiseScore": 0.11079991297152314,
+                        "substituteScore": 0.9
+                    },
+                    {
+                        "substituteProductCode": "4107926",
+                        "relativePairwiseScore": 0.019392183672887062,
+                        "substituteScore": 0.05
+                    },
+                    {
+                        "substituteProductCode": "22266060",
+                        "relativePairwiseScore": 0.0064411708611539116,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "16057420",
+                        "relativePairwiseScore": 0.0051155632311818749,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "37496998",
+                        "relativePairwiseScore": 0.0085312391999086915,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "12597064",
+                        "relativePairwiseScore": 0.00754904359984021,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "71211535",
+                "description": "OWN BRAND WHITE TOASTIE THICK 800G"
+            }
+        ],
+        "id": 10907,
+        "name": "Warburtons Toastie Slcd Wht Brd",
+        "needStateId": 9,
+        "parentId": 1
+    },
+    {
+        "products": [
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "17666388",
+                        "relativePairwiseScore": 0.086547473790558438,
+                        "substituteScore": 0.58
+                    },
+                    {
+                        "substituteProductCode": "45314043",
+                        "relativePairwiseScore": 0.024434412959555892,
+                        "substituteScore": 0.16
+                    },
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.027616526145632824,
+                        "substituteScore": 0.06
+                    },
+                    {
+                        "substituteProductCode": "22266060",
+                        "relativePairwiseScore": 0.012480231912879796,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "37496998",
+                        "relativePairwiseScore": 0.0142442544373664,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "71575095",
+                        "relativePairwiseScore": 0.017246656283566059,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "60474965",
+                        "relativePairwiseScore": 0.007435839914496283,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "16057420",
+                        "relativePairwiseScore": 0.007431420223117908,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "52126982",
+                        "relativePairwiseScore": 0.0047080466229222281,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "71211535",
+                        "relativePairwiseScore": 0.0028135804362391125,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "41963322",
+                        "relativePairwiseScore": 0.00520979336601759,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "9952752",
+                        "relativePairwiseScore": 0.00458249812295945,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "12597064",
+                "description": "6 PACK WHITE HOT DOG ROLLS"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "45314043",
+                        "relativePairwiseScore": 0.0700665917424995,
+                        "substituteScore": 0.8
+                    },
+                    {
+                        "substituteProductCode": "12597064",
+                        "relativePairwiseScore": 0.032339143683687663,
+                        "substituteScore": 0.15
+                    },
+                    {
+                        "substituteProductCode": "22266060",
+                        "relativePairwiseScore": 0.0092824302960460951,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "71575095",
+                        "relativePairwiseScore": 0.0125617894536062,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.016596979467514403,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "17666388",
+                "description": "6 PACK SOFT WHITE ROLLS"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "17666388",
+                        "relativePairwiseScore": 0.21085416466761536,
+                        "substituteScore": 0.9
+                    },
+                    {
+                        "substituteProductCode": "12597064",
+                        "relativePairwiseScore": 0.02747560222666013,
+                        "substituteScore": 0.05
+                    },
+                    {
+                        "substituteProductCode": "22266060",
+                        "relativePairwiseScore": 0.016726384475562944,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "37496998",
+                        "relativePairwiseScore": 0.010369122944644416,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.027429832617820456,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "72259870",
+                        "relativePairwiseScore": 0.0082717573753632381,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "45314043",
+                "description": "6 PACK SCOTCH MORNING ROLLS"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "17666388",
+                        "relativePairwiseScore": 0.021101318477180643,
+                        "substituteScore": 0.54
+                    },
+                    {
+                        "substituteProductCode": "12597064",
+                        "relativePairwiseScore": 0.0068770537675509006,
+                        "substituteScore": 0.18
+                    },
+                    {
+                        "substituteProductCode": "15875201",
+                        "relativePairwiseScore": 0.0041945148688938153,
+                        "substituteScore": 0.14
+                    },
+                    {
+                        "substituteProductCode": "45314043",
+                        "relativePairwiseScore": 0.0044586257166883267,
+                        "substituteScore": 0.08
+                    },
+                    {
+                        "substituteProductCode": "72259870",
+                        "relativePairwiseScore": 0.0027256160079504625,
+                        "substituteScore": 0.06
+                    },
+                    {
+                        "substituteProductCode": "71211535",
+                        "relativePairwiseScore": 0.00088060316489565018,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "44788258",
+                "description": "BRACES THICK WHITE SLICED 800G"
+            }
+        ],
+        "id": 10801,
+        "name": "Pack Braces Morning Dog Rolls",
+        "needStateId": 3,
+        "parentId": 2
+    },
+    {
+        "products": [
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "88897751",
+                        "relativePairwiseScore": 0.083271696977631482,
+                        "substituteScore": 0.5
+                    },
+                    {
+                        "substituteProductCode": "15150195",
+                        "relativePairwiseScore": 0.17247789054200643,
+                        "substituteScore": 0.37
+                    },
+                    {
+                        "substituteProductCode": "26911754",
+                        "relativePairwiseScore": 0.041654720206478639,
+                        "substituteScore": 0.12
+                    },
+                    {
+                        "substituteProductCode": "36992866",
+                        "relativePairwiseScore": 0.010173283636941722,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "53546454",
+                "description": "KINGSMILL 50/50 MEDIUM 800G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "53546454",
+                        "relativePairwiseScore": 0.077456860958475343,
+                        "substituteScore": 0.86
+                    },
+                    {
+                        "substituteProductCode": "88897751",
+                        "relativePairwiseScore": 0.01331700335605481,
+                        "substituteScore": 0.05
+                    },
+                    {
+                        "substituteProductCode": "80486327",
+                        "relativePairwiseScore": 0.02297743960840231,
+                        "substituteScore": 0.05
+                    },
+                    {
+                        "substituteProductCode": "15150195",
+                        "relativePairwiseScore": 0.023143109480420115,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "36992866",
+                        "relativePairwiseScore": 0.0049891453536899215,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "26911754",
+                "description": "KINGSMILL SOFT WHITE MEDIUM BREAD 800G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "4107926",
+                        "relativePairwiseScore": 0.044094587747166236,
+                        "substituteScore": 0.71
+                    },
+                    {
+                        "substituteProductCode": "67629117",
+                        "relativePairwiseScore": 0.020292462938371631,
+                        "substituteScore": 0.26
+                    },
+                    {
+                        "substituteProductCode": "36992866",
+                        "relativePairwiseScore": 0.0025245907728339862,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "79910009",
+                        "relativePairwiseScore": 0.00273113694508413,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "33286466",
+                "description": "HOVIS WHOLEMEAL THICK BREAD 800G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "53546454",
+                        "relativePairwiseScore": 0.066970566011633731,
+                        "substituteScore": 0.67
+                    },
+                    {
+                        "substituteProductCode": "4107926",
+                        "relativePairwiseScore": 0.055943883757071378,
+                        "substituteScore": 0.31
+                    },
+                    {
+                        "substituteProductCode": "26911754",
+                        "relativePairwiseScore": 0.0048325524498376944,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "88897751",
+                        "relativePairwiseScore": 0.0051592367849647427,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "15150195",
+                "description": "HOVIS BEST OF BOTH MEDIUM WHITE 750G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "88897751",
+                        "relativePairwiseScore": 0.048717088764283371,
+                        "substituteScore": 0.49
+                    },
+                    {
+                        "substituteProductCode": "15150195",
+                        "relativePairwiseScore": 0.099073911827307043,
+                        "substituteScore": 0.35
+                    },
+                    {
+                        "substituteProductCode": "33286466",
+                        "relativePairwiseScore": 0.05060472988753352,
+                        "substituteScore": 0.15
+                    },
+                    {
+                        "substituteProductCode": "71211535",
+                        "relativePairwiseScore": 0.00437017142618302,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "4107926",
+                "description": "HOVIS BEST OF BOTH THICK WHITE 750G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "53546454",
+                        "relativePairwiseScore": 0.1667398593390132,
+                        "substituteScore": 0.66
+                    },
+                    {
+                        "substituteProductCode": "4107926",
+                        "relativePairwiseScore": 0.14186200964329182,
+                        "substituteScore": 0.32
+                    },
+                    {
+                        "substituteProductCode": "26911754",
+                        "relativePairwiseScore": 0.014340122254470554,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "15150195",
+                        "relativePairwiseScore": 0.026605837767999251,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "88897751",
+                "description": "KINGSMILL 50/50 THICK BREAD 800G"
+            }
+        ],
+        "id": 10806,
+        "name": "Hovis Kingsmill Thick Medium Bread",
+        "needStateId": 8,
+        "parentId": 2
+    },
+    {
+        "products": [
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "71575095",
+                        "relativePairwiseScore": 0.042069535100570161,
+                        "substituteScore": 0.31
+                    },
+                    {
+                        "substituteProductCode": "52126982",
+                        "relativePairwiseScore": 0.016187476322458028,
+                        "substituteScore": 0.2
+                    },
+                    {
+                        "substituteProductCode": "45314043",
+                        "relativePairwiseScore": 0.013693957218086791,
+                        "substituteScore": 0.08
+                    },
+                    {
+                        "substituteProductCode": "94438971",
+                        "relativePairwiseScore": 0.015330858687044662,
+                        "substituteScore": 0.07
+                    },
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.021959463711593286,
+                        "substituteScore": 0.06
+                    },
+                    {
+                        "substituteProductCode": "22266060",
+                        "relativePairwiseScore": 0.012489426393728223,
+                        "substituteScore": 0.06
+                    },
+                    {
+                        "substituteProductCode": "43127981",
+                        "relativePairwiseScore": 0.015107518253088375,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "6363105",
+                        "relativePairwiseScore": 0.008073790445834653,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "17666388",
+                        "relativePairwiseScore": 0.017102343918276846,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "15875201",
+                        "relativePairwiseScore": 0.00590607633829585,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "92185266",
+                        "relativePairwiseScore": 0.0072240415544821031,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "43175959",
+                        "relativePairwiseScore": 0.0044086641788089959,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "27937168",
+                        "relativePairwiseScore": 0.00480037509898638,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "26904810",
+                        "relativePairwiseScore": 0.0053032164238200827,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "80043357",
+                        "relativePairwiseScore": 0.0061354753523915105,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "72259870",
+                "description": "CRUSTY WHITE FARMHOUSE LOAF SLICED 400G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "71575095",
+                        "relativePairwiseScore": 0.064918052594576156,
+                        "substituteScore": 0.7
+                    },
+                    {
+                        "substituteProductCode": "45314043",
+                        "relativePairwiseScore": 0.014461290195510798,
+                        "substituteScore": 0.08
+                    },
+                    {
+                        "substituteProductCode": "17666388",
+                        "relativePairwiseScore": 0.024151152117947498,
+                        "substituteScore": 0.06
+                    },
+                    {
+                        "substituteProductCode": "12597064",
+                        "relativePairwiseScore": 0.012133132277375131,
+                        "substituteScore": 0.05
+                    },
+                    {
+                        "substituteProductCode": "72259870",
+                        "relativePairwiseScore": 0.0065225329142585371,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "16057420",
+                        "relativePairwiseScore": 0.005680594700220221,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "37496998",
+                        "relativePairwiseScore": 0.0082455485365122358,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "52126982",
+                        "relativePairwiseScore": 0.0045093237352798257,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "71211535",
+                        "relativePairwiseScore": 0.0023339013657840595,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "26904810",
+                        "relativePairwiseScore": 0.0036576829230467013,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "9952752",
+                        "relativePairwiseScore": 0.0037882126839052532,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.010758392696518853,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "22266060",
+                "description": "6 PACK CRUSTY WHITE ROLLS"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "22266060",
+                        "relativePairwiseScore": 0.03206763412715842,
+                        "substituteScore": 0.63
+                    },
+                    {
+                        "substituteProductCode": "72259870",
+                        "relativePairwiseScore": 0.01085282838873766,
+                        "substituteScore": 0.14
+                    },
+                    {
+                        "substituteProductCode": "37496998",
+                        "relativePairwiseScore": 0.013292758348952775,
+                        "substituteScore": 0.1
+                    },
+                    {
+                        "substituteProductCode": "12597064",
+                        "relativePairwiseScore": 0.0082824080172418189,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "17666388",
+                        "relativePairwiseScore": 0.016144667425933207,
+                        "substituteScore": 0.04
+                    },
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.00612242999851892,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "16057420",
+                        "relativePairwiseScore": 0.0037636752450166751,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "45314043",
+                        "relativePairwiseScore": 0.0046712020551268364,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "71575095",
+                "description": "WHITE BATON"
+            }
+        ],
+        "id": 10808,
+        "name": "Crusty White Baton Farmhouse Loaf",
+        "needStateId": 10,
+        "parentId": 2
+    },
+    {
+        "products": [
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "37496998",
+                        "relativePairwiseScore": 0.16261520453562278,
+                        "substituteScore": 0.95
+                    },
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.026950822601577318,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "52126982",
+                        "relativePairwiseScore": 0.0094936609929786031,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "9952752",
+                        "relativePairwiseScore": 0.013200525623107385,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "16057420",
+                "description": "SALT AND PEPPER BAGUETTE 400G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "16057420",
+                        "relativePairwiseScore": 0.092533672498840189,
+                        "substituteScore": 0.83
+                    },
+                    {
+                        "substituteProductCode": "9952752",
+                        "relativePairwiseScore": 0.025246194601452363,
+                        "substituteScore": 0.05
+                    },
+                    {
+                        "substituteProductCode": "52126982",
+                        "relativePairwiseScore": 0.01617210027361983,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "92185266",
+                        "relativePairwiseScore": 0.020679277946620465,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "71575095",
+                        "relativePairwiseScore": 0.0246424665833499,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.031983267872866192,
+                        "substituteScore": 0.02
+                    },
+                    {
+                        "substituteProductCode": "12597064",
+                        "relativePairwiseScore": 0.012681204391172211,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "37496998",
+                "description": "TIGER BAGUETTE 400G"
+            }
+        ],
+        "id": 10700,
+        "name": "Salt Tiger And Baguette Pepper",
+        "needStateId": 2,
+        "parentId": 3
+    },
+    {
+        "products": [
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "9952752",
+                        "relativePairwiseScore": 0.096065278569570867,
+                        "substituteScore": 0.87
+                    },
+                    {
+                        "substituteProductCode": "52126982",
+                        "relativePairwiseScore": 0.02337793,
+                        "substituteScore": 0.07
+                    },
+                    {
+                        "substituteProductCode": "37496998",
+                        "relativePairwiseScore": 0.02840267901170351,
+                        "substituteScore": 0.05
+                    },
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.020261708270481144,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "92185266",
+                "description": "TIGER BLOOMER 400G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "9952752",
+                        "relativePairwiseScore": 0.09466952823472824,
+                        "substituteScore": 0.79
+                    },
+                    {
+                        "substituteProductCode": "92185266",
+                        "relativePairwiseScore": 0.03458899118807119,
+                        "substituteScore": 0.09
+                    },
+                    {
+                        "substituteProductCode": "37496998",
+                        "relativePairwiseScore": 0.032864134737854739,
+                        "substituteScore": 0.06
+                    },
+                    {
+                        "substituteProductCode": "72259870",
+                        "relativePairwiseScore": 0.015731828840788841,
+                        "substituteScore": 0.03
+                    },
+                    {
+                        "substituteProductCode": "68044335",
+                        "relativePairwiseScore": 0.017779003771043772,
+                        "substituteScore": 0.01
+                    },
+                    {
+                        "substituteProductCode": "16057420",
+                        "relativePairwiseScore": 0.010978124348244349,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "52126982",
+                "description": "TIGER LOAF SLICED 800G"
+            },
+            {
+                "groupDescription": null,
+                "substituteProducts": [
+                    {
+                        "substituteProductCode": "92185266",
+                        "relativePairwiseScore": 0.10638412352932705,
+                        "substituteScore": 0.56
+                    },
+                    {
+                        "substituteProductCode": "52126982",
+                        "relativePairwiseScore": 0.070857976267622871,
+                        "substituteScore": 0.37
+                    },
+                    {
+                        "substituteProductCode": "37496998",
+                        "relativePairwiseScore": 0.0383999124436572,
+                        "substituteScore": 0.05
+                    },
+                    {
+                        "substituteProductCode": "16057420",
+                        "relativePairwiseScore": 0.011425209760804135,
+                        "substituteScore": 0.01
+                    }
+                ],
+                "code": "9952752",
+                "description": "TIGER BLOOMER 800G"
+            }
+        ],
+        "id": 10705,
+        "name": "Tiger Bloomer Loaf",
+        "needStateId": 7,
+        "parentId": 3
+    },
+    {
+        "products": null,
+        "id": 9999,
+        "name": "root",
+        "needStateId": null,
+        "parentId": null
+    }
+]

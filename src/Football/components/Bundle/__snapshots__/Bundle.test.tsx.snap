@@ -1,0 +1,2387 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Bundle should render correctly 1`] = `
+<Fragment>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup68044335"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(-86)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(-86)translate(441.3333333333333,0)"
+    >
+      HOT CROSS BUN 6 PACK
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup15875201"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(-78)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(-78)translate(441.3333333333333,0)"
+    >
+      OWN BRAND CUSTARD SLICE 2...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup26904810"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(-70)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(-70)translate(441.3333333333333,0)"
+    >
+      OWN BRAND 2 BELGIAN CHOCO...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup80043357"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(-62)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(-62)translate(441.3333333333333,0)"
+    >
+      OWN BRAND PREMIUM 4 ALL B...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup43127981"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(-54)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(-54)translate(441.3333333333333,0)"
+    >
+      OWN BRAND 4 BELGIAN CHOCO...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup43175959"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(-46)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(-46)translate(441.3333333333333,0)"
+    >
+      OWN BRAND 2 FRSH CRM BRAM...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup94438971"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(-38.00000000000001)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(-38.00000000000001)translate(441.3333333333333,0)"
+    >
+      OWN BRAND 2 EGG CUSTARD T...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup6363105"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(-30)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(-30)translate(441.3333333333333,0)"
+    >
+      OWN BRAND 2 FRSH CRM BELG...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup50169133"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(-22)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(-22)translate(441.3333333333333,0)"
+    >
+      OWN BRAND MULTISEED FARMH...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup38313565"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(-14)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(-14)translate(441.3333333333333,0)"
+    >
+      WARBURTONS SEEDED BATCH B...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup53335116"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(-6)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(-6)translate(441.3333333333333,0)"
+    >
+      KINGSMILL PANCAKES 6 PACK
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup81514303"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(2)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(2)translate(441.3333333333333,0)"
+    >
+      OWN BRAND 4 ALL BUTTER PA...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup80146822"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(10)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(10)translate(441.3333333333333,0)"
+    >
+      BLUEBERRY MUFFINS 4 PACK
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup41963322"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(18)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(18)translate(441.3333333333333,0)"
+    >
+      WARBURTONS 12 SLICED S/WI...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup60474965"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(26.000000000000014)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(26.000000000000014)translate(441.3333333333333,0)"
+    >
+      TRIPLE CHOCOLATEMUFFINS 4...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup45099137"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(34)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(34)translate(441.3333333333333,0)"
+    >
+      OWN BRAND 6 WHOLEMEAL PIT...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup27937168"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(42)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(42)translate(441.3333333333333,0)"
+    >
+      OWN BRAND STRAWBERRY TRIF...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup85418539"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(50)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(50)translate(441.3333333333333,0)"
+    >
+      OWN BRAND EVERYDAY VALUE ...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup94444633"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(58)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(58)translate(441.3333333333333,0)"
+    >
+      HOVIS WHOLEMEAL MEDIUMBRE...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup74186328"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(66)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(66)translate(441.3333333333333,0)"
+    >
+      WARBURTONS DANISH SLICED ...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup79910009"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(74)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(74)translate(441.3333333333333,0)"
+    >
+      OWN BRAND STAY FRESHWHOLE...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup36992866"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="start"
+      transform="rotate(82)translate(441.3333333333333,-7)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="start"
+      textLength={201.66666666666666}
+      transform="rotate(82)translate(441.3333333333333,0)"
+    >
+      KINGSMILL TASTY WHOLEMEAL...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup87357390"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(90)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(90)translate(441.3333333333333,0)rotate(180)"
+    >
+      WARBURTONS WHOLEMEAL MEDI...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup67629117"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(98)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(98)translate(441.3333333333333,0)rotate(180)"
+    >
+      WARBURTONS WHOLEMEAL MEDI...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup58501187"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(105.99999999999997)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(105.99999999999997)translate(441.3333333333333,0)rotate(180)"
+    >
+      WARBURTONS TOASTIE SLICED...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup80486327"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(114)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(114)translate(441.3333333333333,0)rotate(180)"
+    >
+      WARBURTONS MEDIUM SLCD WH...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup71211535"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(122)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(122)translate(441.3333333333333,0)rotate(180)"
+    >
+      OWN BRAND WHITE TOASTIE T...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup12597064"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(130.00000000000003)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(130.00000000000003)translate(441.3333333333333,0)rotate(180)"
+    >
+      6 PACK WHITE HOT DOG ROLL...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup17666388"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(138)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(138)translate(441.3333333333333,0)rotate(180)"
+    >
+      6 PACK SOFT WHITE ROLLS
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup45314043"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(146)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(146)translate(441.3333333333333,0)rotate(180)"
+    >
+      6 PACK SCOTCH MORNING ROL...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup44788258"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(154)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(154)translate(441.3333333333333,0)rotate(180)"
+    >
+      BRACES THICK WHITE SLICED...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup53546454"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(161.99999999999997)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(161.99999999999997)translate(441.3333333333333,0)rotate(180)"
+    >
+      KINGSMILL 50/50 MEDIUM 80...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup26911754"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(170)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(170)translate(441.3333333333333,0)rotate(180)"
+    >
+      KINGSMILL SOFT WHITE MEDI...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup33286466"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(178)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(178)translate(441.3333333333333,0)rotate(180)"
+    >
+      HOVIS WHOLEMEAL THICK BRE...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup15150195"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(186)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(186)translate(441.3333333333333,0)rotate(180)"
+    >
+      HOVIS BEST OF BOTH MEDIUM...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup4107926"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(194)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(194)translate(441.3333333333333,0)rotate(180)"
+    >
+      HOVIS BEST OF BOTH THICK ...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup88897751"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(202)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(202)translate(441.3333333333333,0)rotate(180)"
+    >
+      KINGSMILL 50/50 THICK BRE...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup72259870"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(210)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(210)translate(441.3333333333333,0)rotate(180)"
+    >
+      CRUSTY WHITE FARMHOUSE LO...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup22266060"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(218)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(218)translate(441.3333333333333,0)rotate(180)"
+    >
+      6 PACK CRUSTY WHITE ROLLS
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup71575095"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(226)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(226)translate(441.3333333333333,0)rotate(180)"
+    >
+      WHITE BATON
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup16057420"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(234)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(234)translate(441.3333333333333,0)rotate(180)"
+    >
+      SALT AND PEPPER BAGUETTE ...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup37496998"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(242)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(242)translate(441.3333333333333,0)rotate(180)"
+    >
+      TIGER BAGUETTE 400G
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node selectedProductNameBox"
+    key="productLabelGroup92185266"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(250)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(250)translate(441.3333333333333,0)rotate(180)"
+    >
+      TIGER BLOOMER 400G
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup52126982"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(258)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(258)translate(441.3333333333333,0)rotate(180)"
+    >
+      TIGER LOAF SLICED 800G
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup9952752"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(266)translate(441.3333333333333,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(266)translate(441.3333333333333,0)rotate(180)"
+    >
+      TIGER BLOOMER 800G
+    </text>
+  </g>
+</Fragment>
+`;
+
+exports[`Bundle subsLimit should limit the number of product substitutions for each product 1`] = `
+<Fragment>
+  <path
+    className="link"
+    d="MNaN,NaNLNaN,NaNCNaN,NaN,NaN,NaN,NaN,NaNCNaN,NaN,NaN,NaN,NaN,NaNLNaN,NaN"
+    key="productSubstituteLink0"
+  />
+  <path
+    className="link"
+    d="MNaN,NaNLNaN,NaNCNaN,NaN,NaN,NaN,NaN,NaNCNaN,NaN,NaN,NaN,NaN,NaNLNaN,NaN"
+    key="productSubstituteLink1"
+  />
+  <path
+    className="link"
+    d="MNaN,NaNLNaN,NaNCNaN,NaN,NaN,NaN,NaN,NaNCNaN,NaN,NaN,NaN,NaN,NaNCNaN,NaN,NaN,NaN,NaN,NaNCNaN,NaN,NaN,NaN,NaN,NaNLNaN,NaN"
+    key="productSubstituteLink2"
+  />
+  <path
+    className="link"
+    d="MNaN,NaNLNaN,NaNCNaN,NaN,NaN,NaN,NaN,NaNCNaN,NaN,NaN,NaN,NaN,NaNCNaN,NaN,NaN,NaN,NaN,NaNCNaN,NaN,NaN,NaN,NaN,NaNCNaN,NaN,NaN,NaN,NaN,NaNCNaN,NaN,NaN,NaN,NaN,NaNLNaN,NaN"
+    key="productSubstituteLink3"
+  />
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup68044335"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={
+        Object {
+          "fill": "rgb(243, 231, 244)",
+        }
+      }
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText subsProduct"
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      HOT CROSS BUN 6 PACK
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup15875201"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      OWN BRAND CUSTARD SLICE 2...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup26904810"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      OWN BRAND 2 BELGIAN CHOCO...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup80043357"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      OWN BRAND PREMIUM 4 ALL B...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup43127981"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      OWN BRAND 4 BELGIAN CHOCO...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup43175959"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      OWN BRAND 2 FRSH CRM BRAM...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup94438971"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      OWN BRAND 2 EGG CUSTARD T...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup6363105"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      OWN BRAND 2 FRSH CRM BELG...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup50169133"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      OWN BRAND MULTISEED FARMH...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup38313565"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      WARBURTONS SEEDED BATCH B...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup53335116"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      KINGSMILL PANCAKES 6 PACK
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup81514303"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      OWN BRAND 4 ALL BUTTER PA...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup80146822"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      BLUEBERRY MUFFINS 4 PACK
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup41963322"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      WARBURTONS 12 SLICED S/WI...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup60474965"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      TRIPLE CHOCOLATEMUFFINS 4...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup45099137"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      OWN BRAND 6 WHOLEMEAL PIT...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup27937168"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      OWN BRAND STRAWBERRY TRIF...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup85418539"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      OWN BRAND EVERYDAY VALUE ...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup94444633"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      HOVIS WHOLEMEAL MEDIUMBRE...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup74186328"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      WARBURTONS DANISH SLICED ...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup79910009"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      OWN BRAND STAY FRESHWHOLE...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup36992866"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      KINGSMILL TASTY WHOLEMEAL...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup87357390"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      WARBURTONS WHOLEMEAL MEDI...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup67629117"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      WARBURTONS WHOLEMEAL MEDI...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup58501187"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      WARBURTONS TOASTIE SLICED...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup80486327"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      WARBURTONS MEDIUM SLCD WH...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup71211535"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      OWN BRAND WHITE TOASTIE T...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup12597064"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      6 PACK WHITE HOT DOG ROLL...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup17666388"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      6 PACK SOFT WHITE ROLLS
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup45314043"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      6 PACK SCOTCH MORNING ROL...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup44788258"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      BRACES THICK WHITE SLICED...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup53546454"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      KINGSMILL 50/50 MEDIUM 80...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup26911754"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      KINGSMILL SOFT WHITE MEDI...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup33286466"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      HOVIS WHOLEMEAL THICK BRE...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup15150195"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      HOVIS BEST OF BOTH MEDIUM...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup4107926"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      HOVIS BEST OF BOTH THICK ...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup88897751"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      KINGSMILL 50/50 THICK BRE...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup72259870"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      CRUSTY WHITE FARMHOUSE LO...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup22266060"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      6 PACK CRUSTY WHITE ROLLS
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup71575095"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      WHITE BATON
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup16057420"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      SALT AND PEPPER BAGUETTE ...
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup37496998"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={
+        Object {
+          "fill": "rgb(241, 227, 242)",
+        }
+      }
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText subsProduct"
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      TIGER BAGUETTE 400G
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node selectedProductNameBox"
+    key="productLabelGroup92185266"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={Object {}}
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText "
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      TIGER BLOOMER 400G
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup52126982"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={
+        Object {
+          "fill": "rgb(240, 225, 241)",
+        }
+      }
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText subsProduct"
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      TIGER LOAF SLICED 800G
+    </text>
+  </g>
+  <g
+    className="productLabelGroup node "
+    key="productLabelGroup9952752"
+    onClick={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
+  >
+    <rect
+      className="productRectangle"
+      fill="transparent"
+      height="12"
+      style={
+        Object {
+          "fill": "rgb(203, 152, 208)",
+        }
+      }
+      text-anchor="end"
+      transform="rotate(NaN)translate(NaN,-6)"
+      width={201.66666666666666}
+    />
+    <text
+      className="productText subsProduct"
+      dy="0.31em"
+      text-anchor="end"
+      textLength={201.66666666666666}
+      transform="rotate(NaN)translate(NaN,0)rotate(180)"
+    >
+      TIGER BLOOMER 800G
+    </text>
+  </g>
+</Fragment>
+`;
