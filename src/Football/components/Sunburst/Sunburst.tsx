@@ -30,7 +30,7 @@ const colourSet = [
 
 export class Sunburst extends React.Component<SunburstProps, SunburstState> {
   state = {
-    data: null,
+    data: {} as any,
     rootRadius: 0,
     arcHeight: 0,
   };
@@ -72,17 +72,17 @@ export class Sunburst extends React.Component<SunburstProps, SunburstState> {
 
   createSunburst(props: SunburstProps) {
     const validNodes = props.data.filter(
-      (x) =>
+      (x: any) =>
         !x.needStateId || (x.needStateId && x.products && x.products.length > 0)
     );
 
-    const nestedData = nestData(validNodes, (treeNode) => {
+    const nestedData = nestData(validNodes, (treeNode: any) => {
       if (treeNode.products) {
         treeNode.value = treeNode.products.length;
       }
     });
 
-    const partitionF = (data) => {
+    const partitionF = (data: any) => {
       const root = hierarchy(data).sum((d: any) => {
         return d.products && d.products.length;
       });
@@ -102,7 +102,7 @@ export class Sunburst extends React.Component<SunburstProps, SunburstState> {
     });
   }
 
-  rtnFill = (d, i) => {
+  rtnFill = (d: any, i: number) => {
     d.index = i;
     if (!d.depth) {
       return '#ccc';
@@ -128,7 +128,7 @@ export class Sunburst extends React.Component<SunburstProps, SunburstState> {
               key={`needStateArc-${element.data.id}`}
               id={`axisPath${element.data.id}`}
               fill={this.rtnFill(element, i)}
-              d={this.arc(element.current)}
+              d={this.arc(element.current) as string | undefined}
               strokeWidth={0.5}
               stroke='grey'
               onMouseMove={updateToolTip.bind(this, element.current.data.name)}

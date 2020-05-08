@@ -18,7 +18,7 @@ interface BundleState {
   leavesData: any;
   finalData: any;
   hoverProduct: any;
-  textWidth: number;
+  textWidth?: number;
   substituteProducts: any;
 }
 
@@ -31,12 +31,11 @@ export class Bundle extends Component<BundleProps, BundleState> {
     leavesData: null,
     finalData: null,
     hoverProduct: null,
-    textWidth: null,
     substituteProducts: null,
   };
 
-  line = null;
-  cluster = null;
+  line: any = null;
+  cluster: any = null;
 
   componentDidMount() {
     this.createBundleBasic(this.props);
@@ -105,10 +104,10 @@ export class Bundle extends Component<BundleProps, BundleState> {
 
   createBundleBasic = (props: BundleProps) => {
     const validNodes = props.data.filter(
-      (x) =>
+      (x: any) =>
         !x.needStateId || (x.needStateId && x.products && x.products.length > 0)
     );
-    const nestedData = nestData(validNodes, (treeNode) => {
+    const nestedData = nestData(validNodes, (treeNode: any) => {
       if (treeNode.products) {
         treeNode.products.forEach((x: any) => {
           x.parentId = treeNode.id;
@@ -167,7 +166,7 @@ export class Bundle extends Component<BundleProps, BundleState> {
     }
   };
 
-  productMouseClick = (d, product: any) => {
+  productMouseClick = (d: any, product: any) => {
     d.stopPropagation();
 
     this.props.selectProduct(product);
@@ -177,7 +176,7 @@ export class Bundle extends Component<BundleProps, BundleState> {
   };
 
   setProductElementStyle = (product: any, isProductSelected: boolean) => {
-    const style = {};
+    const style: any = {};
 
     // Set the style of the substitutes for the sticked product (if any)
     // Otherwise, set the style of the substitutes of the hovered product (if any)
@@ -203,12 +202,12 @@ export class Bundle extends Component<BundleProps, BundleState> {
 
         if (this.props.selectedProduct) {
           filteredLinks = this.state.finalData.filter(
-            (x) => x[0].data.code === this.props.selectedProduct.code
+            (x: any) => x[0].data.code === this.props.selectedProduct.code
           );
         } else {
           filteredLinks = this.state.hoverProduct
             ? this.state.finalData.filter(
-                (x) => x[0].data.code === this.state.hoverProduct.code
+                (x: any) => x[0].data.code === this.state.hoverProduct.code
               )
             : this.state.finalData;
         }

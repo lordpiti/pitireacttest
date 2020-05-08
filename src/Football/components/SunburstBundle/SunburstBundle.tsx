@@ -30,7 +30,6 @@ export class SunburstBundle extends React.Component<
   };
 
   componentDidUpdate(prevProps: SunburstBundleProps) {
-    debugger;
     if (prevProps.selectedProduct !== this.props.selectedProduct) {
       this.setSubsLimit(this.props.selectedProduct);
     }
@@ -53,7 +52,7 @@ export class SunburstBundle extends React.Component<
     this.setState(popupState);
   };
 
-  selectProduct = (d, product: any) => {
+  selectProduct = (d: any, product: any) => {
     const filteredProduct = product && {
       ...product,
     };
@@ -77,7 +76,7 @@ export class SunburstBundle extends React.Component<
     this.setState({ subsLimit: parseInt(e.target.value, 10) });
   };
 
-  createSelectOption = (i) => (
+  createSelectOption = (i: number) => (
     <option value={i + 1} selected={this.state.subsLimit === i + 1}>
       {i + 1}
     </option>
@@ -104,7 +103,7 @@ export class SunburstBundle extends React.Component<
             onChange={this.setSubsLimitEventHandler}
             value={this.state.subsLimit ? this.state.subsLimit : 10}
           >
-            {subsArray.map((a, i) => this.createSelectOption(i))}
+            {subsArray.map((a: any, i: number) => this.createSelectOption(i))}
           </select>
         </div>
         <div id='sunburstBundle' className='text-center'>

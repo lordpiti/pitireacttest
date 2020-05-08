@@ -17,7 +17,7 @@ export const nestData = (
   data: any[],
   callback: Function = (treeNode: any) => null
 ): TreeNodeType => {
-  let tree: TreeNodeType;
+  let tree = {} as TreeNodeType;
 
   const dataMap = mapKeys(cloneDeep(data), 'id');
 
@@ -43,8 +43,8 @@ export const nestData = (
 
 // Return a list of imports for the given array of nodes.
 export const packageImports = (nodes: any[]) => {
-  const map = {},
-    imports = [];
+  const map = {} as any,
+    imports: any[] = [];
 
   // Compute a map from name to node.
   // eslint-disable-next-line prefer-arrow-callback
