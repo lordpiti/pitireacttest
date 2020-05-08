@@ -30,6 +30,7 @@ export class SunburstBundle extends React.Component<
   };
 
   componentDidUpdate(prevProps: SunburstBundleProps) {
+    debugger;
     if (prevProps.selectedProduct !== this.props.selectedProduct) {
       this.setSubsLimit(this.props.selectedProduct);
     }
@@ -101,9 +102,7 @@ export class SunburstBundle extends React.Component<
             className='subsLimitSelect'
             onClick={() => null}
             onChange={this.setSubsLimitEventHandler}
-            value={
-              selectedProduct ? selectedProduct.substituteProducts.length : 10
-            }
+            value={this.state.subsLimit ? this.state.subsLimit : 10}
           >
             {subsArray.map((a, i) => this.createSelectOption(i))}
           </select>

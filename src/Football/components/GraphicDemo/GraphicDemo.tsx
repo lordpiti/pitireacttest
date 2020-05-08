@@ -21,9 +21,9 @@ export class GraphicDemo extends Component<any, any> {
   };
 
   setSelectedProductBundle = (product: any) => {
-    // this.setState({
-    //   selectedProductBundle: product
-    // });
+    this.setState({
+      selectedProductBundle: product,
+    });
   };
 
   render() {
