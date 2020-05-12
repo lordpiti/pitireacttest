@@ -4,6 +4,7 @@ exports[`renders the snapshot should render one MatchPlayerSingle 1`] = `
 <div>
   <div>
     <MatchPlayerSingle
+      key="1"
       player={
         Object {
           "playerId": 1,
@@ -16,6 +17,7 @@ exports[`renders the snapshot should render one MatchPlayerSingle 1`] = `
   <hr />
   <div>
     <MatchPlayerSingle
+      key="2"
       player={
         Object {
           "playerId": 2,

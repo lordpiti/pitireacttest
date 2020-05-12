@@ -3,11 +3,13 @@ import React from 'react';
 import { Bundle } from '../Bundle/Bundle';
 import { Sunburst } from '../Sunburst/Sunburst';
 import './SunburstBundle.scss';
+import { TreeNodeType } from '../../utilities/nest';
+import { Product } from './products';
 
 interface SunburstBundleProps {
-  data: any;
+  data: TreeNodeType[];
   diameter: number;
-  selectedProduct?: any;
+  selectedProduct?: Product | null;
   setSelectedProduct: Function;
 }
 
@@ -52,7 +54,7 @@ export class SunburstBundle extends React.Component<
     this.setState(popupState);
   };
 
-  selectProduct = (d: any, product: any) => {
+  selectProduct = (d: any, product: Product) => {
     const filteredProduct = product && {
       ...product,
     };

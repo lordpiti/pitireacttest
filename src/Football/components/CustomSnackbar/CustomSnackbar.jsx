@@ -3,12 +3,8 @@ import * as globalActionCreators from '../../store/actions/global';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import {
-  withStyles,
-  Theme,
-  createStyles,
-  makeStyles,
-} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import Button from '@material-ui/core/Button';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
@@ -19,8 +15,6 @@ import amber from '@material-ui/core/colors/amber';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import WarningIcon from '@material-ui/icons/Warning';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { FootballState, FootballDispatch } from '../../..';
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -29,44 +23,41 @@ const variantIcon = {
   info: InfoIcon,
 };
 
-const styles = (theme: Theme) =>
-  createStyles({
-    close: {
-      padding: theme.spacing(0.5),
-    },
-  });
+const styles = (theme) => ({
+  close: {
+    padding: theme.spacing(0.5),
+  },
+});
 
-const styles1 = makeStyles((theme: Theme) =>
-  createStyles({
-    success: {
-      backgroundColor: green[600],
-    },
-    error: {
-      backgroundColor: theme.palette.error.dark,
-    },
-    info: {
-      backgroundColor: theme.palette.primary.dark,
-    },
-    warning: {
-      backgroundColor: amber[700],
-    },
-    icon: {
-      fontSize: 20,
-    },
-    iconVariant: {
-      opacity: 0.9,
-      marginRight: theme.spacing(1),
-    },
-    message: {
-      display: 'flex',
-      alignItems: 'center',
-    },
-  })
-);
+const styles1 = (theme) => ({
+  success: {
+    backgroundColor: green[600],
+  },
+  error: {
+    backgroundColor: theme.palette.error.dark,
+  },
+  info: {
+    backgroundColor: theme.palette.primary.dark,
+  },
+  warning: {
+    backgroundColor: amber[700],
+  },
+  icon: {
+    fontSize: 20,
+  },
+  iconVariant: {
+    opacity: 0.9,
+    marginRight: theme.spacing(1),
+  },
+  message: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+});
 
-function MySnackbarContent(props: any) {
+function MySnackbarContent(props) {
   const { classes, className, message, onClose, variant, ...other } = props;
-  const Icon = (variantIcon as any)[variant];
+  const Icon = variantIcon[variant];
 
   return (
     <SnackbarContent
@@ -94,7 +85,15 @@ function MySnackbarContent(props: any) {
   );
 }
 
-class CustomSnackbar extends Component<any, any> {
+MySnackbarContent.propTypes = {
+  classes: PropTypes.object.isRequired,
+  className: PropTypes.string,
+  message: PropTypes.node,
+  onClose: PropTypes.func,
+  variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']).isRequired,
+};
+
+class CustomSnackbar extends Component {
   handleClose = () => {
     this.props.hideToaster();
   };
@@ -145,9 +144,9 @@ class CustomSnackbar extends Component<any, any> {
   }
 }
 
-const MySnackbarContentWrapper = withStyles(styles1 as any)(MySnackbarContent);
+const MySnackbarContentWrapper = withStyles(styles1)(MySnackbarContent);
 
-const mapStateToProps = (state: FootballState) => {
+const mapStateToProps = (state) => {
   return {
     open: state.global.dash.open,
     message: state.global.dash.message,
@@ -155,15 +154,13 @@ const mapStateToProps = (state: FootballState) => {
   };
 };
 
-const mapDispatchToProps = (dispatch: FootballDispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     hideToaster: () => dispatch(globalActionCreators.acToastDashClear()),
   };
 };
 
-//export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(CustomSnackbar));
-
-export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
-  withStyles(styles)
-)(CustomSnackbar) as React.ElementType;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(CustomSnackbar));

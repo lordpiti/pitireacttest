@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import {
   TextField,
@@ -15,8 +14,11 @@ import editModal from '../../../components/EditModal/editModal';
 import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';
 
-class EditPlayerInfo extends React.Component {
-  constructor(props) {
+class EditPlayerInfo extends React.Component<any, any> {
+  validator: FormValidator = {} as FormValidator;
+  submitted: boolean;
+
+  constructor(props: any) {
     super(props);
     this.validator = new FormValidator([
       {
@@ -43,7 +45,7 @@ class EditPlayerInfo extends React.Component {
     this.submitted = false;
   }
 
-  callbackDropzone = (files) => {
+  callbackDropzone = (files: File[]) => {
     let fileToUpload = null;
     files.forEach((file) => {
       const reader = new FileReader();
@@ -70,7 +72,7 @@ class EditPlayerInfo extends React.Component {
     isImage: true,
   };
 
-  handleInputChange = (event) => {
+  handleInputChange = (event: any) => {
     event.preventDefault();
 
     this.setState({
@@ -81,7 +83,7 @@ class EditPlayerInfo extends React.Component {
     });
   };
 
-  handleBirthDateChange = (newDate) => {
+  handleBirthDateChange = (newDate: any) => {
     this.setState({
       playerData: {
         ...this.state.playerData,
@@ -90,7 +92,7 @@ class EditPlayerInfo extends React.Component {
     });
   };
 
-  handleFormSubmit = (event) => {
+  handleFormSubmit = (event: any) => {
     event.preventDefault();
     const validation = this.validator.validate(this.state.playerData);
     this.setState({ validation });
@@ -258,9 +260,5 @@ class EditPlayerInfo extends React.Component {
       );
   }
 }
-
-EditPlayerInfo.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default editModal(EditPlayerInfo);

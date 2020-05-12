@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { SunburstBundle } from '../SunburstBundle/SunburstBundle';
 import sunburstData from './Sunburst.data.json';
+import { TreeNodeType } from '../../utilities/nest';
+import { Product } from '../SunburstBundle/products';
 
 export class GraphicDemo extends Component<any, any> {
   state = {
@@ -20,7 +22,7 @@ export class GraphicDemo extends Component<any, any> {
     exportNotificationFailed: null,
   };
 
-  setSelectedProductBundle = (product: any) => {
+  setSelectedProductBundle = (product: Product) => {
     this.setState({
       selectedProductBundle: product,
     });
@@ -29,7 +31,7 @@ export class GraphicDemo extends Component<any, any> {
   render() {
     return (
       <SunburstBundle
-        data={sunburstData}
+        data={sunburstData as TreeNodeType[]}
         diameter={this.state.diameter}
         selectedProduct={this.state.selectedProductBundle}
         setSelectedProduct={this.setSelectedProductBundle}

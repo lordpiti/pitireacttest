@@ -1,18 +1,18 @@
 import { arc, hierarchy, partition } from 'd3';
 import React from 'react';
-import { nestData } from '../../utilities/nest';
+import { nestData, TreeNodeType } from '../../utilities/nest';
 import './Sunburst.scss';
 
 interface SunburstProps {
-  data: any;
+  data: TreeNodeType[];
   diameter: number;
-  updateToolTip: any;
+  updateToolTip: Function;
 }
 
 interface SunburstState {
   data: any;
-  rootRadius: any;
-  arcHeight: any;
+  rootRadius: number;
+  arcHeight: number;
 }
 
 const colourSet = [
@@ -29,11 +29,14 @@ const colourSet = [
 ];
 
 export class Sunburst extends React.Component<SunburstProps, SunburstState> {
-  state = {
-    data: {} as any,
-    rootRadius: 0,
-    arcHeight: 0,
-  };
+  constructor(props: SunburstProps) {
+    super(props);
+    this.state = {
+      data: null,
+      rootRadius: 0,
+      arcHeight: 0,
+    };
+  }
 
   arc = arc()
     .startAngle((d: any) => d.x0)
@@ -68,28 +71,27 @@ export class Sunburst extends React.Component<SunburstProps, SunburstState> {
     }
   }
 
-  color = (colorName: any) => '';
-
   createSunburst(props: SunburstProps) {
     const validNodes = props.data.filter(
-      (x: any) =>
+      (x) =>
         !x.needStateId || (x.needStateId && x.products && x.products.length > 0)
     );
 
-    const nestedData = nestData(validNodes, (treeNode: any) => {
+    const nestedData = nestData(validNodes, (treeNode: TreeNodeType) => {
       if (treeNode.products) {
         treeNode.value = treeNode.products.length;
       }
     });
 
-    const partitionF = (data: any) => {
-      const root = hierarchy(data).sum((d: any) => {
+    const partitionF = (data: TreeNodeType) => {
+      const root = hierarchy(data).sum((d: TreeNodeType) => {
         return d.products && d.products.length;
       });
       // .sort((a: any, b: any) => b.value - a.value);
       return partition().size([2 * Math.PI, root.height + 1])(root);
     };
     const root = partitionF(nestedData);
+
     root.each((d: any) => (d.current = d));
 
     const adjustedDiameterForSunburst =
@@ -131,8 +133,10 @@ export class Sunburst extends React.Component<SunburstProps, SunburstState> {
               d={this.arc(element.current) as string | undefined}
               strokeWidth={0.5}
               stroke='grey'
-              onMouseMove={updateToolTip.bind(this, element.current.data.name)}
-              onMouseLeave={updateToolTip.bind(this, null)}
+              onMouseMove={(event) =>
+                updateToolTip(element.current.data.name, event)
+              }
+              onMouseLeave={(event) => updateToolTip(null, event)}
             />
           ))}
       </>

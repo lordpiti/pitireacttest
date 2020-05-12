@@ -1,5 +1,6 @@
 import cloneDeep from 'lodash/cloneDeep';
 import mapKeys from 'lodash/mapKeys';
+import { Product } from '../components/SunburstBundle/products';
 // import { CDTNode } from 'services/CDTService';
 // import { Product } from 'components/TreeNode/TreeNode';
 
@@ -7,7 +8,7 @@ export interface TreeNodeType {
   id: number;
   name: string;
   parentId: number;
-  products: any[];
+  products: Product[];
   needStateId?: number;
   children?: TreeNodeType[];
   value?: number;
