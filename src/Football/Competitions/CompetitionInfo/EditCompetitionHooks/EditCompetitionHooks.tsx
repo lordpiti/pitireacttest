@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import { TextField, FormHelperText } from '@material-ui/core';
 import editModal from '../../../components/EditModal/editModal';
 import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';
 
-const EditCompetitionInfo = ({
-  competitionData,
-  saveCompetition,
-  handleClose,
-  classes,
-}) => {
-  const validRegEx = (range) => /^\d{4}(-\d{4})$/.test(range);
+interface EditCompetitionProps {
+  competitionData: any;
+  saveCompetition: Function;
+  handleClose: Function;
+  classes: any;
+}
+
+const EditCompetitionInfo = (props: EditCompetitionProps) => {
+  const validRegEx = (range: string) => /^\d{4}(-\d{4})$/.test(range);
 
   const validator = new FormValidator([
     {
@@ -30,14 +31,14 @@ const EditCompetitionInfo = ({
   ]);
 
   const [currentImageState, setCurrentImageState] = useState({
-    currentImage: null,
+    currentImage: null as any,
   });
 
   const [
     currentCompetitionDataState,
     setCurrentCompetitionDataState,
   ] = useState({
-    ...competitionData,
+    ...props.competitionData,
   });
 
   const [currentValidationState, setCurrentValidationState] = useState({
@@ -46,7 +47,7 @@ const EditCompetitionInfo = ({
 
   let submitted = false;
 
-  const callbackDropzone = (files) => {
+  const callbackDropzone = (files: File[]) => {
     let fileToUpload = null;
     files.forEach((file) => {
       const reader = new FileReader();
@@ -73,7 +74,7 @@ const EditCompetitionInfo = ({
     isImage: true,
   };
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: any) => {
     event.preventDefault();
 
     setCurrentCompetitionDataState({
@@ -82,7 +83,7 @@ const EditCompetitionInfo = ({
     });
   };
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = (event: any) => {
     event.preventDefault();
     const validation = validator.validate(currentCompetitionDataState);
     setCurrentValidationState({ validation });
@@ -98,16 +99,16 @@ const EditCompetitionInfo = ({
           fileName: currentImageState.currentImage.fileName,
         };
       }
-      saveCompetition(image, currentCompetitionDataState);
-      handleClose();
+      props.saveCompetition(image, currentCompetitionDataState);
+      props.handleClose();
     }
   };
 
-  let validation = submitted // if the form has been submitted at least once
+  let validation: any = submitted // if the form has been submitted at least once
     ? validator.validate(currentCompetitionDataState) // then check validity every time we render
     : currentValidationState.validation; // otherwise just use what's in state
 
-  if (!competitionData) {
+  if (!props.competitionData) {
     return <div></div>;
   } else
     return (
@@ -126,7 +127,7 @@ const EditCompetitionInfo = ({
                 name='name'
                 label='Competition name'
                 defaultValue={currentCompetitionDataState.name}
-                className={classes.textField}
+                className={props.classes.textField}
                 margin='normal'
                 onChange={handleInputChange}
               />
@@ -141,7 +142,7 @@ const EditCompetitionInfo = ({
                 name='season'
                 label='Season'
                 defaultValue={currentCompetitionDataState.season}
-                className={classes.textField}
+                className={props.classes.textField}
                 margin='normal'
                 onChange={handleInputChange}
               />
@@ -151,7 +152,7 @@ const EditCompetitionInfo = ({
           <div className='col-sm-5 text-center'>
             <img
               className='roundedImage'
-              src={competitionData.logo.url}
+              src={props.competitionData.logo.url}
               height='100'
               width='100'
             />
@@ -162,7 +163,7 @@ const EditCompetitionInfo = ({
           <Button
             variant='contained'
             color='primary'
-            className={classes.button}
+            className={props.classes.button}
             onClick={handleFormSubmit}
           >
             Save
@@ -170,12 +171,6 @@ const EditCompetitionInfo = ({
         </div>
       </div>
     );
-};
-
-EditCompetitionInfo.propTypes = {
-  classes: PropTypes.object.isRequired,
-  saveCompetition: PropTypes.func.isRequired,
-  handleClose: PropTypes.func.isRequired,
 };
 
 export default editModal(EditCompetitionInfo);

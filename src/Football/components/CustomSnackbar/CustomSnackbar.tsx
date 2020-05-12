@@ -3,8 +3,7 @@ import * as globalActionCreators from '../../store/actions/global';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
-import { withStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
+import { withStyles, Theme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Button from '@material-ui/core/Button';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
@@ -15,6 +14,8 @@ import amber from '@material-ui/core/colors/amber';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import WarningIcon from '@material-ui/icons/Warning';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { FootballState, FootballDispatch } from '../../..';
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -23,13 +24,13 @@ const variantIcon = {
   info: InfoIcon,
 };
 
-const styles = (theme) => ({
+const styles = (theme: Theme) => ({
   close: {
     padding: theme.spacing(0.5),
   },
 });
 
-const styles1 = (theme) => ({
+const styles1 = (theme: Theme) => ({
   success: {
     backgroundColor: green[600],
   },
@@ -55,9 +56,9 @@ const styles1 = (theme) => ({
   },
 });
 
-function MySnackbarContent(props) {
+function MySnackbarContent(props: any) {
   const { classes, className, message, onClose, variant, ...other } = props;
-  const Icon = variantIcon[variant];
+  const Icon = (variantIcon as any)[variant];
 
   return (
     <SnackbarContent
@@ -85,15 +86,15 @@ function MySnackbarContent(props) {
   );
 }
 
-MySnackbarContent.propTypes = {
-  classes: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  message: PropTypes.node,
-  onClose: PropTypes.func,
-  variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']).isRequired,
-};
+interface CustomSnackbarProps {
+  hideToaster: Function;
+  message: string;
+  toasterType: any;
+  open: boolean;
+  classes: any;
+}
 
-class CustomSnackbar extends Component {
+class CustomSnackbar extends Component<CustomSnackbarProps> {
   handleClose = () => {
     this.props.hideToaster();
   };
@@ -146,7 +147,7 @@ class CustomSnackbar extends Component {
 
 const MySnackbarContentWrapper = withStyles(styles1)(MySnackbarContent);
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: FootballState) => {
   return {
     open: state.global.dash.open,
     message: state.global.dash.message,
@@ -154,13 +155,18 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: FootballDispatch) => {
   return {
     hideToaster: () => dispatch(globalActionCreators.acToastDashClear()),
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withStyles(styles)(CustomSnackbar));
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(withStyles(styles)(CustomSnackbar));
+
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withStyles(styles)
+)(CustomSnackbar) as React.ElementType;
