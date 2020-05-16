@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/competitions';
+import * as actionCreators from '../../store/actions/competitionsActions';
 import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
 import { Paper } from '@material-ui/core';
 import editCompetitionComponent from './EditCompetitionHooks/EditCompetitionHooks';

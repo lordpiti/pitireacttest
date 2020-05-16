@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Helpers from '../../utilities/helpers';
 import ExpansionPanel from './ExpansionPanel/ExpansionPanel';
-import * as actionCreators from '../../store/actions/global';
+import * as actionCreators from '../../store/actions/globalActions';
 import { RouteComponentProps } from 'react-router';
 import { FootballState } from '../../..';
 

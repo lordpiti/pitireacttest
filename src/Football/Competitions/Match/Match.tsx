@@ -6,7 +6,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import MatchStatistics from './MatchStatistics/MatchStatistics';
 import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/competitions';
+import * as actionCreators from '../../store/actions/competitionsActions';
 import { RouteComponentProps } from 'react-router';
 import { FootballDispatch, FootballState } from '../../..';
 

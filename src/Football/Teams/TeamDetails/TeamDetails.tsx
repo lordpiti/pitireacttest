@@ -7,7 +7,7 @@ import TeamNews from '../TeamNews/TeamNews';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import TeamStadium from '../TeamStadium/TeamStadium';
 import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/teams';
+import * as actionCreators from '../../store/actions/teamsActions';
 import { FootballState, FootballDispatch } from '../../..';
 
 interface TeamsDetailsParams {

@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import CompetitionEvolution from './CompetitionEvolution/CompetitionEvolution';
 
 import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/competitions';
+import * as actionCreators from '../../store/actions/competitionsActions';
 import './CompetitionStatistics.scss';
 import { FootballState, FootballDispatch } from '../../..';
 

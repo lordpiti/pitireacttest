@@ -7,7 +7,7 @@ import SideMenu from '../../components/SideMenu/SideMenu';
 import Match from '../Match/Match';
 import CompetitionStatistics from '../CompetitionStatistics/CompetitionStatistics';
 import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/competitions';
+import * as actionCreators from '../../store/actions/competitionsActions';
 
 class CompetitionDetails extends Component {
   componentDidMount() {

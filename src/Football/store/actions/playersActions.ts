@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import * as globalActionCreators from './global';
+import * as globalActionCreators from './globalActions';
 import Formatters from '../../utilities/formatters';
 import { FootballDispatch } from '../../..';
 import { PlayersService } from '../../services/playersService';

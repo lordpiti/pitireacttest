@@ -7,7 +7,7 @@ import SideMenu, { MenuItemSideMenu } from '../../components/SideMenu/SideMenu';
 import Match from '../Match/Match';
 import CompetitionStatistics from '../CompetitionStatistics/CompetitionStatistics';
 import { useDispatch, useSelector } from 'react-redux';
-import * as actionCreators from '../../store/actions/competitions';
+import * as actionCreators from '../../store/actions/competitionsActions';
 import { RouteComponentProps } from 'react-router';
 import { FootballState } from '../../..';
 
@@ -16,7 +16,7 @@ interface MatchParams {
 }
 
 const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
-  const competitionId = props.match.params.id;
+  const competitionId = parseInt(props.match.params.id);
 
   const dispatch = useDispatch();
 

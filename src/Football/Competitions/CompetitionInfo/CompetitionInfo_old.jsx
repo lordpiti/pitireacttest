@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import BasicDropzone from '../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../utilities/FormValidator';
 import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/competitions';
+import * as actionCreators from '../../store/actions/competitionsActions';
 
 class CompetitionInfo extends Component {
   constructor(props) {

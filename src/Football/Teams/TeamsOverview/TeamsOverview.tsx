@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/teams';
+import * as actionCreators from '../../store/actions/teamsActions';
 import { RouteComponentProps } from 'react-router';
 import { FootballState, FootballDispatch } from '../../..';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/teams';
+import * as actionCreators from '../../store/actions/teamsActions';
 // import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
 import RoleVisibleWrapper from '../../components/RoleVisibleComponent/RoleVisibleWrapper';
 import { Paper } from '@material-ui/core';

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import BasicDropzone from '../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../utilities/FormValidator';
 import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/teams';
+import * as actionCreators from '../../store/actions/teamsActions';
 
 class TeamInfo extends Component {
   constructor(props) {
