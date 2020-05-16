@@ -1,8 +1,12 @@
-import axiosInstance from '../../utilities/axios-test';
 import * as actionTypes from './actionTypes';
 import * as globalActionCreators from './global';
 import Formatters from '../../utilities/formatters';
 import { FootballDispatch } from '../../..';
+import { PlayersService } from '../../services/playersService';
+import { GlobalService } from '../../services/globalService';
+
+const playersService = new PlayersService();
+const globalService = new GlobalService();
 
 export const loadPlayerListSuccessAction = (playerList: any) => {
   return {
@@ -33,71 +37,64 @@ export const savePlayerSuccessAction = (playerData: any) => {
 };
 
 export const loadPlayerListAction = () => {
-  return (dispatch: FootballDispatch) => {
+  return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
-    axiosInstance.get('player').then((response) => {
-      const playerList = response.data.sort((a: any, b: any) =>
-        a.surname < b.surname ? -1 : 1
-      );
-      dispatch(loadPlayerListSuccessAction(playerList));
-      dispatch(globalActionCreators.updateLoadingSpinner(false));
-    });
+
+    const playersListResponse = await playersService.loadPlayerList();
+    const playerList = playersListResponse.data.sort((a: any, b: any) =>
+      a.surname < b.surname ? -1 : 1
+    );
+    dispatch(loadPlayerListSuccessAction(playerList));
+    dispatch(globalActionCreators.updateLoadingSpinner(false));
   };
 };
 
 export const loadPlayerAction = (id: any) => {
-  return (dispatch: FootballDispatch) => {
+  return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
-    axiosInstance.get(`player/${id}`).then((response) => {
-      let playerData = response.data;
 
-      playerData.birthDate = Formatters.formatDateWithDashes(
-        playerData.birthDate
-      );
-      dispatch(loadPlayerSuccessAction(response.data));
-      dispatch(globalActionCreators.updateLoadingSpinner(false));
-    });
+    const { data: playerData } = await playersService.loadPlayer(id);
+
+    playerData.birthDate = Formatters.formatDateWithDashes(
+      playerData.birthDate
+    );
+    dispatch(loadPlayerSuccessAction(playerData));
+    dispatch(globalActionCreators.updateLoadingSpinner(false));
   };
 };
 
 export const savePlayerAction = (image: any, playerData: any) => {
-  return (dispatch: FootballDispatch) => {
+  return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
 
     if (!image) {
-      axiosInstance
-        .post(`player/savePlayerDetails`, playerData)
-        .then((response) => {
-          dispatch(savePlayerSuccessAction(playerData));
-          dispatch(globalActionCreators.updateLoadingSpinner(false));
-          dispatch(
-            globalActionCreators.acToastDashMessage(
-              'Player Info has been saved',
-              'success'
-            )
-          ); //success, warning, error or info
-        });
+      const playerResponse = await playersService.savePlayerData(playerData);
+
+      dispatch(savePlayerSuccessAction(playerData));
+      dispatch(globalActionCreators.updateLoadingSpinner(false));
+      dispatch(
+        globalActionCreators.acToastDashMessage(
+          'Player Info has been saved',
+          'success'
+        )
+      ); //success, warning, error or info
     } else {
-      axiosInstance
-        .post('GlobalMedia/UploadBase64Image', {
-          Base64String: image.data,
-          FileName: image.fileName,
-        })
-        .then((response) => {
-          const updatedPlayerData = { ...playerData, picture: response.data };
-          axiosInstance
-            .post(`player/savePlayerDetails`, updatedPlayerData)
-            .then((response) => {
-              dispatch(savePlayerSuccessAction(updatedPlayerData));
-              dispatch(globalActionCreators.updateLoadingSpinner(false));
-              dispatch(
-                globalActionCreators.acToastDashMessage(
-                  'Player Info has been saved',
-                  'success'
-                )
-              ); //success, warning, error or info
-            });
-        });
+      const response = await globalService.saveImage(image);
+
+      const updatedPlayerData = { ...playerData, picture: response.data };
+
+      const playerResponse = await playersService.savePlayerData(
+        updatedPlayerData
+      );
+
+      dispatch(savePlayerSuccessAction(updatedPlayerData));
+      dispatch(globalActionCreators.updateLoadingSpinner(false));
+      dispatch(
+        globalActionCreators.acToastDashMessage(
+          'Player Info has been saved',
+          'success'
+        )
+      ); //success, warning, error or info
     }
   };
 };
