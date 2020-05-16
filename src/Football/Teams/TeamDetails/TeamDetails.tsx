@@ -113,10 +113,10 @@ class TeamDetails extends Component<TeamsDetailsProps> {
         name: 'Stadium',
         url: this.props.match.url + '/team-stadium',
       },
-      {
-        name: 'Complex form sample',
-        url: this.props.match.url + '/complex-form-sample',
-      },
+      // {
+      //   name: 'Complex form sample',
+      //   url: this.props.match.url + '/complex-form-sample',
+      // },
     ];
 
     return (

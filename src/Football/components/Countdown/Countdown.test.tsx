@@ -1,6 +1,6 @@
 import React from 'react';
 import Countdown from './Countdown';
-import { shallow, configure } from 'enzyme';
+import { shallow } from 'enzyme';
 
 describe('<Countdown /> with all data', () => {
   it(`should render correctly`, () => {
