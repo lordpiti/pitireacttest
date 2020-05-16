@@ -1,16 +1,33 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
-import { TextField, FormHelperText } from '@material-ui/core';
+import { TextField, FormHelperText, WithStyles } from '@material-ui/core';
 import editModal from '../../../components/EditModal/editModal';
 import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';
 
-class EditCompetitionInfo extends React.Component {
-  constructor(props) {
+interface EditCompetitionProps extends WithStyles {
+  competitionData: any;
+  saveCompetition: Function;
+  handleClose: Function;
+}
+
+interface EditCompetitionState {
+  competitionData: any;
+  validation: any;
+  currentImage: any;
+}
+
+class EditCompetitionInfo extends React.Component<
+  EditCompetitionProps,
+  EditCompetitionState
+> {
+  validator: FormValidator;
+  submitted: boolean;
+
+  constructor(props: EditCompetitionProps) {
     super(props);
 
-    const validRegEx = (range) => /^\d{4}(-\d{4})$/.test(range);
+    const validRegEx = (range: string) => /^\d{4}(-\d{4})$/.test(range);
 
     this.validator = new FormValidator([
       {
@@ -37,7 +54,7 @@ class EditCompetitionInfo extends React.Component {
     this.submitted = false;
   }
 
-  callbackDropzone = (files) => {
+  callbackDropzone = (files: File[]) => {
     let fileToUpload = null;
     files.forEach((file) => {
       const reader = new FileReader();
@@ -63,7 +80,7 @@ class EditCompetitionInfo extends React.Component {
     isImage: true,
   };
 
-  handleInputChange = (event) => {
+  handleInputChange = (event: any) => {
     event.preventDefault();
 
     this.setState({
@@ -74,7 +91,7 @@ class EditCompetitionInfo extends React.Component {
     });
   };
 
-  handleFormSubmit = (event) => {
+  handleFormSubmit = (event: any) => {
     event.preventDefault();
     const validation = this.validator.validate(this.state.competitionData);
     this.setState({ validation });
@@ -167,9 +184,5 @@ class EditCompetitionInfo extends React.Component {
       );
   }
 }
-
-EditCompetitionInfo.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
 export default editModal(EditCompetitionInfo);

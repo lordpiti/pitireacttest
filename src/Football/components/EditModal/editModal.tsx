@@ -1,26 +1,42 @@
-import React, { Component } from "react";
-import { Button, Modal, withStyles } from "@material-ui/core";
+import React, { Component, ComponentType } from 'react';
+import {
+  Button,
+  Modal,
+  withStyles,
+  Theme,
+  createStyles,
+  WithStyles,
+} from '@material-ui/core';
 
-function getModalStyle() {
+const getModalStyle = () => {
   return {
     top: `50%`,
     left: `50%`,
     transform: `translate(-50%, -50%)`,
   };
+};
+
+const styles = (theme: Theme) =>
+  createStyles({
+    paper: {
+      position: 'absolute',
+      width: 600,
+      backgroundColor: theme.palette.background.paper,
+      boxShadow: theme.shadows[5],
+      padding: theme.spacing(4),
+    },
+  });
+
+interface EditModalState {
+  open: boolean;
 }
 
-const styles = (theme) => ({
-  paper: {
-    position: "absolute",
-    width: 600,
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(4),
-  },
-});
-
-const withModal = (WrappedComponent) => {
-  const modalWrapper = class ModalWrapper extends Component {
+//https://medium.com/@jrwebdev/react-higher-order-component-patterns-in-typescript-42278f7590fb
+const withModal = <P extends object>(WrappedComponent: ComponentType<P>) => {
+  const modalWrapper = class ModalWrapper extends Component<
+    P & WithStyles,
+    EditModalState
+  > {
     state = {
       open: false,
     };
@@ -57,7 +73,7 @@ const withModal = (WrappedComponent) => {
     }
   };
 
-  return withStyles(styles)(modalWrapper);
+  return withStyles(styles)(modalWrapper as any);
 };
 
 export default withModal;

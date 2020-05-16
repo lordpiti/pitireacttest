@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
-import { TextField, FormHelperText } from '@material-ui/core';
+import { TextField, FormHelperText, WithStyles } from '@material-ui/core';
 import editModal from '../../../components/EditModal/editModal';
 import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';
 
-interface EditCompetitionProps {
+interface EditCompetitionProps extends WithStyles {
   competitionData: any;
   saveCompetition: Function;
   handleClose: Function;
-  classes: any;
 }
 
 const EditCompetitionInfo = (props: EditCompetitionProps) => {
