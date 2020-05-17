@@ -22,6 +22,7 @@ interface TeamsDetailsProps extends RouteComponentProps<TeamsDetailsParams> {
 const TeamDetails = (props: TeamsDetailsProps) => {
   useEffect(() => {
     props.loadTeam(props.match.params.id);
+    //TODO: delete the store when unmounting, on the cleanup
   }, []);
 
   let content,
@@ -56,7 +57,7 @@ const TeamDetails = (props: TeamsDetailsProps) => {
 
         <Route
           path={props.match.url + '/news'}
-          component={() => {
+          render={() => {
             return <TeamNews teamData={props.currentTeam}></TeamNews>;
           }}
         />

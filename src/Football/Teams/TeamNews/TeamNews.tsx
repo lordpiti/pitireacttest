@@ -32,6 +32,7 @@ const TeamNews = (props: TeamNewsProps) => {
   });
 
   useEffect(() => {
+    // https://stackoverflow.com/questions/56442582/react-hooks-cant-perform-a-react-state-update-on-an-unmounted-component
     let isMounted = false;
     const url = props.teamData.name;
     const replacedName = url.replace(/ /gi, '-').toLowerCase();
@@ -68,7 +69,7 @@ const TeamNews = (props: TeamNewsProps) => {
     return function cleanup() {
       isMounted = true;
     };
-  }, []);
+  }, [props.teamData.id]);
 
   return (
     <div>
