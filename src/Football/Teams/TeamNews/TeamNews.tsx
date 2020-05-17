@@ -25,6 +25,7 @@ const TeamNews = (props: TeamNewsProps) => {
     'numancia',
     'valencia',
     'almeria',
+    'getafe',
   ];
 
   const [currentFeedList, setCurrentFeedList] = useState({

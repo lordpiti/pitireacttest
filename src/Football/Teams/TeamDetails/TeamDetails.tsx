@@ -16,6 +16,7 @@ interface TeamsDetailsParams {
 
 interface TeamsDetailsProps extends RouteComponentProps<TeamsDetailsParams> {
   loadTeam: Function;
+  clearTeamData: Function;
   currentTeam: any;
 }
 
@@ -23,6 +24,10 @@ const TeamDetails = (props: TeamsDetailsProps) => {
   useEffect(() => {
     props.loadTeam(props.match.params.id);
     //TODO: delete the store when unmounting, on the cleanup
+
+    return function cleanup() {
+      props.clearTeamData();
+    };
   }, []);
 
   let content,
@@ -137,6 +142,7 @@ const mapDispatchToProps = (dispatch: FootballDispatch) => {
   return {
     loadTeam: (teamId: number) =>
       dispatch(actionCreators.loadTeamSagas(teamId)),
+    clearTeamData: () => dispatch(actionCreators.clearTeamData()),
   };
 };
 

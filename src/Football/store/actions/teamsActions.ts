@@ -43,3 +43,9 @@ export const saveTeamSuccess = (teamData: any) => {
     payload: teamData,
   };
 };
+
+export const clearTeamData = () => {
+  return {
+    type: actionTypes.CLEAR_TEAM_DATA,
+  };
+};

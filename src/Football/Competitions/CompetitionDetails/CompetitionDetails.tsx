@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
 import CompetitionInfo from '../CompetitionInfo/CompetitionInfo';
 import CompetitionRounds from '../CompetitionRounds/CompetitionRounds';
 import CompetitionDraw from '../CompetitionDraw/CompetitionDraw';
@@ -8,14 +8,24 @@ import Match from '../Match/Match';
 import CompetitionStatistics from '../CompetitionStatistics/CompetitionStatistics';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/competitionsActions';
+import { FootballState, FootballDispatch } from '../../..';
 
-class CompetitionDetails extends Component {
+interface MatchParams {
+  id: string;
+}
+
+interface CompetitionDetailsProps extends RouteComponentProps<MatchParams> {
+  loadCompetition: Function;
+  currentCompetition: any;
+}
+
+class CompetitionDetails extends Component<CompetitionDetailsProps> {
   componentDidMount() {
     this.props.loadCompetition(this.props.match.params.id);
   }
 
   render() {
-    const competitionId = this.props.match.params.id;
+    const competitionId = parseInt(this.props.match.params.id);
 
     let menuItemList = [
       {
@@ -24,7 +34,7 @@ class CompetitionDetails extends Component {
       },
     ];
 
-    let competitionTypeContent = null;
+    let competitionTypeContent = null as any;
 
     let pageContent = null;
 
@@ -91,7 +101,7 @@ class CompetitionDetails extends Component {
               />
               <Route
                 path={this.props.match.url + '/overview'}
-                component={(props) => {
+                component={() => {
                   return (
                     <CompetitionInfo
                       competitionData={this.props.currentCompetition}
@@ -123,15 +133,15 @@ class CompetitionDetails extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: FootballState) => {
   return {
     currentCompetition: state.competitions.currentCompetition,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: FootballDispatch) => {
   return {
-    loadCompetition: (competitionId) =>
+    loadCompetition: (competitionId: number) =>
       dispatch(actionCreators.loadCompetition(competitionId)),
   };
 };

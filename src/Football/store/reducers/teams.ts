@@ -22,6 +22,11 @@ const reducer = (state = initialState, action: any) => {
         ...state,
         currentTeam: action.payload,
       };
+    case actionTypes.CLEAR_TEAM_DATA:
+      return {
+        ...state,
+        currentTeam: null,
+      };
     case actionTypes.SAVE_TEAM:
       return {
         ...state,
