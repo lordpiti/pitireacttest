@@ -9,6 +9,10 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/competitionsActions';
 import './CompetitionStatistics.scss';
 import { FootballState, FootballDispatch } from '../../..';
+import {
+  getEvolutionDataToShow,
+  getTeamsFromCurrentCompetition,
+} from '../../store/reducers/competitions';
 
 function TabContainer(props: any) {
   return (
@@ -45,11 +49,11 @@ class CompetitionStatistics extends Component<any, any> {
 
     statisticsData = <div>Statistics</div>;
 
-    if (this.props.currentCompetition && this.props.currentCompetition.teams) {
-      if (this.props.currentCompetition.evolutionData) {
+    if (this.props.teams) {
+      if (this.props.evolutionData) {
         currentTeamData = (
           <CompetitionEvolution
-            displayData={this.props.currentCompetition.evolutionData}
+            displayData={this.props.evolutionData}
           ></CompetitionEvolution>
         );
       }
@@ -57,7 +61,7 @@ class CompetitionStatistics extends Component<any, any> {
       teamsData = (
         <div className='row'>
           <div className='col-sm-3'>
-            {this.props.currentCompetition.teams.map((team: any) => {
+            {this.props.teams.map((team: any) => {
               let selectedTeam = null;
               if (team.selected) {
                 selectedTeam = 'selectedTeam';
@@ -107,7 +111,8 @@ class CompetitionStatistics extends Component<any, any> {
 
 const mapStateToProps = (state: FootballState) => {
   return {
-    currentCompetition: state.competitions.currentCompetition,
+    teams: getTeamsFromCurrentCompetition(state),
+    evolutionData: getEvolutionDataToShow(state),
   };
 };
 

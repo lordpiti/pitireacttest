@@ -1,4 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
+import { createSelector } from 'reselect';
+import { FootballState } from '../../..';
 
 export interface CompetitionsState {
   competitionList: any[];
@@ -9,6 +11,9 @@ export interface CompetitionsState {
 const initialState = {
   competitionList: [],
 } as CompetitionsState;
+
+const competitionsState = (state: FootballState): CompetitionsState =>
+  state.competitions;
 
 const reducer = (state = initialState, action: any) => {
   switch (action.type) {
@@ -32,7 +37,7 @@ const reducer = (state = initialState, action: any) => {
         currentCompetition: {
           ...state.currentCompetition,
           teams: teamsWithSelected,
-          evolutionData: createDataToShow(action.payload.chartData),
+          evolutionData: action.payload.chartData,
         },
       } as CompetitionsState;
     case actionTypes.LOAD_COMPETITION_LIST:
@@ -61,15 +66,25 @@ const reducer = (state = initialState, action: any) => {
   return state;
 };
 
-const createDataToShow = (teamData: any) => {
-  const dataToShow = {
-    rounds: teamData.map((round: any) => round.round),
-    positions: teamData.map((round: any) => round.position),
-    goalsFor: teamData.map((round: any) => round.goalsFor),
-    goalsAgainst: teamData.map((round: any) => round.goalsAgainst),
-  };
+export const getEvolutionDataToShow = createSelector(
+  competitionsState,
+  (slice) => {
+    const evolutionData = slice.currentCompetition.evolutionData;
 
-  return dataToShow;
-};
+    return (
+      evolutionData && {
+        rounds: evolutionData.map((round: any) => round.round),
+        positions: evolutionData.map((round: any) => round.position),
+        goalsFor: evolutionData.map((round: any) => round.goalsFor),
+        goalsAgainst: evolutionData.map((round: any) => round.goalsAgainst),
+      }
+    );
+  }
+);
+
+export const getTeamsFromCurrentCompetition = createSelector(
+  competitionsState,
+  (slice) => slice.currentCompetition.teams
+);
 
 export default reducer;
