@@ -17,7 +17,6 @@ class TeamStadium extends Component<any, any> {
       .create()
       .get(`${apiUrl}address=${this.props.stadium.name}}`)
       .then((response) => {
-        debugger;
         if (
           response.data &&
           response.data.status === 'OK' &&

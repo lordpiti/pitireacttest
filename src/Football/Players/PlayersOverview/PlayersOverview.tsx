@@ -16,7 +16,7 @@ export interface PlayersOverviewProps
   playerList: any[];
   loading?: boolean;
   filteredPlayers: any[];
-  filterPlayers: Function;
+  filterPlayers: (...args: any[]) => any;
 }
 
 class PlayersOverview extends Component<PlayersOverviewProps> {
