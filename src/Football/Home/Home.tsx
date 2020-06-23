@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import RSSReader from '../components/RSSReader/RSSReader';
 import Parser from 'rss-parser';
 
@@ -7,18 +7,16 @@ const Home = () => {
     feedList: [] as Parser.Item[] | undefined,
   });
 
-  const CORS_PROXY = process.env.REACT_APP_CORS_PROXY as any;
-
-  let parser = new Parser({
-    customFields: {
-      item: [
-        ['media:content', 'media:content'],
-        ['media:thumbnail', 'media:thumbnail'],
-      ],
-    },
-  });
-
   useEffect(() => {
+    const parser = new Parser({
+      customFields: {
+        item: [
+          ['media:content', 'media:content'],
+          ['media:thumbnail', 'media:thumbnail'],
+        ],
+      },
+    });
+    const CORS_PROXY = process.env.REACT_APP_CORS_PROXY as any;
     parser.parseURL(
       CORS_PROXY + process.env.REACT_APP_HOME_RSS_FEED,
       (err, feed) => {

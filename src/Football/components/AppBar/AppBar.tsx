@@ -9,6 +9,8 @@ import { NavLink } from 'react-router-dom';
 import GoogleLoginButton from './GoogleAuthenticator/GoogleAuthenticator';
 import FacebookLoginButton from './FacebookAuthenticator/FacebookAuthenticator';
 import './AppBar.scss';
+import LanguageSelector from '../LanguageSelector/LanguageSelector';
+import { useTranslation } from 'react-i18next';
 
 const styles = {
   root: {
@@ -28,6 +30,8 @@ const ButtonAppBar = (props: any) => {
 
   const facebookAuthenticationType =
     localStorage.getItem('authentication_type') == '1';
+
+  const { t } = useTranslation();
 
   return (
     <div className={classes.root}>
@@ -50,44 +54,46 @@ const ButtonAppBar = (props: any) => {
             {/* <NavLink style={{color: 'white'}} to="/" exact>
               <Button color="inherit">Home</Button>
             </NavLink> */}
+            <div className='appBarSections'>
+              <NavLink
+                style={{ color: 'white' }}
+                to={{
+                  pathname: '/teams',
+                }}
+              >
+                <Button color='inherit'>{t('teams.title')}</Button>
+              </NavLink>
 
-            <NavLink
-              style={{ color: 'white' }}
-              to={{
-                pathname: '/teams',
-              }}
-            >
-              <Button color='inherit'>Teams</Button>
-            </NavLink>
+              <NavLink
+                style={{ color: 'white' }}
+                to={{
+                  pathname: '/competitions',
+                }}
+              >
+                <Button color='inherit'>{t('competitions.title')}</Button>
+              </NavLink>
 
-            <NavLink
-              style={{ color: 'white' }}
-              to={{
-                pathname: '/competitions',
-              }}
-            >
-              <Button color='inherit'>Competitions</Button>
-            </NavLink>
-
-            <NavLink
-              style={{ color: 'white' }}
-              to={{
-                pathname: '/players',
-              }}
-            >
-              <Button color='inherit'>Players</Button>
-            </NavLink>
-            <NavLink
-              style={{ color: 'white' }}
-              to={{
-                pathname: '/graphicDemo',
-              }}
-            >
-              <Button color='inherit'>D3 Demo</Button>
-            </NavLink>
+              <NavLink
+                style={{ color: 'white' }}
+                to={{
+                  pathname: '/players',
+                }}
+              >
+                <Button color='inherit'>{t('players.title')}</Button>
+              </NavLink>
+              <NavLink
+                style={{ color: 'white' }}
+                to={{
+                  pathname: '/graphicDemo',
+                }}
+              >
+                <Button color='inherit'>D3 Demo</Button>
+              </NavLink>
+            </div>
           </Typography>
           {/* <Button color="inherit">Login</Button> */}
           <div className='row'>
+            <LanguageSelector />
             <FacebookLoginButton
               authenticationToken={props.authenticationToken}
               showLogoutButton={facebookAuthenticationType}

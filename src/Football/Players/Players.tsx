@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route } from 'react-router-dom';
 import PlayerDetails from './PlayerDetails/PlayerDetails';
 import PlayersOverview from './PlayersOverview/PlayersOverview';

@@ -1,0 +1,13 @@
+{
+  "title": "test es",
+  "language": "Idioma",
+  "teams": {
+    "title": "Equipos"
+  },
+  "competitions": {
+    "title": "Competiciones"
+  },
+  "players": {
+    "title": "Jugadores"
+  }
+}

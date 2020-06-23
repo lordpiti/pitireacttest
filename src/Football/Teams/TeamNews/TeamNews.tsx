@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import RSSReader from '../../components/RSSReader/RSSReader';
 import Parser from 'rss-parser';
 
@@ -7,32 +7,32 @@ interface TeamNewsProps {
 }
 
 const TeamNews = (props: TeamNewsProps) => {
-  const urls = [
-    'real-madrid',
-    'deportivo',
-    'betis',
-    'barcelona',
-    'sevilla',
-    'malaga',
-    'mallorca',
-    'osasuna',
-    'athletic',
-    'espanyol',
-    'villarreal',
-    'atletico',
-    'valladolid',
-    'sporting',
-    'numancia',
-    'valencia',
-    'almeria',
-    'getafe',
-  ];
-
   const [currentFeedList, setCurrentFeedList] = useState({
     feedList: [] as Parser.Item[] | undefined,
   });
 
   useEffect(() => {
+    const urls = [
+      'real-madrid',
+      'deportivo',
+      'betis',
+      'barcelona',
+      'sevilla',
+      'malaga',
+      'mallorca',
+      'osasuna',
+      'athletic',
+      'espanyol',
+      'villarreal',
+      'atletico',
+      'valladolid',
+      'sporting',
+      'numancia',
+      'valencia',
+      'almeria',
+      'getafe',
+    ];
+
     // https://stackoverflow.com/questions/56442582/react-hooks-cant-perform-a-react-state-update-on-an-unmounted-component
     let isMounted = false;
     const url = props.teamData.name;

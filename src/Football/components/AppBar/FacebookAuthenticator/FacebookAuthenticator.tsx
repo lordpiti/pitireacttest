@@ -1,14 +1,11 @@
 import React from 'react';
 import FacebookLogin from 'react-facebook-login';
-// import apiInstance from '../../../utilities/axios-test';
 import axiosInstance from 'axios';
 import Button from '@material-ui/core/Button';
 import './FacebookAuthenticator.scss';
 
 const FacebookAuthenticator = (props: any) => {
   const responseFacebook = (response: any) => {
-    console.log(response);
-    //const url = 'user/Login';
     const url = `${process.env.REACT_APP_LOGIN_API_URL}/user/Login`;
     // const url = `http://localhost:3001/user/Login`;
 

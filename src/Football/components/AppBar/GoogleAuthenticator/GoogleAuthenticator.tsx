@@ -3,9 +3,19 @@ import { GoogleLogin } from 'react-google-login';
 import Button from '@material-ui/core/Button';
 import axiosInstance from 'axios';
 import './GoogleAuthenticator.css';
+import { withTranslation, WithTranslation } from 'react-i18next';
 
-class GoogleAuthenticator extends Component<any, any> {
+interface OwnProps {
+  authenticationTokenUpdate: any;
+  authenticationToken: string;
+  showLogoutButton: boolean;
+}
+
+type GoogleAuthenticatorProps = OwnProps & WithTranslation;
+
+class GoogleAuthenticator extends Component<GoogleAuthenticatorProps> {
   render() {
+    const { t, i18n } = this.props;
     const responseGoogle = (response: any) => {
       const url = `${process.env.REACT_APP_LOGIN_API_URL}/user/LoginGoogle`;
       // const url = `http://localhost:3001/user/LoginGoogle`;
@@ -71,6 +81,13 @@ class GoogleAuthenticator extends Component<any, any> {
 
         buttonLoginLogout = (
           <div>
+            {/* <span
+              onClick={(e) => {
+                i18n.changeLanguage('es');
+              }}
+            >
+              {t('title')}
+            </span> */}
             <img className='loginImage' src={loginImage} />
             <span className='loginName'>{userName}</span>
             <Button
@@ -89,4 +106,4 @@ class GoogleAuthenticator extends Component<any, any> {
   }
 }
 
-export default GoogleAuthenticator;
+export default withTranslation()(GoogleAuthenticator);

@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
 import TeamInfo from '../TeamInfo/TeamInfo';
 import ComplexForm from '../ComplexForm/ComplexForm';

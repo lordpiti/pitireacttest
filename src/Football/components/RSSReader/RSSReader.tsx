@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Parser from 'rss-parser';
 import ReaderCard from './ReaderCard/ReaderCard';
 

@@ -13,7 +13,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "typeRoots": ["./types", "node_modules/@types"]
   },
-  "include": ["src"]
+  "include": ["src"],
+  //IMPORTANT: create types for third party libraries when not available
+  //https://www.ankursheel.com/blog/custom-type-definitions-for-java-script-dependencies
+  "exclude": ["types"]
 }

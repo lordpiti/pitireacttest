@@ -6,6 +6,7 @@ import { Paper } from '@material-ui/core';
 import Formatters from '../../utilities/formatters';
 import editPlayerComponent from './EditPlayer/EditPlayer';
 import { FootballState, FootballDispatch } from '../../..';
+import { useTranslation } from 'react-i18next';
 
 interface PlayerInfoProps {
   playerData: PlayerData;
@@ -23,9 +24,11 @@ interface PlayerData {
 }
 
 const PlayerInfo = (props: PlayerInfoProps) => {
+  const { t, i18n } = useTranslation();
+
   return (
     <div>
-      <h1>Player Basic Info</h1>
+      <h1>{t('title')}</h1>
       <Paper>
         <div className='row' style={{ padding: '20px' }}>
           <div className='col-sm-5'>

@@ -1,5 +1,12 @@
-.active, .active button, .active button:hover {
-    background-color: white;
-    color: black;
+.active,
+.active button,
+.active button:hover {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
 }
 
+.appBarSections {
+  display: flex;
+  justify-content: space-evenly;
+}

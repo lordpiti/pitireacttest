@@ -36,19 +36,6 @@ const ListItemComposition: FunctionComponent<SideMenuProps> = (props) => {
       {props.children}
       <Paper>
         <MenuList>
-          {/* <MenuItem className={classes.menuItem}>
-          <ListItemIcon className={classes.icon}>
-            <SendIcon />
-          </ListItemIcon>
-          <ListItemText classes={{ primary: classes.primary }} inset primary="Sent mail" />
-        </MenuItem>
-        <MenuItem className={classes.menuItem}>
-          <ListItemIcon className={classes.icon}>
-            <DraftsIcon />
-          </ListItemIcon>
-          <ListItemText classes={{ primary: classes.primary }} inset primary="Drafts" />
-        </MenuItem>*/}
-
           {itemList.map((item, index) => (
             <NavLink
               key={index}
