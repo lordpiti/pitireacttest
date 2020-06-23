@@ -68,11 +68,12 @@
     "validator": "^13.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "echo Skip build on Heroku"
+    "heroku-postbuild": "npm run build"
   },
   "browserslist": [
     ">0.2%",
