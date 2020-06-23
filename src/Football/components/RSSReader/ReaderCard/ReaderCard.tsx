@@ -1,6 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import {
+  withStyles,
+  createStyles,
+  Theme,
+  WithStyles,
+} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -10,20 +14,23 @@ import Formatters from '../../../utilities/formatters';
 import './ReaderCard.scss';
 import Parser from 'rss-parser';
 
-const styles = {
-  card: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-};
+const styles = (theme: Theme) =>
+  createStyles({
+    card: {
+      maxWidth: 345,
+    },
+    media: {
+      height: 0,
+      paddingTop: '56.25%', // 16:9
+    },
+  });
 
-interface ReaderCardProps {
+interface OwnProps {
   classes: any;
   cardData: Parser.Item;
 }
+
+type ReaderCardProps = OwnProps & WithStyles;
 
 const readerCard = (props: ReaderCardProps) => {
   const { classes, cardData } = props;
@@ -45,7 +52,7 @@ const readerCard = (props: ReaderCardProps) => {
           />
           <CardMedia
             className={classes.media}
-            image={imageUrl}
+            image={imageUrl || '/assets/img/no-image.png'}
             title={cardData.title}
           />
           <CardContent>
