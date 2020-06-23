@@ -9,5 +9,11 @@
   },
   "players": {
     "title": "Jugadores"
+  },
+  "common": {
+    "languages": {
+      "spanish": "Espanol",
+      "english": "Inglés"
+    }
   }
 }

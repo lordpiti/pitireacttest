@@ -9,5 +9,11 @@
   },
   "players": {
     "title": "Players"
+  },
+  "common": {
+    "languages": {
+      "spanish": "Spanish",
+      "english": "English"
+    }
   }
 }

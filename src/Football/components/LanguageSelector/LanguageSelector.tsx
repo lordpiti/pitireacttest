@@ -7,6 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Flag from 'react-world-flags';
 import { useTranslation } from 'react-i18next';
+import './LanguageSelector.scss';
 
 //https://www.ankursheel.com/blog/custom-type-definitions-for-java-script-dependencies
 const useStyles = makeStyles((theme: Theme) => ({
@@ -21,10 +22,10 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const LanguageSelector = (props: any) => {
   const classes = useStyles();
-  const [age, setAge] = useState('en');
+  const [currentLanguage, setLanguage] = useState('en');
   const handleChange = (event: any) => {
-    setAge(event.target.value);
-    i18n.changeLanguage('es');
+    setLanguage(event.target.value);
+    i18n.changeLanguage(event.target.value);
   };
   const { t, i18n } = useTranslation();
 
@@ -35,14 +36,20 @@ const LanguageSelector = (props: any) => {
         <Select
           labelId='demo-simple-select-label'
           id='demo-simple-select'
-          value={age}
+          value={currentLanguage}
           onChange={handleChange}
         >
           <MenuItem value={'es'}>
-            <Flag code={'ES'} height='12' /> Spanish
+            <div className='menuItemLanguage'>
+              <Flag code={'ES'} height='12' />{' '}
+              <span>{t('common.languages.spanish')}</span>
+            </div>
           </MenuItem>
           <MenuItem value={'en'}>
-            <Flag code={'GB'} height='12' /> English
+            <div className='menuItemLanguage'>
+              <Flag code={'GB'} height='12' />{' '}
+              <span>{t('common.languages.english')}</span>
+            </div>
           </MenuItem>
         </Select>
       </FormControl>

@@ -81,13 +81,6 @@ class GoogleAuthenticator extends Component<GoogleAuthenticatorProps> {
 
         buttonLoginLogout = (
           <div>
-            {/* <span
-              onClick={(e) => {
-                i18n.changeLanguage('es');
-              }}
-            >
-              {t('title')}
-            </span> */}
             <img className='loginImage' src={loginImage} />
             <span className='loginName'>{userName}</span>
             <Button
