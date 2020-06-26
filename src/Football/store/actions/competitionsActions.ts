@@ -1,7 +1,11 @@
-import axiosInstance from '../../utilities/axios-test';
 import * as actionTypes from './actionTypes';
 import * as globalActionCreators from './globalActions';
 import { FootballDispatch } from '../../..';
+import { GlobalService } from '../../services/globalService';
+import { CompetitionService } from '../../services/competitionsService';
+
+const globalService = new GlobalService();
+const competitionService = new CompetitionService();
 
 export const loadCompetitionListSuccess = (competitionList: any[]) => {
   return {
@@ -32,23 +36,23 @@ export const loadMatchSuccess = (matchInfo: any) => {
 };
 
 export const loadCompetitionList = () => {
-  return (dispatch: FootballDispatch) => {
+  return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
-    axiosInstance.get('competition').then((response) => {
-      dispatch(loadCompetitionListSuccess(response.data));
-      dispatch(globalActionCreators.updateLoadingSpinner(false));
-    });
+    const response = await competitionService.loadCompetitionList();
+    dispatch(loadCompetitionListSuccess(response.data));
+    dispatch(globalActionCreators.updateLoadingSpinner(false));
   };
 };
 
 export const loadCompetitionTeams = (competitionId: number) => {
-  return (dispatch: FootballDispatch) => {
+  return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
-    axiosInstance.get(`team/teams/${competitionId}`).then((response) => {
-      const teamList = response.data;
-      dispatch(loadCompetitionTeamsSuccess(teamList));
-      dispatch(globalActionCreators.updateLoadingSpinner(false));
-    });
+    const response = await competitionService.getCompetitionTeams(
+      competitionId
+    );
+    const teamList = response.data;
+    dispatch(loadCompetitionTeamsSuccess(teamList));
+    dispatch(globalActionCreators.updateLoadingSpinner(false));
   };
 };
 
@@ -56,29 +60,30 @@ export const loadCompetitionTeamEvolution = (
   competitionId: number,
   teamId: number
 ) => {
-  return (dispatch: FootballDispatch) => {
+  return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
-    axiosInstance
-      .get(`team/clasification/${teamId}/competition/${competitionId}`)
-      .then((response) => {
-        dispatch(
-          loadCompetitionTeamEvolutionSuccess({
-            teamId: teamId,
-            chartData: response.data.clasificationSeasonData,
-          })
-        );
-        dispatch(globalActionCreators.updateLoadingSpinner(false));
-      });
+
+    const response = await competitionService.getCompetitionTeamEvolution(
+      competitionId,
+      teamId
+    );
+
+    dispatch(
+      loadCompetitionTeamEvolutionSuccess({
+        teamId: teamId,
+        chartData: response.data.clasificationSeasonData,
+      })
+    );
+    dispatch(globalActionCreators.updateLoadingSpinner(false));
   };
 };
 
 export const loadMatchInfo = (matchId: number) => {
-  return (dispatch: FootballDispatch) => {
+  return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
-    axiosInstance.get(`competition/match/${matchId}`).then((response) => {
-      dispatch(loadMatchSuccess(response.data));
-      dispatch(globalActionCreators.updateLoadingSpinner(false));
-    });
+    const response = await competitionService.getMatchInfo(matchId);
+    dispatch(loadMatchSuccess(response.data));
+    dispatch(globalActionCreators.updateLoadingSpinner(false));
   };
 };
 
@@ -90,56 +95,48 @@ export const loadCompetitionSuccess = (competitionData: any) => {
 };
 
 export const loadCompetition = (id: number) => {
-  return (dispatch: FootballDispatch) => {
+  return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
-    axiosInstance.get(`competition/${id}`).then((response) => {
-      dispatch(loadCompetitionSuccess(response.data));
-      dispatch(globalActionCreators.updateLoadingSpinner(false));
-    });
+    const response = await competitionService.getCompetition(id);
+    dispatch(loadCompetitionSuccess(response.data));
+    dispatch(globalActionCreators.updateLoadingSpinner(false));
   };
 };
 
 export const saveCompetition = (image: any, competitionData: any) => {
-  return (dispatch: FootballDispatch) => {
+  return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
 
     if (!image) {
-      axiosInstance
-        .post(`competition/saveCompetitionDetails`, competitionData)
-        .then((response) => {
-          dispatch(saveCompetitionSuccess(competitionData));
-          dispatch(globalActionCreators.updateLoadingSpinner(false));
-          dispatch(
-            globalActionCreators.acToastDashMessage(
-              'Competition Info has been saved',
-              'success'
-            )
-          ); //success, warning, error or info
-        });
+      const response = await competitionService.saveCompetitionData(
+        competitionData
+      );
+
+      dispatch(saveCompetitionSuccess(competitionData));
+      dispatch(globalActionCreators.updateLoadingSpinner(false));
+      dispatch(
+        globalActionCreators.acToastDashMessage(
+          'Competition Info has been saved',
+          'success'
+        )
+      ); //success, warning, error or info
     } else {
-      axiosInstance
-        .post('GlobalMedia/UploadBase64Image', {
-          Base64String: image.data,
-          FileName: image.fileName,
-        })
-        .then((response) => {
-          const updatedCompetitionData = {
-            ...competitionData,
-            logo: response.data,
-          };
-          axiosInstance
-            .post(`competition/saveCompetitionDetails`, updatedCompetitionData)
-            .then((response) => {
-              dispatch(saveCompetitionSuccess(updatedCompetitionData));
-              dispatch(globalActionCreators.updateLoadingSpinner(false));
-              dispatch(
-                globalActionCreators.acToastDashMessage(
-                  'Competition Info has been saved',
-                  'success'
-                )
-              ); //success, warning, error or info
-            });
-        });
+      const response = await globalService.saveImage(image);
+      const updatedCompetitionData = {
+        ...competitionData,
+        logo: response.data,
+      };
+      const resp2 = await competitionService.saveCompetitionData(
+        updatedCompetitionData
+      );
+      dispatch(saveCompetitionSuccess(updatedCompetitionData));
+      dispatch(globalActionCreators.updateLoadingSpinner(false));
+      dispatch(
+        globalActionCreators.acToastDashMessage(
+          'Competition Info has been saved',
+          'success'
+        )
+      ); //success, warning, error or info
     }
   };
 };

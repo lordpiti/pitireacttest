@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const LanguageSelector = (props: any) => {
+const LanguageSelector = () => {
   const classes = useStyles();
   const [currentLanguage, setLanguage] = useState('en');
   const handleChange = (event: any) => {
