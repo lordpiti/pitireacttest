@@ -57,9 +57,9 @@ exports[`CompetitionDetailsHooks should render correctly 1`] = `
         render={[Function]}
       />
       <Route
-        component={[Function]}
         exact={true}
         path="//competition-rounds"
+        render={[Function]}
       />
       <Route
         exact={true}

@@ -6,6 +6,7 @@ export interface CompetitionsState {
   competitionList: any[];
   currentCompetition?: any;
   currentMatch?: any;
+  roundData?: any;
 }
 
 const initialState = {
@@ -59,6 +60,11 @@ const reducer = (state = initialState, action: any) => {
       return {
         ...state,
         currentCompetition: action.payload,
+      } as CompetitionsState;
+    case actionTypes.LOAD_COMPETITION_ROUND:
+      return {
+        ...state,
+        roundData: action.payload,
       } as CompetitionsState;
     default:
       break;

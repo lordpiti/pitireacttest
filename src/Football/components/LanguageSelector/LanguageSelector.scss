@@ -3,4 +3,11 @@
   justify-content: space-evenly;
   width: 120px;
   align-content: center;
+  & > span {
+    color: white;
+  }
+}
+
+li.MuiListItem-root > .menuItemLanguage > span {
+  color: black;
 }

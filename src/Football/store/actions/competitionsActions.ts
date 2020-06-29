@@ -103,6 +103,22 @@ export const loadCompetition = (id: number) => {
   };
 };
 
+export const loadCompetitionRoundSuccess = (rounds: any) => {
+  return {
+    type: actionTypes.LOAD_COMPETITION_ROUND,
+    payload: rounds,
+  };
+};
+
+export const loadCompetitionRounds = (id: number, round: string) => {
+  return async (dispatch: FootballDispatch) => {
+    dispatch(globalActionCreators.updateLoadingSpinner(true));
+    const response = await competitionService.getCompetitionRound(id, round);
+    dispatch(loadCompetitionRoundSuccess(response.data));
+    dispatch(globalActionCreators.updateLoadingSpinner(false));
+  };
+};
+
 export const saveCompetition = (image: any, competitionData: any) => {
   return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));

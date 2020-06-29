@@ -109,7 +109,7 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
             />
             <Route
               path={props.match.url + '/competition-rounds'}
-              component={() => competitionTypeContent}
+              render={() => competitionTypeContent}
               exact
             />
             <Route

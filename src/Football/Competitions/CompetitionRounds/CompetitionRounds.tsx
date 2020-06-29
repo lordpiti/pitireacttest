@@ -9,12 +9,14 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import apiInstance from '../../utilities/axios-test';
 import MatchList from './MatchList/MatchList';
 import TableLeague from './TableLeague/TableLeague';
 import ScorersTable from './ScorersTable/ScorersTable';
 import { Paper } from '@material-ui/core';
 import { RouteComponentProps } from 'react-router';
+import { connect } from 'react-redux';
+import { FootballState, FootballDispatch } from '../../..';
+import * as actionCreators from '../../store/actions/competitionsActions';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -38,7 +40,6 @@ const styles = (theme: Theme) =>
 interface CompetitionRoundsState {
   currentRound: string;
   name: string;
-  roundList: any[];
   roundData?: any;
 }
 
@@ -46,6 +47,8 @@ interface CompetitionRoundsProps
   extends RouteComponentProps,
     WithStyles<typeof styles> {
   competitionData: any;
+  currentRound: any;
+  loadRoundData: Function;
 }
 
 class CompetitionRounds extends React.Component<
@@ -59,13 +62,12 @@ class CompetitionRounds extends React.Component<
     this.state = {
       currentRound: '1',
       name: 'hai',
-      roundList: this.props.competitionData.roundList,
     };
   }
 
   componentDidMount() {
     this._isMounted = true;
-    this.loadRoundData(1);
+    this.props.loadRoundData(this.props.competitionData.id, 1);
   }
 
   componentWillUnmount() {
@@ -74,21 +76,7 @@ class CompetitionRounds extends React.Component<
 
   handleChange = (event: any) => {
     this.setState({ [event.target.name]: event.target.value } as any);
-    this.loadRoundData(event.target.value);
-  };
-
-  loadRoundData = (roundNumber: any) => {
-    apiInstance
-      .get(`competition/${this.props.competitionData.id}/round/${roundNumber}`)
-      .then((response: any) => {
-        // used the _isMounted property to prevent the warning from the react compiler
-        // https://www.robinwieruch.de/react-warning-cant-call-setstate-on-an-unmounted-component/
-        if (this._isMounted) {
-          this.setState({
-            roundData: response.data,
-          });
-        }
-      });
+    this.props.loadRoundData(this.props.competitionData.id, event.target.value);
   };
 
   render() {
@@ -109,23 +97,25 @@ class CompetitionRounds extends React.Component<
                 id: 'currentRound',
               }}
             >
-              {this.state.roundList.map((round: any, index: number) => (
-                <MenuItem key={index} value={round}>
-                  {round}
-                </MenuItem>
-              ))}
+              {this.props.competitionData.roundList.map(
+                (round: any, index: number) => (
+                  <MenuItem key={index} value={round}>
+                    {round}
+                  </MenuItem>
+                )
+              )}
             </Select>
           </FormControl>
         </Paper>
 
-        {this.state.roundData && (
+        {this.props.currentRound && (
           <div className='row'>
             <div className='col-sm-6'>
               <div className='row'>
                 <div className='col-sm-12'>
-                  {this.state.roundData.matchList && (
+                  {this.props.currentRound.matchList && (
                     <MatchList
-                      matchList={this.state.roundData.matchList}
+                      matchList={this.props.currentRound.matchList}
                       currentUrl={this.props.match.url}
                     />
                   )}
@@ -133,10 +123,10 @@ class CompetitionRounds extends React.Component<
               </div>
               <div className='row'>
                 <div className='col-sm-12'>
-                  {this.state.roundData.teamStatsRoundList && (
+                  {this.props.currentRound.teamStatsRoundList && (
                     <TableLeague
                       teamStatsRoundList={
-                        this.state.roundData.teamStatsRoundList
+                        this.props.currentRound.teamStatsRoundList
                       }
                     />
                   )}
@@ -144,8 +134,8 @@ class CompetitionRounds extends React.Component<
               </div>
             </div>
             <div className='col-sm-6'>
-              {this.state.roundData.scorers && (
-                <ScorersTable scorersList={this.state.roundData.scorers} />
+              {this.props.currentRound.scorers && (
+                <ScorersTable scorersList={this.props.currentRound.scorers} />
               )}
             </div>
           </div>
@@ -155,4 +145,20 @@ class CompetitionRounds extends React.Component<
   }
 }
 
-export default withStyles(styles)(CompetitionRounds);
+const mapStateToProps = (state: FootballState) => {
+  return {
+    currentRound: state.competitions.roundData,
+  };
+};
+
+const mapDispatchToProps = (dispatch: FootballDispatch) => {
+  return {
+    loadRoundData: (competitionId: number, round: any) =>
+      dispatch(actionCreators.loadCompetitionRounds(competitionId, round)),
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(CompetitionRounds));

@@ -10,6 +10,10 @@ export class CompetitionService {
     return await axiosInstance.get(`competition/${id}`);
   }
 
+  public async getCompetitionRound(id: number, roundNumber: any) {
+    return await axiosInstance.get(`competition/${id}/round/${roundNumber}`);
+  }
+
   public async saveCompetitionData(
     competitionData: any
   ): Promise<AxiosResponse<any>> {
