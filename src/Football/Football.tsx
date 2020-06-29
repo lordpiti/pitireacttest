@@ -13,7 +13,6 @@ import {
 import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
 import './Football.scss';
 import CustomSnackbar from './components/CustomSnackbar/CustomSnackbar';
 import Home from './Home/Home';
@@ -111,7 +110,6 @@ class Football extends Component<FootballProps, FootballState> {
             </Modal>
           </div>
           <CustomSnackbar></CustomSnackbar>
-          {/* <Route path="/" exact render={() => <h1>Home</h1>} />*/}
           <Route path='/' exact component={Home} />
           <Route path='/teams' component={Teams} />
           <Route path='/competitions' component={Competitions} />
@@ -134,6 +132,7 @@ export default connect(mapStateToProps, () => ({}), null, { pure: false })(
   withStyles(styles)(Football)
 );
 
+// ALTERNATIVE: use this and import compose from 'redux'
 // export default compose(
 //   connect(mapStateToProps),
 //   withStyles(styles)

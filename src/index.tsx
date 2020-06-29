@@ -2,8 +2,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import thunk, { ThunkDispatch } from 'redux-thunk';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk, { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -17,11 +17,14 @@ import teamsReducer, { TeamsState } from './Football/store/reducers/teams';
 import globalReducer, { GlobalState } from './Football/store/reducers/global';
 import { watchTeams } from './Football/store/sagas';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import React, { Suspense } from 'react';
+import React from 'react';
 
 import { I18nextProvider } from 'react-i18next';
 import i18next from 'i18next';
 import './i18n';
+import { PlayersService } from './Football/services/playersService';
+import { CompetitionService } from './Football/services/competitionsService';
+import { GlobalService } from './Football/services/globalService';
 
 export type FootballState = {
   players: PlayersState;
@@ -30,7 +33,31 @@ export type FootballState = {
   global: GlobalState;
 };
 
-export type FootballDispatch = ThunkDispatch<FootballState, any, any>;
+export type ThunkArguments = {
+  playerService: PlayersService;
+  competitionsService: CompetitionService;
+  globalService: GlobalService;
+};
+
+export type FootballDispatch = ThunkDispatch<
+  FootballState,
+  ThunkArguments,
+  any
+>;
+
+export type FootballThunk = ThunkAction<
+  Promise<void> | Promise<any>,
+  FootballState,
+  ThunkArguments,
+  any
+>;
+
+// list of services we will use for the side effects
+const thunkMiddleware = thunk.withExtraArgument<ThunkArguments>({
+  playerService: new PlayersService(),
+  competitionsService: new CompetitionService(),
+  globalService: new GlobalService(),
+});
 
 const rootReducer = combineReducers({
   players: playersReducer,
@@ -39,6 +66,7 @@ const rootReducer = combineReducers({
   global: globalReducer,
 });
 
+// custom fake middleware
 const logger = (store: any) => {
   return (next: any) => {
     return (action: any) => {
@@ -61,7 +89,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(logger, thunk, sagaMiddleware))
+  composeWithDevTools(applyMiddleware(logger, thunkMiddleware, sagaMiddleware))
 );
 
 sagaMiddleware.run(watchTeams);

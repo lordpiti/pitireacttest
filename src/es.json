@@ -1,5 +1,4 @@
 {
-  "title": "test es",
   "language": "Idioma",
   "teams": {
     "title": "Equipos"
@@ -8,7 +7,8 @@
     "title": "Competiciones"
   },
   "players": {
-    "title": "Jugadores"
+    "title": "Jugadores",
+    "info": "Datos del jugador"
   },
   "common": {
     "languages": {

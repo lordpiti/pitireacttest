@@ -1,5 +1,4 @@
 {
-  "title": "Test EN",
   "language": "Language",
   "teams": {
     "title": "Teams"
@@ -8,7 +7,8 @@
     "title": "Competitions"
   },
   "players": {
-    "title": "Players"
+    "title": "Players",
+    "info": "Player Info"
   },
   "common": {
     "languages": {

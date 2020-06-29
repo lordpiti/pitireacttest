@@ -37,8 +37,6 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
 
   let competitionTypeContent: any = null;
 
-  let pageContent = null;
-
   if (theState.currentCompetition) {
     if (theState.currentCompetition.type !== 'Playoff') {
       menuItemList = menuItemList.concat([
@@ -51,6 +49,7 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
           url: props.match.url + '/competition-statistics',
         },
       ]);
+
       competitionTypeContent = (
         <CompetitionRounds
           competitionData={theState.currentCompetition}
@@ -72,7 +71,7 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
     // By putting "component=xxx" in the Route to render a component, we force that everytime 'xxx' changes,
     // the child component runs the whole life cycle, including the constructor
     // Normally this is not needed so better to use "render=xxx" which will only run the render method in the child component
-    pageContent = (
+    return (
       <div className='CompetitionDetails'>
         <div className='row'>
           <div className='col-sm-3'>
@@ -128,7 +127,7 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
     );
   }
 
-  return <div>{pageContent}</div>;
+  return <></>;
 };
 
 export default CompetitionDetails;

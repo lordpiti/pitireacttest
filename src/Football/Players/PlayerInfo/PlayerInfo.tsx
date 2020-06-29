@@ -28,7 +28,7 @@ const PlayerInfo = (props: PlayerInfoProps) => {
 
   return (
     <div>
-      <h1>{t('title')}</h1>
+      <h1>{t('players.info')}</h1>
       <Paper>
         <div className='row' style={{ padding: '20px' }}>
           <div className='col-sm-5'>

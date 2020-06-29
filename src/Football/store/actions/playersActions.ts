@@ -1,12 +1,7 @@
 import * as actionTypes from './actionTypes';
 import * as globalActionCreators from './globalActions';
 import Formatters from '../../utilities/formatters';
-import { FootballDispatch } from '../../..';
-import { PlayersService } from '../../services/playersService';
-import { GlobalService } from '../../services/globalService';
-
-const playersService = new PlayersService();
-const globalService = new GlobalService();
+import { FootballDispatch, FootballThunk } from '../../..';
 
 export const loadPlayerListSuccessAction = (playerList: any) => {
   return {
@@ -36,11 +31,11 @@ export const savePlayerSuccessAction = (playerData: any) => {
   };
 };
 
-export const loadPlayerListAction = () => {
-  return async (dispatch: FootballDispatch) => {
+export const loadPlayerListAction = (): FootballThunk => {
+  return async (dispatch: FootballDispatch, _, { playerService }) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
 
-    const playersListResponse = await playersService.loadPlayerList();
+    const playersListResponse = await playerService.loadPlayerList();
     const playerList = playersListResponse.data.sort((a: any, b: any) =>
       a.surname < b.surname ? -1 : 1
     );
@@ -49,11 +44,11 @@ export const loadPlayerListAction = () => {
   };
 };
 
-export const loadPlayerAction = (id: any) => {
-  return async (dispatch: FootballDispatch) => {
+export const loadPlayerAction = (id: any): FootballThunk => {
+  return async (dispatch: FootballDispatch, _, { playerService }) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
 
-    const { data: playerData } = await playersService.loadPlayer(id);
+    const { data: playerData } = await playerService.loadPlayer(id);
 
     playerData.birthDate = Formatters.formatDateWithDashes(
       playerData.birthDate
@@ -63,12 +58,19 @@ export const loadPlayerAction = (id: any) => {
   };
 };
 
-export const savePlayerAction = (image: any, playerData: any) => {
-  return async (dispatch: FootballDispatch) => {
+export const savePlayerAction = (
+  image: any,
+  playerData: any
+): FootballThunk => {
+  return async (
+    dispatch: FootballDispatch,
+    _,
+    { playerService, globalService }
+  ) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
 
     if (!image) {
-      const playerResponse = await playersService.savePlayerData(playerData);
+      const playerResponse = await playerService.savePlayerData(playerData);
 
       dispatch(savePlayerSuccessAction(playerData));
       dispatch(globalActionCreators.updateLoadingSpinner(false));
@@ -83,7 +85,7 @@ export const savePlayerAction = (image: any, playerData: any) => {
 
       const updatedPlayerData = { ...playerData, picture: response.data };
 
-      const playerResponse = await playersService.savePlayerData(
+      const playerResponse = await playerService.savePlayerData(
         updatedPlayerData
       );
 

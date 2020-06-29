@@ -1,13 +1,17 @@
 import { put } from 'redux-saga/effects';
 import * as teamActionCreators from '../actions/teamsActions';
 import * as globalActionCreators from '../actions/globalActions';
-import axiosInstance from '../../utilities/axios-test';
+import { TeamsService } from '../../services/teamsService';
+import { GlobalService } from '../../services/globalService';
+
+const teamsService = new TeamsService();
+const globalService = new GlobalService();
 
 export function* loadTeamsSaga(action: any) {
   yield put(globalActionCreators.updateLoadingSpinner(true));
 
   try {
-    const response = yield axiosInstance.get('team/teams/');
+    const response = yield teamsService.loadTeamList();
 
     yield put(teamActionCreators.loadTeamListSuccess(response.data));
     yield put(globalActionCreators.updateLoadingSpinner(false));
@@ -20,9 +24,7 @@ export function* loadTeamSaga(action: any) {
   yield put(globalActionCreators.updateLoadingSpinner(true));
 
   try {
-    const response = yield axiosInstance.get(
-      `team/teams/${action.payload}/year/2009/`
-    );
+    const response = yield teamsService.loadTeam(action.payload);
 
     yield put(teamActionCreators.loadTeamSuccess(response.data));
     yield put(globalActionCreators.updateLoadingSpinner(false));
@@ -36,10 +38,7 @@ export function* saveTeamSaga(action: any) {
 
   try {
     if (!action.payload.image) {
-      const response = yield axiosInstance.post(
-        `team/saveTeamDetails`,
-        action.payload.teamData
-      );
+      const response = yield teamsService.saveTeamData(action.payload.teamData);
 
       yield put(teamActionCreators.saveTeamSuccess(action.payload.teamData));
       yield put(globalActionCreators.updateLoadingSpinner(false));
@@ -50,23 +49,14 @@ export function* saveTeamSaga(action: any) {
         )
       ); //success, warning, error or info
     } else {
-      const response = yield axiosInstance.post(
-        'GlobalMedia/UploadBase64Image',
-        {
-          Base64String: action.payload.image.data,
-          FileName: action.payload.image.fileName,
-        }
-      );
+      const response = yield globalService.saveImage(action.payload.image);
 
       const updatedTeamData = yield {
         ...action.payload.teamData,
         pictureLogo: response.data,
       };
 
-      const response2 = yield axiosInstance.post(
-        `team/saveTeamDetails`,
-        updatedTeamData
-      );
+      const response2 = yield teamsService.saveTeamData(updatedTeamData);
 
       yield put(teamActionCreators.saveTeamSuccess(updatedTeamData));
       yield put(globalActionCreators.updateLoadingSpinner(false));
