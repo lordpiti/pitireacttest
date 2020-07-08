@@ -17,6 +17,7 @@ import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
 import { FootballState, FootballDispatch } from '../../..';
 import * as actionCreators from '../../store/actions/competitionsActions';
+import { getCurrentCompetitionRounds } from '../../store/reducers/competitions';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -147,14 +148,14 @@ class CompetitionRounds extends React.Component<
 
 const mapStateToProps = (state: FootballState) => {
   return {
-    currentRound: state.competitions.roundData,
+    currentRound: getCurrentCompetitionRounds(state),
   };
 };
 
 const mapDispatchToProps = (dispatch: FootballDispatch) => {
   return {
     loadRoundData: (competitionId: number, round: any) =>
-      dispatch(actionCreators.loadCompetitionRounds(competitionId, round)),
+      dispatch(actionCreators.loadCompetitionRound(competitionId, round)),
   };
 };
 

@@ -4,7 +4,7 @@ import MatchPlayers from './MatchPlayers';
 import MatchPlayerSingle from './MatchPlayerSingle/MatchPlayerSingle';
 
 describe('<MatchPlayers />', () => {
-  it('should render one MatchPlayerSingle item', () => {
+  it('should render two MatchPlayerSingle items', () => {
     const playerList = [
       { playerId: 1, teamId: 1, start: true },
       { playerId: 2, teamId: 1, start: false },

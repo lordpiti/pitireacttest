@@ -1,32 +1,25 @@
-import React, { Component } from 'react';
-import apiInstance from '../../utilities/axios-test';
+import React, { useEffect } from 'react';
 import CompetitionDrawMatch from './CompetitionDrawMatch/CompetitionDrawMatch';
 import './CompetitionDraw.css';
 import Formatters from '../../utilities/formatters';
 import { Link } from 'react-router-dom';
+import { FootballState, FootballDispatch } from '../../..';
+import * as actionCreators from '../../store/actions/competitionsActions';
+import { getCurrentCompetitionDraw } from '../../store/reducers/competitions';
+import { connect } from 'react-redux';
 
-class CompetitionDraw extends Component<any, any> {
-  constructor(props: any) {
-    super(props);
+const CompetitionDraw = (props: any) => {
+  const { draw, loadDrawData } = props;
 
-    this.state = {
-      draw: null,
-    };
+  useEffect(() => {
+    loadDrawData(props.competitionData.id);
+  }, []);
 
-    apiInstance
-      .get('competition/' + props.competitionData.id + '/getDraw/')
-      .then((response) => {
-        this.setState({
-          draw: response.data,
-        });
-      });
-  }
+  return (
+    <div>
+      <h3>Playoff</h3>
 
-  render() {
-    let drawContent = null;
-
-    if (this.state.draw) {
-      drawContent = (
+      {draw && (
         <div
           className='brackets_container'
           style={{ backgroundColor: '#f0f0f0' }}
@@ -60,27 +53,27 @@ class CompetitionDraw extends Component<any, any> {
             <tbody>
               <tr id='playground'>
                 <td className='round_column r_16 '>
-                  {this.state.draw.eightLeft.map((match: any) => (
+                  {draw.eightLeft.map((match: any) => (
                     <CompetitionDrawMatch
                       key={match.matchId}
                       match={match}
-                      competitionData={this.props.competitionData}
+                      competitionData={props.competitionData}
                     ></CompetitionDrawMatch>
                   ))}
                 </td>
                 <td className='round_column r_8'>
-                  {this.state.draw.quarterFinalsLeft.map((match: any) => (
+                  {draw.quarterFinalsLeft.map((match: any) => (
                     <CompetitionDrawMatch
                       key={match.matchId}
                       match={match}
-                      competitionData={this.props.competitionData}
+                      competitionData={props.competitionData}
                     ></CompetitionDrawMatch>
                   ))}
                 </td>
                 <td className='round_column r_4'>
                   <CompetitionDrawMatch
-                    match={this.state.draw.semifinalsLeft}
-                    competitionData={this.props.competitionData}
+                    match={draw.semifinalsLeft}
+                    competitionData={props.competitionData}
                   ></CompetitionDrawMatch>
                 </td>
                 <td className='round_column r_2 final'>
@@ -92,19 +85,16 @@ class CompetitionDraw extends Component<any, any> {
                           width='25'
                           height='25'
                           src={
-                            this.state.draw.final.goalsLocal >
-                            this.state.draw.final.goalsVisitor
-                              ? this.state.draw.final.localTeam.pictureLogo.url
-                              : this.state.draw.final.visitorTeam.pictureLogo
-                                  .url
+                            draw.final.goalsLocal > draw.final.goalsVisitor
+                              ? draw.final.localTeam.pictureLogo.url
+                              : draw.final.visitorTeam.pictureLogo.url
                           }
-                          alt={this.state.draw.final.localTeam.name}
+                          alt={draw.final.localTeam.name}
                         />
                         <span>
-                          {this.state.draw.final.goalsLocal >
-                          this.state.draw.final.goalsVisitor
-                            ? this.state.draw.final.localTeam.name
-                            : this.state.draw.final.visitorTeam.name}
+                          {draw.final.goalsLocal > draw.final.goalsVisitor
+                            ? draw.final.localTeam.name
+                            : draw.final.visitorTeam.name}
                         </span>
                       </a>
                     </span>
@@ -120,16 +110,14 @@ class CompetitionDraw extends Component<any, any> {
                             <img
                               width='25'
                               height='25'
-                              src={
-                                this.state.draw.final.localTeam.pictureLogo.url
-                              }
-                              alt={this.state.draw.final.localTeam.name}
+                              src={draw.final.localTeam.pictureLogo.url}
+                              alt={draw.final.localTeam.name}
                             />
                             <span className='truncate'>
-                              {this.state.draw.final.localTeam.name}
+                              {draw.final.localTeam.name}
                             </span>
                           </a>
-                          <strong>{this.state.draw.final.goalsLocal}</strong>
+                          <strong>{draw.final.goalsLocal}</strong>
                         </span>
                       </div>
                       <div
@@ -141,28 +129,23 @@ class CompetitionDraw extends Component<any, any> {
                             <img
                               width='25'
                               height='25'
-                              src={
-                                this.state.draw.final.visitorTeam.pictureLogo
-                                  .url
-                              }
-                              alt={this.state.draw.final.visitorTeam.name}
+                              src={draw.final.visitorTeam.pictureLogo.url}
+                              alt={draw.final.visitorTeam.name}
                             />
                             <span className='truncate'>
-                              {this.state.draw.final.visitorTeam.name}
+                              {draw.final.visitorTeam.name}
                             </span>
                           </a>
-                          <strong>{this.state.draw.final.goalsVisitor}</strong>
+                          <strong>{draw.final.goalsVisitor}</strong>
                         </span>
                       </div>
                       <div className='m_dtls'>
                         <Link
                           to={{
-                            pathname: `/competitions/competition-details/${this.props.competitionData.id}/competition-rounds/match/${this.state.draw.final.matchId}`,
+                            pathname: `/competitions/competition-details/${props.competitionData.id}/competition-rounds/match/${draw.final.matchId}`,
                           }}
                         >
-                          <span>
-                            {Formatters.formatDate(this.state.draw.final.date)}
-                          </span>
+                          <span>{Formatters.formatDate(draw.final.date)}</span>
                         </Link>
                       </div>
                     </div>
@@ -170,25 +153,25 @@ class CompetitionDraw extends Component<any, any> {
                 </td>
                 <td className='round_column r_4 reversed'>
                   <CompetitionDrawMatch
-                    match={this.state.draw.semifinalsRight}
-                    competitionData={this.props.competitionData}
+                    match={draw.semifinalsRight}
+                    competitionData={props.competitionData}
                   ></CompetitionDrawMatch>
                 </td>
                 <td className='round_column r_8 reversed'>
-                  {this.state.draw.quarterFinalsRight.map((match: any) => (
+                  {draw.quarterFinalsRight.map((match: any) => (
                     <CompetitionDrawMatch
                       key={match.matchId}
                       match={match}
-                      competitionData={this.props.competitionData}
+                      competitionData={props.competitionData}
                     ></CompetitionDrawMatch>
                   ))}
                 </td>
                 <td className='round_column r_16 reversed'>
-                  {this.state.draw.eightRight.map((match: any) => (
+                  {draw.eightRight.map((match: any) => (
                     <CompetitionDrawMatch
                       key={match.matchId}
                       match={match}
-                      competitionData={this.props.competitionData}
+                      competitionData={props.competitionData}
                     ></CompetitionDrawMatch>
                   ))}
                 </td>
@@ -196,17 +179,22 @@ class CompetitionDraw extends Component<any, any> {
             </tbody>
           </table>
         </div>
-      );
-    }
+      )}
+    </div>
+  );
+};
 
-    return (
-      <div>
-        <h3>Playoff</h3>
+const mapStateToProps = (state: FootballState) => {
+  return {
+    draw: getCurrentCompetitionDraw(state),
+  };
+};
 
-        {drawContent}
-      </div>
-    );
-  }
-}
+const mapDispatchToProps = (dispatch: FootballDispatch) => {
+  return {
+    loadDrawData: (competitionId: number) =>
+      dispatch(actionCreators.loadCompetitionDraw(competitionId)),
+  };
+};
 
-export default CompetitionDraw;
+export default connect(mapStateToProps, mapDispatchToProps)(CompetitionDraw);

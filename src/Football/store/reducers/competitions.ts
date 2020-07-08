@@ -64,7 +64,18 @@ const reducer = (state = initialState, action: any) => {
     case actionTypes.LOAD_COMPETITION_ROUND:
       return {
         ...state,
-        roundData: action.payload,
+        currentCompetition: {
+          ...state.currentCompetition,
+          roundData: action.payload,
+        },
+      } as CompetitionsState;
+    case actionTypes.LOAD_COMPETITION_DRAW:
+      return {
+        ...state,
+        currentCompetition: {
+          ...state.currentCompetition,
+          drawData: action.payload,
+        },
       } as CompetitionsState;
     default:
       break;
@@ -92,5 +103,27 @@ export const getTeamsFromCurrentCompetition = createSelector(
   competitionsState,
   (slice) => slice.currentCompetition.teams
 );
+
+export const getCurrentCompetition = createSelector(
+  competitionsState,
+  (slice) => slice.currentCompetition
+);
+
+export const getCurrentCompetitionRounds = createSelector(
+  competitionsState,
+  (slice) => slice.currentCompetition?.roundData
+);
+
+export const getCurrentCompetitionDraw = createSelector(
+  competitionsState,
+  (slice) => slice.currentCompetition?.drawData
+);
+
+// example combining selectors
+// export const getProductSelectedSubstitutes = createSelector(
+//   getProducts,
+//   getSelectedProduct,
+//   (products, selected) => products && selected && products[selected.code] && products[selected.code].substituteProducts
+// );
 
 export default reducer;

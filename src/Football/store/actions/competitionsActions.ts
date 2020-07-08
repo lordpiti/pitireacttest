@@ -110,7 +110,7 @@ export const loadCompetitionRoundSuccess = (rounds: any) => {
   };
 };
 
-export const loadCompetitionRounds = (id: number, round: string) => {
+export const loadCompetitionRound = (id: number, round: string) => {
   return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
     const response = await competitionService.getCompetitionRound(id, round);
@@ -118,6 +118,28 @@ export const loadCompetitionRounds = (id: number, round: string) => {
     dispatch(globalActionCreators.updateLoadingSpinner(false));
   };
 };
+
+export const loadCompetitionDraw = (id: number) => {
+  return async (dispatch: FootballDispatch) => {
+    dispatch(globalActionCreators.updateLoadingSpinner(true));
+    const response = await competitionService.getCompetitionDraw(id);
+    dispatch(loadCompetitionDrawSuccess(response.data));
+    dispatch(globalActionCreators.updateLoadingSpinner(false));
+  };
+};
+
+export const loadCompetitionDrawSuccess = (draw: any) => {
+  return {
+    type: actionTypes.LOAD_COMPETITION_DRAW,
+    payload: draw,
+  };
+};
+
+// apiInstance
+// .get('competition/' + props.competitionData.id + '/getDraw/')
+// .then((response) => {
+//   setDrawState(response.data);
+// });
 
 export const saveCompetition = (image: any, competitionData: any) => {
   return async (dispatch: FootballDispatch) => {
