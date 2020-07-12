@@ -6,7 +6,6 @@ export interface CompetitionsState {
   competitionList: any[];
   currentCompetition?: any;
   currentMatch?: any;
-  roundData?: any;
 }
 
 const initialState = {

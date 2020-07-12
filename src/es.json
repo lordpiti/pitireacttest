@@ -1,10 +1,21 @@
 {
   "language": "Idioma",
   "teams": {
-    "title": "Equipos"
+    "title": "Equipos",
+    "news": "Noticias",
+    "squad": "Plantilla",
+    "stadium": "Estadio",
+    "overview": "Informacion general"
   },
   "competitions": {
-    "title": "Competiciones"
+    "title": "Competiciones",
+    "draw": {
+      "playoff": "Eliminatorias",
+      "round16": "Octavos",
+      "quarter": "Cuartos",
+      "semifinals": "Semifinales",
+      "final": "Final"
+    }
   },
   "players": {
     "title": "Jugadores",

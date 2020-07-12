@@ -8,6 +8,8 @@ interface CompetitionDrawMatchProps {
 }
 
 const CompetitionDrawMatch = (props: CompetitionDrawMatchProps) => {
+  const { match, competitionData } = props;
+
   return (
     <div className='mtch_container'>
       <div className='match_unit'>
@@ -15,45 +17,45 @@ const CompetitionDrawMatch = (props: CompetitionDrawMatchProps) => {
           <span>
             <Link
               to={{
-                pathname: `/teams/team-details/${props.match.localTeam.id}`,
+                pathname: `/teams/team-details/${match.localTeam.id}`,
               }}
             >
               <img
                 width='25'
                 height='25'
-                src={props.match.localTeam.pictureLogo.url}
-                alt={props.match.localTeam.name}
+                src={match.localTeam.pictureLogo.url}
+                alt={match.localTeam.name}
               />
-              <span className='truncate'>{props.match.localTeam.name}</span>
+              <span className='truncate'>{match.localTeam.name}</span>
             </Link>
-            <strong>{props.match.goalsLocal}</strong>
+            <strong>{match.goalsLocal}</strong>
           </span>
         </div>
         <div className='m_segment m_botm loser' data-team-id='10'>
           <span>
             <Link
               to={{
-                pathname: `/teams/team-details/${props.match.visitorTeam.id}`,
+                pathname: `/teams/team-details/${match.visitorTeam.id}`,
               }}
             >
               <img
                 width='25'
                 height='25'
-                src={props.match.visitorTeam.pictureLogo.url}
-                alt={props.match.visitorTeam.name}
+                src={match.visitorTeam.pictureLogo.url}
+                alt={match.visitorTeam.name}
               />
-              <span className='truncate'>{props.match.visitorTeam.name}</span>
+              <span className='truncate'>{match.visitorTeam.name}</span>
             </Link>
-            <strong>{props.match.goalsVisitor}</strong>
+            <strong>{match.goalsVisitor}</strong>
           </span>
         </div>
         <div className='m_dtls'>
           <Link
             to={{
-              pathname: `/competitions/competition-details/${props.competitionData.id}/competition-rounds/match/${props.match.matchId}`,
+              pathname: `/competitions/competition-details/${competitionData.id}/competition-rounds/match/${match.matchId}`,
             }}
           >
-            <span>{Formatters.formatDate(props.match.date)}</span>
+            <span>{Formatters.formatDate(match.date)}</span>
           </Link>
         </div>
       </div>

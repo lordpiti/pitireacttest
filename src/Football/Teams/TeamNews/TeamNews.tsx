@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import RSSReader from '../../components/RSSReader/RSSReader';
 import Parser from 'rss-parser';
+import { useTranslation } from 'react-i18next';
 
 interface TeamNewsProps {
   teamData: any;
@@ -10,6 +11,8 @@ const TeamNews = (props: TeamNewsProps) => {
   const [currentFeedList, setCurrentFeedList] = useState({
     feedList: [] as Parser.Item[] | undefined,
   });
+
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const urls = [
@@ -74,7 +77,7 @@ const TeamNews = (props: TeamNewsProps) => {
 
   return (
     <div>
-      <h1>Team news</h1>
+      <h1>{t('teams.news')}</h1>
       {currentFeedList.feedList && (
         <RSSReader feedList={currentFeedList.feedList}></RSSReader>
       )}

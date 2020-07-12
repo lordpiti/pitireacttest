@@ -7,17 +7,20 @@ import { FootballState, FootballDispatch } from '../../..';
 import * as actionCreators from '../../store/actions/competitionsActions';
 import { getCurrentCompetitionDraw } from '../../store/reducers/competitions';
 import { connect } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 const CompetitionDraw = (props: any) => {
-  const { draw, loadDrawData } = props;
+  const { draw, loadDrawData, competitionData } = props;
 
   useEffect(() => {
-    loadDrawData(props.competitionData.id);
+    loadDrawData(competitionData.id);
   }, []);
+
+  const { t, i18n } = useTranslation();
 
   return (
     <div>
-      <h3>Playoff</h3>
+      <h3>{t('competitions.draw.playoff')}</h3>
 
       {draw && (
         <div
@@ -28,25 +31,25 @@ const CompetitionDraw = (props: any) => {
             <thead>
               <tr>
                 <th>
-                  <span>Round of 16</span>
+                  <span>{t('competitions.draw.round16')}</span>
                 </th>
                 <th>
-                  <span>Quarter-finals</span>
+                  <span>{t('competitions.draw.quarter')}</span>
                 </th>
                 <th>
-                  <span>Semi-finals</span>
+                  <span>{t('competitions.draw.semifinals')}</span>
                 </th>
                 <th>
-                  <span>final</span>
+                  <span>{t('competitions.draw.final')}</span>
                 </th>
                 <th>
-                  <span>Semi-finals</span>
+                  <span>{t('competitions.draw.semifinals')}</span>
                 </th>
                 <th>
-                  <span>Quarter-finals</span>
+                  <span>{t('competitions.draw.quarter')}</span>
                 </th>
                 <th>
-                  <span>Round of 16</span>
+                  <span>{t('competitions.draw.round16')}</span>
                 </th>
               </tr>
             </thead>
@@ -57,7 +60,7 @@ const CompetitionDraw = (props: any) => {
                     <CompetitionDrawMatch
                       key={match.matchId}
                       match={match}
-                      competitionData={props.competitionData}
+                      competitionData={competitionData}
                     ></CompetitionDrawMatch>
                   ))}
                 </td>
@@ -66,14 +69,14 @@ const CompetitionDraw = (props: any) => {
                     <CompetitionDrawMatch
                       key={match.matchId}
                       match={match}
-                      competitionData={props.competitionData}
+                      competitionData={competitionData}
                     ></CompetitionDrawMatch>
                   ))}
                 </td>
                 <td className='round_column r_4'>
                   <CompetitionDrawMatch
                     match={draw.semifinalsLeft}
-                    competitionData={props.competitionData}
+                    competitionData={competitionData}
                   ></CompetitionDrawMatch>
                 </td>
                 <td className='round_column r_2 final'>
@@ -142,7 +145,7 @@ const CompetitionDraw = (props: any) => {
                       <div className='m_dtls'>
                         <Link
                           to={{
-                            pathname: `/competitions/competition-details/${props.competitionData.id}/competition-rounds/match/${draw.final.matchId}`,
+                            pathname: `/competitions/competition-details/${competitionData.id}/competition-rounds/match/${draw.final.matchId}`,
                           }}
                         >
                           <span>{Formatters.formatDate(draw.final.date)}</span>
@@ -154,7 +157,7 @@ const CompetitionDraw = (props: any) => {
                 <td className='round_column r_4 reversed'>
                   <CompetitionDrawMatch
                     match={draw.semifinalsRight}
-                    competitionData={props.competitionData}
+                    competitionData={competitionData}
                   ></CompetitionDrawMatch>
                 </td>
                 <td className='round_column r_8 reversed'>
@@ -162,7 +165,7 @@ const CompetitionDraw = (props: any) => {
                     <CompetitionDrawMatch
                       key={match.matchId}
                       match={match}
-                      competitionData={props.competitionData}
+                      competitionData={competitionData}
                     ></CompetitionDrawMatch>
                   ))}
                 </td>
@@ -171,7 +174,7 @@ const CompetitionDraw = (props: any) => {
                     <CompetitionDrawMatch
                       key={match.matchId}
                       match={match}
-                      competitionData={props.competitionData}
+                      competitionData={competitionData}
                     ></CompetitionDrawMatch>
                   ))}
                 </td>

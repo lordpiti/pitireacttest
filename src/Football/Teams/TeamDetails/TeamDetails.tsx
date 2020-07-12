@@ -9,6 +9,7 @@ import TeamStadium from '../TeamStadium/TeamStadium';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/teamsActions';
 import { FootballState, FootballDispatch } from '../../..';
+import { useTranslation } from 'react-i18next';
 
 interface TeamsDetailsParams {
   id: string;
@@ -29,6 +30,8 @@ const TeamDetails = (props: TeamsDetailsProps) => {
       props.clearTeamData();
     };
   }, []);
+
+  const { t, i18n } = useTranslation();
 
   let content,
     menuContent = null;
@@ -99,19 +102,19 @@ const TeamDetails = (props: TeamsDetailsProps) => {
 
   const menuList = [
     {
-      name: 'News',
+      name: t('teams.news'),
       url: props.match.url + '/news',
     },
     {
-      name: 'Summary',
+      name: t('teams.overview'),
       url: props.match.url + '/overview',
     },
     {
-      name: 'Squad',
+      name: t('teams.squad'),
       url: props.match.url + '/team-squad',
     },
     {
-      name: 'Stadium',
+      name: t('teams.stadium'),
       url: props.match.url + '/team-stadium',
     },
     // {

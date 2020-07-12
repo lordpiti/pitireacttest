@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CompetitionDraw should render correctly 1`] = `
+<div
+  className="mtch_container"
+>
+  <div
+    className="match_unit"
+  >
+    <div
+      className="m_segment m_top winner"
+      data-team-id="9"
+    >
+      <span>
+        <Link
+          to={
+            Object {
+              "pathname": "/teams/team-details/4",
+            }
+          }
+        >
+          <img
+            alt="Valencia C.F"
+            height="25"
+            src="https://pititest.blob.core.windows.net/mycontainer/ab79f4b3-4d2d-4380-9596-2f7bd3f9012e-test.png"
+            width="25"
+          />
+          <span
+            className="truncate"
+          >
+            Valencia C.F
+          </span>
+        </Link>
+        <strong>
+          0
+        </strong>
+      </span>
+    </div>
+    <div
+      className="m_segment m_botm loser"
+      data-team-id="10"
+    >
+      <span>
+        <Link
+          to={
+            Object {
+              "pathname": "/teams/team-details/9",
+            }
+          }
+        >
+          <img
+            alt="Almeria"
+            height="25"
+            src="https://pititest.blob.core.windows.net/mycontainer/1720.jpg"
+            width="25"
+          />
+          <span
+            className="truncate"
+          >
+            Almeria
+          </span>
+        </Link>
+        <strong>
+          0
+        </strong>
+      </span>
+    </div>
+    <div
+      className="m_dtls"
+    >
+      <Link
+        to={
+          Object {
+            "pathname": "/competitions/competition-details/1/competition-rounds/match/764",
+          }
+        }
+      >
+        <span>
+          October 26, 2009
+        </span>
+      </Link>
+    </div>
+  </div>
+</div>
+`;

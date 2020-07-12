@@ -1,10 +1,21 @@
 {
   "language": "Language",
   "teams": {
-    "title": "Teams"
+    "title": "Teams",
+    "news": "News",
+    "squad": "Squad",
+    "stadium": "Stadium",
+    "overview": "Overview"
   },
   "competitions": {
-    "title": "Competitions"
+    "title": "Competitions",
+    "draw": {
+      "playoff": "Playoff",
+      "round16": "Round of 16",
+      "quarter": "Quarter-finals",
+      "semifinals": "Semi-finals",
+      "final": "Final"
+    }
   },
   "players": {
     "title": "Players",

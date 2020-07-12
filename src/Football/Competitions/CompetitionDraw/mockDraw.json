@@ -1,0 +1,640 @@
+{
+  "eightLeft": [
+    {
+      "date": "2009-10-26T00:00:00",
+      "stadium": {
+        "id": 1,
+        "name": "Estadio de Riazor",
+        "address": null,
+        "capacity": 0
+      },
+      "localTeam": {
+        "id": 4,
+        "playerList": null,
+        "name": "Valencia C.F",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "ab79f4b3-4d2d-4380-9596-2f7bd3f9012e-test.png",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/ab79f4b3-4d2d-4380-9596-2f7bd3f9012e-test.png",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "visitorTeam": {
+        "id": 9,
+        "playerList": null,
+        "name": "Almeria",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "1720.jpg",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/1720.jpg",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "goalsLocal": 0,
+      "goalsVisitor": 0,
+      "matchId": 764
+    },
+    {
+      "date": "2009-07-02T00:00:00",
+      "stadium": {
+        "id": 1,
+        "name": "Estadio de Riazor",
+        "address": null,
+        "capacity": 0
+      },
+      "localTeam": {
+        "id": 7,
+        "playerList": null,
+        "name": "Málaga",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "5915d799-b58a-4ef6-87a0-cf45ed2cbe87-test.png",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/5915d799-b58a-4ef6-87a0-cf45ed2cbe87-test.png",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "visitorTeam": {
+        "id": 14,
+        "playerList": null,
+        "name": "Osasuna",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "46be640c-1bdc-4472-a6dc-ebfc5df9687a-211.jpg",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/46be640c-1bdc-4472-a6dc-ebfc5df9687a-211.jpg",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "goalsLocal": 1,
+      "goalsVisitor": 0,
+      "matchId": 767
+    },
+    {
+      "date": "2009-06-02T00:00:00",
+      "stadium": {
+        "id": 1,
+        "name": "Estadio de Riazor",
+        "address": null,
+        "capacity": 0
+      },
+      "localTeam": {
+        "id": 6,
+        "playerList": null,
+        "name": "Atlético de Madrid",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "2cd85554-3d56-4ade-824f-d6718dd0a057-test.png",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/2cd85554-3d56-4ade-824f-d6718dd0a057-test.png",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "visitorTeam": {
+        "id": 11,
+        "playerList": null,
+        "name": "Sporting de Gijón",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "df217d75-e06a-4b7f-8089-4c49eb307c0d-test.png",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/df217d75-e06a-4b7f-8089-4c49eb307c0d-test.png",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "goalsLocal": 3,
+      "goalsVisitor": 1,
+      "matchId": 766
+    },
+    {
+      "date": "2009-07-22T00:00:00",
+      "stadium": {
+        "id": 1,
+        "name": "Estadio de Riazor",
+        "address": null,
+        "capacity": 0
+      },
+      "localTeam": {
+        "id": 8,
+        "playerList": null,
+        "name": "Athletic de Bilbao",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "749.jpg",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/749.jpg",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "visitorTeam": {
+        "id": 16,
+        "playerList": null,
+        "name": "Sevilla C.F",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "ce743178-43a7-47a0-b192-94caf6216695-test.png",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/ce743178-43a7-47a0-b192-94caf6216695-test.png",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "goalsLocal": 2,
+      "goalsVisitor": 1,
+      "matchId": 768
+    }
+  ],
+  "eightRight": [
+    {
+      "date": "2009-05-18T00:00:00",
+      "stadium": {
+        "id": 1,
+        "name": "Estadio de Riazor",
+        "address": null,
+        "capacity": 0
+      },
+      "localTeam": {
+        "id": 5,
+        "playerList": null,
+        "name": "Villarreal",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "987.jpg",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/987.jpg",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "visitorTeam": {
+        "id": 13,
+        "playerList": null,
+        "name": "Racing de Santander",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "b3ab87b1-5d7a-4c52-a7c7-71f33c90f3c9-1473.jpg",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/b3ab87b1-5d7a-4c52-a7c7-71f33c90f3c9-1473.jpg",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "goalsLocal": 3,
+      "goalsVisitor": 0,
+      "matchId": 765
+    },
+    {
+      "date": "2009-10-22T00:00:00",
+      "stadium": {
+        "id": 1,
+        "name": "Estadio de Riazor",
+        "address": null,
+        "capacity": 0
+      },
+      "localTeam": {
+        "id": 1,
+        "playerList": null,
+        "name": "R.C Deportivo",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "f20b9256-8fb6-4d62-a177-286fc2e18e69-test.png",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/f20b9256-8fb6-4d62-a177-286fc2e18e69-test.png",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "visitorTeam": {
+        "id": 12,
+        "playerList": null,
+        "name": "Numancia",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "1952.jpg",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/1952.jpg",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "goalsLocal": 1,
+      "goalsVisitor": 1,
+      "matchId": 761
+    },
+    {
+      "date": "2009-06-26T00:00:00",
+      "stadium": {
+        "id": 1,
+        "name": "Estadio de Riazor",
+        "address": null,
+        "capacity": 0
+      },
+      "localTeam": {
+        "id": 2,
+        "playerList": null,
+        "name": "F.C Barcelona",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "07f2de74-b684-421b-a508-9bde3496aeed-test.png",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/07f2de74-b684-421b-a508-9bde3496aeed-test.png",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "visitorTeam": {
+        "id": 10,
+        "playerList": null,
+        "name": "Valladolid",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "849.jpg",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/849.jpg",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "goalsLocal": 0,
+      "goalsVisitor": 3,
+      "matchId": 762
+    },
+    {
+      "date": "2009-07-09T00:00:00",
+      "stadium": {
+        "id": 1,
+        "name": "Estadio de Riazor",
+        "address": null,
+        "capacity": 0
+      },
+      "localTeam": {
+        "id": 3,
+        "playerList": null,
+        "name": "Real Madrid",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "b111ec0e-3c8a-41e2-82ae-d7a8c8834a4a-test.png",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/b111ec0e-3c8a-41e2-82ae-d7a8c8834a4a-test.png",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "visitorTeam": {
+        "id": 15,
+        "playerList": null,
+        "name": "Espanyol",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "afabcacb-9de5-483b-a1b3-e4b9702dac04-test.png",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/afabcacb-9de5-483b-a1b3-e4b9702dac04-test.png",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "goalsLocal": 1,
+      "goalsVisitor": 0,
+      "matchId": 763
+    }
+  ],
+  "quarterFinalsLeft": [
+    {
+      "date": "2009-04-20T00:00:00",
+      "stadium": {
+        "id": 1,
+        "name": "Estadio de Riazor",
+        "address": null,
+        "capacity": 0
+      },
+      "localTeam": {
+        "id": 4,
+        "playerList": null,
+        "name": "Valencia C.F",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "ab79f4b3-4d2d-4380-9596-2f7bd3f9012e-test.png",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/ab79f4b3-4d2d-4380-9596-2f7bd3f9012e-test.png",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "visitorTeam": {
+        "id": 14,
+        "playerList": null,
+        "name": "Osasuna",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "46be640c-1bdc-4472-a6dc-ebfc5df9687a-211.jpg",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/46be640c-1bdc-4472-a6dc-ebfc5df9687a-211.jpg",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "goalsLocal": 0,
+      "goalsVisitor": 2,
+      "matchId": 770
+    },
+    {
+      "date": "2009-04-23T00:00:00",
+      "stadium": {
+        "id": 1,
+        "name": "Estadio de Riazor",
+        "address": null,
+        "capacity": 0
+      },
+      "localTeam": {
+        "id": 6,
+        "playerList": null,
+        "name": "Atlético de Madrid",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "2cd85554-3d56-4ade-824f-d6718dd0a057-test.png",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/2cd85554-3d56-4ade-824f-d6718dd0a057-test.png",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "visitorTeam": {
+        "id": 16,
+        "playerList": null,
+        "name": "Sevilla C.F",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "ce743178-43a7-47a0-b192-94caf6216695-test.png",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/ce743178-43a7-47a0-b192-94caf6216695-test.png",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "goalsLocal": 2,
+      "goalsVisitor": 2,
+      "matchId": 772
+    }
+  ],
+  "quarterFinalsRight": [
+    {
+      "date": "2009-03-12T00:00:00",
+      "stadium": {
+        "id": 1,
+        "name": "Estadio de Riazor",
+        "address": null,
+        "capacity": 0
+      },
+      "localTeam": {
+        "id": 5,
+        "playerList": null,
+        "name": "Villarreal",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "987.jpg",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/987.jpg",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "visitorTeam": {
+        "id": 12,
+        "playerList": null,
+        "name": "Numancia",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "1952.jpg",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/1952.jpg",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "goalsLocal": 2,
+      "goalsVisitor": 1,
+      "matchId": 771
+    },
+    {
+      "date": "2009-08-11T00:00:00",
+      "stadium": {
+        "id": 1,
+        "name": "Estadio de Riazor",
+        "address": null,
+        "capacity": 0
+      },
+      "localTeam": {
+        "id": 2,
+        "playerList": null,
+        "name": "F.C Barcelona",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "07f2de74-b684-421b-a508-9bde3496aeed-test.png",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/07f2de74-b684-421b-a508-9bde3496aeed-test.png",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "visitorTeam": {
+        "id": 15,
+        "playerList": null,
+        "name": "Espanyol",
+        "pictureLogo": {
+          "id": 0,
+          "bytes": null,
+          "base64String": null,
+          "fileName": "afabcacb-9de5-483b-a1b3-e4b9702dac04-test.png",
+          "url": "https://pititest.blob.core.windows.net/mycontainer/afabcacb-9de5-483b-a1b3-e4b9702dac04-test.png",
+          "containerReference": "mycontainer"
+        },
+        "stadium": null,
+        "city": null
+      },
+      "goalsLocal": 1,
+      "goalsVisitor": 1,
+      "matchId": 769
+    }
+  ],
+  "semifinalsLeft": {
+    "date": "2009-08-13T00:00:00",
+    "stadium": {
+      "id": 1,
+      "name": "Estadio de Riazor",
+      "address": null,
+      "capacity": 0
+    },
+    "localTeam": {
+      "id": 4,
+      "playerList": null,
+      "name": "Valencia C.F",
+      "pictureLogo": {
+        "id": 0,
+        "bytes": null,
+        "base64String": null,
+        "fileName": "ab79f4b3-4d2d-4380-9596-2f7bd3f9012e-test.png",
+        "url": "https://pititest.blob.core.windows.net/mycontainer/ab79f4b3-4d2d-4380-9596-2f7bd3f9012e-test.png",
+        "containerReference": "mycontainer"
+      },
+      "stadium": null,
+      "city": null
+    },
+    "visitorTeam": {
+      "id": 6,
+      "playerList": null,
+      "name": "Atlético de Madrid",
+      "pictureLogo": {
+        "id": 0,
+        "bytes": null,
+        "base64String": null,
+        "fileName": "2cd85554-3d56-4ade-824f-d6718dd0a057-test.png",
+        "url": "https://pititest.blob.core.windows.net/mycontainer/2cd85554-3d56-4ade-824f-d6718dd0a057-test.png",
+        "containerReference": "mycontainer"
+      },
+      "stadium": null,
+      "city": null
+    },
+    "goalsLocal": 3,
+    "goalsVisitor": 3,
+    "matchId": 773
+  },
+  "semifinalsRight": {
+    "date": "2009-02-24T00:00:00",
+    "stadium": {
+      "id": 1,
+      "name": "Estadio de Riazor",
+      "address": null,
+      "capacity": 0
+    },
+    "localTeam": {
+      "id": 5,
+      "playerList": null,
+      "name": "Villarreal",
+      "pictureLogo": {
+        "id": 0,
+        "bytes": null,
+        "base64String": null,
+        "fileName": "987.jpg",
+        "url": "https://pititest.blob.core.windows.net/mycontainer/987.jpg",
+        "containerReference": "mycontainer"
+      },
+      "stadium": null,
+      "city": null
+    },
+    "visitorTeam": {
+      "id": 15,
+      "playerList": null,
+      "name": "Espanyol",
+      "pictureLogo": {
+        "id": 0,
+        "bytes": null,
+        "base64String": null,
+        "fileName": "afabcacb-9de5-483b-a1b3-e4b9702dac04-test.png",
+        "url": "https://pititest.blob.core.windows.net/mycontainer/afabcacb-9de5-483b-a1b3-e4b9702dac04-test.png",
+        "containerReference": "mycontainer"
+      },
+      "stadium": null,
+      "city": null
+    },
+    "goalsLocal": 0,
+    "goalsVisitor": 2,
+    "matchId": 774
+  },
+  "final": {
+    "date": "2009-05-20T00:00:00",
+    "stadium": {
+      "id": 1,
+      "name": "Estadio de Riazor",
+      "address": null,
+      "capacity": 0
+    },
+    "localTeam": {
+      "id": 4,
+      "playerList": null,
+      "name": "Valencia C.F",
+      "pictureLogo": {
+        "id": 0,
+        "bytes": null,
+        "base64String": null,
+        "fileName": "ab79f4b3-4d2d-4380-9596-2f7bd3f9012e-test.png",
+        "url": "https://pititest.blob.core.windows.net/mycontainer/ab79f4b3-4d2d-4380-9596-2f7bd3f9012e-test.png",
+        "containerReference": "mycontainer"
+      },
+      "stadium": null,
+      "city": null
+    },
+    "visitorTeam": {
+      "id": 5,
+      "playerList": null,
+      "name": "Villarreal",
+      "pictureLogo": {
+        "id": 0,
+        "bytes": null,
+        "base64String": null,
+        "fileName": "987.jpg",
+        "url": "https://pititest.blob.core.windows.net/mycontainer/987.jpg",
+        "containerReference": "mycontainer"
+      },
+      "stadium": null,
+      "city": null
+    },
+    "goalsLocal": 0,
+    "goalsVisitor": 2,
+    "matchId": 775
+  }
+}
