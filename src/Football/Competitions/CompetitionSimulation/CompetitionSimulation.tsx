@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { HubConnectionBuilder } from "@aspnet/signalr";
-import CompetitionSimulationMatch from "./CompetitionSimulationMatch/CompetitionSimulationMatch";
-import Countdown from "../../components/Countdown/Countdown";
-import axiosInstance from "../../utilities/axios-test";
+import React, { Component } from 'react';
+import { HubConnectionBuilder } from '@aspnet/signalr';
+import CompetitionSimulationMatch from './CompetitionSimulationMatch/CompetitionSimulationMatch';
+import Countdown from '../../components/Countdown/Countdown';
+import axiosInstance from '../../utilities/axios-test';
 
 interface CompetitionSimulationState {
   matches: any[];
@@ -12,7 +12,7 @@ interface CompetitionSimulationState {
 
 class CompetitionSimulation extends Component<any, CompetitionSimulationState> {
   connection = new HubConnectionBuilder()
-    .withUrl(process.env.REACT_APP_API_URL + "/loopy")
+    .withUrl(process.env.REACT_APP_API_URL + '/loopy')
     .build();
 
   state: CompetitionSimulationState = {
@@ -21,7 +21,7 @@ class CompetitionSimulation extends Component<any, CompetitionSimulationState> {
   };
 
   componentDidMount() {
-    axiosInstance.get("competition/nextSimulation").then((response) => {
+    axiosInstance.get('competition/nextSimulation').then((response) => {
       this.setState({
         nextSimulationDateTime: response.data.nextSimulationDateTime,
         live: response.data.live,
@@ -35,23 +35,23 @@ class CompetitionSimulation extends Component<any, CompetitionSimulationState> {
   }
 
   setupHub() {
-    this.connection.on("StartSimulation", (data) => {
-      console.log("Simulation started");
+    this.connection.on('StartSimulation', (data) => {
+      console.log('Simulation started');
       this.setState({
         matches: [],
         live: true,
       });
     });
 
-    this.connection.on("EndSimulation", (data) => {
-      console.log("Simulation finished");
+    this.connection.on('EndSimulation', (data) => {
+      console.log('Simulation finished');
       this.setState({
         live: false,
         nextSimulationDateTime: data.nextSimulationDateTime,
       });
     });
 
-    this.connection.on("SendCreateMatch", (data) => {
+    this.connection.on('SendCreateMatch', (data) => {
       let newlist = this.state.matches.slice();
       if (data.matchId) {
         let existingMatch = newlist.find((match) => match.id === data.matchId);
@@ -81,7 +81,7 @@ class CompetitionSimulation extends Component<any, CompetitionSimulationState> {
       });
     });
 
-    this.connection.on("Send", (data) => {
+    this.connection.on('Send', (data) => {
       let copyMatches = this.state.matches.slice();
       const matchToAddEvent = copyMatches.find((x) => x.id === data.matchId);
 
@@ -115,7 +115,7 @@ class CompetitionSimulation extends Component<any, CompetitionSimulationState> {
       });
     });
 
-    this.connection.start().then(() => this.connection.invoke("send", "Hello"));
+    this.connection.start().then(() => this.connection.invoke('send', 'Hello'));
   }
 
   render() {
