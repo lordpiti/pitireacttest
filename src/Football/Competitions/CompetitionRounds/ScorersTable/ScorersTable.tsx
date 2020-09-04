@@ -144,8 +144,8 @@ class Scorers extends Component<any, any> {
   };
 
   handleChangePage = (
-    event: React.MouseEvent<HTMLButtonElement>,
-    page: any
+    event: React.MouseEvent<HTMLButtonElement> | null,
+    page: number
   ) => {
     this.setState({ page });
   };
@@ -202,7 +202,7 @@ class Scorers extends Component<any, any> {
                   count={rows.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
-                  onChangePage={this.handleChangePage as any}
+                  onChangePage={this.handleChangePage}
                   onChangeRowsPerPage={this.handleChangeRowsPerPage}
                   ActionsComponent={TablePaginationActionsWrapped as any}
                 />

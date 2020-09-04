@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/teamsActions';
 import { FootballState, FootballDispatch } from '../../..';
 import { useTranslation } from 'react-i18next';
+import { clearTeamData } from '../../store/actions/teamsActions';
 
 interface TeamsDetailsParams {
   id: string;
@@ -22,12 +23,14 @@ interface TeamsDetailsProps extends RouteComponentProps<TeamsDetailsParams> {
 }
 
 const TeamDetails = (props: TeamsDetailsProps) => {
+  const { loadTeam, clearTeamData, match } = props;
+
   useEffect(() => {
-    props.loadTeam(props.match.params.id);
+    loadTeam(match.params.id);
     //TODO: delete the store when unmounting, on the cleanup
 
     return function cleanup() {
-      props.clearTeamData();
+      clearTeamData();
     };
   }, []);
 
