@@ -19,7 +19,7 @@ const initialState = {
   },
 } as GlobalState;
 
-const reducer = (state = initialState, action: any) => {
+const reducer = (state = initialState, action: actionTypes.GlobalActions) => {
   switch (action.type) {
     case actionTypes.UPDATE_LOADING_SPINNER:
       return {

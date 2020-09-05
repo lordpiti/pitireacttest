@@ -10,7 +10,7 @@ const initialState = {
   currentTeam: null,
 } as TeamsState;
 
-const reducer = (state = initialState, action: any) => {
+const reducer = (state = initialState, action: actionTypes.TeamActions) => {
   switch (action.type) {
     case actionTypes.LOAD_TEAM_LIST:
       return {

@@ -15,7 +15,10 @@ const initialState = {
 const competitionsState = (state: FootballState): CompetitionsState =>
   state.competitions;
 
-const reducer = (state = initialState, action: any) => {
+const reducer = (
+  state = initialState,
+  action: actionTypes.CompetitionActions
+) => {
   switch (action.type) {
     case actionTypes.LOAD_COMPETITION_TEAMS:
       return {
