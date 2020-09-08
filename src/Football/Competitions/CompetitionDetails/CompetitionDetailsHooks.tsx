@@ -9,7 +9,7 @@ import CompetitionStatistics from '../CompetitionStatistics/CompetitionStatistic
 import { useDispatch, useSelector } from 'react-redux';
 import * as actionCreators from '../../store/actions/competitionsActions';
 import { RouteComponentProps } from 'react-router';
-import { FootballState } from '../../..';
+import { FootballState } from '../../store';
 
 interface MatchParams {
   id: string;

@@ -15,7 +15,7 @@ import SnackbarContent from '@material-ui/core/SnackbarContent';
 import WarningIcon from '@material-ui/icons/Warning';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { FootballState, FootballDispatch } from '../../..';
+import { FootballState, FootballDispatch } from '../../store';
 
 const variantIcon = {
   success: CheckCircleIcon,

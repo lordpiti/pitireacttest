@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/teamsActions';
 import { RouteComponentProps } from 'react-router';
-import { FootballState, FootballDispatch } from '../../..';
+import { FootballState, FootballDispatch } from '../../store';
 
 interface TeamsOverviewParams {
   id: string;

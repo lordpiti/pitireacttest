@@ -5,7 +5,7 @@ import * as actionCreators from '../../store/actions/teamsActions';
 import RoleVisibleWrapper from '../../components/RoleVisibleComponent/RoleVisibleWrapper';
 import { Paper } from '@material-ui/core';
 import EditTeamComponent from './EditTeam/EditTeam';
-import { FootballState, FootballDispatch } from '../../..';
+import { FootballState, FootballDispatch } from '../../store';
 
 export interface TeamInfoProps {
   teamData: any;

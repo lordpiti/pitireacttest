@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import * as globalActionCreators from './globalActions';
-import { FootballDispatch } from '../../..';
+import { FootballDispatch } from '../../store';
 import { GlobalService } from '../../services/globalService';
 import { CompetitionService } from '../../services/competitionsService';
 

@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/playersActions';
 import './PlayerDetails.scss';
 import PlayerInfo from '../PlayerInfo/PlayerInfo';
-import { FootballState, FootballDispatch } from '../../..';
+import { FootballState, FootballDispatch } from '../../store';
 
 // const asyncPlayerInfo = asyncComponent(() => {
 //   return import('../PlayerInfo/PlayerInfo');

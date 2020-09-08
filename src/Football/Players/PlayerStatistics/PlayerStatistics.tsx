@@ -6,7 +6,7 @@ import Helpers from '../../utilities/helpers';
 import ExpansionPanel from './ExpansionPanel/ExpansionPanel';
 import * as actionCreators from '../../store/actions/globalActions';
 import { RouteComponentProps } from 'react-router';
-import { FootballState } from '../../..';
+import { FootballState } from '../../store';
 
 interface MatchParams {
   id: string;

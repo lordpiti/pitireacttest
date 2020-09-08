@@ -3,7 +3,7 @@ import CompetitionDrawMatch from './CompetitionDrawMatch/CompetitionDrawMatch';
 import './CompetitionDraw.css';
 import Formatters from '../../utilities/formatters';
 import { Link } from 'react-router-dom';
-import { FootballState, FootballDispatch } from '../../..';
+import { FootballState, FootballDispatch } from '../../store';
 import * as actionCreators from '../../store/actions/competitionsActions';
 import { getCurrentCompetitionDraw } from '../../store/reducers/competitions';
 import { connect } from 'react-redux';

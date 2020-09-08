@@ -8,7 +8,7 @@ import SideMenu from '../../components/SideMenu/SideMenu';
 import TeamStadium from '../TeamStadium/TeamStadium';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/teamsActions';
-import { FootballState, FootballDispatch } from '../../..';
+import { FootballState, FootballDispatch } from '../../store';
 import { useTranslation } from 'react-i18next';
 import { clearTeamData } from '../../store/actions/teamsActions';
 

@@ -4,7 +4,7 @@ import * as actionCreators from '../../store/actions/competitionsActions';
 import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
 import { Paper } from '@material-ui/core';
 import editCompetitionComponent from './EditCompetitionHooks/EditCompetitionHooks';
-import { FootballDispatch, FootballState } from '../../..';
+import { FootballDispatch, FootballState } from '../../store';
 
 interface CompetitionInfoProps {
   competitionData: any;

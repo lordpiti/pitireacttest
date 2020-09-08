@@ -16,7 +16,7 @@ import { connect } from 'react-redux';
 import './Football.scss';
 import CustomSnackbar from './components/CustomSnackbar/CustomSnackbar';
 import Home from './Home/Home';
-import { FootballState as FootbalStateRedux } from '../index';
+import { FootballState as FootbalStateRedux } from './store';
 import { GraphicDemo } from './components/GraphicDemo/GraphicDemo';
 
 function getModalStyle() {

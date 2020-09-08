@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 import { createSelector } from 'reselect';
-import { FootballState } from '../../..';
+import { FootballState } from '../../store';
 
 export interface CompetitionsState {
   competitionList: any[];

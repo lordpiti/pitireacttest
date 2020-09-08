@@ -25,11 +25,11 @@ describe('CompetitionDetailsHooks', () => {
       params: { id: '1' },
     };
     const history = createMemoryHistory();
-    const location = createLocation(match.url);
+    // const location = createLocation(match.url);
     const props = {
       match,
       history: history,
-      location: location,
+      location: null as any,
     };
 
     const wrapper = shallow(<CompetitionDetailsHooks {...props} />);
