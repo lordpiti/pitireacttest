@@ -8,11 +8,12 @@ import CompetitionEvolution from './CompetitionEvolution/CompetitionEvolution';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/competitionsActions';
 import './CompetitionStatistics.scss';
-import { FootballState, FootballDispatch } from '../../store';
+import { FootballState } from '../../store';
 import {
   getEvolutionDataToShow,
   getTeamsFromCurrentCompetition,
 } from '../../store/reducers/competitions';
+import { FootballDispatch } from '../../store/middleware/thunkMiddleware';
 
 function TabContainer(props: any) {
   return (

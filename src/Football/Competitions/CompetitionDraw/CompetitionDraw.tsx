@@ -3,11 +3,12 @@ import CompetitionDrawMatch from './CompetitionDrawMatch/CompetitionDrawMatch';
 import './CompetitionDraw.css';
 import Formatters from '../../utilities/formatters';
 import { Link } from 'react-router-dom';
-import { FootballState, FootballDispatch } from '../../store';
+import { FootballState } from '../../store';
 import * as actionCreators from '../../store/actions/competitionsActions';
 import { getCurrentCompetitionDraw } from '../../store/reducers/competitions';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { FootballDispatch } from '../../store/middleware/thunkMiddleware';
 
 const CompetitionDraw = (props: any) => {
   const { draw, loadDrawData, competitionData } = props;

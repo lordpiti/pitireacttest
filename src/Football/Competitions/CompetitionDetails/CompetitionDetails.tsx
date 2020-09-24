@@ -8,7 +8,8 @@ import Match from '../Match/Match';
 import CompetitionStatistics from '../CompetitionStatistics/CompetitionStatistics';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/competitionsActions';
-import { FootballState, FootballDispatch } from '../../store';
+import { FootballState } from '../../store';
+import { FootballDispatch } from '../../store/middleware/thunkMiddleware';
 
 interface MatchParams {
   id: string;

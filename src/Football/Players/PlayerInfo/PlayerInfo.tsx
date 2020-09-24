@@ -5,8 +5,9 @@ import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisi
 import { Paper } from '@material-ui/core';
 import Formatters from '../../utilities/formatters';
 import editPlayerComponent from './EditPlayer/EditPlayer';
-import { FootballState, FootballDispatch } from '../../store';
+import { FootballState } from '../../store';
 import { useTranslation } from 'react-i18next';
+import { FootballDispatch } from '../../store/middleware/thunkMiddleware';
 
 interface PlayerInfoProps {
   playerData: PlayerData;

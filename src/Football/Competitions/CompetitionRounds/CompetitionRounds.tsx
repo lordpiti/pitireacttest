@@ -15,9 +15,10 @@ import ScorersTable from './ScorersTable/ScorersTable';
 import { Paper } from '@material-ui/core';
 import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
-import { FootballState, FootballDispatch } from '../../store';
+import { FootballState } from '../../store';
 import * as actionCreators from '../../store/actions/competitionsActions';
 import { getCurrentCompetitionRounds } from '../../store/reducers/competitions';
+import { FootballDispatch } from '../../store/middleware/thunkMiddleware';
 
 const styles = (theme: Theme) =>
   createStyles({

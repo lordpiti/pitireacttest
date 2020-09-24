@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/teamsActions';
 import { RouteComponentProps } from 'react-router';
-import { FootballState, FootballDispatch } from '../../store';
+import { FootballState } from '../../store';
+import { FootballDispatch } from '../../store/middleware/thunkMiddleware';
+import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
 
 interface TeamsOverviewParams {
   id: string;
@@ -47,7 +49,7 @@ const mapStateToProps = (state: FootballState) => {
   };
 };
 
-const mapDispatchToProps = (dispatch: FootballDispatch) => {
+const mapDispatchToProps = (dispatch: FootballSagasDispatch) => {
   return {
     loadTeams: () => dispatch(actionCreators.loadTeamsSagas()),
   };

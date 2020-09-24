@@ -3,11 +3,15 @@ import * as teamActionCreators from '../actions/teamsActions';
 import * as globalActionCreators from '../actions/globalActions';
 import { TeamsService } from '../../services/teamsService';
 import { GlobalService } from '../../services/globalService';
+import {
+  LoadTeamSagasAction,
+  SaveTeamSagasAction,
+} from '../actions/actionTypes';
 
 const teamsService = new TeamsService();
 const globalService = new GlobalService();
 
-export function* loadTeamsSaga(action: any) {
+export function* loadTeamsSaga() {
   yield put(globalActionCreators.updateLoadingSpinner(true));
 
   try {
@@ -20,7 +24,7 @@ export function* loadTeamsSaga(action: any) {
   }
 }
 
-export function* loadTeamSaga(action: any) {
+export function* loadTeamSaga(action: LoadTeamSagasAction) {
   yield put(globalActionCreators.updateLoadingSpinner(true));
 
   try {
@@ -33,7 +37,7 @@ export function* loadTeamSaga(action: any) {
   }
 }
 
-export function* saveTeamSaga(action: any) {
+export function* saveTeamSaga(action: SaveTeamSagasAction) {
   yield put(globalActionCreators.updateLoadingSpinner(true));
 
   try {

@@ -4,7 +4,8 @@ import * as actionCreators from '../../store/actions/playersActions';
 import TableWithFilteringAndPagination from '../../components/TableWithPagination/TableWithFilteringAndPagination';
 import { TableRow, TableCell, TableHead, TableBody } from '@material-ui/core';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { FootballState, FootballDispatch } from '../../store';
+import { FootballState } from '../../store';
+import { FootballDispatch } from '../../store/middleware/thunkMiddleware';
 
 interface PlayersOverviewParams {
   id: string;

@@ -143,7 +143,7 @@ type SaveTeamAction = {
   payload: any;
 };
 
-type ClearTeamDataction = {
+export type ClearTeamDataAction = {
   type: 'CLEAR_TEAM_DATA';
 };
 
@@ -151,8 +151,31 @@ export type TeamActions =
   | LoadTeamListAction
   | LoadTeamAction
   | SaveTeamAction
-  | ClearTeamDataction;
+  | ClearTeamDataAction;
 
 export const LOAD_TEAM_LIST_SAGAS = 'LOAD_TEAM_LIST_SAGAS';
 export const LOAD_TEAM_SAGAS = 'LOAD_TEAM_SAGAS';
 export const SAVE_TEAM_SAGAS = 'SAVE_TEAM_SAGAS';
+
+export type LoadTeamListSagasAction = {
+  type: 'LOAD_TEAM_LIST_SAGAS';
+};
+
+export type LoadTeamSagasAction = {
+  type: 'LOAD_TEAM_SAGAS';
+  payload: number;
+};
+
+export type SaveTeamSagasAction = {
+  type: 'SAVE_TEAM_SAGAS';
+  payload: any;
+};
+
+export type TeamSagasActions =
+  | LoadTeamListAction
+  | LoadTeamListSagasAction
+  | LoadTeamAction
+  | LoadTeamSagasAction
+  | SaveTeamAction
+  | SaveTeamSagasAction
+  | ClearTeamDataAction;

@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes';
 import * as globalActionCreators from './globalActions';
 import Formatters from '../../utilities/formatters';
-import { FootballDispatch, FootballThunk } from '../../store';
+import { FootballDispatch, FootballThunk } from '../middleware/thunkMiddleware';
 
 export const loadPlayerListSuccessAction = (playerList: any) => {
   return {

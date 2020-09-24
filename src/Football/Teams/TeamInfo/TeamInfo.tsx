@@ -5,7 +5,9 @@ import * as actionCreators from '../../store/actions/teamsActions';
 import RoleVisibleWrapper from '../../components/RoleVisibleComponent/RoleVisibleWrapper';
 import { Paper } from '@material-ui/core';
 import EditTeamComponent from './EditTeam/EditTeam';
-import { FootballState, FootballDispatch } from '../../store';
+import { FootballState } from '../../store';
+import { FootballDispatch } from '../../store/middleware/thunkMiddleware';
+import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
 
 export interface TeamInfoProps {
   teamData: any;
@@ -55,7 +57,7 @@ const mapStateToProps = (state: FootballState) => {
   };
 };
 
-const mapDispatchToProps = (dispatch: FootballDispatch) => {
+const mapDispatchToProps = (dispatch: FootballSagasDispatch) => {
   return {
     saveTeam: (image: any, teamData: any) =>
       dispatch(actionCreators.saveTeamSagas(image, teamData)),

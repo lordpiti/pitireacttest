@@ -10,7 +10,7 @@ export const loadTeamListSuccess = (teamList: any[]) => {
 export const loadTeamsSagas = () => {
   return {
     type: actionTypes.LOAD_TEAM_LIST_SAGAS,
-  };
+  } as actionTypes.LoadTeamListSagasAction;
 };
 
 export const loadTeamSuccess = (teamData: any) => {
@@ -24,7 +24,7 @@ export const loadTeamSagas = (id: number) => {
   return {
     type: actionTypes.LOAD_TEAM_SAGAS,
     payload: id,
-  };
+  } as actionTypes.LoadTeamSagasAction;
 };
 
 export const saveTeamSagas = (image: any, teamData: any) => {
@@ -34,7 +34,7 @@ export const saveTeamSagas = (image: any, teamData: any) => {
       image: image,
       teamData: teamData,
     },
-  };
+  } as actionTypes.SaveTeamSagasAction;
 };
 
 export const saveTeamSuccess = (teamData: any) => {
@@ -47,5 +47,5 @@ export const saveTeamSuccess = (teamData: any) => {
 export const clearTeamData = () => {
   return {
     type: actionTypes.CLEAR_TEAM_DATA,
-  };
+  } as actionTypes.ClearTeamDataAction;
 };

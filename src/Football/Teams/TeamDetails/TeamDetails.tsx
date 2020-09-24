@@ -8,9 +8,9 @@ import SideMenu from '../../components/SideMenu/SideMenu';
 import TeamStadium from '../TeamStadium/TeamStadium';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/teamsActions';
-import { FootballState, FootballDispatch } from '../../store';
+import { FootballState } from '../../store';
 import { useTranslation } from 'react-i18next';
-import { clearTeamData } from '../../store/actions/teamsActions';
+import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
 
 interface TeamsDetailsParams {
   id: string;
@@ -144,7 +144,7 @@ const mapStateToProps = (state: FootballState) => {
   };
 };
 
-const mapDispatchToProps = (dispatch: FootballDispatch) => {
+const mapDispatchToProps = (dispatch: FootballSagasDispatch) => {
   return {
     loadTeam: (teamId: number) =>
       dispatch(actionCreators.loadTeamSagas(teamId)),
