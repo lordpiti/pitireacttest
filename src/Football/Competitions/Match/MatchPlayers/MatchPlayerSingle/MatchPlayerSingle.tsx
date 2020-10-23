@@ -31,7 +31,7 @@ const MatchPlayerSingle = (props: MatchPlayerSingleProps) => {
   return (
     <div className='row match-player-single'>
       <div className='col-sm-1'>{props.player.dorsal}</div>
-      <div className='col-sm-5'>
+      <div className='col-sm-5' data-testid='playerNameSurname'>
         {props.player.name} {props.player.surname}
       </div>
       <div className='col-sm-1'>
