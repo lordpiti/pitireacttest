@@ -62,7 +62,14 @@ class BasicDropzone extends Component<BasicDropzoneProps, BasicDropzoneState> {
             onDrop={(files) => this.onDrop(files)}
             multiple={this.props.settings.multipleFiles}
           >
-            <p>Select an image</p>
+            {({ getRootProps, getInputProps }) => (
+              <section>
+                <div className={styles.dropzonedroparea} {...getRootProps()}>
+                  <input {...getInputProps()} />
+                  <p>Select an image</p>
+                </div>
+              </section>
+            )}
           </Dropzone>
         </div>
         {this.state.files && this.state.files.length > 0 && (

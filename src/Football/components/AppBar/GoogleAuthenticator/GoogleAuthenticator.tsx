@@ -6,8 +6,8 @@ import './GoogleAuthenticator.css';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
 interface OwnProps {
-  authenticationTokenUpdate: any;
-  authenticationToken: string;
+  authenticationTokenUpdate: Function;
+  authenticationToken: string | null;
   showLogoutButton: boolean;
 }
 
@@ -99,4 +99,5 @@ class GoogleAuthenticator extends Component<GoogleAuthenticatorProps> {
   }
 }
 
+// Example of use of the withTranslation HOC
 export default withTranslation()(GoogleAuthenticator);

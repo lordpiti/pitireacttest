@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { WithStyles, withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -24,7 +24,14 @@ const styles = {
   },
 };
 
-const ButtonAppBar = (props: any) => {
+interface OwnProps {
+  onUpdateAuthenticationToken: Function;
+  authenticationToken: string | null;
+}
+
+type AppBarPropsWithStyles = OwnProps & WithStyles;
+
+const ButtonAppBar = (props: AppBarPropsWithStyles) => {
   const { classes } = props;
 
   const facebookAuthenticationType =
@@ -96,7 +103,7 @@ const ButtonAppBar = (props: any) => {
             <FacebookLoginButton
               authenticationToken={props.authenticationToken}
               showLogoutButton={facebookAuthenticationType}
-              authenticationTokenUpdate={(token: any) =>
+              authenticationTokenUpdate={(token: string) =>
                 props.onUpdateAuthenticationToken(token)
               }
             />
@@ -104,7 +111,7 @@ const ButtonAppBar = (props: any) => {
             <GoogleLoginButton
               authenticationToken={props.authenticationToken}
               showLogoutButton={!facebookAuthenticationType}
-              authenticationTokenUpdate={(token: any) =>
+              authenticationTokenUpdate={(token: string) =>
                 props.onUpdateAuthenticationToken(token)
               }
             />

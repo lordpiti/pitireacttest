@@ -4,7 +4,15 @@ import axiosInstance from 'axios';
 import Button from '@material-ui/core/Button';
 import './FacebookAuthenticator.scss';
 
-const FacebookAuthenticator = (props: any) => {
+interface OwnProps {
+  authenticationTokenUpdate: Function;
+  authenticationToken: string | null;
+  showLogoutButton: boolean;
+}
+
+type GoogleAuthenticatorProps = OwnProps;
+
+const FacebookAuthenticator = (props: GoogleAuthenticatorProps) => {
   const responseFacebook = (response: any) => {
     const url = `${process.env.REACT_APP_LOGIN_API_URL}/user/Login`;
     // const url = `http://localhost:3001/user/Login`;
