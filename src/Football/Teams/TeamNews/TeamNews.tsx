@@ -51,7 +51,7 @@ const TeamNews = (props: TeamNewsProps) => {
 
     const CORS_PROXY = process.env.REACT_APP_CORS_PROXY;
 
-    let parser = new Parser({
+    const parser = new Parser({
       customFields: {
         item: [
           ['media:content', 'media:content'],

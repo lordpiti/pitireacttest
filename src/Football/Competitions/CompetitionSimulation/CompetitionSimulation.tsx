@@ -29,13 +29,14 @@ class CompetitionSimulation extends Component<any, CompetitionSimulationState> {
     });
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   constructor(props: any) {
     super(props);
     this.setupHub();
   }
 
   setupHub() {
-    this.connection.on('StartSimulation', (data) => {
+    this.connection.on('StartSimulation', () => {
       console.log('Simulation started');
       this.setState({
         matches: [],
@@ -52,7 +53,7 @@ class CompetitionSimulation extends Component<any, CompetitionSimulationState> {
     });
 
     this.connection.on('SendCreateMatch', (data) => {
-      let newlist = this.state.matches.slice();
+      const newlist = this.state.matches.slice();
       if (data.matchId) {
         let existingMatch = newlist.find((match) => match.id === data.matchId);
         // create the new match object
@@ -82,7 +83,7 @@ class CompetitionSimulation extends Component<any, CompetitionSimulationState> {
     });
 
     this.connection.on('Send', (data) => {
-      let copyMatches = this.state.matches.slice();
+      const copyMatches = this.state.matches.slice();
       const matchToAddEvent = copyMatches.find((x) => x.id === data.matchId);
 
       if (matchToAddEvent) {

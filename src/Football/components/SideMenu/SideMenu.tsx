@@ -28,12 +28,13 @@ const styles = (theme: Theme) => ({
   icon: {},
 });
 
-const ListItemComposition: FunctionComponent<SideMenuProps> = (props) => {
-  const { itemList } = props;
-
+const ListItemComposition: FunctionComponent<SideMenuProps> = ({
+  itemList,
+  children,
+}) => {
   return (
     <div>
-      {props.children}
+      {children}
       <Paper>
         <MenuList>
           {itemList.map((item, index) => (

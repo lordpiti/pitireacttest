@@ -13,6 +13,7 @@ import { MuiPickersUtilsProvider, DatePicker } from 'material-ui-pickers';
 import editModal from '../../../components/EditModal/editModal';
 import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';
+// import LocationSearchInput from '../../../components/PlacesAutocomplete/PlacesAutocomplete';
 
 class EditPlayerInfo extends React.Component<any, any> {
   validator: FormValidator = {} as FormValidator;
@@ -116,7 +117,7 @@ class EditPlayerInfo extends React.Component<any, any> {
   render() {
     const { classes } = this.props;
 
-    let validation = this.submitted // if the form has been submitted at least once
+    const validation = this.submitted // if the form has been submitted at least once
       ? this.validator.validate(this.state.playerData) // then check validity every time we render
       : this.state.validation; // otherwise just use what's in state
 
@@ -211,6 +212,19 @@ class EditPlayerInfo extends React.Component<any, any> {
                     margin='normal'
                     onChange={this.handleInputChange}
                   />
+                  {/* <LocationSearchInput
+                    value={this.state.playerData.birthPlace}
+                    onChange={(birthPlace: any) => {
+                      this.setState({
+                        playerData: {
+                          ...this.state.playerData,
+                          birthPlace: birthPlace,
+                        },
+                      });
+                    }}
+                  > 
+                  //custom reander function
+                  </LocationSearchInput> */}
                 </div>
                 <div>
                   <FormControl required className={classes.formControl}>

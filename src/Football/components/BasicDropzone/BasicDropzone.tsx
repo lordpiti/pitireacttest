@@ -29,7 +29,7 @@ class BasicDropzone extends Component<BasicDropzoneProps, BasicDropzoneState> {
 
   onDrop(files: FileWithPreview[]) {
     let filesWithPreview = files;
-    let invalidFiles: File[] = [];
+    const invalidFiles: File[] = [];
     //needed to get the preview image for the thumbnail
     if (this.props.settings.isImage) {
       filesWithPreview = [];

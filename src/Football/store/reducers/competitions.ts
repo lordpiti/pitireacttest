@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import * as actionTypes from '../actions/actionTypes';
 import { createSelector } from 'reselect';
 import { FootballState } from '../../store';
@@ -29,8 +30,8 @@ const reducer = (
         },
       } as CompetitionsState;
     case actionTypes.LOAD_COMPETITION_TEAM_EVOLUTION:
-      let teamsCopy = [...state.currentCompetition.teams];
-      let teamsWithSelected = teamsCopy.map((team) => {
+      const teamsCopy = [...state.currentCompetition.teams];
+      const teamsWithSelected = teamsCopy.map((team) => {
         team.selected = team.id == action.payload.teamId;
         return team;
       });

@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -13,11 +17,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react",
-    "typeRoots": ["./types", "node_modules/@types"]
+    "jsx": "react-jsx",
+    "typeRoots": [
+      "./types",
+      "node_modules/@types"
+    ],
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
-  //IMPORTANT: create types for third party libraries when not available
-  //https://www.ankursheel.com/blog/custom-type-definitions-for-java-script-dependencies
-  "exclude": ["types"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "types"
+  ]
 }

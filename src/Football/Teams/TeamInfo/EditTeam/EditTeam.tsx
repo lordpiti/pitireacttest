@@ -105,7 +105,7 @@ class EditTeamInfo extends React.Component<EditTeamProps, EditTeamState> {
   render() {
     const { classes } = this.props;
 
-    let validation = this.submitted // if the form has been submitted at least once
+    const validation = this.submitted // if the form has been submitted at least once
       ? this.validator.validate(this.state.teamData) // then check validity every time we render
       : this.state.validation; // otherwise just use what's in state
 

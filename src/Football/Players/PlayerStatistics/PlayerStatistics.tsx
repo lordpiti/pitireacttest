@@ -69,7 +69,7 @@ const PlayerStatistics = (props: RouteComponentProps<MatchParams>) => {
     dispatch(actionCreators.updateLoadingSpinner(false));
   }
 
-  let groupedCompetitions = Helpers.groupBy(
+  const groupedCompetitions = Helpers.groupBy(
     data.player.playerMatchesPlayed,
     'competition.id'
   );
@@ -80,7 +80,7 @@ const PlayerStatistics = (props: RouteComponentProps<MatchParams>) => {
 
   const uniqueCompetitions = Helpers.removeDuplicates(allCompetitions, 'id');
 
-  let matchListGroupedByCompetition = Object.entries(groupedCompetitions).map(
+  const matchListGroupedByCompetition = Object.entries(groupedCompetitions).map(
     (group) => {
       return {
         competition: uniqueCompetitions.find((x) => group[0] == x.id),

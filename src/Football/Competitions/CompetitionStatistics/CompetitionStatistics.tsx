@@ -44,11 +44,10 @@ class CompetitionStatistics extends Component<any, any> {
 
   render() {
     let evolutionData,
-      statisticsData,
       teamsData,
       currentTeamData = null;
 
-    statisticsData = <div>Statistics</div>;
+    const statisticsData = <div>Statistics</div>;
 
     if (this.props.teams) {
       if (this.props.evolutionData) {

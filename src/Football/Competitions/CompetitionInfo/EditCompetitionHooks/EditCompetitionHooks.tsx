@@ -29,9 +29,10 @@ const EditCompetitionInfo = (props: EditCompetitionProps) => {
     },
   ]);
 
-  const [currentImageState, setCurrentImageState] = useState({
-    currentImage: null as any,
-  });
+  const initialState: any = {
+    currentImage: null,
+  };
+  const [currentImageState, setCurrentImageState] = useState(initialState);
 
   const [
     currentCompetitionDataState,
@@ -103,7 +104,7 @@ const EditCompetitionInfo = (props: EditCompetitionProps) => {
     }
   };
 
-  let validation: any = submitted // if the form has been submitted at least once
+  const validation: any = submitted // if the form has been submitted at least once
     ? validator.validate(currentCompetitionDataState) // then check validity every time we render
     : currentValidationState.validation; // otherwise just use what's in state
 

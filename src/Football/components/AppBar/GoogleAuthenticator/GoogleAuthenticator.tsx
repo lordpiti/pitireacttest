@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { GoogleLogin } from 'react-google-login';
 import Button from '@material-ui/core/Button';
 import axiosInstance from 'axios';
-import './GoogleAuthenticator.css';
+import './GoogleAuthenticator.scss';
 import { withTranslation, WithTranslation } from 'react-i18next';
 
 interface OwnProps {

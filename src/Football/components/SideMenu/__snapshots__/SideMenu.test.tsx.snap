@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideMenu renders correctly a sidemenu component with the right data 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="MuiPaper-root MuiPaper-elevation1 MuiPaper-rounded"
+    >
+      <ul
+        class="MuiList-root MuiList-padding"
+        role="menu"
+        tabindex="-1"
+      >
+        <a
+          href="test1"
+          tabindex="0"
+        >
+          <li
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+            role="menuitem"
+            tabindex="-1"
+          >
+            test1
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </li>
+        </a>
+        <a
+          href="test2"
+        >
+          <li
+            aria-disabled="false"
+            class="MuiButtonBase-root MuiListItem-root MuiMenuItem-root MuiMenuItem-gutters MuiListItem-gutters MuiListItem-button"
+            role="menuitem"
+            tabindex="-1"
+          >
+            test2
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </li>
+        </a>
+      </ul>
+    </div>
+  </div>
+</DocumentFragment>
+`;
