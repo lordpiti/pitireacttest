@@ -12,7 +12,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Typography from '@material-ui/core/Typography';
 import Formatters from '../../../utilities/formatters';
 import './ReaderCard.scss';
-import Parser from 'rss-parser';
+import { EnhancedItem } from '../RSSReader';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -27,7 +27,7 @@ const styles = (theme: Theme) =>
 
 interface OwnProps {
   classes: any;
-  cardData: any;
+  cardData: EnhancedItem;
 }
 
 type ReaderCardProps = OwnProps & WithStyles;

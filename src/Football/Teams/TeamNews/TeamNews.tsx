@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import RSSReader from '../../components/RSSReader/RSSReader';
 import Parser from 'rss-parser';
 import { useTranslation } from 'react-i18next';
+import {
+  EnhancedItem,
+  ParsedRSSData,
+} from '../../components/RSSReader/RSSReader';
 
 interface TeamNewsProps {
   teamData: any;
@@ -9,7 +13,7 @@ interface TeamNewsProps {
 
 const TeamNews = (props: TeamNewsProps) => {
   const [currentFeedList, setCurrentFeedList] = useState({
-    feedList: [] as Parser.Item[] | undefined,
+    feedList: [] as EnhancedItem[] | undefined,
   });
 
   const { t, i18n } = useTranslation();
@@ -51,12 +55,9 @@ const TeamNews = (props: TeamNewsProps) => {
 
     const CORS_PROXY = process.env.REACT_APP_CORS_PROXY;
 
-    const parser = new Parser({
+    const parser = new Parser<any, ParsedRSSData>({
       customFields: {
-        item: [
-          ['media:content', 'media:content'],
-          ['media:thumbnail', 'media:thumbnail'],
-        ],
+        item: ['media:content', 'media:thumbnail'],
       },
     });
 

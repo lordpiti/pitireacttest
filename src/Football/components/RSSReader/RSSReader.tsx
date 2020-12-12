@@ -3,8 +3,16 @@ import Parser from 'rss-parser';
 import ReaderCard from './ReaderCard/ReaderCard';
 
 interface RSSReaderProps {
-  feedList: any[] | undefined;
+  feedList: EnhancedItem[] | undefined;
 }
+
+export interface ParsedRSSData {
+  'media:content': { $: { url: string } };
+  'media:thumbnail': { $: { url: string } };
+  index: number;
+}
+
+export type EnhancedItem = ParsedRSSData & Parser.Item;
 
 const RSSReader = (props: RSSReaderProps) => {
   let newsList = null;
