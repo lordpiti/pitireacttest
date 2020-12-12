@@ -49,6 +49,8 @@ const FacebookAuthenticator = (props: GoogleAuthenticatorProps) => {
         fields='name,email,picture'
         onClick={componentClicked}
         callback={responseFacebook}
+        cssClass='my-facebook-button-class'
+        icon='fa-facebook'
       />
     );
   } else {

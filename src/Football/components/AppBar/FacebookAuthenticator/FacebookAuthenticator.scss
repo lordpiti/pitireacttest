@@ -1,10 +1,26 @@
 .loginImage {
-    height: 40px;
-    width: 40px;
-    vertical-align: middle;
-    margin-right: 10px;
+  height: 40px;
+  width: 40px;
+  vertical-align: middle;
+  margin-right: 10px;
 }
 
 .loginName {
-    margin-right: 10px;
+  margin-right: 10px;
+}
+
+.my-facebook-button-class {
+  color: white;
+  font-weight: 500;
+  padding: 12px;
+  background-color: purple;
+  font-size: 14px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  margin-right: 10px;
+  cursor: pointer;
+
+  .fa.fa-facebook {
+    margin-right: 20px;
+  }
 }
