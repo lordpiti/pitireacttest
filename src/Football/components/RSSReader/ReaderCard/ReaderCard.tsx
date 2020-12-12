@@ -27,7 +27,7 @@ const styles = (theme: Theme) =>
 
 interface OwnProps {
   classes: any;
-  cardData: Parser.Item;
+  cardData: any;
 }
 
 type ReaderCardProps = OwnProps & WithStyles;

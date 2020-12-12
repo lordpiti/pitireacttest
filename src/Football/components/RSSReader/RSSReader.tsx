@@ -3,7 +3,7 @@ import Parser from 'rss-parser';
 import ReaderCard from './ReaderCard/ReaderCard';
 
 interface RSSReaderProps {
-  feedList: Parser.Item[] | undefined;
+  feedList: any[] | undefined;
 }
 
 const RSSReader = (props: RSSReaderProps) => {
