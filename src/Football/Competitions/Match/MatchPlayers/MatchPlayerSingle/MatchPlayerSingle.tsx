@@ -1,4 +1,9 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faAngleDoubleLeft,
+  faAngleDoubleRight,
+} from '@fortawesome/free-solid-svg-icons';
 
 export interface PlayerMatchSingle {
   name: string;
@@ -34,17 +39,21 @@ const MatchPlayerSingle = (props: MatchPlayerSingleProps) => {
       <div className='col-sm-5' data-testid='playerNameSurname'>
         {props.player.name} {props.player.surname}
       </div>
-      <div className='col-sm-1'>
+      <div className='col-sm-2'>
         {props.player.substitutionIn && (
           <span>
-            <span className='glyphicon glyphicon-arrow-left'></span>
-            <span>{props.player.substitutionIn.minute}</span>
+            <FontAwesomeIcon icon={faAngleDoubleLeft} />
+            <label className='small'>
+              {props.player.substitutionIn.minute}
+            </label>
           </span>
         )}
         {props.player.substitutionOut && (
           <span>
-            <span className='glyphicon glyphicon-arrow-right'></span>
-            <span>{props.player.substitutionOut.minute}</span>
+            <FontAwesomeIcon icon={faAngleDoubleRight} />
+            <label className='small'>
+              {props.player.substitutionOut.minute}
+            </label>
           </span>
         )}
       </div>

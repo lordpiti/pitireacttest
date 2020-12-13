@@ -1,12 +1,14 @@
 import React from 'react';
 import { withStyles, Theme } from '@material-ui/core/styles';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import SingleGamePlayed from './SingleGamePlayed/SingleGamePlayed';
 import { RouteComponentProps } from 'react-router';
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+} from '@material-ui/core';
 
 const styles = (theme: Theme) => ({
   root: {
@@ -29,28 +31,28 @@ const SimpleExpansionPanel = (props: ExpansionPanelProps) => {
   return (
     <div className={classes.root}>
       {props.matchListGroupedByCompetition.map((group: any) => (
-        <ExpansionPanel key={group.competition.id}>
-          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+        <Accordion key={group.competition.id}>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography className={classes.heading}>
               {group.competition.name} {group.competition.season}
             </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+          </AccordionSummary>
+          <AccordionDetails>
             <div style={{ display: 'inline-block', width: '100%' }}>
               {group.data.map((match: any, index: number) => (
                 <SingleGamePlayed key={index} gamePlayed={match} {...props} />
               ))}
             </div>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
+          </AccordionDetails>
+        </Accordion>
       ))}
-      <ExpansionPanel disabled>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+      <Accordion disabled>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           <Typography className={classes.heading}>
             Disabled Expansion Panel
           </Typography>
-        </ExpansionPanelSummary>
-      </ExpansionPanel>
+        </AccordionSummary>
+      </Accordion>
     </div>
   );
 };
