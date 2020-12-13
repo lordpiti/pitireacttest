@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HubConnectionBuilder, HubConnection } from '@aspnet/signalr';
 import CompetitionSimulationMatch from './CompetitionSimulationMatch/CompetitionSimulationMatch';
 import Countdown from '../../components/Countdown/Countdown';
@@ -38,7 +38,7 @@ const CompetitionSimulation = (props: any) => {
         .build();
 
       connection.on('StartSimulation', (data: any) => {
-        console.log('Simulation started');
+        // console.log('Simulation started');
         setMatches([]);
         setLiveState({
           live: true,
@@ -46,7 +46,7 @@ const CompetitionSimulation = (props: any) => {
       });
 
       connection.on('EndSimulation', (data: any) => {
-        console.log('Simulation finished');
+        // console.log('Simulation finished');
         setLiveState({
           live: false,
         });

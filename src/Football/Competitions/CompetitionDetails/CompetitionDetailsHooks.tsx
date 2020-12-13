@@ -35,7 +35,7 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
     },
   ];
 
-  let competitionTypeContent: any = null;
+  let competitionTypeContent = <></>;
 
   if (theState.currentCompetition) {
     if (theState.currentCompetition.type !== 'Playoff') {

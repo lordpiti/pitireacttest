@@ -21,15 +21,6 @@ import LastPageIcon from '@material-ui/icons/LastPage';
 import { Link } from 'react-router-dom';
 import { Typography } from '@material-ui/core';
 
-const actionsStyles = (theme: Theme) =>
-  createStyles({
-    root: {
-      flexShrink: 0,
-      color: theme.palette.text.secondary,
-      marginLeft: theme.spacing(2.5),
-    },
-  });
-
 const useStyles1 = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -116,10 +107,6 @@ const TablePaginationActions = (props: TablePaginationActionsProps) => {
   );
 };
 
-const TablePaginationActionsWrapped = withStyles(actionsStyles, {
-  withTheme: true,
-})(TablePaginationActions);
-
 const styles = (theme: Theme) =>
   createStyles({
     root: {
@@ -204,7 +191,7 @@ class Scorers extends Component<any, any> {
                   page={page}
                   onChangePage={this.handleChangePage}
                   onChangeRowsPerPage={this.handleChangeRowsPerPage}
-                  ActionsComponent={TablePaginationActionsWrapped as any}
+                  ActionsComponent={TablePaginationActions}
                 />
               </TableRow>
             </TableFooter>

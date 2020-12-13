@@ -42,7 +42,7 @@ export function* saveTeamSaga(action: SaveTeamSagasAction) {
 
   try {
     if (!action.payload.image) {
-      const response = yield teamsService.saveTeamData(action.payload.teamData);
+      yield teamsService.saveTeamData(action.payload.teamData);
 
       yield put(teamActionCreators.saveTeamSuccess(action.payload.teamData));
       yield put(globalActionCreators.updateLoadingSpinner(false));
@@ -60,7 +60,7 @@ export function* saveTeamSaga(action: SaveTeamSagasAction) {
         pictureLogo: response.data,
       };
 
-      const response2 = yield teamsService.saveTeamData(updatedTeamData);
+      yield teamsService.saveTeamData(updatedTeamData);
 
       yield put(teamActionCreators.saveTeamSuccess(updatedTeamData));
       yield put(globalActionCreators.updateLoadingSpinner(false));

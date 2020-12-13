@@ -16,9 +16,9 @@ const Home = () => {
         item: [['media:content', 'media:thumbnail']],
       },
     });
-    const CORS_PROXY = process.env.REACT_APP_CORS_PROXY as any;
+
     parser.parseURL(
-      CORS_PROXY + process.env.REACT_APP_HOME_RSS_FEED,
+      `${process.env.REACT_APP_CORS_PROXY}${process.env.REACT_APP_HOME_RSS_FEED}`,
       (err, feed) => {
         if (feed) {
           setCurrentFeedList({

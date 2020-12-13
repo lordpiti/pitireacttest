@@ -2,7 +2,7 @@ import React from 'react';
 import CompetitionDetailsHooks from './CompetitionDetailsHooks';
 import { shallow } from 'enzyme';
 import { match } from 'react-router';
-import { createMemoryHistory, createLocation } from 'history';
+import { createMemoryHistory } from 'history';
 
 jest.mock('react-redux', () => ({
   useDispatch: () => {},

@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import * as globalActionCreators from './globalActions';
-import { GlobalService } from '../../services/globalService';
+import { GlobalService, ImagePostData } from '../../services/globalService';
 import { CompetitionService } from '../../services/competitionsService';
 import { FootballDispatch } from '../middleware/thunkMiddleware';
 
@@ -141,14 +141,12 @@ export const loadCompetitionDrawSuccess = (draw: any) => {
 //   setDrawState(response.data);
 // });
 
-export const saveCompetition = (image: any, competitionData: any) => {
+export const saveCompetition = (image: ImagePostData, competitionData: any) => {
   return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
 
     if (!image) {
-      const response = await competitionService.saveCompetitionData(
-        competitionData
-      );
+      await competitionService.saveCompetitionData(competitionData);
 
       dispatch(saveCompetitionSuccess(competitionData));
       dispatch(globalActionCreators.updateLoadingSpinner(false));
@@ -164,9 +162,7 @@ export const saveCompetition = (image: any, competitionData: any) => {
         ...competitionData,
         logo: response.data,
       };
-      const resp2 = await competitionService.saveCompetitionData(
-        updatedCompetitionData
-      );
+      await competitionService.saveCompetitionData(updatedCompetitionData);
       dispatch(saveCompetitionSuccess(updatedCompetitionData));
       dispatch(globalActionCreators.updateLoadingSpinner(false));
       dispatch(

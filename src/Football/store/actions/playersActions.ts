@@ -2,6 +2,7 @@ import * as actionTypes from './actionTypes';
 import * as globalActionCreators from './globalActions';
 import Formatters from '../../utilities/formatters';
 import { FootballDispatch, FootballThunk } from '../middleware/thunkMiddleware';
+import { ImagePostData } from '../../services/globalService';
 
 export const loadPlayerListSuccessAction = (playerList: any) => {
   return {
@@ -59,7 +60,7 @@ export const loadPlayerAction = (id: any): FootballThunk => {
 };
 
 export const savePlayerAction = (
-  image: any,
+  image: ImagePostData,
   playerData: any
 ): FootballThunk => {
   return async (
@@ -70,7 +71,7 @@ export const savePlayerAction = (
     dispatch(globalActionCreators.updateLoadingSpinner(true));
 
     if (!image) {
-      const playerResponse = await playerService.savePlayerData(playerData);
+      await playerService.savePlayerData(playerData);
 
       dispatch(savePlayerSuccessAction(playerData));
       dispatch(globalActionCreators.updateLoadingSpinner(false));
@@ -85,9 +86,7 @@ export const savePlayerAction = (
 
       const updatedPlayerData = { ...playerData, picture: response.data };
 
-      const playerResponse = await playerService.savePlayerData(
-        updatedPlayerData
-      );
+      await playerService.savePlayerData(updatedPlayerData);
 
       dispatch(savePlayerSuccessAction(updatedPlayerData));
       dispatch(globalActionCreators.updateLoadingSpinner(false));

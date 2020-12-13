@@ -43,15 +43,22 @@ const ButtonAppBar = (props: AppBarPropsWithStyles) => {
     <div className={classes.root}>
       <AppBar position='static'>
         <Toolbar>
-          <span
-            style={{
-              fontSize: 'x-large',
-              fontWeight: 'bold',
-              marginRight: '20px',
+          <NavLink
+            className='homeLink'
+            to={{
+              pathname: '/',
             }}
           >
-            FootballWeb React
-          </span>
+            <span
+              style={{
+                fontSize: 'x-large',
+                fontWeight: 'bold',
+                marginRight: '20px',
+              }}
+            >
+              FootballWeb React
+            </span>
+          </NavLink>
           <Typography
             variant='subtitle1'
             color='inherit'

@@ -1,3 +1,5 @@
+import { ImagePostData } from '../../services/globalService';
+
 //Global
 export const UPDATE_LOADING_SPINNER = 'UPDATE_LOADING_SPINNER';
 export const TOAST_DASH_MESSAGE = 'TOAST_DASH_MESSAGE';
@@ -37,7 +39,7 @@ export const SAVE_PLAYER = 'SAVE_PLAYER';
 
 type LoadPlayerListAction = {
   type: 'LOAD_PLAYER_LIST';
-  payload: any;
+  payload: any[];
 };
 
 type FilterPlayerListAction = {
@@ -128,6 +130,11 @@ export const LOAD_TEAM = 'LOAD_TEAM';
 export const SAVE_TEAM = 'SAVE_TEAM';
 export const CLEAR_TEAM_DATA = 'CLEAR_TEAM_DATA';
 
+interface TeamDataWithImage {
+  image: ImagePostData;
+  teamData: any;
+}
+
 type LoadTeamListAction = {
   type: 'LOAD_TEAM_LIST';
   payload: any[];
@@ -140,7 +147,7 @@ type LoadTeamAction = {
 
 type SaveTeamAction = {
   type: 'SAVE_TEAM';
-  payload: any;
+  payload: TeamDataWithImage;
 };
 
 export type ClearTeamDataAction = {
@@ -168,7 +175,7 @@ export type LoadTeamSagasAction = {
 
 export type SaveTeamSagasAction = {
   type: 'SAVE_TEAM_SAGAS';
-  payload: any;
+  payload: TeamDataWithImage;
 };
 
 export type TeamSagasActions =

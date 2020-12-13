@@ -35,7 +35,7 @@ class CompetitionDetails extends Component<CompetitionDetailsProps> {
       },
     ];
 
-    let competitionTypeContent = null as any;
+    let competitionTypeContent = <></>;
 
     let pageContent = null;
 

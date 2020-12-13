@@ -10,3 +10,12 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.homeLink {
+  &.active,
+  .active button,
+  .active button:hover {
+    background-color: transparent;
+    color: white;
+  }
+}
