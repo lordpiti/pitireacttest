@@ -48,23 +48,13 @@ const EditCompetitionInfo = (props: EditCompetitionProps) => {
   let submitted = false;
 
   const callbackDropzone = (files: File[]) => {
-    let fileToUpload = null;
     files.forEach((file) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        // do whatever you want with the file content
-        fileToUpload = reader.result;
-
-        setCurrentImageState({
-          currentImage: {
-            data: fileToUpload,
-            fileName: 'test.png',
-          },
-        });
-      };
-      reader.onabort = () => console.log('file reading was aborted');
-      reader.onerror = () => console.log('file reading has failed');
-      reader.readAsDataURL(file);
+      setCurrentImageState({
+        currentImage: {
+          data: file,
+          fileName: 'test.png',
+        },
+      });
     });
   };
 

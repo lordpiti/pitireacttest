@@ -141,7 +141,7 @@ export const loadCompetitionDrawSuccess = (draw: any) => {
 //   setDrawState(response.data);
 // });
 
-export const saveCompetition = (image: ImagePostData, competitionData: any) => {
+export const saveCompetition = (image: any, competitionData: any) => {
   return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
 
@@ -157,7 +157,7 @@ export const saveCompetition = (image: ImagePostData, competitionData: any) => {
         )
       ); //success, warning, error or info
     } else {
-      const response = await globalService.saveImage(image);
+      const response = await globalService.saveDocument(image);
       const updatedCompetitionData = {
         ...competitionData,
         logo: response.data,

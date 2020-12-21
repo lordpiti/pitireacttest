@@ -13,4 +13,13 @@ export class GlobalService {
       FileName: image.fileName,
     });
   }
+
+  public async saveDocument(image: any): Promise<AxiosResponse<any>> {
+    const formData = new FormData();
+    formData.append("files", image.data);
+    return await axiosInstance.post('GlobalMedia/UploadDocument', formData,  {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }});
+  }
 }
