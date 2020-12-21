@@ -50,10 +50,7 @@ const EditCompetitionInfo = (props: EditCompetitionProps) => {
   const callbackDropzone = (files: File[]) => {
     files.forEach((file) => {
       setCurrentImageState({
-        currentImage: {
-          data: file,
-          fileName: 'test.png',
-        },
+        currentImage: file,
       });
     });
   };
@@ -81,15 +78,10 @@ const EditCompetitionInfo = (props: EditCompetitionProps) => {
     submitted = true;
 
     if (validation.isValid) {
-      let image = null;
-
-      if (currentImageState.currentImage) {
-        image = {
-          data: currentImageState.currentImage.data,
-          fileName: currentImageState.currentImage.fileName,
-        };
-      }
-      props.saveCompetition(image, currentCompetitionDataState);
+      props.saveCompetition(
+        currentImageState.currentImage,
+        currentCompetitionDataState
+      );
       props.handleClose();
     }
   };
