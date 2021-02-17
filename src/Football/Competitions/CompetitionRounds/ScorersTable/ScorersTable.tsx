@@ -12,14 +12,13 @@ import TableCell from '@material-ui/core/TableCell';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import { Link } from 'react-router-dom';
-import { Typography } from '@material-ui/core';
+import { Card, CardContent, CardHeader } from '@material-ui/core';
 
 const useStyles1 = makeStyles((theme: Theme) =>
   createStyles({
@@ -120,7 +119,6 @@ const styles = (theme: Theme) =>
     },
     tableWrapper: {
       overflowX: 'auto',
-      marginTop: 10,
     },
   });
 
@@ -149,55 +147,58 @@ class Scorers extends Component<any, any> {
       rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
     return (
-      <Paper className={classes.root}>
-        <Typography component='h3'>Scorers</Typography>
-        <div className={classes.tableWrapper}>
-          <Table className={classes.table}>
-            <TableBody>
-              {rows
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row: any) => {
-                  return (
-                    <TableRow key={row.player.playerId}>
-                      <TableCell component='th' scope='row'>
-                        <Link
-                          to={{
-                            pathname:
-                              '/players/player-details/' + row.player.playerId,
-                          }}
-                        >
-                          <div>
-                            {row.player.name} {row.player.surname}
-                          </div>
-                        </Link>
-                      </TableCell>
-                      <TableCell>{row.player.teamName}</TableCell>
-                      <TableCell>{row.goals}</TableCell>
-                    </TableRow>
-                  );
-                })}
-              {emptyRows > 0 && (
-                <TableRow style={{ height: 48 * emptyRows }}>
-                  <TableCell colSpan={6} />
+      <Card>
+        <CardHeader title='Scorers' />
+        <CardContent>
+          <div className={classes.tableWrapper}>
+            <Table className={classes.table}>
+              <TableBody>
+                {rows
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row: any) => {
+                    return (
+                      <TableRow key={row.player.playerId}>
+                        <TableCell component='th' scope='row'>
+                          <Link
+                            to={{
+                              pathname:
+                                '/players/player-details/' +
+                                row.player.playerId,
+                            }}
+                          >
+                            <div>
+                              {row.player.name} {row.player.surname}
+                            </div>
+                          </Link>
+                        </TableCell>
+                        <TableCell>{row.player.teamName}</TableCell>
+                        <TableCell>{row.goals}</TableCell>
+                      </TableRow>
+                    );
+                  })}
+                {emptyRows > 0 && (
+                  <TableRow style={{ height: 48 * emptyRows }}>
+                    <TableCell colSpan={6} />
+                  </TableRow>
+                )}
+              </TableBody>
+              <TableFooter>
+                <TableRow>
+                  <TablePagination
+                    colSpan={3}
+                    count={rows.length}
+                    rowsPerPage={rowsPerPage}
+                    page={page}
+                    onChangePage={this.handleChangePage}
+                    onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                    ActionsComponent={TablePaginationActions}
+                  />
                 </TableRow>
-              )}
-            </TableBody>
-            <TableFooter>
-              <TableRow>
-                <TablePagination
-                  colSpan={3}
-                  count={rows.length}
-                  rowsPerPage={rowsPerPage}
-                  page={page}
-                  onChangePage={this.handleChangePage}
-                  onChangeRowsPerPage={this.handleChangeRowsPerPage}
-                  ActionsComponent={TablePaginationActions}
-                />
-              </TableRow>
-            </TableFooter>
-          </Table>
-        </div>
-      </Paper>
+              </TableFooter>
+            </Table>
+          </div>
+        </CardContent>
+      </Card>
     );
   }
 }

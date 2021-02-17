@@ -1,3 +1,18 @@
+.player-details {
+  display: flex;
+  flex-direction: row;
+
+  .sidebar {
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  .main-content {
+    flex: 4;
+    justify-content: space-evenly;
+  }
+}
+
 .roundedImage {
   border-radius: 50%;
 }

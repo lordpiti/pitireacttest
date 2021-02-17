@@ -67,7 +67,7 @@ class EditTeamInfo extends React.Component<EditTeamProps, EditTeamState> {
   dropzoneSettings = {
     multipleFiles: false,
     callback: this.callbackDropzone,
-    isImage: false, //TODO: change it to true
+    isImage: true,
   };
 
   handleInputChange = (event: any) => {

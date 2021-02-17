@@ -1,0 +1,12 @@
+.edit-player {
+  display: flex;
+  flex-direction: row;
+
+  .input-area {
+    flex: 7;
+  }
+
+  .picture-area {
+    flex: 5;
+  }
+}

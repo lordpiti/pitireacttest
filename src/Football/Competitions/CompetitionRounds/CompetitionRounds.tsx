@@ -19,6 +19,7 @@ import { FootballState } from '../../store';
 import * as actionCreators from '../../store/actions/competitionsActions';
 import { getCurrentCompetitionRounds } from '../../store/reducers/competitions';
 import { FootballDispatch } from '../../store/middleware/thunkMiddleware';
+import './CompetitionRounds.scss';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -85,7 +86,7 @@ class CompetitionRounds extends React.Component<
     const { classes } = this.props;
 
     return (
-      <div>
+      <>
         <h1>Competition Games</h1>
 
         <Paper className={classes.boxSelectRound}>
@@ -111,38 +112,34 @@ class CompetitionRounds extends React.Component<
         </Paper>
 
         {this.props.currentRound && (
-          <div className='row'>
-            <div className='col-sm-6'>
-              <div className='row'>
-                <div className='col-sm-12'>
-                  {this.props.currentRound.matchList && (
-                    <MatchList
-                      matchList={this.props.currentRound.matchList}
-                      currentUrl={this.props.match.url}
-                    />
-                  )}
-                </div>
+          <div className='competition-rounds-content'>
+            <div className='half'>
+              <div className='rounds-panel'>
+                {this.props.currentRound.matchList && (
+                  <MatchList
+                    matchList={this.props.currentRound.matchList}
+                    currentUrl={this.props.match.url}
+                  />
+                )}
               </div>
-              <div className='row'>
-                <div className='col-sm-12'>
-                  {this.props.currentRound.teamStatsRoundList && (
-                    <TableLeague
-                      teamStatsRoundList={
-                        this.props.currentRound.teamStatsRoundList
-                      }
-                    />
-                  )}
-                </div>
+              <div className='rounds-panel'>
+                {this.props.currentRound.teamStatsRoundList && (
+                  <TableLeague
+                    teamStatsRoundList={
+                      this.props.currentRound.teamStatsRoundList
+                    }
+                  />
+                )}
               </div>
             </div>
-            <div className='col-sm-6'>
+            <div className='half'>
               {this.props.currentRound.scorers && (
                 <ScorersTable scorersList={this.props.currentRound.scorers} />
               )}
             </div>
           </div>
         )}
-      </div>
+      </>
     );
   }
 }

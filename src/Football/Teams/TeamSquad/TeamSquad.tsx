@@ -1,30 +1,22 @@
-import React from 'react';
 import SimpleCard from './SimpleCard/SimpleCard';
+import './TeamSquad.scss';
 
 export interface TeamSquadProps {
-  players: any[]
+  players: any[];
 }
 
 const TeamSquad = (props: TeamSquadProps) => {
-  let playerList = null;
-
-  if (props.players) {
-    playerList = props.players.map(player =>
-      <div key={player.playerId} className="col-md-3 col-sm-4 col-xs-6">
-        <SimpleCard cardData={player}></SimpleCard>
-      </div>
-    )
-  }
-
   return (
     <div>
       <h1>Team Squad</h1>
-      <div className="row">
-        {playerList}
+      <div className='team-squad'>
+        {props.players &&
+          props.players.map((player) => (
+            <SimpleCard key={player.playerId} cardData={player}></SimpleCard>
+          ))}
       </div>
     </div>
   );
-}
-
+};
 
 export default TeamSquad;

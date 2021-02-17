@@ -13,7 +13,7 @@ import './SimpleCard.scss';
 
 const styles = {
   card: {
-    maxWidth: 345,
+    width: 280,
   },
   media: {
     height: 250,

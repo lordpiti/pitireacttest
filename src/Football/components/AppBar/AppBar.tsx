@@ -105,7 +105,7 @@ const ButtonAppBar = (props: AppBarPropsWithStyles) => {
             </div>
           </Typography>
           {/* <Button color="inherit">Login</Button> */}
-          <div className='row'>
+          <div className='language-socialmedia'>
             <LanguageSelector />
             <FacebookLoginButton
               authenticationToken={props.authenticationToken}

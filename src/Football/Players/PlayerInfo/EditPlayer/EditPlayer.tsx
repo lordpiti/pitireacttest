@@ -13,6 +13,7 @@ import { MuiPickersUtilsProvider, DatePicker } from 'material-ui-pickers';
 import editModal from '../../../components/EditModal/editModal';
 import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';
+import './EditPlayer.scss';
 // import LocationSearchInput from '../../../components/PlacesAutocomplete/PlacesAutocomplete';
 
 class EditPlayerInfo extends React.Component<any, any> {
@@ -129,8 +130,8 @@ class EditPlayerInfo extends React.Component<any, any> {
       return (
         <div>
           <h1>Player Basic Info</h1>
-          <div className='row'>
-            <div className='col-sm-7'>
+          <div className='edit-player'>
+            <div className='input-area'>
               <form>
                 <div className={validation.name.isInvalid && 'has-error'}>
                   {/* <label htmlFor="name">Name</label>
@@ -249,7 +250,7 @@ class EditPlayerInfo extends React.Component<any, any> {
                 </div>
               </form>
             </div>
-            <div className='col-sm-5 text-center'>
+            <div className='picture-area text-center'>
               <img
                 className='roundedImage'
                 src={this.props.playerData.picture.url}

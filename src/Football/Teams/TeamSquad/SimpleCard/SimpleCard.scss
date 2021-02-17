@@ -1,3 +1,9 @@
-.simpleCard:hover a>div {
-  background-color: lightgray;
+.simpleCard {
+  a {
+    text-decoration: none;
+  }
+
+  &:hover a > div {
+    background-color: lightgray;
+  }
 }
