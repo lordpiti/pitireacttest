@@ -11,6 +11,7 @@ import * as actionCreators from '../../store/actions/teamsActions';
 import { FootballState } from '../../store';
 import { useTranslation } from 'react-i18next';
 import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
+import './TeamDetails.scss';
 
 interface TeamsDetailsParams {
   id: string;
@@ -127,13 +128,11 @@ const TeamDetails = (props: TeamsDetailsProps) => {
   ];
 
   return (
-    <div className='Teams'>
-      <div className='row'>
-        <div className='col-sm-3'>
-          <SideMenu itemList={menuList}>{menuContent}</SideMenu>
-        </div>
-        <div className='col-sm-9'>{content}</div>
+    <div className='team-details'>
+      <div className='sidebar'>
+        <SideMenu itemList={menuList}>{menuContent}</SideMenu>
       </div>
+      <div className='main-content'>{content}</div>
     </div>
   );
 };

@@ -1,0 +1,13 @@
+.team-details {
+  display: flex;
+  flex-direction: row;
+
+  .sidebar {
+    flex: 1;
+  }
+
+  .main-content {
+    flex: 4;
+    justify-content: space-evenly;
+  }
+}

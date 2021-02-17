@@ -19,11 +19,7 @@ const RSSReader = (props: RSSReaderProps) => {
   if (props.feedList) {
     newsList = props.feedList.map((feedItem, index) => {
       feedItem.index = index + 1;
-      return (
-        <div key={index}>
-          <ReaderCard cardData={feedItem}></ReaderCard>
-        </div>
-      );
+      return <ReaderCard key={index} cardData={feedItem}></ReaderCard>;
     });
   }
 

@@ -77,12 +77,12 @@ const TeamNews = (props: TeamNewsProps) => {
   }, [props.teamData.id]);
 
   return (
-    <div>
+    <>
       <h1>{t('teams.news')}</h1>
       {currentFeedList.feedList && (
         <RSSReader feedList={currentFeedList.feedList}></RSSReader>
       )}
-    </div>
+    </>
   );
 };
 
