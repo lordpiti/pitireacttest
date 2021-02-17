@@ -43,8 +43,8 @@ const readerCard = (props: ReaderCardProps) => {
   }
 
   return (
-    <div className='margin-bottom-medium readerCard'>
-      <a href={cardData.link} target='_blank'>
+    <div className='readerCard'>
+      <a href={cardData.link} target='_blank' rel='noreferrer'>
         <Card className={classes.card}>
           <CardHeader
             title={cardData.title}
@@ -68,15 +68,5 @@ const readerCard = (props: ReaderCardProps) => {
     </div>
   );
 };
-
-// readerCard.propTypes = {
-//   classes: PropTypes.object.isRequired,
-//   cardData: PropTypes.shape({
-//     index: PropTypes.number.isRequired,
-//     categories: PropTypes.array,
-//     title: PropTypes.string.isRequired,
-//     creator: PropTypes.string,
-//   }).isRequired,
-// };
 
 export default withStyles(styles)(readerCard);

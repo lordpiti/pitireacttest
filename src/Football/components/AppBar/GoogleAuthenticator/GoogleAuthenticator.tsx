@@ -5,7 +5,6 @@ import {
   GoogleLoginResponseOffline,
   GoogleLogout,
 } from 'react-google-login';
-import Button from '@material-ui/core/Button';
 import axiosInstance from 'axios';
 import './GoogleAuthenticator.scss';
 import { withTranslation, WithTranslation } from 'react-i18next';

@@ -1,0 +1,12 @@
+.teams-overview {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+
+  .team-card {
+    padding: 20px;
+    max-width: 120px;
+  }
+}

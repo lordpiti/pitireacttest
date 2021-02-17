@@ -1,6 +1,6 @@
-import React from 'react';
 import Parser from 'rss-parser';
 import ReaderCard from './ReaderCard/ReaderCard';
+import './RSSReader.scss';
 
 interface RSSReaderProps {
   feedList: EnhancedItem[] | undefined;
@@ -20,14 +20,14 @@ const RSSReader = (props: RSSReaderProps) => {
     newsList = props.feedList.map((feedItem, index) => {
       feedItem.index = index + 1;
       return (
-        <div key={index} className='col-md-3 col-sm-4 col-xs-6'>
+        <div key={index}>
           <ReaderCard cardData={feedItem}></ReaderCard>
         </div>
       );
     });
   }
 
-  return <div className='row'>{newsList}</div>;
+  return <div className='rss-reader'>{newsList}</div>;
 };
 
 export default RSSReader;

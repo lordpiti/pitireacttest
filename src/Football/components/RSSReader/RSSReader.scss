@@ -1,0 +1,12 @@
+.rss-reader {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  .MuiCardHeader-content {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

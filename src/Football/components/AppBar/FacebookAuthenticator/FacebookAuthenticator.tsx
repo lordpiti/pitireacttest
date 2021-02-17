@@ -10,12 +10,11 @@ interface OwnProps {
   showLogoutButton: boolean;
 }
 
-type GoogleAuthenticatorProps = OwnProps;
+type FacebookAuthenticatorProps = OwnProps;
 
-const FacebookAuthenticator = (props: GoogleAuthenticatorProps) => {
+const FacebookAuthenticator = (props: FacebookAuthenticatorProps) => {
   const responseFacebook = (response: any) => {
     const url = `${process.env.REACT_APP_LOGIN_API_URL}/user/Login`;
-    // const url = `http://localhost:3001/user/Login`;
 
     axiosInstance
       .post(url, { userId: response.userID, accessToken: response.accessToken })
