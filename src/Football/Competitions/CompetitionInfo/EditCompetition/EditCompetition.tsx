@@ -64,7 +64,7 @@ class EditCompetitionInfo extends React.Component<
         this.setState({
           currentImage: {
             data: fileToUpload,
-            fileName: 'test.png',
+            fileName: file.name,
           },
         });
       };

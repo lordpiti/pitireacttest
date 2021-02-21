@@ -2,7 +2,9 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import { TextField, FormHelperText, WithStyles } from '@material-ui/core';
 import editModal from '../../../components/EditModal/editModal';
-import BasicDropzone from '../../../components/BasicDropzone/BasicDropzone';
+import BasicDropzone, {
+  FileWithPreview,
+} from '../../../components/BasicDropzone/BasicDropzone';
 import FormValidator from '../../../utilities/FormValidator';
 
 //https://material-ui.com/es/guides/typescript/#augmenting-your-props-using-withstyles
@@ -43,9 +45,9 @@ class EditTeamInfo extends React.Component<EditTeamProps, EditTeamState> {
     this.submitted = false;
   }
 
-  callbackDropzone = (files: any) => {
+  callbackDropzone = (files: FileWithPreview[]) => {
     let fileToUpload = null;
-    files.forEach((file: any) => {
+    files.forEach((file) => {
       const reader = new FileReader();
       reader.onload = () => {
         // do whatever you want with the file content
@@ -54,7 +56,7 @@ class EditTeamInfo extends React.Component<EditTeamProps, EditTeamState> {
         this.setState({
           currentImage: {
             data: fileToUpload,
-            fileName: 'test.png',
+            fileName: file.name,
           },
         });
       };

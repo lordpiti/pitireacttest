@@ -5,14 +5,14 @@ import styles from './BasicDropzone.module.scss';
 interface BasicDropzoneSettings {
   isImage: boolean;
   multipleFiles: boolean;
-  callback: Function;
+  callback: (files: FileWithPreview[]) => void;
 }
 
 interface BasicDropzoneProps {
   settings: BasicDropzoneSettings;
 }
 
-interface FileWithPreview extends File {
+export interface FileWithPreview extends File {
   preview?: any;
 }
 

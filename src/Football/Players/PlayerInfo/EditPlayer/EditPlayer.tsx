@@ -58,7 +58,7 @@ class EditPlayerInfo extends React.Component<any, any> {
         this.setState({
           currentImage: {
             data: fileToUpload,
-            fileName: 'test.png',
+            fileName: file.name,
           },
         });
       };
