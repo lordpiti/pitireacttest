@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { HubConnectionBuilder, HubConnection } from '@aspnet/signalr';
+import { HubConnectionBuilder, HubConnection } from '@microsoft/signalr';
 import CompetitionSimulationMatch from './CompetitionSimulationMatch/CompetitionSimulationMatch';
 import Countdown from '../../components/Countdown/Countdown';
 import axiosInstance from '../../utilities/axios-test';
-
-interface CompetitionSimulationState {
-  matches: any[];
-  live: boolean;
-  nextSimulationDateTime?: any;
-}
 
 const CompetitionSimulation = (props: any) => {
   const [matches, _setMatches] = useState([] as any[]);

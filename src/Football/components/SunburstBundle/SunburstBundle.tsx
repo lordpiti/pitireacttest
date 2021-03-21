@@ -1,6 +1,6 @@
 // import { Product } from 'components/TreeNode/TreeNode';
 import React from 'react';
-import { Bundle } from '../Bundle/Bundle';
+import { Bundle } from '../Bundle/BundleHooks';
 import { Sunburst } from '../Sunburst/Sunburst';
 import './SunburstBundle.scss';
 import { TreeNodeType } from '../../utilities/nest';
@@ -23,7 +23,7 @@ interface SunburstBundleState {
 export class SunburstBundle extends React.Component<
   SunburstBundleProps,
   SunburstBundleState
-> {
+  > {
   state: SunburstBundleState = {
     tooltipHidden: true,
     tooltipCssStyle: {},

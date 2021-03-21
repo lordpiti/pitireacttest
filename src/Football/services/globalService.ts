@@ -16,10 +16,11 @@ export class GlobalService {
 
   public async saveDocument(document: File): Promise<AxiosResponse<any>> {
     const formData = new FormData();
-    formData.append("files", document);
-    return await axiosInstance.post('GlobalMedia/UploadDocument', formData,  {
+    formData.append('files', document);
+    return await axiosInstance.post('GlobalMedia/UploadDocument', formData, {
       headers: {
-        'Content-Type': 'multipart/form-data'
-      }});
+        'Content-Type': 'multipart/form-data',
+      },
+    });
   }
 }

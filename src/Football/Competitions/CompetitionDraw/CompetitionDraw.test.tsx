@@ -3,8 +3,8 @@ import CompetitionDraw from './CompetitionDraw';
 import { shallow } from 'enzyme';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { FootballState } from '../../..';
 import mockDraw from './mockDraw.json';
+import { FootballState } from '../../store';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -35,7 +35,7 @@ let store = null;
 describe('CompetitionDraw', () => {
   it(`should render correctly`, () => {
     store = mockStore(testState);
-    spyOn(store, 'dispatch');
+    jest.spyOn(store, 'dispatch');
     const wrapper = shallow(
       <CompetitionDraw competitionData={competitionData} store={store} />
     );

@@ -58,7 +58,7 @@ const FacebookAuthenticator = (props: FacebookAuthenticatorProps) => {
     if (props.showLogoutButton) {
       buttonLoginLogout = (
         <div>
-          <img className='loginImage' src={loginImage} />
+          <img className='loginImage' src={loginImage} alt="loginImage" />
           <span className='loginName'>{userName}</span>
           <Button variant='contained' color='secondary' onClick={logout}>
             Logout

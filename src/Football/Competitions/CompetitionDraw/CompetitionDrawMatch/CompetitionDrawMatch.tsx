@@ -7,8 +7,7 @@ interface CompetitionDrawMatchProps {
   competitionData: any;
 }
 
-const CompetitionDrawMatch = (props: CompetitionDrawMatchProps) => {
-  const { match, competitionData } = props;
+const CompetitionDrawMatch = ({ match, competitionData }: CompetitionDrawMatchProps) => {
 
   return (
     <div className='mtch_container'>

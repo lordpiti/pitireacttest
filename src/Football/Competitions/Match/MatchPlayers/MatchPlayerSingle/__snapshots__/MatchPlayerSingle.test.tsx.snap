@@ -17,23 +17,51 @@ exports[`MatchPlayerSingle renders correctly a player component with the right d
       test name test surname
     </div>
     <div
-      class="col-sm-1"
+      class="col-sm-2"
     >
       <span>
-        <span
-          class="glyphicon glyphicon-arrow-left"
-        />
-        <span>
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-angle-double-left fa-w-14 "
+          data-icon="angle-double-left"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M223.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L319.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L393.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34zm-192 34l136 136c9.4 9.4 24.6 9.4 33.9 0l22.6-22.6c9.4-9.4 9.4-24.6 0-33.9L127.9 256l96.4-96.4c9.4-9.4 9.4-24.6 0-33.9L201.7 103c-9.4-9.4-24.6-9.4-33.9 0l-136 136c-9.5 9.4-9.5 24.6-.1 34z"
+            fill="currentColor"
+          />
+        </svg>
+        <label
+          class="small"
+        >
           9
-        </span>
+        </label>
       </span>
       <span>
-        <span
-          class="glyphicon glyphicon-arrow-right"
-        />
-        <span>
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-angle-double-right fa-w-14 "
+          data-icon="angle-double-right"
+          data-prefix="fas"
+          focusable="false"
+          role="img"
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"
+            fill="currentColor"
+          />
+        </svg>
+        <label
+          class="small"
+        >
           19
-        </span>
+        </label>
       </span>
     </div>
     <div

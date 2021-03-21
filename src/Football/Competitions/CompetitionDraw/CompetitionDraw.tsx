@@ -15,7 +15,7 @@ const CompetitionDraw = (props: any) => {
 
   useEffect(() => {
     loadDrawData(competitionData.id);
-  }, []);
+  }, [loadDrawData, competitionData.id]);
 
   const { t, i18n } = useTranslation();
 
