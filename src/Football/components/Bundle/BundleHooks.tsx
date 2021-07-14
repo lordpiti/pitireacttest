@@ -1,9 +1,10 @@
 // import { Product } from 'components/TreeNode/TreeNode';
-import { cluster, curveBundle, hierarchy, lineRadial } from 'd3';
+import { cluster, curveBundle, hierarchy, HierarchyNode, lineRadial } from 'd3';
+import { Dictionary } from 'lodash';
 import mapKeys from 'lodash/mapKeys';
 import React, { useEffect, useState } from 'react';
 import { backgroundColor } from '../../utilities/colourUtilities';
-import { nestData, packageImports } from '../../utilities/nest';
+import { nestData, packageImports, TreeNodeType } from '../../utilities/nest';
 import './Bundle.scss';
 
 interface BundleProps {
@@ -20,9 +21,9 @@ const ellipsisDescription = (text: string) => {
 
 export const Bundle = (props: BundleProps) => {
 
-  const [leavesData, setLeavesData] = useState(null as any);
+  const [leavesData, setLeavesData] = useState<HierarchyNode<TreeNodeType>[] | null>(null);
   const [finalData, setFinalData] = useState(null as any);
-  const [substituteProducts, setSubstituteProducts] = useState(null as any);
+  const [substituteProducts, setSubstituteProducts] = useState<Dictionary<any> | null>(null);
   const [hoverProduct, setHoverProduct] = useState(null as any);
   const [textWidth, setTextWidth] = useState(undefined as number | undefined);
 
