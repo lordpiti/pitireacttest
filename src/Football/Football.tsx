@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import Competitions from './Competitions/Competitions';
 import Teams from './Teams/Teams';
 import Players from './Players/Players';
@@ -18,6 +18,7 @@ import CustomSnackbar from './components/CustomSnackbar/CustomSnackbar';
 import Home from './Home/Home';
 import { FootballState as FootbalStateRedux } from './store';
 import { GraphicDemo } from './components/GraphicDemo/GraphicDemo';
+import { privacyPolicy } from './privacy-policy/privacy-policy';
 
 function getModalStyle() {
   return {
@@ -116,7 +117,15 @@ class Football extends Component<FootballProps, FootballState> {
           <Route path='/graphicDemo' component={GraphicDemo} />
           {/* <PrivateRoute path="/players" component={Players} /> */}
           <Route path='/players' component={Players} />
+          <Route path='/privacy-policy' component={privacyPolicy} />
         </div>
+        <Link
+          to={{
+            pathname: `/privacy-policy`,
+          }}
+        >
+          Privacy Policy
+              </Link>
       </div>
     );
   }
