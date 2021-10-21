@@ -1,12 +1,14 @@
 import React from 'react';
 import {
-  BarChart,
   Bar,
   XAxis,
   YAxis,
+  Line,
   CartesianGrid,
   Cell,
   ResponsiveContainer,
+  ComposedChart,
+  Tooltip,
 } from 'recharts';
 const colors = [
   '#1f77b4',
@@ -307,11 +309,11 @@ const CustomShapeBarChart = ({ candleData }: any) => {
   return (
     <div style={{ height: '900px' }}>
       <ResponsiveContainer width='100%' height='100%'>
-        <BarChart
+        <ComposedChart
           // width={600}
           height={300}
           data={data}
-          barCategoryGap={0}
+          // barCategoryGap={0}
           margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey='ts' />
@@ -327,7 +329,14 @@ const CustomShapeBarChart = ({ candleData }: any) => {
               <Cell key={`cell-${index}`} fill={colors[index % 20]} />
             ))}
           </Bar>
-        </BarChart>
+          <Tooltip />
+          <Line
+            type='monotone'
+            dataKey='avg'
+            stroke='#8884d8'
+            activeDot={{ r: 8 }}
+          />
+        </ComposedChart>
       </ResponsiveContainer>
     </div>
   );

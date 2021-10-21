@@ -82,7 +82,7 @@ const CryptoDemo = (props: Props) => {
         open: x.items[0],
         close: x.items[x.items.length - 1],
         ts: new Date(x.startTime).getTime(),
-        avg: x.mobileAvg1,
+        avg: x.mobileAvg1 > 0 ? x.mobileAvg1 : x.items[0],
       }));
       const fulobj = { items: items, candles: candles };
 
