@@ -18,6 +18,7 @@ import CustomSnackbar from './components/CustomSnackbar/CustomSnackbar';
 import Home from './Home/Home';
 import { FootballState as FootbalStateRedux } from './store';
 import { GraphicDemo } from './components/GraphicDemo/GraphicDemo';
+import cryptoDemo from './components/CryptoDemo';
 
 function getModalStyle() {
   return {
@@ -116,6 +117,7 @@ class Football extends Component<FootballProps, FootballState> {
           <Route path='/graphicDemo' component={GraphicDemo} />
           {/* <PrivateRoute path="/players" component={Players} /> */}
           <Route path='/players' component={Players} />
+          <Route path='/crypto-demo' component={cryptoDemo} />
         </div>
       </div>
     );

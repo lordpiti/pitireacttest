@@ -32,9 +32,9 @@ class GoogleAuthenticator extends Component<GoogleAuthenticatorProps> {
         })
         .then((responseApi) => {
           const loginData = {
-            token: responseApi.data.token,
-            role: responseApi.data.role,
-            userName: responseApi.data.name,
+            token: (responseApi.data as any).token,
+            role: (responseApi.data as any).role,
+            userName: (responseApi.data as any).name,
             authenticationType: 2,
             avatar: (response as GoogleLoginResponse).profileObj.imageUrl,
           };

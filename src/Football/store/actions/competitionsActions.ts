@@ -50,7 +50,7 @@ export const loadCompetitionTeams = (competitionId: number) => {
     const response = await competitionService.getCompetitionTeams(
       competitionId
     );
-    const teamList = response.data;
+    const teamList = response.data as any;
     dispatch(loadCompetitionTeamsSuccess(teamList));
     dispatch(globalActionCreators.updateLoadingSpinner(false));
   };
@@ -71,7 +71,7 @@ export const loadCompetitionTeamEvolution = (
     dispatch(
       loadCompetitionTeamEvolutionSuccess({
         teamId: teamId,
-        chartData: response.data.clasificationSeasonData,
+        chartData: (response.data as any).clasificationSeasonData,
       })
     );
     dispatch(globalActionCreators.updateLoadingSpinner(false));

@@ -14,16 +14,18 @@ instance.interceptors.request.use(function (config) {
         authenticationType: authenticationType
       };
 
-    if (token) {
-      const tokenAndTypeJSON = JSON.stringify(tokenAndType);
-      config.headers.common['authenticationToken'] = tokenAndTypeJSON;
-    } else {
-        config.headers.common['authenticationToken'] = null;
-        /*if setting null does not remove `Authorization` header then try     
-          delete axios.defaults.headers.common['Authorization'];
-        */
-    }
-    
+      if (config && config.headers) {
+        if (token) {
+          const tokenAndTypeJSON = JSON.stringify(tokenAndType);
+          (config.headers as any).common['authenticationToken'] = tokenAndTypeJSON;
+        } else {
+            (config.headers as any).common['authenticationToken'] = null;
+            /*if setting null does not remove `Authorization` header then try     
+              delete axios.defaults.headers.common['Authorization'];
+            */
+        }
+      }
+
 
     return config;
   }, function (error) {

@@ -16,7 +16,7 @@ class TeamStadium extends Component<any, any> {
     axios
       .create()
       .get(`${apiUrl}address=${this.props.stadium.name}}`)
-      .then((response) => {
+      .then((response: any) => {
         if (
           response.data &&
           response.data.status === 'OK' &&

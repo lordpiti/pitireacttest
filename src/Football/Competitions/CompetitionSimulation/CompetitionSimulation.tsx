@@ -23,8 +23,8 @@ class CompetitionSimulation extends Component<any, CompetitionSimulationState> {
   componentDidMount() {
     axiosInstance.get('competition/nextSimulation').then((response) => {
       this.setState({
-        nextSimulationDateTime: response.data.nextSimulationDateTime,
-        live: response.data.live,
+        nextSimulationDateTime: (response.data as any).nextSimulationDateTime,
+        live: (response.data as any).live,
       } as CompetitionSimulationState);
     });
   }

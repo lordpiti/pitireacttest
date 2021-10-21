@@ -120,10 +120,10 @@ const CompetitionSimulation = (props: any) => {
 
     axiosInstance.get('competition/nextSimulation').then((response) => {
       setNextSimulationDateTime({
-        nextSimulationDateTime: response.data.nextSimulationDateTime,
+        nextSimulationDateTime: (response.data as any).nextSimulationDateTime,
       });
       setLiveState({
-        live: response.data.live,
+        live: (response.data as any).live,
       });
     });
   }, []);
