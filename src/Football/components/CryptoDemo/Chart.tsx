@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Bar,
   XAxis,
@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
   ComposedChart,
   Tooltip,
+  Legend,
 } from 'recharts';
 const colors = [
   '#1f77b4',
@@ -101,7 +102,7 @@ const CustomShapeBarChart = ({
   currentSymbol,
 }: any) => {
   const data = prepareData(candleData);
-  // data.reduce((acc: any, item: any) => console.log(item), 0);
+
   const minValue = data.reduce(
     (
       minValue: any,
@@ -148,6 +149,7 @@ const CustomShapeBarChart = ({
           <YAxis domain={[minValue, maxValue]} />
           <CartesianGrid strokeDasharray='3 3' />
           <Bar
+            name='Klines'
             dataKey='openClose'
             fill='#8884d8'
             shape={<Candlestick />}
@@ -158,7 +160,9 @@ const CustomShapeBarChart = ({
             ))}
           </Bar>
           <Tooltip />
+          <Legend />
           <Line
+            name='Exponential Moving Average 55'
             type='monotone'
             dataKey='ema'
             stroke='#8884d8'
@@ -166,6 +170,7 @@ const CustomShapeBarChart = ({
           />
 
           <Line
+            name='Exponential Moving Average 10'
             type='monotone'
             dataKey='ema2'
             stroke='#e28743'

@@ -11,6 +11,7 @@ import React, { useEffect, useState } from 'react';
 // } from 'recharts';
 import axiosInstance from 'axios';
 import Chart from './Chart';
+import moment from 'moment';
 
 interface Props {
   data: any[];
@@ -34,13 +35,18 @@ const CryptoDemo = (props: Props) => {
     //   amt: 2,
     // }));
 
+    // debugger;
+    // const yy = moment('24/12/2019 09:15:00', 'DD MM YYYY hh:mm:ss').format(
+    //   'YYYY-MM-DD'
+    // );
+
     const candles = (response as any).data.candles.map(
       (x: any, index: number) => ({
         high: x.high,
         low: x.low,
         open: x.open,
         close: x.close,
-        ts: x.date,
+        ts: moment(new Date(x.date)).format('D/M/yyyy hh:mm'),
         ema: (response as any).data.emaList[index].ema,
         ema2: (response as any).data.emaList2[index].ema,
       })
