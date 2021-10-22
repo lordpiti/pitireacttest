@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import {
-  CartesianGrid,
-  Legend,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts';
+// import {
+//   CartesianGrid,
+//   Legend,
+//   Line,
+//   LineChart,
+//   ResponsiveContainer,
+//   Tooltip,
+//   XAxis,
+//   YAxis,
+// } from 'recharts';
 import axiosInstance from 'axios';
 import Chart from './Chart';
 
@@ -68,23 +68,31 @@ const CryptoDemo = (props: Props) => {
       const hh = await axiosInstance.get(
         'https://localhost:44300/weatherforecast'
       );
+      // const items = (hh as any).data.items.map((x: any) => ({
+      //   name: new Date(x.item1).getTime(),
+      //   pv: x.item2,
+      //   uv: 0,
+      //   amt: 2,
+      // }));
 
-      const items = (hh as any).data.content.items.map((x: any) => ({
-        name: new Date(x.item1).getTime(),
-        pv: x.item2,
-        uv: 0,
-        amt: 2,
+      const candles = (hh as any).data.candles.map((x: any, index: number) => ({
+        high: x.high,
+        low: x.low,
+        open: x.open,
+        close: x.close,
+        ts: x.date,
+        ema: (hh as any).data.emaList[index].ema,
+        ema2: (hh as any).data.emaList2[index].ema,
       }));
 
-      const candles = (hh as any).data.content.candles.map((x: any) => ({
-        high: x.max,
-        low: x.min,
-        open: x.items[0],
-        close: x.items[x.items.length - 1],
-        ts: new Date(x.startTime).getTime(),
-        avg: x.mobileAvg1 > 0 ? x.mobileAvg1 : x.items[0],
+      const emaList = (hh as any).data.emaList.map((x: any) => ({
+        high: x.high,
+        low: x.low,
+        open: x.open,
+        close: x.close,
+        ts: new Date(x.date).getTime(),
       }));
-      const fulobj = { items: items, candles: candles };
+      const fulobj = { items: emaList, candles: candles };
 
       setEstao(fulobj);
     };
@@ -93,12 +101,12 @@ const CryptoDemo = (props: Props) => {
   }, []);
 
   if (estao) {
-    const minValue = Math.min(...estao.items);
-    const maxValue = Math.max(...estao.items);
+    // const minValue = Math.min(...estao.items);
+    // const maxValue = Math.max(...estao.items);
 
     return (
       <div style={{ height: '900px' }}>
-        <ResponsiveContainer width='100%' height='100%'>
+        {/* <ResponsiveContainer width='100%' height='100%'>
           <LineChart
             width={500}
             height={300}
@@ -121,9 +129,8 @@ const CryptoDemo = (props: Props) => {
               stroke='#8884d8'
               activeDot={{ r: 8 }}
             />
-            {/* <Line type='monotone' dataKey='uv' stroke='#82ca9d' /> */}
           </LineChart>
-        </ResponsiveContainer>
+        </ResponsiveContainer> */}
         <Chart candleData={estao.candles} />
       </div>
     );

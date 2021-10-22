@@ -332,8 +332,15 @@ const CustomShapeBarChart = ({ candleData }: any) => {
           <Tooltip />
           <Line
             type='monotone'
-            dataKey='avg'
+            dataKey='ema'
             stroke='#8884d8'
+            activeDot={{ r: 8 }}
+          />
+
+          <Line
+            type='monotone'
+            dataKey='ema2'
+            stroke='#e28743'
             activeDot={{ r: 8 }}
           />
         </ComposedChart>
