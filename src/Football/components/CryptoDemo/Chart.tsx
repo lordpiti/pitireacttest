@@ -11,6 +11,7 @@ import {
   Tooltip,
   Legend,
 } from 'recharts';
+
 const colors = [
   '#1f77b4',
   '#ff7f0e',
@@ -22,6 +23,24 @@ const colors = [
   '#7f7f7f',
   '#bcbd22',
   '#17becf',
+];
+
+const intervals = [
+  { name: '1 min', value: 0 },
+  { name: '3 min', value: 1 },
+  { name: '5 min', value: 2 },
+  { name: '15 min', value: 3 },
+  { name: '30 min', value: 4 },
+  { name: '1 hour', value: 5 },
+  // { name: '2 hours', value: 6 },
+  // { name: '4 hours', value: 7 },
+  // { name: '6 hours', value: 8 },
+  // { name: '8 hours', value: 9 },
+  // { name: '12 hours', value: 10 },
+  // { name: '1 day', value: 11 },
+  // { name: '3 days', value: 12 },
+  // { name: '1 week', value: 13 },
+  // { name: '1 month', value: 13 },
 ];
 
 const Candlestick = (props: any) => {
@@ -98,8 +117,10 @@ const prepareData = (data: any) => {
 const CustomShapeBarChart = ({
   candleData,
   updateDataCallback,
+  updateDataIntervalCallback,
   symbols,
   currentSymbol,
+  currentKlinesInterval,
 }: any) => {
   const data = prepareData(candleData);
 
@@ -126,17 +147,34 @@ const CustomShapeBarChart = ({
 
   return (
     <div style={{ height: '900px' }}>
-      <select
-        name='symbol'
-        value={currentSymbol}
-        onChange={(event: any) => {
-          updateDataCallback(event.target.value);
-        }}
-      >
-        {symbols.map((item: string) => (
-          <option value={item}>{item}</option>
-        ))}
-      </select>
+      <div>
+        <span>QuoteAsset</span>
+        <select
+          name='symbol'
+          value={currentSymbol}
+          onChange={(event: any) => {
+            updateDataCallback(event.target.value);
+          }}
+        >
+          {symbols.map((item: string) => (
+            <option value={item}>{item}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <span>Interval</span>
+        <select
+          name='interval'
+          value={currentKlinesInterval}
+          onChange={(event: any) => {
+            updateDataIntervalCallback(event.target.value);
+          }}
+        >
+          {intervals.map((item: any) => (
+            <option value={item.value}>{item.name}</option>
+          ))}
+        </select>
+      </div>
       <ResponsiveContainer width='100%' height='100%'>
         <ComposedChart
           // width={600}

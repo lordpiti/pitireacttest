@@ -20,12 +20,14 @@ interface Props {
 const CryptoDemo = (props: Props) => {
   const [estao, setEstao] = useState(null as any);
   const [currentSymbol, setCurrentSymbol] = useState('BTCUSDT');
+  const [currentKlinesInterval, setCurrentKlinesInterval] = useState(5);
   const [symbols, setSymbols] = useState([] as string[]);
 
-  const getData = async (symbol: string) => {
+  const getData = async (symbol: string, klinesInterval: number) => {
     setCurrentSymbol(symbol);
+    setCurrentKlinesInterval(klinesInterval);
     const response = await axiosInstance.get(
-      `https://localhost:44300/api/trading/klines/${symbol}`
+      `${process.env.REACT_APP_TRADING_API_URL}/api/trading/klines/${symbol}/interval/${klinesInterval}`
     );
 
     // const items = (hh as any).data.items.map((x: any) => ({
@@ -65,13 +67,13 @@ const CryptoDemo = (props: Props) => {
   };
 
   useEffect(() => {
-    getData(currentSymbol);
-  }, [currentSymbol]);
+    getData(currentSymbol, currentKlinesInterval);
+  }, [currentSymbol, currentKlinesInterval]);
 
   useEffect(() => {
     (async () => {
       const responseSymbols = await axiosInstance.get(
-        'https://localhost:44300/api/trading/symbols/USDT'
+        `${process.env.REACT_APP_TRADING_API_URL}/api/trading/symbols/USDT`
       );
 
       const loadedSymbols = (responseSymbols as any).data.symbols;
@@ -112,8 +114,10 @@ const CryptoDemo = (props: Props) => {
         </ResponsiveContainer> */}
         <Chart
           currentSymbol={currentSymbol}
+          currentKlinesInterval={currentKlinesInterval}
           candleData={estao.candles}
           updateDataCallback={setCurrentSymbol}
+          updateDataIntervalCallback={setCurrentKlinesInterval}
           symbols={symbols}
         />
       </div>
