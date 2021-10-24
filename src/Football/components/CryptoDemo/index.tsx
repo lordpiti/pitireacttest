@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
-// import {
-//   CartesianGrid,
-//   Legend,
-//   Line,
-//   LineChart,
-//   ResponsiveContainer,
-//   Tooltip,
-//   XAxis,
-//   YAxis,
-// } from 'recharts';
+import {
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from 'recharts';
 import axiosInstance from 'axios';
 import Chart from './Chart';
 import moment from 'moment';
@@ -61,7 +61,12 @@ const CryptoDemo = (props: Props) => {
       close: x.close,
       ts: new Date(x.date).getTime(),
     }));
-    const fulobj = { items: emaList, candles: candles };
+
+    const fulobj = {
+      items: emaList,
+      candles: candles,
+      macd: (response as any).data.macd,
+    };
 
     setEstao(fulobj);
   };
@@ -82,16 +87,20 @@ const CryptoDemo = (props: Props) => {
   }, []);
 
   if (estao) {
-    // const minValue = Math.min(...estao.items);
-    // const maxValue = Math.max(...estao.items);
+    const minValueMacd = Math.min(...estao.macd.map((x: any) => x.macd));
+    const maxValueMacd = Math.max(...estao.macd.map((x: any) => x.macd));
 
+    const minValueSignal = Math.min(...estao.macd.map((x: any) => x.signal));
+    const maxValueSignal = Math.max(...estao.macd.map((x: any) => x.signal));
+
+    debugger;
     return (
       <div style={{ height: '900px' }}>
-        {/* <ResponsiveContainer width='100%' height='100%'>
+        <ResponsiveContainer width='100%' height='100%'>
           <LineChart
             width={500}
             height={300}
-            data={estao.items}
+            data={estao.macd}
             margin={{
               top: 5,
               right: 30,
@@ -100,18 +109,29 @@ const CryptoDemo = (props: Props) => {
             }}
           >
             <CartesianGrid strokeDasharray='3 3' />
-            <XAxis dataKey='name' />
-            <YAxis domain={[minValue, maxValue]} />
+            <XAxis dataKey='date' />
+            <YAxis
+              domain={[
+                Math.floor(Math.min(minValueMacd, minValueSignal)),
+                Math.ceil(Math.max(maxValueMacd, maxValueSignal)),
+              ]}
+            />
             <Tooltip />
             <Legend />
             <Line
               type='monotone'
-              dataKey='pv'
+              dataKey='macd'
               stroke='#8884d8'
               activeDot={{ r: 8 }}
             />
+            <Line
+              type='monotone'
+              dataKey='signal'
+              stroke='#e28743'
+              activeDot={{ r: 8 }}
+            />
           </LineChart>
-        </ResponsiveContainer> */}
+        </ResponsiveContainer>
         <Chart
           currentSymbol={currentSymbol}
           currentKlinesInterval={currentKlinesInterval}

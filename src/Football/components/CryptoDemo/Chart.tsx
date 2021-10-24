@@ -32,15 +32,14 @@ const intervals = [
   { name: '15 min', value: 3 },
   { name: '30 min', value: 4 },
   { name: '1 hour', value: 5 },
-  // { name: '2 hours', value: 6 },
-  // { name: '4 hours', value: 7 },
-  // { name: '6 hours', value: 8 },
-  // { name: '8 hours', value: 9 },
-  // { name: '12 hours', value: 10 },
-  // { name: '1 day', value: 11 },
-  // { name: '3 days', value: 12 },
-  // { name: '1 week', value: 13 },
-  // { name: '1 month', value: 13 },
+  { name: '2 hours', value: 6 },
+  { name: '4 hours', value: 7 },
+  { name: '6 hours', value: 8 },
+  { name: '8 hours', value: 9 },
+  { name: '12 hours', value: 10 },
+  { name: '1 day', value: 11 },
+  { name: '3 days', value: 12 },
+  { name: '1 week', value: 13 },
 ];
 
 const Candlestick = (props: any) => {
