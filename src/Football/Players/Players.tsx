@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import PlayerDetails from './PlayerDetails/PlayerDetails';
+import { PlayerDetails } from './PlayerDetails/PlayerDetailsHooks';
 import PlayersOverview from './PlayersOverview/PlayersOverview';
 import { RouteComponentProps } from 'react-router';
 

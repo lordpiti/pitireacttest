@@ -1,6 +1,6 @@
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
-import React, { useEffect } from 'react';
+import React from 'react';
 import SingleGamePlayed from '../SingleGamePlayed/SingleGamePlayed';
 import { RouteComponentProps } from 'react-router';
 

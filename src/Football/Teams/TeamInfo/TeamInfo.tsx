@@ -6,7 +6,6 @@ import RoleVisibleWrapper from '../../components/RoleVisibleComponent/RoleVisibl
 import { Paper } from '@material-ui/core';
 import EditTeamComponent from './EditTeam/EditTeam';
 import { FootballState } from '../../store';
-import { FootballDispatch } from '../../store/middleware/thunkMiddleware';
 import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
 
 export interface TeamInfoProps {
