@@ -6,9 +6,10 @@ import { watchTeams } from './sagas';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createStore, applyMiddleware } from 'redux';
 import { rootReducer } from './reducers';
-import { thunkMiddleware } from './middleware/thunkMiddleware';
 import { logger } from './middleware/loggerMIddleware';
 import { sagaMiddleware } from './middleware/sagasMiddleware';
+import { useDispatch } from 'react-redux';
+import thunk from 'redux-thunk';
 
 export type FootballState = {
   players: PlayersState;
@@ -28,7 +29,7 @@ export const configureStore = () => {
   const store = createStore(
     rootReducer,
     composeWithDevTools(
-      applyMiddleware(logger, thunkMiddleware, sagaMiddleware)
+      applyMiddleware(logger, thunk.withExtraArgument<{}>({}), sagaMiddleware)
     )
   );
 
@@ -36,3 +37,9 @@ export const configureStore = () => {
 
   return store;
 };
+
+const store = configureStore();
+
+export type FootballDispatch = typeof store.dispatch;
+
+export const useFootballDispatch = () => useDispatch<FootballDispatch>();

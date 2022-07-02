@@ -15,10 +15,9 @@ import ScorersTable from './ScorersTable/ScorersTable';
 import { Paper } from '@material-ui/core';
 import { RouteComponentProps } from 'react-router';
 import { connect } from 'react-redux';
-import { FootballState } from '../../store';
+import { FootballDispatch, FootballState } from '../../store';
 import * as actionCreators from '../../store/actions/competitionsActions';
 import { getCurrentCompetitionRounds } from '../../store/reducers/competitions';
-import { FootballDispatch } from '../../store/middleware/thunkMiddleware';
 import './CompetitionRounds.scss';
 
 const styles = (theme: Theme) =>
@@ -48,7 +47,7 @@ interface CompetitionRoundsState {
 
 interface CompetitionRoundsProps
   extends RouteComponentProps,
-    WithStyles<typeof styles> {
+  WithStyles<typeof styles> {
   competitionData: any;
   currentRound: any;
   loadRoundData: Function;

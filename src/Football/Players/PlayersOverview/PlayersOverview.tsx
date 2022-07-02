@@ -3,9 +3,8 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/playersActions';
 import TableWithFilteringAndPagination from '../../components/TableWithPagination/TableWithFilteringAndPagination';
 import { TableRow, TableCell, TableHead, TableBody } from '@material-ui/core';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { FootballState } from '../../store';
-import { FootballDispatch } from '../../store/middleware/thunkMiddleware';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
+import { FootballState, FootballDispatch } from '../../store';
 
 interface PlayersOverviewParams {
   id: string;
@@ -92,4 +91,4 @@ const mapDispatchToProps = (dispatch: FootballDispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlayersOverview);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PlayersOverview));

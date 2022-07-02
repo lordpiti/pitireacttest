@@ -1,8 +1,8 @@
 import * as actionTypes from './actionTypes';
 import * as globalActionCreators from './globalActions';
-import { GlobalService, ImagePostData } from '../../services/globalService';
+import { GlobalService } from '../../services/globalService';
 import { CompetitionService } from '../../services/competitionsService';
-import { FootballDispatch } from '../middleware/thunkMiddleware';
+import { FootballDispatch } from '..';
 
 const globalService = new GlobalService();
 const competitionService = new CompetitionService();

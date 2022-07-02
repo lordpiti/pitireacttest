@@ -8,8 +8,7 @@ import MatchStatistics from './MatchStatistics/MatchStatistics';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/competitionsActions';
 import { RouteComponentProps } from 'react-router';
-import { FootballState } from '../../store';
-import { FootballDispatch } from '../../store/middleware/thunkMiddleware';
+import { FootballState, FootballDispatch } from '../../store';
 
 function TabContainer(props: any) {
   return (

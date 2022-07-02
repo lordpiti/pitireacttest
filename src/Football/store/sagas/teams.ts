@@ -1,12 +1,13 @@
 import { put } from 'redux-saga/effects';
 import * as teamActionCreators from '../actions/teamsActions';
 import * as globalActionCreators from '../actions/globalActions';
-import { TeamsService } from '../../services/teamsService';
+import { TeamData, TeamsService } from '../../services/teamsService';
 import { GlobalService } from '../../services/globalService';
 import {
   LoadTeamSagasAction,
   SaveTeamSagasAction,
 } from '../actions/actionTypes';
+import { AxiosResponse } from 'axios';
 
 const teamsService = new TeamsService();
 const globalService = new GlobalService();
@@ -15,11 +16,14 @@ export function* loadTeamsSaga() {
   yield put(globalActionCreators.updateLoadingSpinner(true));
 
   try {
-    const response = yield teamsService.loadTeamList();
+    const response: AxiosResponse<
+      TeamData[],
+      any
+    > = yield teamsService.loadTeamList();
 
     yield put(teamActionCreators.loadTeamListSuccess(response.data));
     yield put(globalActionCreators.updateLoadingSpinner(false));
-  } catch (error) {
+  } catch (error: any) {
     yield console.log(error.response.data.error);
   }
 }
@@ -28,11 +32,13 @@ export function* loadTeamSaga(action: LoadTeamSagasAction) {
   yield put(globalActionCreators.updateLoadingSpinner(true));
 
   try {
-    const response = yield teamsService.loadTeam(action.payload);
+    const response: AxiosResponse<any, any> = yield teamsService.loadTeam(
+      action.payload
+    );
 
     yield put(teamActionCreators.loadTeamSuccess(response.data));
     yield put(globalActionCreators.updateLoadingSpinner(false));
-  } catch (error) {
+  } catch (error: any) {
     yield console.log(error.response.data.error);
   }
 }
@@ -53,9 +59,11 @@ export function* saveTeamSaga(action: SaveTeamSagasAction) {
         )
       ); //success, warning, error or info
     } else {
-      const response = yield globalService.saveImage(action.payload.image);
+      const response: AxiosResponse<any, any> = yield globalService.saveImage(
+        action.payload.image
+      );
 
-      const updatedTeamData = yield {
+      const updatedTeamData: unknown = yield {
         ...action.payload.teamData,
         pictureLogo: response.data,
       };
@@ -71,7 +79,7 @@ export function* saveTeamSaga(action: SaveTeamSagasAction) {
         )
       ); //success, warning, error or info
     }
-  } catch (error) {
+  } catch (error: any) {
     yield console.log(error.response.data.error);
   }
 }

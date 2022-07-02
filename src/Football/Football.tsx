@@ -125,7 +125,7 @@ class Football extends Component<FootballProps, FootballState> {
           }}
         >
           Privacy Policy
-              </Link>
+        </Link>
       </div>
     );
   }
@@ -135,11 +135,7 @@ const mapStateToProps = ({ global: { loading } }: FootbalStateRedux) => ({
   loading,
 });
 
-//Tricky bit ... since routes are used inside this component, need to add some stuff in order to use redux
-//https://stackoverflow.com/questions/50199555/redux-connect-blocks-navigation-with-react-router-redux
-export default connect(mapStateToProps, () => ({}), null, { pure: false })(
-  withStyles(styles)(Football)
-);
+export default connect(mapStateToProps)(withStyles(styles)(Football));
 
 // ALTERNATIVE: use this and import compose from 'redux'
 // export default compose(

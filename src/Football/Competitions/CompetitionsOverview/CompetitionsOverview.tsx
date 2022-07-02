@@ -10,9 +10,8 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/competitionsActions';
-import { FootballState } from '../../store';
+import { FootballDispatch, FootballState } from '../../store';
 import './CompetitionsOverview.scss';
-import { FootballDispatch } from '../../store/middleware/thunkMiddleware';
 
 interface MatchParams {
   id: string;

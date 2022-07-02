@@ -1,8 +1,12 @@
 import * as actionTypes from './actionTypes';
 import * as globalActionCreators from './globalActions';
 import Formatters from '../../utilities/formatters';
-import { FootballDispatch, FootballThunk } from '../middleware/thunkMiddleware';
-import { ImagePostData } from '../../services/globalService';
+import { GlobalService, ImagePostData } from '../../services/globalService';
+import { FootballDispatch } from '..';
+import { PlayersService } from '../../services/playersService';
+
+const playerService = new PlayersService();
+const globalService = new GlobalService();
 
 export const loadPlayerListSuccessAction = (playerList: any) => {
   return {
@@ -32,8 +36,8 @@ export const savePlayerSuccessAction = (playerData: any) => {
   };
 };
 
-export const loadPlayerListAction = (): FootballThunk => {
-  return async (dispatch: FootballDispatch, _, { playerService }) => {
+export const loadPlayerListAction = () => {
+  return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
 
     const playersListResponse = await playerService.loadPlayerList();
@@ -45,8 +49,8 @@ export const loadPlayerListAction = (): FootballThunk => {
   };
 };
 
-export const loadPlayerAction = (id: any): FootballThunk => {
-  return async (dispatch: FootballDispatch, _, { playerService }) => {
+export const loadPlayerAction = (id: any) => {
+  return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
 
     const { data: playerData } = await playerService.loadPlayer(id);
@@ -59,15 +63,8 @@ export const loadPlayerAction = (id: any): FootballThunk => {
   };
 };
 
-export const savePlayerAction = (
-  image: ImagePostData,
-  playerData: any
-): FootballThunk => {
-  return async (
-    dispatch: FootballDispatch,
-    _,
-    { playerService, globalService }
-  ) => {
+export const savePlayerAction = (image: ImagePostData, playerData: any) => {
+  return async (dispatch: FootballDispatch) => {
     dispatch(globalActionCreators.updateLoadingSpinner(true));
 
     if (!image) {
