@@ -13,6 +13,7 @@ export interface MenuItemSideMenu {
 
 interface SideMenuProps {
   itemList: MenuItemSideMenu[];
+  children?: React.ReactNode;
 }
 
 const styles = (theme: Theme) => ({
