@@ -78,7 +78,7 @@ export const PlayerDetails = (props: PlayerDetailsProps) => {
           <Route
             path={props.match.url + '/player-statistics'}
             render={(props) => {
-              return <PlayerStatistics {...props}></PlayerStatistics>;
+              return <PlayerStatistics playerId={currentPlayer.playerId}></PlayerStatistics>;
             }}
             exact
           />

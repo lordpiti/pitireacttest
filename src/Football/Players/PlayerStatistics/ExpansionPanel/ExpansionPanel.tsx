@@ -1,9 +1,7 @@
-import React from 'react';
 import { withStyles, Theme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import SingleGamePlayed from './SingleGamePlayed/SingleGamePlayed';
-import { RouteComponentProps } from 'react-router';
 import {
   Accordion,
   AccordionDetails,
@@ -20,7 +18,7 @@ const styles = (theme: Theme) => ({
   },
 });
 
-export interface ExpansionPanelProps extends RouteComponentProps {
+export interface ExpansionPanelProps {
   classes: any;
   matchListGroupedByCompetition: any;
 }
