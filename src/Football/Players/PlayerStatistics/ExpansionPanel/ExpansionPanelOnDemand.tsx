@@ -20,7 +20,7 @@ const styles = (theme: Theme) => ({
   },
 });
 
-export interface ExpansionPanelProps extends RouteComponentProps {
+export interface ExpansionPanelProps {
   classes: any;
   competition: any;
   playerId: any;
@@ -44,7 +44,7 @@ const SimpleExpansionPanelOnDemand = (props: ExpansionPanelProps) => {
       </AccordionSummary>
       <AccordionDetails>
         {expanded && (
-          <DetailsPanel competitionId={props.competition.id} {...props} />
+          <DetailsPanel competitionId={props.competition.id} classes={props.classes} playerId={props.playerId} />
         )}
       </AccordionDetails>
     </Accordion>

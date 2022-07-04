@@ -13,7 +13,7 @@ import MatchList from './MatchList/MatchList';
 import TableLeague from './TableLeague/TableLeague';
 import ScorersTable from './ScorersTable/ScorersTable';
 import { Paper } from '@material-ui/core';
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps, withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { FootballDispatch, FootballState } from '../../store';
 import * as actionCreators from '../../store/actions/competitionsActions';
@@ -159,4 +159,4 @@ const mapDispatchToProps = (dispatch: FootballDispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withStyles(styles)(CompetitionRounds));
+)(withStyles(styles)(withRouter(CompetitionRounds)));

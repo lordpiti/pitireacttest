@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
 import { Card, CardContent, CardHeader } from '@material-ui/core';
 
-interface MatchListProps {
+interface MatchListProps extends RouteComponentProps {
   matchList: any[];
   currentUrl: string;
 }
@@ -27,8 +27,8 @@ const MatchList = (props: MatchListProps) => {
               <Link
                 to={{
                   pathname:
-                    props.currentUrl +
-                    '/competition-rounds/match/' +
+                    props.match.url +
+                    '/match/' +
                     match.matchId,
                 }}
               >
@@ -51,4 +51,4 @@ const MatchList = (props: MatchListProps) => {
   );
 };
 
-export default MatchList;
+export default withRouter(MatchList);

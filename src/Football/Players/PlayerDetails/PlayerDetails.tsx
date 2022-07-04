@@ -87,7 +87,7 @@ class PlayerDetails extends Component<PlayerDetailsProps> {
             />
             <Route
               path={this.props.match.url + '/player-statistics'}
-              render={(props) => {
+              render={() => {
                 return <PlayerStatistics playerId={this.props.currentPlayer.id}></PlayerStatistics>;
               }}
               exact

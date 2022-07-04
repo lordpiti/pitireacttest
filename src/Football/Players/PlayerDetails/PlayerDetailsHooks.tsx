@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
 // import asyncComponent from '../../components/asyncComponent/asyncComponent';
-//import PlayerStatistics from '../PlayerStatistics/PlayerStatisticsOnDemand';
-import PlayerStatistics from '../PlayerStatistics/PlayerStatistics';
+import PlayerStatistics from '../PlayerStatistics/PlayerStatisticsOnDemand';
+// import PlayerStatistics from '../PlayerStatistics/PlayerStatistics';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import Match from '../../Competitions/Match/Match';
 import './PlayerDetails.scss';
@@ -77,7 +77,7 @@ export const PlayerDetails = (props: PlayerDetailsProps) => {
           />
           <Route
             path={props.match.url + '/player-statistics'}
-            render={(props) => {
+            render={() => {
               return <PlayerStatistics playerId={currentPlayer.playerId}></PlayerStatistics>;
             }}
             exact

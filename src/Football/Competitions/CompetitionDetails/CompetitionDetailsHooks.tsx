@@ -53,7 +53,6 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
       competitionTypeContent = (
         <CompetitionRounds
           competitionData={theState.currentCompetition}
-          {...props}
         ></CompetitionRounds>
       );
     } else {

@@ -1,10 +1,8 @@
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
-import React from 'react';
 import SingleGamePlayed from '../SingleGamePlayed/SingleGamePlayed';
-import { RouteComponentProps } from 'react-router';
 
-interface DetailsPanelProps extends RouteComponentProps {
+interface DetailsPanelProps {
   classes: any;
   playerId: number;
   competitionId: number;
@@ -45,7 +43,7 @@ const DetailsPanel = (props: DetailsPanelProps) => {
     <div style={{ display: 'inline-block', width: '100%' }}>
       {data.player.playerMatchesPlayedByCompetition.map(
         (match: any, index: number) => (
-          <SingleGamePlayed key={match.id} gamePlayed={match} {...props} />
+          <SingleGamePlayed key={match.id} gamePlayed={match} />
         )
       )}
     </div>

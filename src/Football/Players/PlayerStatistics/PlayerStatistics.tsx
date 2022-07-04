@@ -59,6 +59,7 @@ const PlayerStatistics = (props: MatchParams) => {
     return <p>Loading...</p>;
   }
   if (error) {
+    debugger;
     return <p>Error :(</p>;
   }
 
@@ -91,7 +92,6 @@ const PlayerStatistics = (props: MatchParams) => {
       <h1>Games played</h1>
       <ExpansionPanel
         matchListGroupedByCompetition={matchListGroupedByCompetition}
-        {...props}
       ></ExpansionPanel>
     </div>
   );

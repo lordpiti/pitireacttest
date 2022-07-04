@@ -4,7 +4,6 @@ import Formatters from '../../../../utilities/formatters';
 import './SingleGamePlayed.scss';
 
 export interface SingleGamePlayedProps extends RouteComponentProps {
-  classes: any;
   gamePlayed: any;
 }
 

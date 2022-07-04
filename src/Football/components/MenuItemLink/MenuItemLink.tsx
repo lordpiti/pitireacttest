@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import { Route } from 'react-router-dom';
 

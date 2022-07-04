@@ -53,7 +53,6 @@ class CompetitionDetails extends Component<CompetitionDetailsProps> {
         competitionTypeContent = (
           <CompetitionRounds
             competitionData={this.props.currentCompetition}
-            {...this.props}
           ></CompetitionRounds>
         );
       } else {

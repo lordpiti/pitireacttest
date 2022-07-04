@@ -1,19 +1,16 @@
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ExpansionPanel from './ExpansionPanel/ExpansionPanelOnDemand';
 import * as actionCreators from '../../store/actions/globalActions';
-import { RouteComponentProps } from 'react-router';
 import { FootballState } from '../../store';
 
 interface MatchParams {
-	id: string;
+	playerId: string;
 }
 
-const PlayerStatistics = (props: RouteComponentProps<MatchParams>) => {
-	const { match } = props;
-
+const PlayerStatistics = (props: MatchParams) => {
 	useEffect(() => {
 		if (!ui.isLoading) {
 			dispatch(actionCreators.updateLoadingSpinner(true));
@@ -26,7 +23,7 @@ const PlayerStatistics = (props: RouteComponentProps<MatchParams>) => {
 
 	const dispatch = useDispatch();
 
-	const playerId = match.params.id;
+	const playerId = props.playerId;
 
 	const GET_PLAYER_STATISTICS = gql`
     query PlayerStatistics($playerId: Int!) {
@@ -62,7 +59,6 @@ const PlayerStatistics = (props: RouteComponentProps<MatchParams>) => {
 			<h1>Games played</h1>
 			{data.player.playerCompetitionsPlayed.map((competition: any) => (
 				<ExpansionPanel key={competition.id} competition={competition} playerId={playerId}
-					{...props}
 				></ExpansionPanel>))}
 		</>
 	);

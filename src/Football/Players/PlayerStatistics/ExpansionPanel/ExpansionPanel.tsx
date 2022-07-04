@@ -38,7 +38,7 @@ const SimpleExpansionPanel = (props: ExpansionPanelProps) => {
           <AccordionDetails>
             <div style={{ display: 'inline-block', width: '100%' }}>
               {group.data.map((match: any, index: number) => (
-                <SingleGamePlayed key={index} gamePlayed={match} {...props} />
+                <SingleGamePlayed key={index} gamePlayed={match} />
               ))}
             </div>
           </AccordionDetails>
