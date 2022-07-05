@@ -59,7 +59,6 @@ const PlayerStatistics = (props: MatchParams) => {
     return <p>Loading...</p>;
   }
   if (error) {
-    debugger;
     return <p>Error :(</p>;
   }
 
