@@ -34,7 +34,7 @@ export const PlayerDetails = (props: PlayerDetailsProps) => {
   ];
 
   return (<PlayerDetailsContainer playerId={props.match.params.id}>
-    {({ currentPlayer }: any) => {
+    {({ currentPlayer }) => {
       return (currentPlayer ? (<div className='player-details'>
         <div className='sidebar'>
           <SideMenu itemList={itemList}>

@@ -1,10 +1,19 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import * as actionCreators from '../../store/actions/playersActions';
 import { FootballState, useFootballDispatch } from '../../store';
 
-export const PlayerDetailsContainer = (props: any) => {
+interface PlayerDetailsContainerProps {
+  playerId: string;
+  children: (props: PlayerDetailsChildProps) => React.ReactNode;
+}
+
+export interface PlayerDetailsChildProps {
+  currentPlayer: any
+}
+
+export const PlayerDetailsContainer = (props: PlayerDetailsContainerProps) => {
   const { children, playerId } = props;
   const playerData = useSelector((state: FootballState) => ({
     currentPlayer: state.players.currentPlayer,
