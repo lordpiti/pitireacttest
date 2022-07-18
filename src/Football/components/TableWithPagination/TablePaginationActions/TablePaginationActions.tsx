@@ -1,10 +1,11 @@
 import { IconButton, withStyles, Theme, createStyles } from '@material-ui/core';
+import { TablePaginationActionsProps } from '@material-ui/core/TablePagination/TablePaginationActions';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import React from 'react';
-import PropTypes from 'prop-types';
+import { WithStyles, WithTheme } from '@material-ui/core/styles';
 
 const actionsStyles = (theme: Theme) =>
   createStyles({
@@ -15,21 +16,23 @@ const actionsStyles = (theme: Theme) =>
     },
   });
 
-const TablePaginationActions = (props: any) => {
+const TablePaginationActions = (
+  props: TablePaginationActionsProps & WithStyles & WithTheme
+) => {
   const handleFirstPageButtonClick = (event: any) => {
-    props.onChangePage(event, 0);
+    props.onPageChange(event, 0);
   };
 
   const handleBackButtonClick = (event: any) => {
-    props.onChangePage(event, props.page - 1);
+    props.onPageChange(event, props.page - 1);
   };
 
   const handleNextButtonClick = (event: any) => {
-    props.onChangePage(event, props.page + 1);
+    props.onPageChange(event, props.page + 1);
   };
 
   const handleLastPageButtonClick = (event: any) => {
-    props.onChangePage(
+    props.onPageChange(
       event,
       Math.max(0, Math.ceil(props.count / props.rowsPerPage) - 1)
     );
@@ -77,15 +80,6 @@ const TablePaginationActions = (props: any) => {
       </IconButton>
     </div>
   );
-};
-
-TablePaginationActions.propTypes = {
-  classes: PropTypes.object.isRequired,
-  count: PropTypes.number.isRequired,
-  onChangePage: PropTypes.func.isRequired,
-  page: PropTypes.number.isRequired,
-  rowsPerPage: PropTypes.number.isRequired,
-  theme: PropTypes.object.isRequired,
 };
 
 const TablePaginationActionsWrapped = withStyles(actionsStyles, {

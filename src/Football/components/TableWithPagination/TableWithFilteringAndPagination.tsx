@@ -61,7 +61,7 @@ class TableWithFilteringAndPagination extends Component<any, any> {
                 count={this.props.filteredData.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
-                onChangePage={this.handleChangePage}
+                onPageChange={this.handleChangePage}
                 onChangeRowsPerPage={this.handleChangeRowsPerPage}
                 ActionsComponent={TablePaginationActionsWrapped}
               />
