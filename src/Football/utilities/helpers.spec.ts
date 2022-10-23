@@ -83,9 +83,33 @@ describe('Helpers', () => {
         return acc;
       }, initialValue);
 
-      console.log(res);
+      const gg = Object.entries(res);
 
-      expect(true).toBeTruthy();
+      const output = {} as any;
+      gg.forEach(
+        (x) =>
+          (output[x[0]] = {
+            count: x[1].reduce((a, b) => a + b.count, 0),
+            minutes: x[1].reduce((a, b) => a + b.minutes, 0),
+          })
+      );
+
+      const expectedResult = {
+        meeting1: {
+          count: 2,
+          minutes: 45,
+        },
+        meeting2: {
+          count: 4,
+          minutes: 110,
+        },
+        meeting3: {
+          count: 5,
+          minutes: 100,
+        },
+      };
+
+      expect(output).toEqual(expectedResult);
     });
   });
 });
