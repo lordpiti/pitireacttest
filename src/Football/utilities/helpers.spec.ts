@@ -4,9 +4,10 @@ describe('Helpers', () => {
   describe('removeDuplicates', () => {
     it('removes items with the same property in a list', () => {
       const itemsList = [
-        { id: 1, name: 'test1', category: 'category1'}, 
-        { id: 2, name: 'test2', category: 'category2'},
-        { id: 3, name: 'test3', category: 'category1'}];
+        { id: 1, name: 'test1', category: 'category1' },
+        { id: 2, name: 'test2', category: 'category2' },
+        { id: 3, name: 'test3', category: 'category1' },
+      ];
 
       const clearList = Helpers.removeDuplicates(itemsList, 'category');
       expect(clearList.length).toBe(2);
@@ -14,14 +15,14 @@ describe('Helpers', () => {
   });
 
   describe('groupBy', () => {
-
     let itemsList;
 
     beforeEach(() => {
       itemsList = [
-        { id: 1, name: 'test1', category: 'category1'}, 
-        { id: 2, name: 'test2', category: 'category2'},
-        { id: 3, name: 'test3', category: 'category1'}];
+        { id: 1, name: 'test1', category: 'category1' },
+        { id: 2, name: 'test2', category: 'category2' },
+        { id: 3, name: 'test3', category: 'category1' },
+      ];
     });
 
     it('groups item by property creates right number of lists ', () => {
@@ -38,4 +39,53 @@ describe('Helpers', () => {
       expect(Object.values(groupedList)[category2Index].length).toBe(1);
     });
   });
-})
+
+  describe('test', () => {
+    type Dictionary<T> = Record<string, T> | undefined;
+
+    it('hehe', () => {
+      const data: Dictionary<Dictionary<{ count: number; minutes: number }>> = {
+        entity1: {
+          meeting1: {
+            count: 1,
+            minutes: 15,
+          },
+          meeting2: {
+            count: 2,
+            minutes: 50,
+          },
+        },
+        entity2: {
+          meeting1: {
+            count: 1,
+            minutes: 30,
+          },
+          meeting2: {
+            count: 2,
+            minutes: 60,
+          },
+          meeting3: {
+            count: 5,
+            minutes: 100,
+          },
+        },
+      };
+      const hh = Object.values(data);
+      const initialValue: Dictionary<{ count: number; minutes: number }[]> = {};
+
+      const res = hh.reduce((acc, element) => {
+        const dfgsd = Object.entries(element || {});
+
+        dfgsd.forEach((x) => {
+          (acc[x[0]] || (acc[x[0]] = [])).push(x[1]);
+        });
+
+        return acc;
+      }, initialValue);
+
+      console.log(res);
+
+      expect(true).toBeTruthy();
+    });
+  });
+});
