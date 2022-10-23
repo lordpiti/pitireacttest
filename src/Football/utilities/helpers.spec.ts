@@ -85,7 +85,7 @@ describe('Helpers', () => {
 
       const gg = Object.entries(res);
 
-      const output = {} as any;
+      const output: Dictionary<{ count: number; minutes: number }> = {};
       gg.forEach(
         (x) =>
           (output[x[0]] = {
