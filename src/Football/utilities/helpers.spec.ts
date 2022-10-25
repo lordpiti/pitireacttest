@@ -70,6 +70,32 @@ describe('Helpers', () => {
           },
         },
       };
+
+      const selectedEntities = ['entity1', 'entity2'];
+      const selectedMeetingTypes = ['meeting1'];
+
+      const filtered: Dictionary<
+        Dictionary<{ count: number; minutes: number }>
+      > = Object.keys(data)
+        .filter((key) => selectedEntities.includes(key))
+        .reduce((obj, key) => {
+          return {
+            ...obj,
+            [key]: Object.fromEntries(
+              Object.entries(data[key]!).filter(([key]) =>
+                selectedMeetingTypes.includes(key)
+              )
+            ),
+          };
+        }, {});
+
+      // const filtered2 = Object.fromEntries(
+      //   Object.entries(data).filter(([key]) => key === 'entity1')
+      // );
+
+      console.log(filtered);
+      // console.log(filtered2);
+
       const hh = Object.values(data);
       const initialValue: Dictionary<{ count: number; minutes: number }[]> = {};
 
@@ -109,7 +135,28 @@ describe('Helpers', () => {
         },
       };
 
+      const expectedResult2 = {
+        entity1: {
+          count: 3,
+          minutes: 65,
+        },
+        entity2: {
+          count: 8,
+          minutes: 190,
+        },
+      };
+
+      const output2: Dictionary<{ count: number; minutes: number }> = {};
+      Object.keys(data).forEach((x) => {
+        const hh = Object.values(data[x] || {});
+        output2[x] = {
+          count: hh.reduce((a, b) => a + b.count, 0),
+          minutes: hh.reduce((a, b) => a + b.minutes, 0),
+        };
+      });
+
       expect(output).toEqual(expectedResult);
+      expect(output2).toEqual(expectedResult2);
     });
   });
 });
