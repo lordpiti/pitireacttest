@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
 import ApolloClient from 'apollo-boost';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const cache = new InMemoryCache();
 
@@ -23,7 +24,8 @@ class App extends Component {
     return (
       <ApolloProvider client={this.apolloClient}>
         <BrowserRouter>
-          <Football></Football>
+          <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID || ''}>...
+            <Football></Football></GoogleOAuthProvider>
         </BrowserRouter>
       </ApolloProvider>
     );
