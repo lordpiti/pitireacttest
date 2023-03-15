@@ -38,6 +38,7 @@ const GoogleAuthenticator = (props: GoogleAuthenticatorProps) => {
   };
 
   const logout = () => {
+    googleLogout();
     props.authenticationTokenUpdate(null);
   };
 
@@ -62,7 +63,7 @@ const GoogleAuthenticator = (props: GoogleAuthenticatorProps) => {
           <Button
             variant='contained'
             color='secondary'
-            onClick={() => { googleLogout(); logout(); }}
+            onClick={logout}
           >
             Logout
           </Button>
