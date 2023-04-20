@@ -30,11 +30,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      {/* <div className={styles.tuMadre}>HAHA</div> */}
-      <RSSReader feedList={currentFeedList.feedList}></RSSReader>
-      {/* <img src="/assets/img/barcelona2015.jpg" alt="" className="img-fluid"></img> */}
-    </div>
+    <RSSReader feedList={currentFeedList.feedList}></RSSReader>
   );
 };
 
