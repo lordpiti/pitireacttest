@@ -36,7 +36,7 @@ describe('MatchPlayerSingle', () => {
 
   it('should render the name and surname properly', () => {
     const { getByTestId } = render(<MatchPlayerSingle player={playerData} />);
-    expect(getByTestId('playerNameSurname')).toHaveTextContent(
+    expect(getByTestId('playerNameSurname')).toBe(
       `${playerData.name} ${playerData.surname}`
     );
   });

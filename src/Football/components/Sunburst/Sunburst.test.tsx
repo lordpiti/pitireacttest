@@ -1,14 +1,15 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import { Sunburst } from './Sunburst';
+import { TreeNodeType } from '../../utilities/nest';
+import { Sunburst, SunburstProps } from './Sunburst';
 
 import dataIn from './Sunburst.data.json';
 
 describe('Sunburst', () => {
-    const testProps = {
-        data: dataIn,
+    const testProps: SunburstProps = {
+        data: dataIn as TreeNodeType[],
         diameter: 1300,
-        updateToolTip: (e, d) => undefined
+        updateToolTip: (e: any, d: any) => undefined
     };
     const sunburst = shallow(
         <Sunburst {...testProps} />

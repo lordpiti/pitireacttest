@@ -1,15 +1,17 @@
 import { shallow } from 'enzyme';
-import { any } from 'prop-types';
 import React from 'react';
-import { SunburstBundle } from './SunburstBundle';
+import { SunburstBundle, SunburstBundleProps } from './SunburstBundle';
+
+import dataIn from '../Sunburst/Sunburst.data.json';
+import { TreeNodeType } from '../../utilities/nest';
 
 describe('SunburstBundle', () => {
   const testProps = {
-    data: any,
+    data: dataIn as TreeNodeType[],
     diameter: 100,
     selectedProduct: null,
     setSelectedProduct: jest.fn()
-  };
+  } as SunburstBundleProps;
   const sunburstBundle = shallow(<SunburstBundle {...testProps} />);
 
   const instance = sunburstBundle.instance() as SunburstBundle;

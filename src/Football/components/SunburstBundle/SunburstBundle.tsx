@@ -6,7 +6,7 @@ import './SunburstBundle.scss';
 import { TreeNodeType } from '../../utilities/nest';
 import { Product } from './products';
 
-interface SunburstBundleProps {
+export interface SunburstBundleProps {
   data: TreeNodeType[];
   diameter: number;
   selectedProduct?: Product | null;
@@ -23,7 +23,7 @@ interface SunburstBundleState {
 export class SunburstBundle extends React.Component<
   SunburstBundleProps,
   SunburstBundleState
-  > {
+> {
   state: SunburstBundleState = {
     tooltipHidden: true,
     tooltipCssStyle: {},

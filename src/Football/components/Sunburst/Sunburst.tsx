@@ -3,7 +3,7 @@ import React from 'react';
 import { nestData, TreeNodeType } from '../../utilities/nest';
 import './Sunburst.scss';
 
-interface SunburstProps {
+export interface SunburstProps {
   data: TreeNodeType[];
   diameter: number;
   updateToolTip: Function;

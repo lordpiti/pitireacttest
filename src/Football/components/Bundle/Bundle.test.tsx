@@ -10,10 +10,10 @@ describe('Bundle', () => {
   const testProps = {
     data: dataIn,
     diameter: 1300,
-    subsLimit: null,
+    subsLimit: undefined,
     selectProduct: selectProductMock,
     selectedProduct: {
-      groupDescription: null,
+      groupDescription: undefined,
       substituteProducts: [
         {
           substituteProductCode: '9952752',
@@ -58,8 +58,8 @@ describe('Bundle', () => {
       instance.createBundleBasic(testProps);
 
       const numberOfConnections = instance.state.leavesData
-        .map(x => x.data.substituteProducts.length)
-        .reduce((a, b) => a + b, 0);
+        .map((x: any) => x.data.substituteProducts.length)
+        .reduce((a: number, b: number) => a + b, 0);
 
       expect(instance.state.leavesData.length).toEqual(45);
       expect(instance.state.finalData.length).toEqual(numberOfConnections);
@@ -119,7 +119,7 @@ describe('Bundle', () => {
 
     const selectedProduct = { code: '1' };
     instance.productMouseClick(mockClickEvent, selectedProduct);
-    const stickProductSpy = jest.spyOn(instance.props, 'selectProduct');
+    const stickProductSpy = jest.spyOn(instance.props, 'selectedProduct');
     const stopPropagationSpy = jest.spyOn(mockClickEvent, 'stopPropagation');
 
     expect(stopPropagationSpy).toHaveBeenCalled();
