@@ -12,7 +12,7 @@ interface CompetitionSimulationState {
 
 class CompetitionSimulation extends Component<any, CompetitionSimulationState> {
   connection = new HubConnectionBuilder()
-    .withUrl(import.meta.env.VITE_TEST_VAR_API_URL + '/loopy')
+    .withUrl(import.meta.env.VITE_API_URL + '/loopy')
     .build();
 
   state: CompetitionSimulationState = {
