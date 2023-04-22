@@ -11,7 +11,7 @@ class TeamStadium extends Component<any, any> {
   }
 
   componentDidMount() {
-    const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}&`;
+    const apiUrl = `https://maps.googleapis.com/maps/api/geocode/json?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}&`;
 
     axios
       .create()

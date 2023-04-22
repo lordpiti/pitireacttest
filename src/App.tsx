@@ -16,7 +16,7 @@ cache.writeData({ data: initialState });
 
 class App extends Component {
   apolloClient = new ApolloClient({
-    uri: `${process.env.REACT_APP_API_URL}/graphql`,
+    uri: `${import.meta.env.VITE_API_URL}/graphql`,
     cache,
   });
 
@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <ApolloProvider client={this.apolloClient}>
         <BrowserRouter>
-          <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID || ''}>...
+          <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID || ''}>
             <Football></Football></GoogleOAuthProvider>
         </BrowserRouter>
       </ApolloProvider>

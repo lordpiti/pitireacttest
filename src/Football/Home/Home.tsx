@@ -18,7 +18,7 @@ const Home = () => {
     });
 
     parser.parseURL(
-      `${process.env.REACT_APP_CORS_PROXY}${process.env.REACT_APP_HOME_RSS_FEED}`,
+      `${import.meta.env.VITE_CORS_PROXY}${import.meta.env.VITE_HOME_RSS_FEED}`,
       (err, feed) => {
         if (feed) {
           setCurrentFeedList({

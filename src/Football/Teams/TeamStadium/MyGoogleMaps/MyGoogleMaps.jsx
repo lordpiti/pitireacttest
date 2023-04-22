@@ -9,7 +9,9 @@ const MyMapComponent = compose(
      * https://console.developers.google.com/apis/dashboard
      * The key "AIzaSyBkNaAGLEVq0YLQMi-PYEMabFeREadYe1Q" can be ONLY used in this sandbox (no forked).
      */
-    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=AIzaSyAG7ddPMubaOTHEZTqB0s4ZV4830cIJyCU&v=3.exp&libraries=geometry,drawing,places`,
+    googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${
+      import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+    }&v=3.exp&libraries=geometry,drawing,places`,
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `400px` }} />,
     mapElement: <div style={{ height: `100%` }} />,

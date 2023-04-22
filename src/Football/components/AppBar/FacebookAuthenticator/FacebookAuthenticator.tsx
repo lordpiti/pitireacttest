@@ -14,7 +14,7 @@ type FacebookAuthenticatorProps = OwnProps;
 
 const FacebookAuthenticator = (props: FacebookAuthenticatorProps) => {
   const responseFacebook = (response: any) => {
-    const url = `${process.env.REACT_APP_LOGIN_API_URL}/user/Login`;
+    const url = `${import.meta.env.VITE_LOGIN_API_URL}/user/Login`;
 
     axiosInstance
       .post(url, { userId: response.userID, accessToken: response.accessToken })
@@ -43,7 +43,7 @@ const FacebookAuthenticator = (props: FacebookAuthenticatorProps) => {
   if (!props.authenticationToken) {
     buttonLoginLogout = (
       <FacebookLogin
-        appId={process.env.REACT_APP_FACEBOOK_APP_ID || ''}
+        appId={import.meta.env.VITE_FACEBOOK_APP_ID || ''}
         autoLoad={false}
         fields='name,email,picture'
         onClick={componentClicked}

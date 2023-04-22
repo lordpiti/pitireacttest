@@ -18,7 +18,7 @@ const GoogleAuthenticator = (props: GoogleAuthenticatorProps) => {
   const responseGoogle = (
     response: CredentialResponse
   ) => {
-    const url = `${process.env.REACT_APP_LOGIN_API_URL}/user/LoginGoogle`;
+    const url = `${import.meta.env.VITE_LOGIN_API_URL}/user/LoginGoogle`;
 
     axiosInstance
       .post(url, {

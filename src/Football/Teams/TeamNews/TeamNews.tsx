@@ -53,7 +53,7 @@ const TeamNews = (props: TeamNewsProps) => {
 
     const finalUrl = `https://e00-marca.uecdn.es/rss/futbol/${foundUrl}.xml`;
 
-    const CORS_PROXY = process.env.REACT_APP_CORS_PROXY;
+    const CORS_PROXY = import.meta.env.VITE_CORS_PROXY;
 
     const parser = new Parser<any, ParsedRSSData>({
       customFields: {

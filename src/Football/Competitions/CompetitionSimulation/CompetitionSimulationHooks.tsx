@@ -28,7 +28,7 @@ const CompetitionSimulation = (props: any) => {
   useEffect(() => {
     const createHubConnection = async () => {
       const connection = new HubConnectionBuilder()
-        .withUrl(process.env.REACT_APP_API_URL + 'loopy')
+        .withUrl(import.meta.env.VITE_API_URL + 'loopy')
         .build();
 
       connection.on('StartSimulation', (data: any) => {
