@@ -1,4 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Bundle > should render correctly 1`] = `ShallowWrapper {}`;
+
+exports[`Bundle > subsLimit > should limit the number of product substitutions for each product 1`] = `ShallowWrapper {}`;
 
 exports[`Bundle should render correctly 1`] = `
 <Fragment>

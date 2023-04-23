@@ -1,4 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders the snapshot > should render one MatchPlayerSingle 1`] = `ShallowWrapper {}`;
 
 exports[`renders the snapshot should render one MatchPlayerSingle 1`] = `
 <div>

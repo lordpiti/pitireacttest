@@ -3,9 +3,10 @@ import CompetitionDetailsHooks from './CompetitionDetailsHooks';
 import { shallow } from 'enzyme';
 import { match } from 'react-router';
 import { createMemoryHistory } from 'history';
+import { vi } from 'vitest';
 
-jest.mock('react-redux', () => ({
-  useDispatch: () => {},
+vi.mock('react-redux', () => ({
+  useDispatch: () => { },
   useSelector: () => ({
     currentCompetition: {
       logo: {
@@ -13,7 +14,7 @@ jest.mock('react-redux', () => ({
       },
     },
   }),
-  connect: () => () => {},
+  connect: () => () => { },
 }));
 
 describe('CompetitionDetailsHooks', () => {

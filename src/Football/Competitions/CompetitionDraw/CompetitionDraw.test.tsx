@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import mockDraw from './mockDraw.json';
 import { FootballState } from '../../store';
+import { vi } from 'vitest';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -35,7 +36,7 @@ let store = null;
 describe('CompetitionDraw', () => {
   it(`should render correctly`, () => {
     store = mockStore(testState);
-    jest.spyOn(store, 'dispatch');
+    vi.spyOn(store, 'dispatch');
     const wrapper = shallow(
       <CompetitionDraw competitionData={competitionData} store={store} />
     );

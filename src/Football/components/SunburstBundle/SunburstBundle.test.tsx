@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import { SunburstBundle, SunburstBundleProps } from './SunburstBundle';
-
+import { vi } from 'vitest';
 import dataIn from '../Sunburst/Sunburst.data.json';
 import { TreeNodeType } from '../../utilities/nest';
 
@@ -10,7 +10,7 @@ describe('SunburstBundle', () => {
     data: dataIn as TreeNodeType[],
     diameter: 100,
     selectedProduct: null,
-    setSelectedProduct: jest.fn()
+    setSelectedProduct: vi.fn()
   } as SunburstBundleProps;
   const sunburstBundle = shallow(<SunburstBundle {...testProps} />);
 

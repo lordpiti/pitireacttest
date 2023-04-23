@@ -62,9 +62,9 @@
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build",
+    "test": "vitest watch",
+    "test:no-watch": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -80,11 +80,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
-  },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.0.6",
     "@storybook/addon-interactions": "^7.0.6",
@@ -101,7 +96,6 @@
     "@types/gapi": "^0.0.44",
     "@types/gapi.auth2": "0.0.57",
     "@types/history": "5.0.0",
-    "@types/jest": "^29.5.1",
     "@types/lodash": "4.14.194",
     "@types/node": "^18.15.13",
     "@types/react": "^18.0.38",
@@ -114,10 +108,12 @@
     "@types/redux-mock-store": "1.0.3",
     "@types/reselect": "^2.2.0",
     "@vitejs/plugin-react": "^4.0.0",
+    "jsdom": "^21.1.1",
     "react-is": "^18.2.0",
     "storybook": "^7.0.6",
     "vite": "^4.3.1",
     "vite-plugin-svgr": "^2.4.0",
-    "vite-tsconfig-paths": "^4.2.0"
+    "vite-tsconfig-paths": "^4.2.0",
+    "vitest": "^0.30.1"
   }
 }
