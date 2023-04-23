@@ -6,6 +6,8 @@ import {
   EnhancedItem,
   ParsedRSSData,
 } from '../../components/RSSReader/RSSReader';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import styles from './TeamNews.module.css';
 
 interface TeamNewsProps {
   teamData: any;
@@ -76,12 +78,48 @@ const TeamNews = (props: TeamNewsProps) => {
   //   };
   // }, [props.teamData.id]);
 
+  const url = props.teamData.name;
+  const replacedName = url.replace(/ /gi, '-').toLowerCase();
+
+  const twitterAccounts: Record<string, string> = {
+    'real-madrid': 'realmadrid',
+    'r.c-deportivo': 'RCDeportivo',
+    'betis': 'RealBetis',
+    'f.c-barcelona': 'FCBarcelona',
+    'sevilla': 'SevillaFC',
+    'malaga': 'MalagaCF',
+    'mallorca': 'RCD_Mallorca',
+    'osasuna': 'Osasuna',
+    'athletic-de-bilbao': 'AthleticClub',
+    'espanyol': 'RCDEspanyol',
+    'villarreal': 'VillarrealCF',
+    'atlético-de-madrid': 'Atleti',
+    'valladolid': 'realvalladolid',
+    'sporting': 'RealSporting',
+    'numancia': 'cdnumancia',
+    'valencia-c.f': 'valenciacf',
+    'almeria': 'U_D_Almeria',
+    'getafe': 'GetafeCF',
+    'racing-de-santander': 'realracingclub',
+    'recreativo-de-huelva': 'recreoficial'
+  };
+
+  const foundTwitterAccount = twitterAccounts[replacedName];
+
   return (
     <>
       <h1>{t('teams.news')}</h1>
-      {currentFeedList.feedList && (
+      {/* {currentFeedList.feedList && (
         <RSSReader feedList={currentFeedList.feedList}></RSSReader>
-      )}
+      )} */}
+      <div className={styles.mainContainer} >
+        <div style={{ width: '70%' }}>
+          <TwitterTimelineEmbed
+            sourceType="profile"
+            screenName={foundTwitterAccount || 'LaLiga'}
+          />
+        </div>
+      </div>
     </>
   );
 };

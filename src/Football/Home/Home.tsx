@@ -4,6 +4,8 @@ import RSSReader, {
   ParsedRSSData,
 } from '../components/RSSReader/RSSReader';
 import Parser from 'rss-parser';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import styles from './Home.module.css';
 
 const Home = () => {
   const [currentFeedList, setCurrentFeedList] = useState({
@@ -30,7 +32,15 @@ const Home = () => {
   // }, []);
 
   return (
-    <RSSReader feedList={currentFeedList.feedList}></RSSReader>
+    // <RSSReader feedList={currentFeedList.feedList}></RSSReader>
+    <div className={styles.mainContainer}>
+      <div style={{ width: '40%' }}>
+        <TwitterTimelineEmbed
+          sourceType="profile"
+          screenName="LaLiga"
+        />
+      </div>
+    </div>
   );
 };
 
