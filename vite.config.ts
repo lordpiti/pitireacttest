@@ -20,4 +20,10 @@ export default defineConfig({
       exclude: ['node_modules/', 'src/setupTests.ts'],
     },
   },
+  // This is required only for twitter widget as it's using nodejs require syntax which is not supported by browsers
+  build: {
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+  },
 });
