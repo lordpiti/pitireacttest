@@ -64,8 +64,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "eslintConfig": {
     "extends": [
@@ -84,14 +84,14 @@
       "enzyme-to-json/serializer"
     ]
   },
-  "heroku-run-build-script": true,
   "devDependencies": {
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-essentials": "^6.5.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/node-logger": "^6.5.9",
-    "@storybook/preset-create-react-app": "^3.2.0",
-    "@storybook/react": "^6.5.9",
+    "@storybook/addon-essentials": "^7.0.6",
+    "@storybook/addon-interactions": "^7.0.6",
+    "@storybook/addon-links": "^7.0.6",
+    "@storybook/blocks": "^7.0.6",
+    "@storybook/react": "^7.0.6",
+    "@storybook/react-vite": "^7.0.6",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/d3": "^7.4.0",
@@ -114,6 +114,7 @@
     "@types/reselect": "^2.2.0",
     "@vitejs/plugin-react": "^4.0.0",
     "react-is": "^18.2.0",
+    "storybook": "^7.0.6",
     "vite": "^4.3.1",
     "vite-plugin-svgr": "^2.4.0",
     "vite-tsconfig-paths": "^4.2.0"

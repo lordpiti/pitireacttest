@@ -10,24 +10,24 @@ const Home = () => {
     feedList: [] as EnhancedItem[] | undefined,
   });
 
-  useEffect(() => {
-    const parser = new Parser<any, ParsedRSSData>({
-      customFields: {
-        item: [['media:content', 'media:thumbnail']],
-      },
-    });
+  // useEffect(() => {
+  //   const parser = new Parser<any, ParsedRSSData>({
+  //     customFields: {
+  //       item: [['media:content', 'media:thumbnail']],
+  //     },
+  //   });
 
-    parser.parseURL(
-      `${import.meta.env.VITE_CORS_PROXY}${import.meta.env.VITE_HOME_RSS_FEED}`,
-      (err, feed) => {
-        if (feed) {
-          setCurrentFeedList({
-            feedList: feed.items,
-          });
-        }
-      }
-    );
-  }, []);
+  //   parser.parseURL(
+  //     `${import.meta.env.VITE_CORS_PROXY}${import.meta.env.VITE_HOME_RSS_FEED}`,
+  //     (err, feed) => {
+  //       if (feed) {
+  //         setCurrentFeedList({
+  //           feedList: feed.items,
+  //         });
+  //       }
+  //     }
+  //   );
+  // }, []);
 
   return (
     <RSSReader feedList={currentFeedList.feedList}></RSSReader>
