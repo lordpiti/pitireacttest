@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MyMapComponent from './MyGoogleMaps/MyGoogleMaps';
+// import MyMapComponent from './MyGoogleMaps/MyGoogleMaps';
 import axios from 'axios';
 
 class TeamStadium extends Component<any, any> {
@@ -42,12 +42,12 @@ class TeamStadium extends Component<any, any> {
               {this.props.stadium.capacity.toLocaleString('en-GB')} people
             </div>
             <div className='col-sm-6'>
-              {this.state.googleData && (
+              {/* {this.state.googleData && (
                 <MyMapComponent
                   isMarkerShown
                   googleData={this.state.googleData}
                 />
-              )}
+              )} */}
             </div>
           </div>
         </div>
