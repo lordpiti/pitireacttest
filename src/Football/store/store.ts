@@ -10,7 +10,7 @@ export const store = configureStore({
   reducer: reducers,
   middleware: (getDefaultMiddleware) => {
     const reduxDefaultMiddleware = getDefaultMiddleware();
-    return [...reduxDefaultMiddleware, sagaMiddleware];
+    return reduxDefaultMiddleware.concat(sagaMiddleware);
   },
 });
 
