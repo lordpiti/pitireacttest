@@ -88,7 +88,6 @@ function MySnackbarContent(props: any) {
 }
 
 interface CustomSnackbarProps {
-  toasterType: any;
   classes: any;
 }
 
@@ -97,7 +96,6 @@ const CustomSnackbar = (props: CustomSnackbarProps) => {
   const dispatch = useAppDispatch();
   const toaster = useSelector(getDash);
   const handleClose = () => {
-    // props.hideToaster();
     dispatch(toasterDashClear({}));
   };
 

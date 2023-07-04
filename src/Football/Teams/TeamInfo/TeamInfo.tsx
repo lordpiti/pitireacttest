@@ -1,12 +1,10 @@
-import { connect, useSelector } from 'react-redux';
-import * as actionCreators from '../../store/actions/teamsActions';
+import { useSelector } from 'react-redux';
 // import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
 import RoleVisibleWrapper from '../../components/RoleVisibleComponent/RoleVisibleWrapper';
 import { Paper } from '@material-ui/core';
 import EditTeamComponent from './EditTeam/EditTeam';
 import { useAppDispatch } from '../../store/store';
-// import { getCurrentTeam } from '../store/teams.selectors';
-// import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
+import { saveTeamSagas } from '../store/teams.actions';
 
 export interface TeamInfoProps {
   teamData: any;
@@ -19,7 +17,7 @@ const TeamInfo = (props: TeamInfoProps) => {
   // const currentTeam = useSelector(getCurrentTeam);
 
   const saveTeam = (image: any, teamData: any) =>
-    dispatch(actionCreators.saveTeamSagas(image, teamData));
+    dispatch(saveTeamSagas(image, teamData));
 
   return (
     <div>

@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect, useSelector } from 'react-redux';
-import * as actionCreators from '../../store/actions/teamsActions';
 import { RouteComponentProps } from 'react-router';
-// import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
 import './TeamsOverview.scss';
 import { useAppDispatch } from '../../store/store';
 import { getTeamList } from '../store/teams.selectors';
+import { loadTeamsSagas } from '../store/teams.actions';
 
 interface TeamsOverviewParams {
   id: string;
@@ -19,7 +18,7 @@ export interface TeamsOverviewProps
 const TeamsOverview = (props: TeamsOverviewProps) => {
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(actionCreators.loadTeamsSagas())
+    dispatch(loadTeamsSagas())
   }, []);
 
   const teamList = useSelector(getTeamList);

@@ -7,12 +7,12 @@ import TeamNews from '../TeamNews/TeamNews';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import TeamStadium from '../TeamStadium/TeamStadium';
 import { useSelector } from 'react-redux';
-import * as actionCreators from '../../store/actions/teamsActions';
 import { useTranslation } from 'react-i18next';
-// import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
 import './TeamDetails.scss';
 import { getCurrentTeam } from '../store/teams.selectors';
 import { useAppDispatch } from '../../store/store';
+import { clearTeamData } from '../store/teams.reducer';
+import { loadTeamSagas } from '../store/teams.actions';
 
 interface TeamsDetailsParams {
   id: string;
@@ -30,12 +30,12 @@ const TeamDetails = (props: TeamsDetailsProps) => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(actionCreators.loadTeamSagas(parseInt(match.params.id)))
+    dispatch(loadTeamSagas(parseInt(match.params.id)))
     //TODO: delete the store when unmounting, on the cleanup
 
     return function cleanup() {
       // clearTeamData();
-      dispatch(actionCreators.clearTeamData())
+      dispatch(clearTeamData({}))
     };
   }, []);
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, Route } from 'react-router-dom';
 import Competitions from './Competitions/Competitions';
 import Teams from './Teams/Teams';
@@ -98,7 +98,7 @@ const Football = (props: FootballProps) => {
             </div>
           </Modal>
         </div>
-        <CustomSnackbar></CustomSnackbar>
+        <CustomSnackbar />
         <Route path='/' exact component={Home} />
         <Route path='/teams' component={Teams} />
         <Route path='/competitions' component={Competitions} />
@@ -119,9 +119,3 @@ const Football = (props: FootballProps) => {
 }
 
 export default withStyles(styles)(Football);
-
-// ALTERNATIVE: use this and import compose from 'redux'
-// export default compose(
-//   connect(mapStateToProps),
-//   withStyles(styles)
-// )(Football) as React.ElementType;

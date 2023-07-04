@@ -1,8 +1,10 @@
+import createSagaMiddleware from '@redux-saga/core';
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
-import { sagaMiddleware } from './middleware/sagasMiddleware';
 import { reducers } from './reducers/index';
 import { watchTeams } from './sagas';
+
+const sagaMiddleware = createSagaMiddleware();
 
 export const store = configureStore({
   reducer: reducers,
