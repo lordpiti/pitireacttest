@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import * as actionCreators from '../../store/actions/teamsActions';
 import { RouteComponentProps } from 'react-router';
-import { FootballState } from '../../store';
-import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
+// import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
 import './TeamsOverview.scss';
+import { useAppDispatch } from '../../store/store';
+import { getTeamList } from '../store/teams.selectors';
 
 interface TeamsOverviewParams {
   id: string;
@@ -13,46 +14,35 @@ interface TeamsOverviewParams {
 
 export interface TeamsOverviewProps
   extends RouteComponentProps<TeamsOverviewParams> {
-  loadTeams: Function;
-  teamList: any[];
 }
 
-class TeamsOverview extends Component<TeamsOverviewProps> {
-  componentDidMount() {
-    this.props.loadTeams();
+const TeamsOverview = (props: TeamsOverviewProps) => {
+
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(actionCreators.loadTeamsSagas())
+  }, []);
+
+  const teamList = useSelector(getTeamList);
+
+
+  let teamListMarkup = null;
+  if (teamList) {
+    teamListMarkup = teamList.map((team) => (
+      <div className='text-center team-card' key={team.id}>
+        <Link
+          to={{
+            pathname: props.match.url + '/team-details/' + team.id,
+          }}
+        >
+          <img src={team.pictureLogo.url} width='50' height='50' alt='logo' />
+          <div>{team.name}</div>
+        </Link>
+      </div>
+    ));
   }
 
-  render() {
-    let teamList = null;
-    if (this.props.teamList) {
-      teamList = this.props.teamList.map((team) => (
-        <div className='text-center team-card' key={team.id}>
-          <Link
-            to={{
-              pathname: this.props.match.url + '/team-details/' + team.id,
-            }}
-          >
-            <img src={team.pictureLogo.url} width='50' height='50' alt='logo' />
-            <div>{team.name}</div>
-          </Link>
-        </div>
-      ));
-    }
-
-    return <div className='teams-overview'>{teamList}</div>;
-  }
+  return <div className='teams-overview'>{teamListMarkup}</div>;
 }
 
-const mapStateToProps = (state: FootballState) => {
-  return {
-    teamList: state.teams.teamList,
-  };
-};
-
-const mapDispatchToProps = (dispatch: FootballSagasDispatch) => {
-  return {
-    loadTeams: () => dispatch(actionCreators.loadTeamsSagas()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TeamsOverview);
+export default TeamsOverview;

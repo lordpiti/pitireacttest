@@ -1,9 +1,8 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import {
   withStyles,
   Theme,
-  createStyles,
-  WithStyles,
+  createStyles
 } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -14,11 +13,11 @@ import TableLeague from './TableLeague/TableLeague';
 import ScorersTable from './ScorersTable/ScorersTable';
 import { Paper } from '@material-ui/core';
 import { RouteComponentProps, withRouter } from 'react-router';
-import { connect } from 'react-redux';
-import { FootballDispatch, FootballState } from '../../store';
-import * as actionCreators from '../../store/actions/competitionsActions';
-import { getCurrentCompetitionRounds } from '../../store/reducers/competitions';
 import './CompetitionRounds.scss';
+import { useAppDispatch } from '../../store/store';
+import { loadCompetitionRound } from '../store/competitions.actions';
+import { useSelector } from 'react-redux';
+import { getCurrentCompetition, getCurrentCompetitionRounds } from '../store/competitions.selectors';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -39,124 +38,81 @@ const styles = (theme: Theme) =>
     },
   });
 
-interface CompetitionRoundsState {
-  currentRound: string;
-  name: string;
-  roundData?: any;
-}
+const CompetitionRounds = (props: any) => {
+  // _isMounted = false;
 
-interface CompetitionRoundsProps
-  extends RouteComponentProps,
-  WithStyles<typeof styles> {
-  competitionData: any;
-  currentRound: any;
-  loadRoundData: Function;
-}
+  const [currentRound, setCurrentRound] = useState<string>('1');
 
-class CompetitionRounds extends React.Component<
-  CompetitionRoundsProps,
-  CompetitionRoundsState
-> {
-  _isMounted = false;
+  const dispatch = useAppDispatch();
+  const competitionData = useSelector(getCurrentCompetition) as any;
+  const currentCompetitionRounds = useSelector(getCurrentCompetitionRounds);
 
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      currentRound: '1',
-      name: 'hai',
-    };
-  }
+  useEffect(() => {
+    dispatch(loadCompetitionRound({ id: competitionData.id, round: 1 }));
+  }, []);
 
-  componentDidMount() {
-    this._isMounted = true;
-    this.props.loadRoundData(this.props.competitionData.id, 1);
-  }
-
-  componentWillUnmount() {
-    this._isMounted = false;
-  }
-
-  handleChange = (event: any) => {
-    this.setState({ [event.target.name]: event.target.value } as any);
-    this.props.loadRoundData(this.props.competitionData.id, event.target.value);
+  const handleChange = (event: any) => {
+    setCurrentRound(event.target.value);
+    dispatch(loadCompetitionRound({ id: competitionData.id, round: event.target.value }));
   };
+  const { classes } = props;
 
-  render() {
-    const { classes } = this.props;
+  return (
+    <>
+      <h1>Competition Games</h1>
 
-    return (
-      <>
-        <h1>Competition Games</h1>
+      <Paper className={classes.boxSelectRound}>
+        <FormControl className={classes.formControl}>
+          <InputLabel htmlFor='currentRound'>Select Round</InputLabel>
+          <Select
+            value={currentRound}
+            onChange={handleChange}
+            inputProps={{
+              name: 'currentRound',
+              id: 'currentRound',
+            }}
+          >
+            {competitionData.roundList.map(
+              (round: any, index: number) => (
+                <MenuItem key={index} value={round}>
+                  {round}
+                </MenuItem>
+              )
+            )}
+          </Select>
+        </FormControl>
+      </Paper>
 
-        <Paper className={classes.boxSelectRound}>
-          <FormControl className={classes.formControl}>
-            <InputLabel htmlFor='currentRound'>Select Round</InputLabel>
-            <Select
-              value={this.state.currentRound}
-              onChange={this.handleChange}
-              inputProps={{
-                name: 'currentRound',
-                id: 'currentRound',
-              }}
-            >
-              {this.props.competitionData.roundList.map(
-                (round: any, index: number) => (
-                  <MenuItem key={index} value={round}>
-                    {round}
-                  </MenuItem>
-                )
+      {currentCompetitionRounds && (
+        <div className='competition-rounds-content'>
+          <div className='half'>
+            <div className='rounds-panel'>
+              {currentCompetitionRounds.matchList && (
+                <MatchList
+                  matchList={currentCompetitionRounds.matchList}
+                  currentUrl={props.match.url}
+                />
               )}
-            </Select>
-          </FormControl>
-        </Paper>
-
-        {this.props.currentRound && (
-          <div className='competition-rounds-content'>
-            <div className='half'>
-              <div className='rounds-panel'>
-                {this.props.currentRound.matchList && (
-                  <MatchList
-                    matchList={this.props.currentRound.matchList}
-                    currentUrl={this.props.match.url}
-                  />
-                )}
-              </div>
-              <div className='rounds-panel'>
-                {this.props.currentRound.teamStatsRoundList && (
-                  <TableLeague
-                    teamStatsRoundList={
-                      this.props.currentRound.teamStatsRoundList
-                    }
-                  />
-                )}
-              </div>
             </div>
-            <div className='half'>
-              {this.props.currentRound.scorers && (
-                <ScorersTable scorersList={this.props.currentRound.scorers} />
+            <div className='rounds-panel'>
+              {currentCompetitionRounds.teamStatsRoundList && (
+                <TableLeague
+                  teamStatsRoundList={
+                    currentCompetitionRounds.teamStatsRoundList
+                  }
+                />
               )}
             </div>
           </div>
-        )}
-      </>
-    );
-  }
+          <div className='half'>
+            {currentCompetitionRounds.scorers && (
+              <ScorersTable scorersList={currentCompetitionRounds.scorers} />
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
 }
 
-const mapStateToProps = (state: FootballState) => {
-  return {
-    currentRound: getCurrentCompetitionRounds(state),
-  };
-};
-
-const mapDispatchToProps = (dispatch: FootballDispatch) => {
-  return {
-    loadRoundData: (competitionId: number, round: any) =>
-      dispatch(actionCreators.loadCompetitionRound(competitionId, round)),
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withStyles(styles)(withRouter(CompetitionRounds)));
+export default withStyles(styles)(withRouter(CompetitionRounds));

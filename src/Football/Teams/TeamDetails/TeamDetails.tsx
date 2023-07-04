@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
 import TeamInfo from '../TeamInfo/TeamInfo';
 import ComplexForm from '../ComplexForm/ComplexForm';
@@ -6,12 +6,13 @@ import TeamSquad from '../TeamSquad/TeamSquad';
 import TeamNews from '../TeamNews/TeamNews';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import TeamStadium from '../TeamStadium/TeamStadium';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import * as actionCreators from '../../store/actions/teamsActions';
-import { FootballState } from '../../store';
 import { useTranslation } from 'react-i18next';
-import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
+// import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
 import './TeamDetails.scss';
+import { getCurrentTeam } from '../store/teams.selectors';
+import { useAppDispatch } from '../../store/store';
 
 interface TeamsDetailsParams {
   id: string;
@@ -20,18 +21,21 @@ interface TeamsDetailsParams {
 interface TeamsDetailsProps extends RouteComponentProps<TeamsDetailsParams> {
   loadTeam: Function;
   clearTeamData: Function;
-  currentTeam: any;
 }
 
 const TeamDetails = (props: TeamsDetailsProps) => {
-  const { loadTeam, clearTeamData, match } = props;
+  const { match } = props;
+
+  const currentTeam = useSelector(getCurrentTeam);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    loadTeam(match.params.id);
+    dispatch(actionCreators.loadTeamSagas(parseInt(match.params.id)))
     //TODO: delete the store when unmounting, on the cleanup
 
     return function cleanup() {
-      clearTeamData();
+      // clearTeamData();
+      dispatch(actionCreators.clearTeamData())
     };
   }, []);
 
@@ -40,17 +44,17 @@ const TeamDetails = (props: TeamsDetailsProps) => {
   let content,
     menuContent = null;
 
-  if (props.currentTeam) {
+  if (currentTeam) {
     menuContent = (
       <div className='margin-bottom-medium'>
         <img
-          src={props.currentTeam.pictureLogo.url}
+          src={currentTeam.pictureLogo.url}
           className='roundedImage'
           height='50'
           width='50'
           alt=''
         />
-        <span>{props.currentTeam.name}</span>
+        <span>{currentTeam.name}</span>
       </div>
     );
     content = (
@@ -63,14 +67,14 @@ const TeamDetails = (props: TeamsDetailsProps) => {
         <Route
           path={props.match.url + '/overview'}
           component={() => {
-            return <TeamInfo teamData={props.currentTeam}></TeamInfo>;
+            return <TeamInfo teamData={currentTeam}></TeamInfo>;
           }}
         />
 
         <Route
           path={props.match.url + '/news'}
           render={() => {
-            return <TeamNews teamData={props.currentTeam}></TeamNews>;
+            return <TeamNews teamData={currentTeam}></TeamNews>;
           }}
         />
 
@@ -78,7 +82,7 @@ const TeamDetails = (props: TeamsDetailsProps) => {
           path={props.match.url + '/team-squad'}
           render={() => {
             return (
-              <TeamSquad players={props.currentTeam.playerList}></TeamSquad>
+              <TeamSquad players={currentTeam.playerList}></TeamSquad>
             );
           }}
         />
@@ -87,7 +91,7 @@ const TeamDetails = (props: TeamsDetailsProps) => {
           path={props.match.url + '/team-stadium'}
           render={() => {
             return (
-              <TeamStadium stadium={props.currentTeam.stadium}></TeamStadium>
+              <TeamStadium stadium={currentTeam.stadium}></TeamStadium>
             );
           }}
         />
@@ -137,18 +141,4 @@ const TeamDetails = (props: TeamsDetailsProps) => {
   );
 };
 
-const mapStateToProps = (state: FootballState) => {
-  return {
-    currentTeam: state.teams.currentTeam,
-  };
-};
-
-const mapDispatchToProps = (dispatch: FootballSagasDispatch) => {
-  return {
-    loadTeam: (teamId: number) =>
-      dispatch(actionCreators.loadTeamSagas(teamId)),
-    clearTeamData: () => dispatch(actionCreators.clearTeamData()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TeamDetails);
+export default TeamDetails;

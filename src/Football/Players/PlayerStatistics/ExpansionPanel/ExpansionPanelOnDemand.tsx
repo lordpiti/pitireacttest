@@ -2,7 +2,6 @@ import React from 'react';
 import { withStyles, Theme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { RouteComponentProps } from 'react-router';
 import DetailsPanel from './DetailsPanel/DetailsPanel';
 import {
   Accordion,

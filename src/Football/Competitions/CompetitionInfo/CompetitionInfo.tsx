@@ -1,18 +1,21 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/competitionsActions';
+import { useSelector } from 'react-redux';
 import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
 import { Paper } from '@material-ui/core';
 import editCompetitionComponent from './EditCompetitionHooks/EditCompetitionHooks';
-import { FootballState, FootballDispatch } from '../../store';
+import { getCurrentCompetition } from '../store/competitions.selectors';
+import { useAppDispatch } from '../../store/store';
+import { saveCompetition } from '../store/competitions.actions';
 
 interface CompetitionInfoProps {
   competitionData: any;
-  saveCompetition: Function;
 }
 
 const CompetitionInfo = (props: CompetitionInfoProps) => {
-  if (!props.competitionData) {
+
+  const competitionData = useSelector(getCurrentCompetition);
+  const dispatch = useAppDispatch();
+
+  if (!competitionData) {
     return <div></div>;
   } else {
     return (
@@ -21,21 +24,21 @@ const CompetitionInfo = (props: CompetitionInfoProps) => {
         <Paper>
           <div className='row' style={{ padding: '20px' }}>
             <div className='col-sm-7'>
-              <div>Name: {props.competitionData.name}</div>
-              <div>Season: {props.competitionData.season}</div>
+              <div>Name: {competitionData.name}</div>
+              <div>Season: {competitionData.season}</div>
               <br />
               <RoleVisibleComponent
                 component={editCompetitionComponent}
                 roles={['Admin']}
-                competitionData={props.competitionData}
+                competitionData={competitionData}
                 saveCompetition={(a: any, b: any) =>
-                  props.saveCompetition(a, b)
+                  dispatch(saveCompetition({ image: a, competitionData: b }))
                 }
               />
             </div>
             <div className='col-sm-5 text-right'>
               <img
-                src={props.competitionData.logo.url}
+                src={competitionData.logo.url}
                 height='300px'
                 width='300px'
                 alt=''
@@ -48,17 +51,4 @@ const CompetitionInfo = (props: CompetitionInfoProps) => {
   }
 };
 
-const mapStateToProps = (state: FootballState) => {
-  return {
-    currentCompetition: state.competitions.currentCompetition,
-  };
-};
-
-const mapDispatchToProps = (dispatch: FootballDispatch) => {
-  return {
-    saveCompetition: (image: any, competitionData: any) =>
-      dispatch(actionCreators.saveCompetition(image, competitionData)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CompetitionInfo);
+export default CompetitionInfo;

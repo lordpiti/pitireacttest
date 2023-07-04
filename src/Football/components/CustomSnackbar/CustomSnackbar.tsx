@@ -13,9 +13,10 @@ import green from '@material-ui/core/colors/green';
 import amber from '@material-ui/core/colors/amber';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import WarningIcon from '@material-ui/icons/Warning';
-import { connect } from 'react-redux';
-import { compose } from 'redux';
-import { FootballDispatch, FootballState } from '../../store';
+import { useAppDispatch } from '../../store/store';
+import { toasterDashClear } from '../../Global/store/global.reducer';
+import { getDash } from '../../Global/store/global.selectors';
+import { useSelector } from 'react-redux';
 
 const variantIcon = {
   success: CheckCircleIcon,
@@ -87,86 +88,68 @@ function MySnackbarContent(props: any) {
 }
 
 interface CustomSnackbarProps {
-  hideToaster: Function;
-  message: string;
   toasterType: any;
-  open: boolean;
   classes: any;
 }
 
-class CustomSnackbar extends Component<CustomSnackbarProps> {
-  handleClose = () => {
-    this.props.hideToaster();
+const CustomSnackbar = (props: CustomSnackbarProps) => {
+
+  const dispatch = useAppDispatch();
+  const toaster = useSelector(getDash);
+  const handleClose = () => {
+    // props.hideToaster();
+    dispatch(toasterDashClear({}));
   };
 
-  render() {
-    const { classes } = this.props;
+  const { classes } = props;
 
-    return (
-      <Snackbar
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'right',
-        }}
-        open={this.props.open}
-        message={this.props.message}
-        autoHideDuration={6000}
-        onClose={this.handleClose}
-        ContentProps={{
-          'aria-describedby': 'message-id',
-        }}
-        action={[
-          <Button
-            key='undo'
-            color='secondary'
-            size='small'
-            onClick={this.handleClose}
-          >
-            UNDO
-          </Button>,
-          <IconButton
-            key='close'
-            aria-label='Close'
-            color='inherit'
-            className={classes.close}
-            onClick={this.handleClose}
-          >
-            <CloseIcon />
-          </IconButton>,
-        ]}
-      >
-        <MySnackbarContentWrapper
-          onClose={this.handleClose}
-          variant={this.props.toasterType}
-          message={this.props.message}
-        />
-      </Snackbar>
-    );
-  }
+  return (
+    <Snackbar
+      anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'right',
+      }}
+      open={toaster.open}
+      message={toaster.message}
+      autoHideDuration={6000}
+      onClose={handleClose}
+      ContentProps={{
+        'aria-describedby': 'message-id',
+      }}
+      action={[
+        <Button
+          key='undo'
+          color='secondary'
+          size='small'
+          onClick={handleClose}
+        >
+          UNDO
+        </Button>,
+        <IconButton
+          key='close'
+          aria-label='Close'
+          color='inherit'
+          className={classes.close}
+          onClick={handleClose}
+        >
+          <CloseIcon />
+        </IconButton>,
+      ]}
+    >
+      <MySnackbarContentWrapper
+        onClose={handleClose}
+        variant={toaster.toasterType}
+        message={toaster.message}
+      />
+    </Snackbar>
+  );
 }
 
 const MySnackbarContentWrapper = withStyles(styles1)(MySnackbarContent);
 
-const mapStateToProps = (state: FootballState) => {
-  return {
-    open: state.global.dash.open,
-    message: state.global.dash.message,
-    toasterType: state.global.dash.toasterType,
-  };
-};
+export default withStyles(styles)(CustomSnackbar);
 
-const mapDispatchToProps = (dispatch: FootballDispatch) => {
-  return {
-    hideToaster: () => dispatch(globalActionCreators.acToastDashClear()),
-  };
-};
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(withStyles(styles)(CustomSnackbar));
-
-export default compose(
-  connect(mapStateToProps, mapDispatchToProps),
-  withStyles(styles)
-)(CustomSnackbar) as React.ElementType;
+// export default compose(
+//   connect(mapStateToProps, mapDispatchToProps),
+//   withStyles(styles)
+// )(CustomSnackbar) as React.ElementType;

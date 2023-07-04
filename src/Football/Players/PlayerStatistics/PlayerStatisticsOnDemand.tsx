@@ -3,25 +3,25 @@ import gql from 'graphql-tag';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ExpansionPanel from './ExpansionPanel/ExpansionPanelOnDemand';
-import * as actionCreators from '../../store/actions/globalActions';
-import { FootballState } from '../../store';
+import { isLoading } from '../../Global/store/global.selectors';
+import { useAppDispatch } from '../../store/store';
+import { updateLoadingSpinner } from '../../Global/store/global.reducer';
 
 interface MatchParams {
 	playerId: string;
 }
 
 const PlayerStatistics = (props: MatchParams) => {
+
+	const uiLoading = useSelector(isLoading);
+
+	const dispatch = useAppDispatch();
+
 	useEffect(() => {
-		if (!ui.isLoading) {
-			dispatch(actionCreators.updateLoadingSpinner(true));
+		if (!uiLoading) {
+			dispatch(updateLoadingSpinner(true));
 		}
 	}, []);
-
-	const ui = useSelector((state: FootballState) => ({
-		isLoading: state.global.loading,
-	}));
-
-	const dispatch = useDispatch();
 
 	const playerId = props.playerId;
 
@@ -50,8 +50,8 @@ const PlayerStatistics = (props: MatchParams) => {
 		return <p>Error :(</p>;
 	}
 
-	if (ui.isLoading) {
-		dispatch(actionCreators.updateLoadingSpinner(false));
+	if (uiLoading) {
+		dispatch(updateLoadingSpinner(false));
 	}
 
 	return (

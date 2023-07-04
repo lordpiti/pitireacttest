@@ -8,10 +8,11 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/competitionsActions';
-import { FootballDispatch, FootballState } from '../../store';
 import './CompetitionsOverview.scss';
+import { useAppDispatch } from '../../store/store';
+import { loadCompetitionList } from '../store/competitions.actions';
+import { useSelector } from 'react-redux';
+import { getCompetitionList } from '../store/competitions.selectors';
 
 interface MatchParams {
   id: string;
@@ -24,8 +25,11 @@ export interface CompetitionsOverviewProps
 }
 
 const CompetitionsOverview = (props: CompetitionsOverviewProps) => {
+
+  const competitionList = useSelector(getCompetitionList);
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    props.loadCompetitions();
+    dispatch(loadCompetitionList())
   }, []);
 
   return (
@@ -43,7 +47,7 @@ const CompetitionsOverview = (props: CompetitionsOverviewProps) => {
         </Link>
       </div>
 
-      {props.competitionList && (
+      {competitionList && (
         <Paper>
           <Table>
             <TableHead>
@@ -54,7 +58,7 @@ const CompetitionsOverview = (props: CompetitionsOverviewProps) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {props.competitionList.map((competition) => (
+              {competitionList.map((competition) => (
                 <TableRow key={competition.id}>
                   <TableCell component='th' scope='row'>
                     <Link
@@ -92,19 +96,4 @@ const styles = (theme: Theme) =>
     },
   });
 
-const mapStateToProps = (state: FootballState) => {
-  return {
-    competitionList: state.competitions.competitionList,
-  };
-};
-
-const mapDispatchToProps = (dispatch: FootballDispatch) => {
-  return {
-    loadCompetitions: () => dispatch(actionCreators.loadCompetitionList()),
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(withStyles(styles)(CompetitionsOverview));
+export default withStyles(styles)(CompetitionsOverview);

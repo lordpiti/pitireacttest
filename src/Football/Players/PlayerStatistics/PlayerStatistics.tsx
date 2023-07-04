@@ -1,11 +1,12 @@
 import { useQuery } from 'react-apollo';
 import gql from 'graphql-tag';
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import Helpers from '../../utilities/helpers';
 import ExpansionPanel from './ExpansionPanel/ExpansionPanel';
-import * as actionCreators from '../../store/actions/globalActions';
-import { FootballState } from '../../store';
+import { isLoading } from '../../Global/store/global.selectors';
+import { updateLoadingSpinner } from '../../Global/store/global.reducer';
+import { useAppDispatch } from '../../store/store';
 
 interface MatchParams {
   playerId: string;
@@ -14,17 +15,15 @@ interface MatchParams {
 const PlayerStatistics = (props: MatchParams) => {
   const { playerId } = props;
 
+  const uiLoading = useSelector(isLoading);
+
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
-    if (!ui.isLoading) {
-      dispatch(actionCreators.updateLoadingSpinner(true));
+    if (!uiLoading) {
+      dispatch(updateLoadingSpinner(true));
     }
   }, []);
-
-  const ui = useSelector((state: FootballState) => ({
-    isLoading: state.global.loading,
-  }));
-
-  const dispatch = useDispatch();
 
   const GET_PLAYER_STATISTICS = gql`
     query PlayerStatistics($playerId: Int!) {
@@ -62,8 +61,8 @@ const PlayerStatistics = (props: MatchParams) => {
     return <p>Error :(</p>;
   }
 
-  if (ui.isLoading) {
-    dispatch(actionCreators.updateLoadingSpinner(false));
+  if (loading && data.player) {
+    dispatch(updateLoadingSpinner(false));
   }
 
   const groupedCompetitions = Helpers.groupBy(

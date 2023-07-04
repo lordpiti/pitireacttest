@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
-import * as actionCreators from '../../store/actions/playersActions';
-import { FootballState, useFootballDispatch } from '../../store';
+import { useAppDispatch } from '../../store/store';
+import { loadPlayer } from '../store/players.actions';
+import { getCurrentPlayer } from '../store/players.selectors';
 
 interface PlayerDetailsContainerProps {
   playerId: string;
@@ -15,14 +15,12 @@ export interface PlayerDetailsChildProps {
 
 export const PlayerDetailsContainer = (props: PlayerDetailsContainerProps) => {
   const { children, playerId } = props;
-  const playerData = useSelector((state: FootballState) => ({
-    currentPlayer: state.players.currentPlayer,
-  }));
-  const dispatch = useFootballDispatch();
+  const playerData = useSelector(getCurrentPlayer);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(actionCreators.loadPlayerAction(playerId));
+    dispatch(loadPlayer(parseInt(playerId)));
   }, [playerId]);
 
-  return (<div>{children(playerData)}</div>);
+  return (<div>{children({ currentPlayer: playerData })}</div>);
 };

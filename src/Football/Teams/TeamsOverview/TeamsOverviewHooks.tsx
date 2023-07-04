@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import * as actionCreators from '../../store/actions/teamsActions';
 import { RouteComponentProps } from 'react-router';
-import { FootballState } from '../../store';
-import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
+// import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
 import './TeamsOverview.scss';
+import { useAppDispatch } from '../../store/store';
+import { getTeamList } from '../store/teams.selectors';
 
 interface TeamsOverviewParams {
   id: string;
@@ -13,18 +14,19 @@ interface TeamsOverviewParams {
 
 export interface TeamsOverviewProps
   extends RouteComponentProps<TeamsOverviewParams> {
-  loadTeams: Function;
-  teamList: any[];
 }
 
 const TeamsOverview = (props: TeamsOverviewProps) => {
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    props.loadTeams();
-  }, [props]);
+    dispatch(actionCreators.loadTeamsSagas())
+  }, []);
 
-  let teamList = null;
-  if (props.teamList) {
-    teamList = props.teamList.map((team) => (
+  const teamList = useSelector(getTeamList);
+
+  let teamListMarkup = null;
+  if (teamList) {
+    teamListMarkup = teamList.map((team) => (
       <div className='text-center team-card' key={team.id}>
         <Link
           to={{
@@ -38,19 +40,7 @@ const TeamsOverview = (props: TeamsOverviewProps) => {
     ));
   }
 
-  return <div className='teams-overview'>{teamList}</div>;
+  return <div className='teams-overview'>{teamListMarkup}</div>;
 };
 
-const mapStateToProps = (state: FootballState) => {
-  return {
-    teamList: state.teams.teamList,
-  };
-};
-
-const mapDispatchToProps = (dispatch: FootballSagasDispatch) => {
-  return {
-    loadTeams: () => dispatch(actionCreators.loadTeamsSagas()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TeamsOverview);
+export default TeamsOverview;

@@ -190,7 +190,7 @@ class Scorers extends Component<any, any> {
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={this.handleChangePage}
-                    onChangeRowsPerPage={this.handleChangeRowsPerPage}
+                    onRowsPerPageChange={this.handleChangeRowsPerPage}
                     ActionsComponent={TablePaginationActions}
                   />
                 </TableRow>

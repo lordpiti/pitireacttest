@@ -3,18 +3,21 @@ import CompetitionDrawMatch from './CompetitionDrawMatch/CompetitionDrawMatch';
 import './CompetitionDraw.css';
 import Formatters from '../../utilities/formatters';
 import { Link } from 'react-router-dom';
-import { FootballDispatch, FootballState } from '../../store';
-import * as actionCreators from '../../store/actions/competitionsActions';
-import { getCurrentCompetitionDraw } from '../../store/reducers/competitions';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useAppDispatch } from '../../store/store';
+import { loadCompetitionDraw } from '../store/competitions.actions';
+import { getCurrentCompetitionDraw } from '../store/competitions.selectors';
 
 const CompetitionDraw = (props: any) => {
-  const { draw, loadDrawData, competitionData } = props;
+  const { competitionData } = props;
+
+  const draw = useSelector(getCurrentCompetitionDraw);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    loadDrawData(competitionData.id);
-  }, [loadDrawData, competitionData.id]);
+    dispatch(loadCompetitionDraw(competitionData.id));
+  }, [competitionData.id]);
 
   const { t, i18n } = useTranslation();
 
@@ -187,17 +190,4 @@ const CompetitionDraw = (props: any) => {
   );
 };
 
-const mapStateToProps = (state: FootballState) => {
-  return {
-    draw: getCurrentCompetitionDraw(state),
-  };
-};
-
-const mapDispatchToProps = (dispatch: FootballDispatch) => {
-  return {
-    loadDrawData: (competitionId: number) =>
-      dispatch(actionCreators.loadCompetitionDraw(competitionId)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CompetitionDraw);
+export default CompetitionDraw;

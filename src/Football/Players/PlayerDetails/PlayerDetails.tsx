@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import { useEffect } from 'react';
 import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
 // import asyncComponent from '../../components/asyncComponent/asyncComponent';
 //import PlayerStatistics from '../PlayerStatistics/PlayerStatisticsOnDemand';
 import PlayerStatistics from '../PlayerStatistics/PlayerStatistics';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import Match from '../../Competitions/Match/Match';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/playersActions';
+import { connect, useSelector } from 'react-redux';
 import './PlayerDetails.scss';
 import PlayerInfo from '../PlayerInfo/PlayerInfo';
-import { FootballState, FootballDispatch } from '../../store';
+import { useAppDispatch } from '../../store/store';
+import { loadPlayer } from '../store/players.actions';
+import { getCurrentPlayer } from '../store/players.selectors';
 
 // const asyncPlayerInfo = asyncComponent(() => {
 //   return import('../PlayerInfo/PlayerInfo');
@@ -24,98 +25,87 @@ interface PlayerDetailsProps extends RouteComponentProps<PlayerDetailsParams> {
   currentPlayer: any;
 }
 
-class PlayerDetails extends Component<PlayerDetailsProps> {
-  componentDidMount() {
-    this.props.loadPlayer(this.props.match.params.id);
-  }
+const PlayerDetails = (props: PlayerDetailsProps) => {
 
-  render() {
-    const itemList = [
-      {
-        name: 'Summary',
-        url: this.props.match.url + '/overview',
-      },
-      {
-        name: 'Statistics',
-        url: this.props.match.url + '/player-statistics',
-      },
-    ];
+  const dispatch = useAppDispatch();
+  const currentPlayer = useSelector(getCurrentPlayer);
 
-    let pageContent = null;
+  useEffect(() => {
+    dispatch(loadPlayer(parseInt(props.match.params.id)));
+  }, [props.match.params.id]);
 
-    if (this.props.currentPlayer) {
-      pageContent = (
-        <div className='player-details'>
-          <div className='sidebar'>
-            <SideMenu itemList={itemList}>
-              <div className='margin-bottom-medium'>
-                <img
-                  src={this.props.currentPlayer.picture.url}
-                  className='roundedImage'
-                  height='50'
-                  width='50'
-                  alt=''
-                />
-                <span>{`${this.props.currentPlayer.name} ${this.props.currentPlayer.surname}`}</span>
-              </div>
-            </SideMenu>
-          </div>
-          <div className='main-content'>
-            <Route
-              path={this.props.match.url + '/'}
-              exact
-              render={() => (
-                <Redirect to={this.props.match.url + '/overview'} />
-              )}
-            />
-            {/* <Route path={this.props.match.url + '/overview'}
+  const itemList = [
+    {
+      name: 'Summary',
+      url: props.match.url + '/overview',
+    },
+    {
+      name: 'Statistics',
+      url: props.match.url + '/player-statistics',
+    },
+  ];
+
+  let pageContent = null;
+
+  if (currentPlayer) {
+    pageContent = (
+      <div className='player-details'>
+        <div className='sidebar'>
+          <SideMenu itemList={itemList}>
+            <div className='margin-bottom-medium'>
+              <img
+                src={currentPlayer.picture.url}
+                className='roundedImage'
+                height='50'
+                width='50'
+                alt=''
+              />
+              <span>{`${currentPlayer.name} ${currentPlayer.surname}`}</span>
+            </div>
+          </SideMenu>
+        </div>
+        <div className='main-content'>
+          <Route
+            path={props.match.url + '/'}
+            exact
+            render={() => (
+              <Redirect to={props.match.url + '/overview'} />
+            )}
+          />
+          {/* <Route path={this.props.match.url + '/overview'}
                 component={(props) => {
                   const PlayerInfo = asyncPlayerInfo; 
                   return (         
                     <PlayerInfo playerData={this.props.currentPlayer} id={playerId}></PlayerInfo>)
                 }
                 } /> */}
-            <Route
-              path={this.props.match.url + '/overview'}
-              component={() => {
-                return (
-                  <PlayerInfo
-                    playerData={this.props.currentPlayer}
-                  ></PlayerInfo>
-                );
-              }}
-            />
-            <Route
-              path={this.props.match.url + '/player-statistics'}
-              render={() => {
-                return <PlayerStatistics playerId={this.props.currentPlayer.id}></PlayerStatistics>;
-              }}
-              exact
-            />
-            <Route
-              path={this.props.match.url + '/player-statistics/match/:id'}
-              component={Match}
-            />
-          </div>
+          <Route
+            path={props.match.url + '/overview'}
+            component={() => {
+              return (
+                <PlayerInfo
+                  playerData={currentPlayer}
+                ></PlayerInfo>
+              );
+            }}
+          />
+          <Route
+            path={props.match.url + '/player-statistics'}
+            render={() => {
+              return <PlayerStatistics playerId={currentPlayer.id}></PlayerStatistics>;
+            }}
+            exact
+          />
+          <Route
+            path={props.match.url + '/player-statistics/match/:id'}
+            component={Match}
+          />
         </div>
-      );
-    }
-
-    return <>{pageContent}</>;
+      </div>
+    );
   }
+
+  return <>{pageContent}</>;
 }
 
-const mapStateToProps = (state: FootballState) => {
-  return {
-    currentPlayer: state.players.currentPlayer,
-  };
-};
-
-const mapDispatchToProps = (dispatch: FootballDispatch) => {
-  return {
-    loadPlayer: (playerId: number) =>
-      dispatch(actionCreators.loadPlayerAction(playerId)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PlayerDetails);
+export default PlayerDetails;

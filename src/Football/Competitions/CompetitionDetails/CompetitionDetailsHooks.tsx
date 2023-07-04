@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import CompetitionInfo from '../CompetitionInfo/CompetitionInfo';
 import CompetitionRounds from '../CompetitionRounds/CompetitionRounds';
@@ -7,9 +7,10 @@ import SideMenu, { MenuItemSideMenu } from '../../components/SideMenu/SideMenu';
 import Match from '../Match/Match';
 import CompetitionStatistics from '../CompetitionStatistics/CompetitionStatistics';
 import { useSelector } from 'react-redux';
-import * as actionCreators from '../../store/actions/competitionsActions';
 import { RouteComponentProps } from 'react-router';
-import { FootballState, useFootballDispatch } from '../../store';
+import { useAppDispatch } from '../../store/store';
+import { getCurrentCompetition } from '../store/competitions.selectors';
+import { loadCompetition } from '../store/competitions.actions';
 
 interface MatchParams {
   id: string;
@@ -17,16 +18,13 @@ interface MatchParams {
 
 const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
   const competitionId = parseInt(props.match.params.id);
-
-  const dispatch = useFootballDispatch();
-
-  const theState = useSelector((state: FootballState) => ({
-    currentCompetition: state.competitions.currentCompetition,
-  }));
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(actionCreators.loadCompetition(competitionId));
+    dispatch(loadCompetition(competitionId));
   }, []);
+
+  const currentCompetition = useSelector(getCurrentCompetition);
 
   let menuItemList: MenuItemSideMenu[] = [
     {
@@ -37,8 +35,8 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
 
   let competitionTypeContent = <></>;
 
-  if (theState.currentCompetition) {
-    if (theState.currentCompetition.type !== 'Playoff') {
+  if (currentCompetition) {
+    if (currentCompetition.type !== 'Playoff') {
       menuItemList = menuItemList.concat([
         {
           name: 'Rounds',
@@ -52,7 +50,7 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
 
       competitionTypeContent = (
         <CompetitionRounds
-          competitionData={theState.currentCompetition}
+          competitionData={currentCompetition}
         ></CompetitionRounds>
       );
     } else {
@@ -63,7 +61,7 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
       competitionTypeContent = (
         <CompetitionDraw
           match={props.match}
-          competitionData={theState.currentCompetition}
+          competitionData={currentCompetition}
         ></CompetitionDraw>
       );
     }
@@ -77,12 +75,12 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
             <SideMenu itemList={menuItemList}>
               <div className='margin-bottom-medium'>
                 <img
-                  src={theState.currentCompetition.logo.url}
+                  src={currentCompetition.logo.url}
                   className='roundedImage'
                   height='50'
                   width='50'
                 />
-                <span>{theState.currentCompetition.name}</span>
+                <span>{currentCompetition.name}</span>
               </div>
             </SideMenu>
           </div>
@@ -101,7 +99,7 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
               render={() => {
                 return (
                   <CompetitionInfo
-                    competitionData={theState.currentCompetition}
+                    competitionData={currentCompetition}
                   ></CompetitionInfo>
                 );
               }}
@@ -115,7 +113,7 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
               path={props.match.url + '/competition-statistics'}
               render={() => (
                 <CompetitionStatistics
-                  competitionId={competitionId}
+                  competitionId={currentCompetition.id}
                 ></CompetitionStatistics>
               )}
               exact

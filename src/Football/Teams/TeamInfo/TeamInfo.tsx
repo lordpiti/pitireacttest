@@ -1,19 +1,26 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import * as actionCreators from '../../store/actions/teamsActions';
 // import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
 import RoleVisibleWrapper from '../../components/RoleVisibleComponent/RoleVisibleWrapper';
 import { Paper } from '@material-ui/core';
 import EditTeamComponent from './EditTeam/EditTeam';
-import { FootballState } from '../../store';
-import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
+import { useAppDispatch } from '../../store/store';
+// import { getCurrentTeam } from '../store/teams.selectors';
+// import { FootballSagasDispatch } from '../../store/middleware/sagasMiddleware';
 
 export interface TeamInfoProps {
   teamData: any;
-  saveTeam: Function;
 }
 
 const TeamInfo = (props: TeamInfoProps) => {
+
+  const dispatch = useAppDispatch();
+
+  // const currentTeam = useSelector(getCurrentTeam);
+
+  const saveTeam = (image: any, teamData: any) =>
+    dispatch(actionCreators.saveTeamSagas(image, teamData));
+
   return (
     <div>
       <h1>Team Basic Info</h1>
@@ -31,7 +38,7 @@ const TeamInfo = (props: TeamInfoProps) => {
               <EditTeamComponent
                 teamData={props.teamData}
                 saveTeam={(image: any, teamData: any) =>
-                  props.saveTeam(image, teamData)
+                  saveTeam(image, teamData)
                 }
               />
             </RoleVisibleWrapper>
@@ -50,17 +57,4 @@ const TeamInfo = (props: TeamInfoProps) => {
   );
 };
 
-const mapStateToProps = (state: FootballState) => {
-  return {
-    currentTeam: state.teams.currentTeam,
-  };
-};
-
-const mapDispatchToProps = (dispatch: FootballSagasDispatch) => {
-  return {
-    saveTeam: (image: any, teamData: any) =>
-      dispatch(actionCreators.saveTeamSagas(image, teamData)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TeamInfo);
+export default TeamInfo;

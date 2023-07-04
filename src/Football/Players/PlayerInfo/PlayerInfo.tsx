@@ -1,12 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../store/actions/playersActions';
 import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
 import { Paper } from '@material-ui/core';
 import Formatters from '../../utilities/formatters';
 import editPlayerComponent from './EditPlayer/EditPlayer';
-import { FootballDispatch, FootballState } from '../../store';
 import { useTranslation } from 'react-i18next';
+import { useAppDispatch } from '../../store/store';
+import { savePlayer } from '../store/players.actions';
+// import { getCurrentPlayer } from '../store/players.selectors';
 
 interface PlayerInfoProps {
   playerData: PlayerData;
@@ -25,6 +24,13 @@ interface PlayerData {
 
 const PlayerInfo = (props: PlayerInfoProps) => {
   const { t, i18n } = useTranslation();
+
+  const dispatch = useAppDispatch();
+  // const currentPlayer = useSelector(getCurrentPlayer);
+
+  const savePlayerHandler = (image: any, playerData: any) => {
+    dispatch(savePlayer({ image, playerData }));
+  }
 
   return (
     <div>
@@ -45,7 +51,7 @@ const PlayerInfo = (props: PlayerInfoProps) => {
               component={editPlayerComponent}
               roles={['Admin']}
               playerData={props.playerData}
-              savePlayer={props.savePlayer}
+              savePlayer={savePlayerHandler}
             />
           </div>
           <div className='col-sm-2'>
@@ -70,17 +76,4 @@ const PlayerInfo = (props: PlayerInfoProps) => {
   );
 };
 
-const mapStateToProps = (state: FootballState) => {
-  return {
-    currentPlayer: state.players.currentPlayer,
-  };
-};
-
-const mapDispatchToProps = (dispatch: FootballDispatch) => {
-  return {
-    savePlayer: (image: any, playerData: any) =>
-      dispatch(actionCreators.savePlayerAction(image, playerData)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PlayerInfo);
+export default PlayerInfo;

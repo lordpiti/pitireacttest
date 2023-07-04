@@ -3,13 +3,10 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import registerServiceWorker from './registerServiceWorker';
-import React from 'react';
 import { I18nextProvider } from 'react-i18next';
 import i18next from 'i18next';
 import './i18n';
-import { configureStore } from './Football/store';
-
-const store = configureStore();
+import { store } from './Football/store/store';
 
 ReactDOM.render(
   <Provider store={store}>

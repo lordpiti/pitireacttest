@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, Route } from 'react-router-dom';
 import Competitions from './Competitions/Competitions';
 import Teams from './Teams/Teams';
@@ -12,13 +12,13 @@ import {
 } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 import './Football.scss';
 import CustomSnackbar from './components/CustomSnackbar/CustomSnackbar';
 import Home from './Home/Home';
-import { FootballState as FootbalStateRedux } from './store';
 import { GraphicDemo } from './components/GraphicDemo/GraphicDemo';
 import { privacyPolicy } from './privacy-policy/privacy-policy';
+import { isLoading } from './Global/store/global.selectors';
 
 function getModalStyle() {
   return {
@@ -48,23 +48,15 @@ interface Token {
   avatar: string;
 }
 
-interface FootballState {
-  authenticationToken: string | null;
-}
-
 interface FootballProps extends WithStyles<typeof styles> {
-  loading: boolean;
 }
 
-class Football extends Component<FootballProps, FootballState> {
-  constructor(props: FootballProps) {
-    super(props);
-    this.state = {
-      authenticationToken: localStorage.token_react,
-    };
-  }
+const Football = (props: FootballProps) => {
+  const [authenticationToken, setAuthenticationToken] = useState(localStorage.token_react);
 
-  updateAuthenticationToken(token: Token) {
+  const loading = useSelector(isLoading);
+
+  const updateAuthenticationToken = (token: Token) => {
     if (token) {
       localStorage.setItem('token_react', token.token);
       localStorage.setItem('role_react', token.role);
@@ -79,63 +71,54 @@ class Football extends Component<FootballProps, FootballState> {
       localStorage.removeItem('loginImage_react');
     }
 
-    this.setState({
-      authenticationToken: token ? token.token : null,
-    });
+    setAuthenticationToken(token ? token.token : null);
   }
+  const { classes } = props;
 
-  render() {
-    const { classes } = this.props;
+  return (
+    <div>
+      <AppBar
+        authenticationToken={authenticationToken}
+        onUpdateAuthenticationToken={(token: Token) =>
+          updateAuthenticationToken(token)
+        }
+      />
 
-    return (
-      <div>
-        <AppBar
-          authenticationToken={this.state.authenticationToken}
-          onUpdateAuthenticationToken={(token: Token) =>
-            this.updateAuthenticationToken(token)
-          }
-        />
-
-        <div className='Football overview-container'>
-          <div>
-            <Modal
-              aria-labelledby='simple-modal-title'
-              aria-describedby='simple-modal-description'
-              open={this.props.loading}
-            >
-              <div style={getModalStyle()} className={classes.paper}>
-                <Typography variant='subtitle1' id='modal-title'>
-                  Loading ...
-                </Typography>
-              </div>
-            </Modal>
-          </div>
-          <CustomSnackbar></CustomSnackbar>
-          <Route path='/' exact component={Home} />
-          <Route path='/teams' component={Teams} />
-          <Route path='/competitions' component={Competitions} />
-          <Route path='/graphicDemo' component={GraphicDemo} />
-          {/* <PrivateRoute path="/players" component={Players} /> */}
-          <Route path='/players' component={Players} />
-          <Route path='/privacy-policy' component={privacyPolicy} />
+      <div className='Football overview-container'>
+        <div>
+          <Modal
+            aria-labelledby='simple-modal-title'
+            aria-describedby='simple-modal-description'
+            open={loading}
+          >
+            <div style={getModalStyle()} className={classes.paper}>
+              <Typography variant='subtitle1' id='modal-title'>
+                Loading ...
+              </Typography>
+            </div>
+          </Modal>
         </div>
-        <Link
-          to={{
-            pathname: `/privacy-policy`,
-          }}
-        >
-          Privacy Policy
-        </Link>
+        <CustomSnackbar></CustomSnackbar>
+        <Route path='/' exact component={Home} />
+        <Route path='/teams' component={Teams} />
+        <Route path='/competitions' component={Competitions} />
+        <Route path='/graphicDemo' component={GraphicDemo} />
+        {/* <PrivateRoute path="/players" component={Players} /> */}
+        <Route path='/players' component={Players} />
+        <Route path='/privacy-policy' component={privacyPolicy} />
       </div>
-    );
-  }
+      <Link
+        to={{
+          pathname: `/privacy-policy`,
+        }}
+      >
+        Privacy Policy
+      </Link>
+    </div>
+  );
 }
 
-const mapStateToProps = ({ global: { loading } }: FootbalStateRedux) => ({
-  loading,
-});
-
-export default connect(mapStateToProps)(withStyles(styles)(Football));
+export default withStyles(styles)(Football);
 
 // ALTERNATIVE: use this and import compose from 'redux'
 // export default compose(
