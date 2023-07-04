@@ -9,7 +9,6 @@ import { savePlayer } from '../store/players.actions';
 
 interface PlayerInfoProps {
   playerData: PlayerData;
-  savePlayer: Function;
 }
 
 interface PlayerData {

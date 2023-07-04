@@ -4,12 +4,11 @@ import { shallow } from 'enzyme';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import mockDraw from './mockDraw.json';
-import { FootballState } from '../../store';
 import { vi } from 'vitest';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-const testState: FootballState = {
+const testState = {
   competitions: {
     competitionList: [],
     currentCompetition: {
