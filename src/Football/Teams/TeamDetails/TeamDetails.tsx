@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
+import { Route, Redirect, Switch, useParams, useRouteMatch } from 'react-router-dom';
 import TeamInfo from '../TeamInfo/TeamInfo';
 import ComplexForm from '../ComplexForm/ComplexForm';
 import TeamSquad from '../TeamSquad/TeamSquad';
@@ -18,23 +18,17 @@ interface TeamsDetailsParams {
   id: string;
 }
 
-interface TeamsDetailsProps extends RouteComponentProps<TeamsDetailsParams> {
-  loadTeam: Function;
-  clearTeamData: Function;
-}
-
-const TeamDetails = (props: TeamsDetailsProps) => {
-  const { match } = props;
+const TeamDetails = () => {
+  let { id } = useParams<TeamsDetailsParams>();
+  let { path, url } = useRouteMatch();
 
   const currentTeam = useSelector(getCurrentTeam);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(loadTeamSagas(parseInt(match.params.id)))
-    //TODO: delete the store when unmounting, on the cleanup
+    dispatch(loadTeamSagas(parseInt(id)));
 
     return function cleanup() {
-      // clearTeamData();
       dispatch(clearTeamData({}))
     };
   }, []);
@@ -58,76 +52,63 @@ const TeamDetails = (props: TeamsDetailsProps) => {
       </div>
     );
     content = (
-      <div>
+      <Switch>
         <Route
-          path={props.match.url + '/'}
+          path={url + '/'}
           exact
-          render={() => <Redirect to={props.match.url + '/news'} />}
-        />
+        >
+          <Redirect to={url + '/news'} />
+        </Route>
         <Route
-          path={props.match.url + '/overview'}
-          component={() => {
-            return <TeamInfo teamData={currentTeam}></TeamInfo>;
-          }}
-        />
+          path={url + '/overview'}
+        >
+          <TeamInfo teamData={currentTeam} />
+        </Route>
 
         <Route
-          path={props.match.url + '/news'}
-          render={() => {
-            return <TeamNews teamData={currentTeam}></TeamNews>;
-          }}
-        />
+          path={url + '/news'} ><TeamNews teamData={currentTeam} />
+        </Route>
 
         <Route
-          path={props.match.url + '/team-squad'}
-          render={() => {
-            return (
-              <TeamSquad players={currentTeam.playerList}></TeamSquad>
-            );
-          }}
-        />
+          path={url + '/team-squad'}
+        >
+          <TeamSquad players={currentTeam.playerList} />
+        </Route>
 
         <Route
-          path={props.match.url + '/team-stadium'}
-          render={() => {
-            return (
-              <TeamStadium stadium={currentTeam.stadium}></TeamStadium>
-            );
-          }}
-        />
+          path={url + '/team-stadium'}>
+          <TeamStadium stadium={currentTeam.stadium} />
+        </Route>
 
         <Route
-          path={props.match.url + '/complex-form-sample'}
-          component={() => {
-            return <ComplexForm id={teamId}></ComplexForm>;
-          }}
-        />
-      </div>
+          path={url + '/complex-form-sample'}
+        >
+          <ComplexForm id={id} />
+        </Route>
+      </Switch>
     );
   }
-
-  const teamId = props.match.params.id;
 
   const menuList = [
     {
       name: t('teams.news'),
-      url: props.match.url + '/news',
+      url: url + '/news',
     },
     {
       name: t('teams.overview'),
-      url: props.match.url + '/overview',
+      url: url + '/overview',
     },
     {
       name: t('teams.squad'),
-      url: props.match.url + '/team-squad',
+      url: url + '/team-squad',
     },
     {
       name: t('teams.stadium'),
-      url: props.match.url + '/team-stadium',
+      url: url + '/team-stadium',
     },
     // {
     //   name: 'Complex form sample',
-    //   url: this.props.match.url + '/complex-form-sample',
+    //   url: this.url + '/complex-form-sample',
     // },
   ];
 
