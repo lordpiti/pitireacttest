@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 // import RoleVisibleComponent from '../../components/RoleVisibleComponent/RoleVisibleComponent';
 import RoleVisibleWrapper from '../../components/RoleVisibleComponent/RoleVisibleWrapper';
 import { Paper } from '@material-ui/core';
@@ -13,8 +12,6 @@ export interface TeamInfoProps {
 const TeamInfo = (props: TeamInfoProps) => {
 
   const dispatch = useAppDispatch();
-
-  // const currentTeam = useSelector(getCurrentTeam);
 
   const saveTeam = (image: any, teamData: any) =>
     dispatch(saveTeamSagas(image, teamData));

@@ -19,8 +19,8 @@ interface TeamsDetailsParams {
 }
 
 const TeamDetails = () => {
-  let { id } = useParams<TeamsDetailsParams>();
-  let { path, url } = useRouteMatch();
+  const { id } = useParams<TeamsDetailsParams>();
+  const { url } = useRouteMatch();
 
   const currentTeam = useSelector(getCurrentTeam);
   const dispatch = useAppDispatch();

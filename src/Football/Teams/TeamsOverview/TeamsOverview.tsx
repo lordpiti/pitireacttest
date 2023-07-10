@@ -1,21 +1,13 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { RouteComponentProps } from 'react-router';
 import './TeamsOverview.scss';
 import { useAppDispatch } from '../../store/store';
 import { getTeamList } from '../store/teams.selectors';
 import { loadTeamsSagas } from '../store/teams.actions';
 
-interface TeamsOverviewParams {
-  id: string;
-}
-
-export interface TeamsOverviewProps
-  extends RouteComponentProps<TeamsOverviewParams> {
-}
-
-const TeamsOverview = (props: TeamsOverviewProps) => {
+const TeamsOverview = () => {
+  const { url } = useRouteMatch();
 
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -31,7 +23,7 @@ const TeamsOverview = (props: TeamsOverviewProps) => {
       <div className='text-center team-card' key={team.id}>
         <Link
           to={{
-            pathname: props.match.url + '/team-details/' + team.id,
+            pathname: url + '/team-details/' + team.id,
           }}
         >
           <img src={team.pictureLogo.url} width='50' height='50' alt='logo' />

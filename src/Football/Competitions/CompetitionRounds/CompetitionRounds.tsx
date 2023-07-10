@@ -12,7 +12,7 @@ import MatchList from './MatchList/MatchList';
 import TableLeague from './TableLeague/TableLeague';
 import ScorersTable from './ScorersTable/ScorersTable';
 import { Paper } from '@material-ui/core';
-import { RouteComponentProps, withRouter } from 'react-router';
+import { useRouteMatch } from 'react-router';
 import './CompetitionRounds.scss';
 import { useAppDispatch } from '../../store/store';
 import { loadCompetitionRound } from '../store/competitions.actions';
@@ -39,9 +39,9 @@ const styles = (theme: Theme) =>
   });
 
 const CompetitionRounds = (props: any) => {
-  // _isMounted = false;
 
   const [currentRound, setCurrentRound] = useState<string>('1');
+  const { url } = useRouteMatch();
 
   const dispatch = useAppDispatch();
   const competitionData = useSelector(getCurrentCompetition) as any;
@@ -90,7 +90,6 @@ const CompetitionRounds = (props: any) => {
               {currentCompetitionRounds.matchList && (
                 <MatchList
                   matchList={currentCompetitionRounds.matchList}
-                  currentUrl={props.match.url}
                 />
               )}
             </div>
@@ -115,4 +114,4 @@ const CompetitionRounds = (props: any) => {
   );
 }
 
-export default withStyles(styles)(withRouter(CompetitionRounds));
+export default withStyles(styles)(CompetitionRounds);

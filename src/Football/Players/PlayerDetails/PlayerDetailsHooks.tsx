@@ -1,5 +1,4 @@
-import React from 'react';
-import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
+import { Route, Redirect, useRouteMatch, useParams } from 'react-router-dom';
 // import asyncComponent from '../../components/asyncComponent/asyncComponent';
 import PlayerStatistics from '../PlayerStatistics/PlayerStatisticsOnDemand';
 // import PlayerStatistics from '../PlayerStatistics/PlayerStatistics';
@@ -17,23 +16,22 @@ interface PlayerDetailsParams {
   id: string;
 }
 
-interface PlayerDetailsProps extends RouteComponentProps<PlayerDetailsParams> {
+export const PlayerDetails = () => {
+  const { url } = useRouteMatch();
+  const { id } = useParams<PlayerDetailsParams>();
 
-}
-
-export const PlayerDetails = (props: PlayerDetailsProps) => {
   const itemList = [
     {
       name: 'Summary',
-      url: props.match.url + '/overview',
+      url: url + '/overview',
     },
     {
       name: 'Statistics',
-      url: props.match.url + '/player-statistics',
+      url: url + '/player-statistics',
     },
   ];
 
-  return (<PlayerDetailsContainer playerId={props.match.params.id}>
+  return (<PlayerDetailsContainer playerId={id}>
     {({ currentPlayer }) => {
       return (currentPlayer ? (<div className='player-details'>
         <div className='sidebar'>
@@ -52,10 +50,10 @@ export const PlayerDetails = (props: PlayerDetailsProps) => {
         </div>
         <div className='main-content'>
           <Route
-            path={props.match.url + '/'}
+            path={url + '/'}
             exact
             render={() => (
-              <Redirect to={props.match.url + '/overview'} />
+              <Redirect to={url + '/overview'} />
             )}
           />
           {/* <Route path={this.props.match.url + '/overview'}
@@ -66,7 +64,7 @@ export const PlayerDetails = (props: PlayerDetailsProps) => {
                 }
                 } /> */}
           <Route
-            path={props.match.url + '/overview'}
+            path={url + '/overview'}
             component={() => {
               return (
                 <PlayerInfo
@@ -76,14 +74,14 @@ export const PlayerDetails = (props: PlayerDetailsProps) => {
             }}
           />
           <Route
-            path={props.match.url + '/player-statistics'}
+            path={url + '/player-statistics'}
             render={() => {
               return <PlayerStatistics playerId={currentPlayer.playerId}></PlayerStatistics>;
             }}
             exact
           />
           <Route
-            path={props.match.url + '/player-statistics/match/:id'}
+            path={url + '/player-statistics/match/:id'}
             component={Match}
           />
         </div>

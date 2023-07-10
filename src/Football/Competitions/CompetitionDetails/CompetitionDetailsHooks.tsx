@@ -7,7 +7,7 @@ import SideMenu, { MenuItemSideMenu } from '../../components/SideMenu/SideMenu';
 import Match from '../Match/Match';
 import CompetitionStatistics from '../CompetitionStatistics/CompetitionStatistics';
 import { useSelector } from 'react-redux';
-import { RouteComponentProps } from 'react-router';
+import { useParams, useRouteMatch } from 'react-router';
 import { useAppDispatch } from '../../store/store';
 import { getCurrentCompetition } from '../store/competitions.selectors';
 import { loadCompetition } from '../store/competitions.actions';
@@ -16,8 +16,10 @@ interface MatchParams {
   id: string;
 }
 
-const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
-  const competitionId = parseInt(props.match.params.id);
+const CompetitionDetails = () => {
+  const { url } = useRouteMatch();
+  const { id } = useParams<MatchParams>();
+  const competitionId = parseInt(id);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -29,7 +31,7 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
   let menuItemList: MenuItemSideMenu[] = [
     {
       name: 'Summary',
-      url: props.match.url + '/overview',
+      url: url + '/overview',
     },
   ];
 
@@ -40,11 +42,11 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
       menuItemList = menuItemList.concat([
         {
           name: 'Rounds',
-          url: props.match.url + '/competition-rounds',
+          url: url + '/competition-rounds',
         },
         {
           name: 'Statistics',
-          url: props.match.url + '/competition-statistics',
+          url: url + '/competition-statistics',
         },
       ]);
 
@@ -56,11 +58,10 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
     } else {
       menuItemList.push({
         name: 'Draw',
-        url: props.match.url + '/competition-rounds',
+        url: url + '/competition-rounds',
       });
       competitionTypeContent = (
         <CompetitionDraw
-          match={props.match}
           competitionData={currentCompetition}
         ></CompetitionDraw>
       );
@@ -86,31 +87,29 @@ const CompetitionDetails = (props: RouteComponentProps<MatchParams>) => {
           </div>
           <div className='col-sm-9'>
             <Route
-              path={props.match.url + '/'}
+              path={url + '/'}
               exact
-              render={() => <Redirect to={props.match.url + '/overview'} />}
+              render={() => <Redirect to={url + '/overview'} />}
             />
             <Route
-              path={props.match.url + '/competition-rounds/match/:id'}
+              path={url + '/competition-rounds/match/:id'}
               component={Match}
             />
             <Route
-              path={props.match.url + '/overview'}
+              path={url + '/overview'}
               render={() => {
                 return (
-                  <CompetitionInfo
-                    competitionData={currentCompetition}
-                  ></CompetitionInfo>
+                  <CompetitionInfo />
                 );
               }}
             />
             <Route
-              path={props.match.url + '/competition-rounds'}
+              path={url + '/competition-rounds'}
               render={() => competitionTypeContent}
               exact
             />
             <Route
-              path={props.match.url + '/competition-statistics'}
+              path={url + '/competition-statistics'}
               render={() => (
                 <CompetitionStatistics
                   competitionId={currentCompetition.id}

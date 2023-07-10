@@ -1,4 +1,3 @@
-import React from 'react';
 import CompetitionDetailsHooks from './CompetitionDetailsHooks';
 import { shallow } from 'enzyme';
 import { match } from 'react-router';
@@ -33,7 +32,7 @@ describe('CompetitionDetailsHooks', () => {
       location: null as any,
     };
 
-    const wrapper = shallow(<CompetitionDetailsHooks {...props} />);
+    const wrapper = shallow(<CompetitionDetailsHooks />);
 
     expect(wrapper).toMatchSnapshot();
   });

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { Link, RouteComponentProps, useRouteMatch } from 'react-router-dom';
 import { withStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -18,14 +18,8 @@ interface MatchParams {
   id: string;
 }
 
-export interface CompetitionsOverviewProps
-  extends RouteComponentProps<MatchParams> {
-  loadCompetitions: Function;
-  competitionList: any[];
-}
-
-const CompetitionsOverview = (props: CompetitionsOverviewProps) => {
-
+const CompetitionsOverview = () => {
+  const { url } = useRouteMatch();
   const competitionList = useSelector(getCompetitionList);
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -64,7 +58,7 @@ const CompetitionsOverview = (props: CompetitionsOverviewProps) => {
                     <Link
                       to={{
                         pathname:
-                          props.match.url +
+                          url +
                           '/competition-details/' +
                           competition.id,
                       }}

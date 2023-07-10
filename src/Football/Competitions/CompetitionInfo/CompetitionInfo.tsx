@@ -6,11 +6,7 @@ import { getCurrentCompetition } from '../store/competitions.selectors';
 import { useAppDispatch } from '../../store/store';
 import { saveCompetition } from '../store/competitions.actions';
 
-interface CompetitionInfoProps {
-  competitionData: any;
-}
-
-const CompetitionInfo = (props: CompetitionInfoProps) => {
+const CompetitionInfo = () => {
 
   const competitionData = useSelector(getCurrentCompetition);
   const dispatch = useAppDispatch();

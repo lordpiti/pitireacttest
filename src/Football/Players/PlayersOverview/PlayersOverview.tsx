@@ -2,21 +2,14 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import TableWithFilteringAndPagination from '../../components/TableWithPagination/TableWithFilteringAndPagination';
 import { TableRow, TableCell, TableHead, TableBody } from '@material-ui/core';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { loadPlayerList } from '../store/players.actions';
 import { useAppDispatch } from '../../store/store';
 import { filterPlayerListSuccess } from '../store/players.reducer';
 import { getFilteredPlayers, isLoading } from '../store/players.selectors';
 
-interface PlayersOverviewParams {
-  id: string;
-}
-
-export interface PlayersOverviewProps
-  extends RouteComponentProps<PlayersOverviewParams> {
-}
-
-const PlayersOverview = (props: PlayersOverviewProps) => {
+const PlayersOverview = () => {
+  const { url } = useRouteMatch();
 
   const dispatch = useAppDispatch();
 
@@ -41,7 +34,7 @@ const PlayersOverview = (props: PlayersOverviewProps) => {
           <TableCell component='th' scope='row'>
             <Link
               to={{
-                pathname: props.match.url + '/player-details/' + row.id,
+                pathname: url + '/player-details/' + row.id,
               }}
             >
               <div>
@@ -73,7 +66,6 @@ const PlayersOverview = (props: PlayersOverviewProps) => {
         filteredData={filteredPlayers}
         filterData={filterPlayersHandle}
         renderTableContent={renderTableContent}
-        {...props}
       />
     );
   }
@@ -81,4 +73,4 @@ const PlayersOverview = (props: PlayersOverviewProps) => {
   return content;
 }
 
-export default withRouter(PlayersOverview);
+export default PlayersOverview;

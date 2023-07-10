@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
-import { Route, Redirect, RouteComponentProps } from 'react-router-dom';
+import { Route, Redirect, useRouteMatch, useParams } from 'react-router-dom';
 // import asyncComponent from '../../components/asyncComponent/asyncComponent';
 //import PlayerStatistics from '../PlayerStatistics/PlayerStatisticsOnDemand';
 import PlayerStatistics from '../PlayerStatistics/PlayerStatistics';
 import SideMenu from '../../components/SideMenu/SideMenu';
 import Match from '../../Competitions/Match/Match';
-import { connect, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './PlayerDetails.scss';
 import PlayerInfo from '../PlayerInfo/PlayerInfo';
 import { useAppDispatch } from '../../store/store';
@@ -20,28 +20,25 @@ interface PlayerDetailsParams {
   id: string;
 }
 
-interface PlayerDetailsProps extends RouteComponentProps<PlayerDetailsParams> {
-  loadPlayer: Function;
-  currentPlayer: any;
-}
-
-const PlayerDetails = (props: PlayerDetailsProps) => {
+const PlayerDetails = () => {
+  const { url } = useRouteMatch();
+  const { id } = useParams<PlayerDetailsParams>();
 
   const dispatch = useAppDispatch();
   const currentPlayer = useSelector(getCurrentPlayer);
 
   useEffect(() => {
-    dispatch(loadPlayer(parseInt(props.match.params.id)));
-  }, [props.match.params.id]);
+    dispatch(loadPlayer(parseInt(id)));
+  }, [id]);
 
   const itemList = [
     {
       name: 'Summary',
-      url: props.match.url + '/overview',
+      url: url + '/overview',
     },
     {
       name: 'Statistics',
-      url: props.match.url + '/player-statistics',
+      url: url + '/player-statistics',
     },
   ];
 
@@ -66,10 +63,10 @@ const PlayerDetails = (props: PlayerDetailsProps) => {
         </div>
         <div className='main-content'>
           <Route
-            path={props.match.url + '/'}
+            path={url + '/'}
             exact
             render={() => (
-              <Redirect to={props.match.url + '/overview'} />
+              <Redirect to={url + '/overview'} />
             )}
           />
           {/* <Route path={this.props.match.url + '/overview'}
@@ -80,7 +77,7 @@ const PlayerDetails = (props: PlayerDetailsProps) => {
                 }
                 } /> */}
           <Route
-            path={props.match.url + '/overview'}
+            path={url + '/overview'}
             component={() => {
               return (
                 <PlayerInfo
@@ -90,14 +87,14 @@ const PlayerDetails = (props: PlayerDetailsProps) => {
             }}
           />
           <Route
-            path={props.match.url + '/player-statistics'}
+            path={url + '/player-statistics'}
             render={() => {
               return <PlayerStatistics playerId={currentPlayer.id}></PlayerStatistics>;
             }}
             exact
           />
           <Route
-            path={props.match.url + '/player-statistics/match/:id'}
+            path={url + '/player-statistics/match/:id'}
             component={Match}
           />
         </div>

@@ -5,7 +5,6 @@ import editPlayerComponent from './EditPlayer/EditPlayer';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '../../store/store';
 import { savePlayer } from '../store/players.actions';
-// import { getCurrentPlayer } from '../store/players.selectors';
 
 interface PlayerInfoProps {
   playerData: PlayerData;

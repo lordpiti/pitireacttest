@@ -1,23 +1,23 @@
-import React from 'react';
-import { Route, RouteComponentProps } from 'react-router-dom';
+import { Route, useRouteMatch } from 'react-router-dom';
 import CompetitionDetails from './CompetitionDetails/CompetitionDetailsHooks';
 import CompetitionsOverview from './CompetitionsOverview/CompetitionsOverview';
 import CompetitionSimulation from './CompetitionSimulation/CompetitionSimulation';
 
-const Competitions = (props: RouteComponentProps) => {
+const Competitions = () => {
+  const { url } = useRouteMatch();
   return (
     <div className='competitions'>
       <Route
-        path={props.match.url + '/'}
+        path={url + '/'}
         exact
         component={CompetitionsOverview}
       />
       <Route
-        path={props.match.url + '/competition-details/:id'}
+        path={url + '/competition-details/:id'}
         component={CompetitionDetails}
       />
       <Route
-        path={props.match.url + '/competition-simulation'}
+        path={url + '/competition-simulation'}
         component={CompetitionSimulation}
       />
     </div>

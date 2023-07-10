@@ -1,15 +1,16 @@
-import React from 'react';
 import { Route } from 'react-router-dom';
 import TeamDetails from './TeamDetails/TeamDetails';
 import TeamsOverview from './TeamsOverview/TeamsOverview';
-import { RouteComponentProps } from 'react-router';
+import { useRouteMatch } from 'react-router';
 
-const Teams = (props: RouteComponentProps) => {
+const Teams = () => {
+  const { url } = useRouteMatch();
+
   return (
     <div className='teams'>
-      <Route path={props.match.url + '/'} exact component={TeamsOverview} />
+      <Route path={`${url}/`} exact component={TeamsOverview} />
       <Route
-        path={props.match.url + '/team-details/:id'}
+        path={`${url}/team-details/:id`}
         component={TeamDetails}
       />
     </div>

@@ -25,7 +25,8 @@ class App extends Component {
       <ApolloProvider client={this.apolloClient}>
         <BrowserRouter>
           <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID || ''}>
-            <Football></Football></GoogleOAuthProvider>
+            <Football />
+          </GoogleOAuthProvider>
         </BrowserRouter>
       </ApolloProvider>
     );

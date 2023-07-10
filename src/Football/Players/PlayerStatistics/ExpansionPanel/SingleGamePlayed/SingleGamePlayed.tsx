@@ -1,16 +1,16 @@
-import React from 'react';
-import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import Formatters from '../../../../utilities/formatters';
 import './SingleGamePlayed.scss';
 
-export interface SingleGamePlayedProps extends RouteComponentProps {
+export interface SingleGamePlayedProps {
   gamePlayed: any;
 }
 
 const SingleGamePlayed = (props: SingleGamePlayedProps) => {
+  const { url } = useRouteMatch();
   return (
     <Link
-      to={`${props.match.url}/match/${props.gamePlayed.id}`}
+      to={`${url}/match/${props.gamePlayed.id}`}
     >
       <div className='SingleGamePlayed row'>
         <div className='col-sm-2'>{`Round ${props.gamePlayed.round}`}</div>
@@ -25,4 +25,4 @@ const SingleGamePlayed = (props: SingleGamePlayedProps) => {
   );
 };
 
-export default withRouter(SingleGamePlayed);
+export default SingleGamePlayed;
