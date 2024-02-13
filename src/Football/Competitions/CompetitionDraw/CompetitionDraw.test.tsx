@@ -6,7 +6,7 @@ import configureMockStore from 'redux-mock-store';
 import mockDraw from './mockDraw.json';
 import { vi } from 'vitest';
 
-const middlewares = [thunk];
+const middlewares = [thunk] as any;
 const mockStore = configureMockStore(middlewares);
 const testState = {
   competitions: {
