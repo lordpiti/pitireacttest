@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import './App.css';
 import Football from './Football/Football';
 import { BrowserRouter } from 'react-router-dom';
@@ -14,23 +13,21 @@ const initialState = {
 };
 cache.writeData({ data: initialState });
 
-class App extends Component {
-  apolloClient = new ApolloClient({
+const App = () => {
+  const apolloClient = new ApolloClient({
     uri: `${import.meta.env.VITE_API_URL}/graphql`,
     cache,
   });
 
-  render() {
-    return (
-      <ApolloProvider client={this.apolloClient}>
-        <BrowserRouter>
-          <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID || ''}>
-            <Football />
-          </GoogleOAuthProvider>
-        </BrowserRouter>
-      </ApolloProvider>
-    );
-  }
+  return (
+    <ApolloProvider client={apolloClient}>
+      <BrowserRouter>
+        <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID || ''}>
+          <Football />
+        </GoogleOAuthProvider>
+      </BrowserRouter>
+    </ApolloProvider>
+  );
 }
 
 export default App;

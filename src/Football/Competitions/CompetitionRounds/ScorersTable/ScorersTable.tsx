@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import {
   withStyles,
   Theme,
@@ -122,85 +122,82 @@ const styles = (theme: Theme) =>
     },
   });
 
-class Scorers extends Component<any, any> {
-  state = {
-    page: 0,
-    rowsPerPage: 10,
-  };
+const Scorers = (props: any) => {
 
-  handleChangePage = (
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+
+  const handleChangePage = (
     event: React.MouseEvent<HTMLButtonElement> | null,
     page: number
   ) => {
-    this.setState({ page });
+    setPage(page);
   };
 
-  handleChangeRowsPerPage = (event: any) => {
-    this.setState({ rowsPerPage: event.target.value });
+  const handleChangeRowsPerPage = (event: any) => {
+    setRowsPerPage(event.target.value);
   };
 
-  render() {
-    const { classes } = this.props;
-    const { rowsPerPage, page } = this.state;
-    const rows = this.props.scorersList;
-    const emptyRows =
-      rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
-    return (
-      <Card>
-        <CardHeader title='Scorers' />
-        <CardContent>
-          <div className={classes.tableWrapper}>
-            <Table className={classes.table}>
-              <TableBody>
-                {rows
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row: any) => {
-                    return (
-                      <TableRow key={row.player.playerId}>
-                        <TableCell component='th' scope='row'>
-                          <Link
-                            to={{
-                              pathname:
-                                '/players/player-details/' +
-                                row.player.playerId,
-                            }}
-                          >
-                            <div>
-                              {row.player.name} {row.player.surname}
-                            </div>
-                          </Link>
-                        </TableCell>
-                        <TableCell>{row.player.teamName}</TableCell>
-                        <TableCell>{row.goals}</TableCell>
-                      </TableRow>
-                    );
-                  })}
-                {emptyRows > 0 && (
-                  <TableRow style={{ height: 48 * emptyRows }}>
-                    <TableCell colSpan={6} />
-                  </TableRow>
-                )}
-              </TableBody>
-              <TableFooter>
-                <TableRow>
-                  <TablePagination
-                    colSpan={3}
-                    count={rows.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    onPageChange={this.handleChangePage}
-                    onRowsPerPageChange={this.handleChangeRowsPerPage}
-                    ActionsComponent={TablePaginationActions}
-                  />
+  const { classes } = props;
+  const rows = props.scorersList;
+  const emptyRows =
+    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+
+  return (
+    <Card>
+      <CardHeader title='Scorers' />
+      <CardContent>
+        <div className={classes.tableWrapper}>
+          <Table className={classes.table}>
+            <TableBody>
+              {rows
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row: any) => {
+                  return (
+                    <TableRow key={row.player.playerId}>
+                      <TableCell component='th' scope='row'>
+                        <Link
+                          to={{
+                            pathname:
+                              '/players/player-details/' +
+                              row.player.playerId,
+                          }}
+                        >
+                          <div>
+                            {row.player.name} {row.player.surname}
+                          </div>
+                        </Link>
+                      </TableCell>
+                      <TableCell>{row.player.teamName}</TableCell>
+                      <TableCell>{row.goals}</TableCell>
+                    </TableRow>
+                  );
+                })}
+              {emptyRows > 0 && (
+                <TableRow style={{ height: 48 * emptyRows }}>
+                  <TableCell colSpan={6} />
                 </TableRow>
-              </TableFooter>
-            </Table>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  }
+              )}
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  colSpan={3}
+                  count={rows.length}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  onPageChange={handleChangePage}
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                  ActionsComponent={TablePaginationActions}
+                />
+              </TableRow>
+            </TableFooter>
+          </Table>
+        </div>
+      </CardContent>
+    </Card>
+  );
 }
 
 export default withStyles(styles)(Scorers);
