@@ -102,6 +102,14 @@ const ButtonAppBar = (props: AppBarPropsWithStyles) => {
               >
                 <Button color='inherit'>D3 Demo</Button>
               </NavLink>
+              <NavLink
+                style={{ color: 'white' }}
+                to={{
+                  pathname: '/facturas',
+                }}
+              >
+                <Button color='inherit'>Facturas</Button>
+              </NavLink>
             </div>
           </Typography>
           {/* <Button color="inherit">Login</Button> */}

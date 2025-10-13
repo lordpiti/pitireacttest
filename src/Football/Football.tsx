@@ -17,6 +17,7 @@ import './Football.scss';
 import CustomSnackbar from './components/CustomSnackbar/CustomSnackbar';
 import Home from './Home/Home';
 import { GraphicDemo } from './components/GraphicDemo/GraphicDemo';
+import { Facturas } from './components/Facturas/Facturas';
 import { privacyPolicy } from './privacy-policy/privacy-policy';
 import { isLoading } from './Global/store/global.selectors';
 
@@ -103,6 +104,7 @@ const Football = (props: FootballProps) => {
         <Route path='/teams' component={Teams} />
         <Route path='/competitions' component={Competitions} />
         <Route path='/graphicDemo' component={GraphicDemo} />
+        <Route path='/facturas' component={Facturas} />
         {/* <PrivateRoute path="/players" component={Players} /> */}
         <Route path='/players' component={Players} />
         <Route path='/privacy-policy' component={privacyPolicy} />
