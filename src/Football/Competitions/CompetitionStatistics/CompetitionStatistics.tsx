@@ -32,7 +32,7 @@ const CompetitionStatistics = (props: any) => {
   };
 
   useEffect(() => {
-    dispatch(loadCompetitionTeams(1));
+    dispatch(loadCompetitionTeams(props.competitionId));
   }, []);
 
   const teams = useSelector(getTeamsFromCurrentCompetition);
