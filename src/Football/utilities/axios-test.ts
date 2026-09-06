@@ -7,6 +7,7 @@ const instance = axios.create({
 instance.interceptors.request.use(
   function (config) {
     // Do something before request is sent
+    debugger;
     const token = localStorage.getItem('token_react');
     const authenticationType = localStorage.getItem('authentication_type');
 
@@ -15,16 +16,11 @@ instance.interceptors.request.use(
       authenticationType: authenticationType,
     };
 
-    if (config?.headers?.common) {
-      if (token) {
-        const tokenAndTypeJSON = JSON.stringify(tokenAndType);
-        (config.headers.common as any).authenticationToken = tokenAndTypeJSON;
-      } else {
-        (config.headers.common as any).authenticationToken = null;
-        /*if setting null does not remove `Authorization` header then try     
-          delete axios.defaults.headers.common['Authorization'];
-        */
-      }
+    if (token) {
+      const tokenAndTypeJSON = JSON.stringify(tokenAndType);
+      config.headers['authenticationToken'] = tokenAndTypeJSON;
+    } else {
+      config.headers['authenticationToken'] = '';
     }
 
     return config;
